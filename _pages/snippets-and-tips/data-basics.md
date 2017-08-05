@@ -257,7 +257,17 @@ Sometimes you want to have the values of aggregates on the non-aggregated level.
 
 </table>
 
-The table contains 50 measurements of each of the iris specis (setosa, versicolor and virginica). If we want this same table to contain the average length and width of the sepals and petals per species we could do this by creating an aggregated the table (_group_by())_ and with summarized data (_summarise()_), and then join the original iris data-set with the temporary table. But we can also do this in one step, by using the _group_by_ function and then the _mutate_ function instead of the _summarise_ function, like so: [code lang="r"] iris %>% group_by(Species) %>% mutate(Sepal.Length.Avg = mean(Sepal.Length)) %>% mutate(Sepal.Width.Avg = mean(Sepal.Width)) %>% mutate(Petal.Length.Avg = mean(Petal.Length)) %>% mutate(Petal.Width.Avg = mean(Petal.Width)) [/code] Which output would look like this:
+The table contains 50 measurements of each of the iris specis (setosa, versicolor and virginica). If we want this same table to contain the average length and width of the sepals and petals per species we could do this by creating an aggregated the table (_group_by())_ and with summarized data (_summarise()_), and then join the original iris data-set with the temporary table. But we can also do this in one step, by using the _group_by_ function and then the _mutate_ function instead of the _summarise_ function, like so:
+
+```r
+iris %>% group_by(Species) %>%
+  mutate(Sepal.Length.Avg = mean(Sepal.Length)) %>%
+  mutate(Sepal.Width.Avg = mean(Sepal.Width)) %>%
+  mutate(Petal.Length.Avg = mean(Petal.Length)) %>%
+  mutate(Petal.Width.Avg = mean(Petal.Width))
+```
+
+Which output would look like this:
 
 <table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
 

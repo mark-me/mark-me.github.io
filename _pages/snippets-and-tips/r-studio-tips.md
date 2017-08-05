@@ -3,7 +3,7 @@ layout: page
 title: R Studio tips
 permalink: /r-studio-tips/
 ---
-## Shortcuts
+# Shortcuts
 
 |Keys|Result|
 |---|---|
