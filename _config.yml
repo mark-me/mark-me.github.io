@@ -22,12 +22,11 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mark-me
 
 # Build settings
-markdown: kramdown
-theme: minima
-plugins:
-  - jekyll-feed
-
+sass:
+  sass_dir: _sass
 include: ["_pages"]
+kramdown:
+  input: GFM
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
