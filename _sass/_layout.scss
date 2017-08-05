@@ -6,6 +6,21 @@ body {
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
 }
+
+title_header {
+	font-weight: 600;
+	color: #FFFFFF;
+	#font-family: $heading-font;
+	line-height: 1.5;
+	color: #FFFFFF;
+	font-size: 2.5em;
+	a,
+	a:visited {
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+}
+
 h1,
 h2,
 h3 {
@@ -16,7 +31,7 @@ h3 {
 }
 h1 {
 	color: $main;
-	font-size: 2.5em;
+	font-size: 2em;
 	a,
 	a:visited {
 		text-decoration: none;
@@ -24,7 +39,7 @@ h1 {
 	}
 }
 h2 {
-	font-size: 2em;
+	font-size: 2.5em;
 }
 a,
 a:visited {
