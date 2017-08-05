@@ -1,3 +1,9 @@
+---
+layout: post
+title:  "Creating your own project template"
+date:   2017-08-05 13:46:17 +0200
+categories: tutorials
+---
 A lot of times you are using the same stuff doing the same things across projects. Wouldn't it be nice if a lot of this could be done by default? It would save you time and bring consistency in your projects. In this tutorial I'll show how to use a script that makes a template for this. I'll also show you what is in the script so you can adapt it to suit your own needs.
 
 # What the script does

@@ -39,11 +39,14 @@ a:hover {
 header {
 	background: $header;
 	padding: 0px 15px;
-	text-align: center;
+	color: #FFFFFF;
+	text-align: left;
 	margin: 50px 0 0;
-	height: 50vh;
+	height: 20vh;
 	display: flex;
 	justify-content: center;
+	background:url(images/head.png) no-repeat;
+	background-position: center center;
 	align-items: center;
 }
 main {
