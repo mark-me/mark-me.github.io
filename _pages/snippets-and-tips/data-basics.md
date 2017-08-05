@@ -28,7 +28,7 @@ R uses several kinds of data structures:
         *   A data frame can be converted to a table using the _as_data_frame(data_frame)_ function
     *   _data.table_ is most commonly used for very large data-sets, but even when using the BIS data of a country I did not have to use this.
 
-## Factoring
+# Factoring
 
 Factoring data is done, so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables.
 When factoring a variable, R transforms the actual value to an internal value. It is especially important to realize this when treating a numeric value as a factored variable. After factoring a numeric variable, you cannot automatically assume that the mutation you make on that variable is the one you expect it to be. For example: when adding 1 to a factored numeric variable _**TODO**_
@@ -44,13 +44,13 @@ If the variable was already factored and the order is is not as it should be, th
 rating_pd = gdata::reorder.factor(rating_pd, new.order=c("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"))
 ```
 
-### Dropping levels from factors
+## Dropping levels from factors
 
 ```r
 drop.levels(tbl_revenue$sector)
 ```
 
-## Inspecting data structures
+# Inspecting data structures
 
 The _glimpse()_ function is a great alternative for the _str()_ function: is shows data-types in a compacter way, and the screen size is taken into consideration for the output.
 
@@ -68,7 +68,7 @@ tbl_revenue %<>% mutate(amt_revenue = gsub("[.]", "", amt_revenue)) %>% # Removi
 
 ## Joining tables
 
-<span style="font-size: 16px; font-weight: 400;">Joining tables is most commonly done using the</span> **dplyr** <span style="font-size: 16px; font-weight: 400;">library. Joins of the dplyr library are more comprehensive than in SQL. Joins from dplyr transforms data in a way that SQL would take care of by using</span> _IN_ <span style="font-size: 16px; font-weight: 400;">or</span> _NOT IN_ <span style="font-size: 16px; font-weight: 400;">statements in the</span> _WHERE_ <span style="font-size: 16px; font-weight: 400;">clause.</span>
+Joining tables is most commonly done using the **dplyr** library. Joins of the dplyr library are more comprehensive than in SQL. Joins from dplyr transforms data in a way that SQL would take care of by using _IN_ or _NOT IN_ statements in the _WHERE_ clause.
 
 ### Join types
 
