@@ -149,53 +149,53 @@ Besides using the **tidyverse** library for this tutorial, we're going to use t
 
 So let's start by loading the necesarry libraries:
 
-[code gutter="false" language="r"]
+```r
 library(tidyverse)
 library(tidytext)
 library(stringr)
-[/code]
+```
 
 In the next section we take the downloaded book and first add some line numbers to it; which we use to skip some irrelevant lines of the book containing the title and such. After which we find out the rows that are just chapter headings, and the count the words in each line. We mark the lines which doesn't contain a chapter header and which have words as paragraphs.
 
-[code gutter="false" language="r"]
+```r
 tbl_paragraphs >- book_alice %>%
   mutate(line = row_number()) %>%
   filter(line >= 10 & line < 3338) %>% # Skipping irrelevant lines
   mutate(is_chapter_title = str_detect(text, "CHAPTER")) %>% # Detect chapter titles
   mutate(qty_words = sapply(gregexpr("[[:alpha:]]+", text), function(x) sum(x >; 0))) %>% # Count words in a line
   mutate(is_paragraph = !is_chapter_title & qty_words > 0) # Mark lines that are not chapter titles and contain words as part of a sections
- [/code]
+```
  
  After this the [_rle_](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rle.html) function is used to find consequtive rows belong to a paragraph and when it is broken by non-paragraph lines. Each row in resulting data-frame tells us how many lines are part of one paragraph, or the number of lines between paragraphs.
  
- [code gutter="false" language="r"]
+```r
  tbl_paragraph_id <- data.frame(length = rle(tbl_paragraphs$is_paragraph)[[1]],
                                 value = rle(tbl_paragraphs$is_paragraph)[[2]])
-[/code]
+```
 
 The we use this data frame to create a new column in the paragraph data frame to set an identifier for each paragraph. With the function _seq_ a number is generated for each set of consequtive lines. The _rep_ function repeats this number for the number of consequtive lines. In the next _mutate_ function the paragraph identifiers are removed if the set of consequtive rows are not part of a paragraph.
 
-[code gutter="false" language="r"]
+```r
 tbl_paragraphs %<>% mutate(id_paragraph = rep(seq(1,nrow(tbl_paragraph_id),1), tbl_paragraph_id$length)) %>%
   mutate(id_paragraph = ifelse(is_paragraph, id_paragraph, NA))
-[/code]
+```
 
 Next we'll un-nest all words in each line so each word will become one row and put it in the _tbl_words_ data frame. We use the function _anti_join_ to remove any of the stopwords. Then only "words" are kept that only consist of letters. After this we only keep the words, the paragraph identifier in which they appear, and the frequency of their usage in that paragraph.
 
-[code gutter="false" language="r"]
+```r
 tbl_word <- tbl_paragraphs %>%
   unnest_tokens(word, text) %>% # Make a new row for each words encountered in the text
   anti_join(stop_words, by = "word") %>% # Remove stop words
   mutate(word = str_extract(word, "[a-z']+")) %>% # Get only words that consists only of characters
   group_by(id_paragraph, word) %>%
   summarise(qty_word = n()) # Count the frequency of words
-[/code]
+```
 
 ## Finding sentiments
 
 We'll use the sentiments data frame from the **tidytext** package to create a custom data frame. But before we do that we'll create our own data frame that specifies how many degrees each sentiment should be rotated to fit it on Plutchik's wheel. The sentiments are then factored ordered by their order in Plutchik's wheel.
 
-[code gutter="false" language="r"]
+```r
 sentiment_order <- c("fear", "trust", "joy", "anticipation", "anger", "disgust", "sadness", "surprise")
 degrees_sentiment <- c(0, 45, 90, 135, 180, 225, 270, 315)
 tbl_sentiments <- data.frame(sentiment_order, degrees_sentiment)
@@ -205,26 +205,26 @@ tbl_sentiments %<>%
   mutate(sentiment = factor(sentiment, levels = sentiment_order, ordered = TRUE))
   
 rm(degrees_sentiment)
-[/code]
+```
 
 The custom data frame, _tbl_sentiments_, that we'll create here just uses the nrc lexicon, and leaves out the 'positive' and 'negative' sentiments; which don't make much sense in the wheel. We'll just take the columns of that data frame which are useful to our analysis: words and their sentiments. The sentiments, which are factored variables in the original dataset, are refactored using the order in which they appear in Plutchik's wheel; before they can be refactored they have to be converted to strings to remove previous factoring.
 
-[code gutter="false" language="r"]
+```r
 tbl_sentiment_lexicon <- sentiments %>%
   filter(sentiment != "negative" & sentiment != "positive") %>%
   filter(lexicon == "nrc") %>% select(word, sentiment) %>%
   mutate(sentiment = as.character(sentiment)) %>%
   mutate(sentiment = factor(sentiment, levels = sentiment_order, ordered = TRUE))
-[/code]
+```
 
 This pepared _tbl_sentiment_lexicon_ data frame is used together with the _tbl_word_ data frame to tie the sentiments to paragraphs. The sentiments are grouped by paragraph and their frequency is counted.
 
-[code gutter="false" language="r"]
+```r
 tbl_par_sentiments <- tbl_words %>%
   inner_join(tbl_sentiment_lexicon, by = "word") %>%
   group_by(id_paragraph, sentiment) %>%
   summarise(qty_sentiment = n())
-[/code]
+```
 
 When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. This fits with the idea that Alice will get more used to the absurdities of Wonderland the longer she stays there.
 [sentiment_density](https://markzwart.files.wordpress.com/2017/07/sentiment_density.png)
@@ -233,14 +233,14 @@ When we look at the occurence of sentiments throughout the book, we see that sur
 
 To find the appearance of the characters in paragraphs the manually filled vector _personea_ is used with the _tbl_word_ data frame. Only the words that match the personea are kept. These are then grouped by paragraph, and their occurence in the paragraphs is counted.
 
-[code gutter="false" language="r"]
+```r
 tbl_par_personea <- tbl_words %>%
   mutate(is_person = word %in% personea) %>% # Mark words that are characters
   filter(is_person) %>%
   select(id_paragraph, persona = word, qty_word) %>%
   group_by(id_paragraph, persona) %>%
   summarise(qty_mentions = sum(qty_word))
-[/code]
+```
 
 In the plot below, you can see how Alice, unsurprisingly, plays a big role throughout the book.
 [person_appearance](https://markzwart.files.wordpress.com/2017/07/person_appearance.png)
@@ -249,7 +249,7 @@ In the plot below, you can see how Alice, unsurprisingly, plays a big role throu
 
 Before two data frames we just created, tbl_par_personea and _tbl_par_sentiments_, are joined to find out which sentiments are associated with characters, the total number of mentions of a character in the book are counted without creating an intermediary table. This is achieved by using the _mutate_ function instead of the usual _summarise_ function after the _group_by_ function. After the sentiments are matched with the persons by paragraphs, the
 
-[code gutter="false" language="r"]
+```r
 tbl_persona_sentiments <- tbl_par_personea %>%
   group_by(persona) %>%
   mutate(qty_paragraphs = n_distinct(id_paragraph)) %>%
@@ -265,11 +265,11 @@ tbl_persona_sentiments <- tbl_par_personea %>%
                                                     qty_paragraphs = 0,
                                                     qty_sentiment_persona = 0,
                                                     perc_sentiments = 0))
-[/code]
+```
 
 The characters that appear very few times in the book run the risk of having sentiment profiles that are out of whack. They are filtered out:
 
-[code gutter="false" language="r"]
+```r
 tbl_persona_significant <- tbl_persona_sentiments %>%
   group_by(persona) %>%
   summarise(qty_sentiments = sum(qty_sentiments)) %>%
@@ -277,11 +277,11 @@ tbl_persona_significant <- tbl_persona_sentiments %>%
   
 tbl_persona_sentiments %<>%
   filter(persona %in% tbl_persona_significant$persona)
-[/code]
+```
 
 ## A character's sentiment profile
 
-[code gutter="false" language="r"]
+```r
 tbl_alice_sentiments <- tbl_persona_sentiments %>%
   filter(persona == "alice") %>%
   select(sentiment, perc_alice = perc_sentiments)
@@ -290,9 +290,9 @@ tbl_persona_sentiments %<>%
   inner_join(tbl_alice_sentiments, by = "sentiment") %>%
   mutate(lift_sentiment = perc_sentiments / perc_alice) %>%
   mutate(impact = abs(lift_sentiment - 1))
-[/code]
+```
 
-[person_sentiment_1](https://markzwart.files.wordpress.com/2017/07/person_sentiment_1.png)
+![Alt text](https://markzwart.files.wordpress.com/2017/07/person_sentiment_1.png "Sentiment profile")
 
 ## Building the graph
 
