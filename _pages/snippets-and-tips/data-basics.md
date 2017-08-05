@@ -1,3 +1,9 @@
+---
+layout: page
+title: Data basics
+permalink: /data-basics/
+---
+
 *   [Data structures](_pages/snippets/data-basics/#data-structure)
     *   [Factoring](https://markzwart.wordpress.com/data-basics/#factoring)
     *   [Inspecting data structures](https://markzwart.wordpress.com/data-basics/#inspecting-structures)
