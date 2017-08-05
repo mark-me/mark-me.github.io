@@ -100,7 +100,17 @@ id <- as.factor(rep(c(1:8), each = 5))
 Now we've got all ingredients for drawing the petals. Next a factored vector is created with the petal names, with the names positions so the show in the middle of the perimeter. All other positions in the vector have NA as a value so no text will be displayed, this will generate a warning message that 32 values are removed that conating missing values (geom_text).
 
 ```r
-emotions <- factor(c( NA, NA, "Trust", NA, NA, NA, NA, "Joy", NA, NA, NA, NA, "Anticipation", NA, NA, NA, NA, "Anger", NA, NA, NA, NA, "Disgust", NA, NA, NA, NA, "Sadness", NA, NA, NA, NA, "Surprise", NA, NA, NA, NA, "Fear", NA, NA ), levels = c("Trust", "Joy", "Anticipation", "Anger", "Disgust", "Sadness", "Surprise","Fear"), ordered = TRUE)
+emotions <- factor(c( NA, NA, "Trust", NA, NA,
+                      NA, NA, "Joy", NA, NA,
+                      NA, NA, "Anticipation", NA, NA,
+                      NA, NA, "Anger", NA, NA,
+                      NA, NA, "Disgust", NA, NA,
+                      NA, NA, "Sadness", NA, NA,
+                      NA, NA, "Surprise", NA, NA,
+                      NA, NA, "Fear", NA, NA ),
+                    levels = c("Trust", "Joy", "Anticipation", "Anger",
+                               "Disgust", "Sadness", "Surprise","Fear"),
+                    ordered = TRUE)
 ```
 
 All the vectors are combined in one data frame that can be used in a ggplot.
@@ -227,7 +237,7 @@ tbl_par_sentiments <- tbl_words %>%
 ```
 
 When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. This fits with the idea that Alice will get more used to the absurdities of Wonderland the longer she stays there.
-[sentiment_density](https://markzwart.files.wordpress.com/2017/07/sentiment_density.png)
+![Alt text](https://markzwart.files.wordpress.com/2017/07/sentiment_density.png "Sentiment distribution")
 
 ## Finding characters
 
@@ -243,7 +253,7 @@ tbl_par_personea <- tbl_words %>%
 ```
 
 In the plot below, you can see how Alice, unsurprisingly, plays a big role throughout the book.
-[person_appearance](https://markzwart.files.wordpress.com/2017/07/person_appearance.png)
+![Alt text](https://markzwart.files.wordpress.com/2017/07/person_appearance.png "Character appearance")
 
 ## Combining persons and sentiments
 
@@ -300,4 +310,4 @@ ggrepel Stacking plots
 
 # The Result
 
-[Alice in Wonderland](https://markzwart.files.wordpress.com/2017/07/alice-in-wonderland.png)
+![Alt text](https://markzwart.files.wordpress.com/2017/07/alice-in-wonderland.png "Plutchik sentiments")
