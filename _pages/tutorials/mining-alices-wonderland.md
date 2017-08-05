@@ -88,7 +88,8 @@ Now we create two vectors for the coordinates; _x_ and _y_:
 
 ```r
 x <- radius * (petal > 0) * cos(radian_petals)
-y <- radius * sin(radian_petals) ```
+y <- radius * sin(radian_petals)
+```
 
 Then we create a vector for grouping the other vectors by petal, with this we'll be able to color the individual petals.
 
