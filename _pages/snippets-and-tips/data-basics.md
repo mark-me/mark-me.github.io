@@ -30,15 +30,25 @@ R uses several kinds of data structures:
 
 ## Factoring
 
-Factoring data is done, so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables. When factoring a variable, R transforms the actual value to an internal value. It is especially important to realize this when treating a numeric value as a factored variable. After factoring a numeric variable, you cannot automatically assume that the mutation you make on that variable is the one you expect it to be. For example: when adding 1 to a factored numeric variable _**TODO**_ By default the order of factors is determined by sorting the values, if you want to specify your own factor ordering you can define a factored variable like this: [code lang="r"] rating_pd <- factor(rating_pd, levels=c("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"), ordered=TRUE)[/code]
+Factoring data is done, so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables.
+When factoring a variable, R transforms the actual value to an internal value. It is especially important to realize this when treating a numeric value as a factored variable. After factoring a numeric variable, you cannot automatically assume that the mutation you make on that variable is the one you expect it to be. For example: when adding 1 to a factored numeric variable _**TODO**_
+By default the order of factors is determined by sorting the values, if you want to specify your own factor ordering you can define a factored variable like this:
+
+```r
+rating_pd <- factor(rating_pd, levels=c("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"), ordered=TRUE)
+```
 
 If the variable was already factored and the order is is not as it should be, the ordering can be adjusted as in the example:
 
-[code lang="r"]rating_pd = gdata::reorder.factor(rating_pd, new.order=c("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"))[/code]
+```r
+rating_pd = gdata::reorder.factor(rating_pd, new.order=c("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"))
+```
 
 ### Dropping levels from factors
 
-[code lang="r"] drop.levels(tbl_revenue$graydon_sector)[/code]
+```r
+drop.levels(tbl_revenue$sector)
+```
 
 ## Inspecting data structures
 
@@ -48,7 +58,13 @@ The _glimpse()_ function is a great alternative for the _str()_ function: is sho
 
 ## The trouble with currency
 
-Since we live on the European mainland, we often get currency data delivered that doesn't comply to the English/US standard. Decimal separators are commas instead of points and big number separators are decimals. If you want to turn these currencies into the R/US/English compliant versions you can use this code. [code lang="r"] tbl_revenue %<>% mutate(amt_revenue = gsub("[.]", "", amt_revenue)) %>% # Removing thousand separators (.) from value mutate(amt_revenue = gsub("[,]", ".", amt_revenue)) %>% # Replacing decimal separator (,) with . from value mutate(amt_revenue = as.numeric(amt_revenue)) [/code]
+Since we live on the European mainland, we often get currency data delivered that doesn't comply to the English/US standard. Decimal separators are commas instead of points and big number separators are decimals. If you want to turn these currencies into the R/US/English compliant versions you can use this code.
+
+```r
+tbl_revenue %<>% mutate(amt_revenue = gsub("[.]", "", amt_revenue)) %>% # Removing thousand separators (.) from value
+  mutate(amt_revenue = gsub("[,]", ".", amt_revenue)) %>% # Replacing decimal separator (,) with . from value
+  mutate(amt_revenue = as.numeric(amt_revenue))
+```
 
 ## Joining tables
 
@@ -69,11 +85,15 @@ When joining the tables, the key(s) on which you join is specified in the specif
 
 *   When only matching on only **one column**, the _by_ argument can be simple a string containing the column name, for example:
 
-[code lang="r"]inner_join(table_x, table_y, by="key_column")[/code]
+```r
+inner_join(table_x, table_y, by="key_column")
+```
 
 *   Matching on differing **column names** is done by passing a vector to the _by_ argument like:
 
-[code lang="r"]inner_join(table_x, table_y, by=c("key_column_x"="key_column_y"))[/code]
+```r
+inner_join(table_x, table_y, by=c("key_column_x"="key_column_y"))
+```
 
 ## Stacking tables
 
@@ -81,7 +101,23 @@ Stacking tables, the SQL equivalent is _UNION_ statement, is done by the _bind_r
 
 ## Recoding data
 
-Sometimes labels for groups of data are almost right, but just need a little tweaking: you want to replace the old versions with new versions. This is the code to achieve this. Remember to refactor the variable after this to take effect. [code lang="r"] old_names <- c("value 1 old", "value 2 old", "value 3 old", "value 4 old") new_names <- c("value 1 new", "value 2 new", "value 3 new", "value 4 new") string_vector <- plyr::mapvalues(string_vector, from = old_names, to = new_names) [/code] When you want to recode data in such a way that you'd wind up using a lot of _ifelse()_ functions, you'd probably prefer the _case_when()_ function. This allows you to escape an endless amount of checking if you typed enough closing parenthesis. [code lang="r"] ELSE <- TRUE # I use this ELSE variable as a placeholder for the TRUE statement. Why not write a TRUE instead? I'm a nerd.... mtcars %>% mutate(carb_new = case_when(.$carb == 1 ~ "one", .$carb == 2 ~ "two", .$carb == 4 ~ "four", ELSE ~ "other" )) [/code]
+Sometimes labels for groups of data are almost right, but just need a little tweaking: you want to replace the old versions with new versions. This is the code to achieve this. Remember to refactor the variable after this to take effect.
+
+```r
+old_names <- c("value 1 old", "value 2 old", "value 3 old", "value 4 old")
+new_names <- c("value 1 new", "value 2 new", "value 3 new", "value 4 new")
+string_vector <- plyr::mapvalues(string_vector, from = old_names, to = new_names)
+```
+
+When you want to recode data in such a way that you'd wind up using a lot of _ifelse()_ functions, you'd probably prefer the _case_when()_ function. This allows you to escape an endless amount of checking if you typed enough closing parenthesis.
+
+```r
+ELSE <- TRUE # I use this ELSE variable as a placeholder for the TRUE statement. Why not write a TRUE instead? I'm a nerd....
+mtcars %>% mutate(carb_new = case_when(.$carb == 1 ~ "one",
+                                       .$carb == 2 ~ "two",
+                                       .$carb == 4 ~ "four",
+                                       ELSE ~ "other" ))
+```
 
 ## Binning data
 
@@ -91,7 +127,9 @@ There are three ways of binning data:
 2.  Equal value ranges
 3.  Cutting values at specific values
 
-[code lang="r"]bin_year = cut(year_number, c(-Inf, 1900, 1925, 1950, 1960, 1970, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2099))[/code]
+```r
+bin_year = cut(year_number, c(-Inf, 1900, 1925, 1950, 1960, 1970, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2099))
+```
 
 ## Aggregates on non-aggregates
 

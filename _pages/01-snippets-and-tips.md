@@ -6,9 +6,9 @@ permalink: /snippets-and-tips/
 
 Here I put snippets and tips, I’ve divided them in sections:
 
-* R Studio tips
+* [R Studio tips](/r-studio-scripts/)
 * [Script structuring](/script-structuring/)
-* [Data basics](data-basics
+* [Data basics](/data-basics/)
 * [Data inspection](data-inspection)
 * Meta-data manipulation
 * Importing and exporting
