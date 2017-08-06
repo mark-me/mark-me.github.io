@@ -12,11 +12,13 @@ When R scripts become longer, you'll find you want to make subdivisions in the s
 ```
 
 This allows you to fold your code (hide code, showing only the section header), or jump through the script Code folding: 
-![code_folding](/snippets-and-tips/code_folding.png) 
-![code_folding2](/snippets-and-tips/code_folding2.png) 
+
+<img src="/_pages/snippets-and-tips/code_folding.png" alt="Folding 1" align="center"/> 
+
+<img src="/_pages/snippets-and-tips/code_folding2.png" alt="Folding 2" align="center"/> 
 
 Section navigation: 
-![code_navigation](/snippets-and-tips/code_navigation.png)
+<img src="/_pages/snippets-and-tips/code_navigation.png" alt="Navigation" align="center"/> 
 
 # Calling scripts from scripts
 
