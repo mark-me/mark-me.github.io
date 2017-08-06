@@ -38,4 +38,5 @@ ggraph(graph) +
   scale_color_brewer(palette="Set1") +
   theme_void()
 ```
-![ggraph](https://markzwart.files.wordpress.com/2017/05/ggraph.png)
+
+<img src="/_pages/tutorials/network-graphs-with-ggraph.png" alt="" width="820" height="457" align="center"/>
