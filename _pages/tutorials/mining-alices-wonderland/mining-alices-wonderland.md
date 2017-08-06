@@ -3,7 +3,7 @@ layout: page
 title: Mining Alice's Wonderland
 permalink: /mining-alices-wonderland/
 ---
-<img class="wp-image-413 alignright" src="https://markzwart.files.wordpress.com/2017/07/alice-catterpillar.jpg" alt="alice catterpillar" width="376" height="284" align="right"/> As a kid I was captivated by the strange world of Disney's Alice in Wonderland: nothing seemed to make sense and everything was wonderfully weird and exciting. When I read the 'real' book as an adult, I found out what also gave it's appeal to a kids mind: the strange context with questions being asked in Alice will make you [wonder off...](https://www.youtube.com/watch?v=bZl7zl2Yozk)
+<img src="/_pages/tutorials/mining-alices-wonderland/catterpillar.jpg" alt="alice catterpillar" width="376" height="284" align="right"/> As a kid I was captivated by the strange world of Disney's Alice in Wonderland: nothing seemed to make sense and everything was wonderfully weird and exciting. When I read the 'real' book as an adult, I found out what also gave it's appeal to a kids mind: the strange context with questions being asked in Alice will make you [wonder off...](https://www.youtube.com/watch?v=bZl7zl2Yozk)
 
 I decided it was time to learn some text mining and learned about the **[gutenbergr](https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html) **library. This  library allows you to scrape information about writers, books and even the books itself from the [project Gutenberg](https://www.gutenberg.org/). And since Alice was on there, it was a no-brainer to have [Alice's Adventures in Wonderland](https://www.gutenberg.org/files/11/11-h/11-h.htm) as a try-out.  What I wanted to know: how are the characters in Alice's world viewed? In text mining terms: what are the sentiments associated with the characters?
 
@@ -27,7 +27,7 @@ The nrc dataset I'll be using attributes one or more sentiments per word, which 
 
 ## Characters
 
-<img class="  wp-image-518 alignright" src="https://markzwart.files.wordpress.com/2017/07/tools.jpg" alt="tools" width="238" height="190" align="right"/> This one speaks for itself. A vector of characters is what was needed, and I saw little options that just type all the characters myself. Typing stuff like that makes me understand the Queen of Hearts....
+<img src="/_pages/tutorials/mining-alices-wonderland/queen.jpg" alt="Off with their heads!" width="238" height="190" align="right"/> This one speaks for itself. A vector of characters is what was needed, and I saw little options that just type all the characters myself. Typing stuff like that makes me understand the Queen of Hearts....
 
 ## Paragraphs
 
@@ -43,7 +43,7 @@ Luckily the ebook had white lines to delimit the paragraphs;  sometimes life is
 
 ## Plutchik's wheel
 
-<img class="  wp-image-472 alignright" src="https://markzwart.files.wordpress.com/2017/07/715px-plutchik-wheel-svg-e1500667984557.png" alt="715px-Plutchik-wheel.svg" width="367" height="356" align="right"/> Remember the lexicons? I don't know whether this is coicidence, but the sentiment terms used in the nrc lexicon fit surprisingly well with [Plutchik's wheel of emotions](https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#Plutchik.27s_wheel_of_emotions). As it is such a nice fit, I thought I'd use it as the basis of my plots.
+<img src="/_pages/tutorials/mining-alices-wonderland/plutchik-wheel.png" alt="Plutchik wheel" width="367" height="356" align="right"/> Remember the lexicons? I don't know whether this is coicidence, but the sentiment terms used in the nrc lexicon fit surprisingly well with [Plutchik's wheel of emotions](https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#Plutchik.27s_wheel_of_emotions). As it is such a nice fit, I thought I'd use it as the basis of my plots.
 
 As a psychologist, my first thought was: spider-graphs; create a character profile by plotting the value sentiment confidence of a character on each of the emotion scales and connect the dots. To do this I put the confidence value on the x axis, and rotated it to the corresponding emotion petal to find out the x and y coordinates of that sentiment value. For example
 
@@ -172,9 +172,9 @@ In the next section we take the downloaded book and first add some line numbers 
 tbl_paragraphs >- book_alice %>%
   mutate(line = row_number()) %>%
   filter(line >= 10 & line < 3338) %>% # Skipping irrelevant lines
-  mutate(is_chapter_title = str_detect(text, "CHAPTER")) %>% # Detect chapter titles
-  mutate(qty_words = sapply(gregexpr("[[:alpha:]]+", text), function(x) sum(x >; 0))) %>% # Count words in a line
-  mutate(is_paragraph = !is_chapter_title & qty_words > 0) # Mark lines that are not chapter titles and contain words as part of a sections
+  mutate(is_chapter_title = str_detect(text, "CHAPTER")) %>% 
+  mutate(qty_words = sapply(gregexpr("[[:alpha:]]+", text), function(x) sum(x >; 0))) %>%
+  mutate(is_paragraph = !is_chapter_title & qty_words > 0) 
 ```
  
  After this the [_rle_](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rle.html) function is used to find consequtive rows belong to a paragraph and when it is broken by non-paragraph lines. Each row in resulting data-frame tells us how many lines are part of one paragraph, or the number of lines between paragraphs.
@@ -187,7 +187,8 @@ tbl_paragraphs >- book_alice %>%
 The we use this data frame to create a new column in the paragraph data frame to set an identifier for each paragraph. With the function _seq_ a number is generated for each set of consequtive lines. The _rep_ function repeats this number for the number of consequtive lines. In the next _mutate_ function the paragraph identifiers are removed if the set of consequtive rows are not part of a paragraph.
 
 ```r
-tbl_paragraphs %<>% mutate(id_paragraph = rep(seq(1,nrow(tbl_paragraph_id),1), tbl_paragraph_id$length)) %>%
+tbl_paragraphs %<>% mutate(id_paragraph = rep(seq(1,nrow(tbl_paragraph_id),1), 
+                                              tbl_paragraph_id$length)) %>%
   mutate(id_paragraph = ifelse(is_paragraph, id_paragraph, NA))
 ```
 
@@ -195,11 +196,11 @@ Next we'll un-nest all words in each line so each word will become one row and p
 
 ```r
 tbl_word <- tbl_paragraphs %>%
-  unnest_tokens(word, text) %>% # Make a new row for each words encountered in the text
-  anti_join(stop_words, by = "word") %>% # Remove stop words
-  mutate(word = str_extract(word, "[a-z']+")) %>% # Get only words that consists only of characters
+  unnest_tokens(word, text) %>% 
+  anti_join(stop_words, by = "word") %>%
+  mutate(word = str_extract(word, "[a-z']+")) %>%
   group_by(id_paragraph, word) %>%
-  summarise(qty_word = n()) # Count the frequency of words
+  summarise(qty_word = n()) 
 ```
 
 ## Finding sentiments
@@ -207,7 +208,8 @@ tbl_word <- tbl_paragraphs %>%
 We'll use the sentiments data frame from the **tidytext** package to create a custom data frame. But before we do that we'll create our own data frame that specifies how many degrees each sentiment should be rotated to fit it on Plutchik's wheel. The sentiments are then factored ordered by their order in Plutchik's wheel.
 
 ```r
-sentiment_order <- c("fear", "trust", "joy", "anticipation", "anger", "disgust", "sadness", "surprise")
+sentiment_order <- c("fear", "trust", "joy", "anticipation", 
+                     "anger", "disgust", "sadness", "surprise")
 degrees_sentiment <- c(0, 45, 90, 135, 180, 225, 270, 315)
 tbl_sentiments <- data.frame(sentiment_order, degrees_sentiment)
 
@@ -238,7 +240,7 @@ tbl_par_sentiments <- tbl_words %>%
 ```
 
 When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. This fits with the idea that Alice will get more used to the absurdities of Wonderland the longer she stays there.
-![Alt text](https://markzwart.files.wordpress.com/2017/07/sentiment_density.png "Sentiment distribution")
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="820" height="457" align="center"/>
 
 ## Finding characters
 
@@ -246,7 +248,7 @@ To find the appearance of the characters in paragraphs the manually filled vecto
 
 ```r
 tbl_par_personea <- tbl_words %>%
-  mutate(is_person = word %in% personea) %>% # Mark words that are characters
+  mutate(is_person = word %in% personea) %>%
   filter(is_person) %>%
   select(id_paragraph, persona = word, qty_word) %>%
   group_by(id_paragraph, persona) %>%
@@ -254,7 +256,7 @@ tbl_par_personea <- tbl_words %>%
 ```
 
 In the plot below, you can see how Alice, unsurprisingly, plays a big role throughout the book.
-![Alt text](https://markzwart.files.wordpress.com/2017/07/person_appearance.png "Character appearance")
+<img src="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" alt="Character appearance" width="780" height="465" align="center"/>
 
 ## Combining persons and sentiments
 
@@ -264,7 +266,7 @@ Before two data frames we just created, tbl_par_personea and _tbl_par_sentiments
 tbl_persona_sentiments <- tbl_par_personea %>%
   group_by(persona) %>%
   mutate(qty_paragraphs = n_distinct(id_paragraph)) %>%
-  inner_join(tbl_par_sentiments, by ="id_paragraph") %>% # Join sentiments with persons
+  inner_join(tbl_par_sentiments, by ="id_paragraph") %>% 
   group_by(persona, sentiment, qty_paragraphs) %>%
   summarise(qty_sentiments = sum(qty_sentiment)) %>%
   ungroup() %>%
@@ -303,7 +305,7 @@ tbl_persona_sentiments %<>%
   mutate(impact = abs(lift_sentiment - 1))
 ```
 
-![Alt text](https://markzwart.files.wordpress.com/2017/07/person_sentiment_1.png "Sentiment profile")
+<img src="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" alt="Sentiment profile" width="780" height="397" align="center"/>
 
 ## Building the graph
 

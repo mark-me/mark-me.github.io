@@ -31,7 +31,7 @@ h3 {
 }
 h1 {
 	color: $heading-font-color;
-	font-size: 2.5em;
+	font-size: 2em;
 	a,
 	a:visited {
 		text-decoration: none;
@@ -39,7 +39,7 @@ h1 {
 	}
 }
 h2 {
-	font-size: 2em;
+	font-size: 1.5em;
 }
 a,
 a:visited {
@@ -109,9 +109,9 @@ aside {
 					box-shadow: 0;
 					&:hover,
 					&:active {
-						background: $heading-font-color;
+						background: #fff;
 						text-decoration: none;
-						color: $main;
+						color: $heading-font-color;
 					}
 				}
 			}
