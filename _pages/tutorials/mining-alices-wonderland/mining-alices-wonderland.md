@@ -244,7 +244,9 @@ tbl_par_sentiments <- tbl_words %>%
 ```
 
 When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. The idea that Alice will get more used to the absurdities of Wonderland the longer she stays there does make sense.
+<a href="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="820" height="457" align="middle"/>
+<img src="/zoom.png" width="16" height="16" align="center"/> Zoom</a>
 
 ## Finding characters
 
@@ -260,7 +262,9 @@ tbl_par_personea <- tbl_words %>%
 ```
 
 In the plot below, you can see how Alice, unsurprisingly, plays a big role throughout the book.
+<a href="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" alt="Character appearance" width="780" height="465" align="middle"/>
+<img src="/zoom.png" width="16" height="16" align="center"/> Zoom</a>
 
 ## Combining persons and sentiments
 
@@ -319,7 +323,7 @@ ggrepel Stacking plots
 
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" alt="Sentiment profile" width="780" height="397" align="center"/>
-<img src="/zoom.png" width="16" height="16" align="center"/>Zoom</a>
+<img src="/zoom.png" width="16" height="16" align="center"/> Zoom</a>
 
 
 ## And a stupid version
