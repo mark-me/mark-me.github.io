@@ -309,7 +309,7 @@ tbl_persona_sentiments %<>%
   mutate(impact = abs(lift_sentiment - 1))
 ```
 
-<img src="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" alt="Sentiment profile" width="780" height="397" align="center"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" alt="Sentiment profile mess" width="780" height="397" align="center"/>
 
 ## Building the graph
 
@@ -317,4 +317,7 @@ ggrepel Stacking plots
 
 # The Result
 
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" alt="Sentiment profile" width="780" height="397" align="center"/>
+
+## And a stupid version
 ![Alt text](https://markzwart.files.wordpress.com/2017/07/alice-in-wonderland.png "Plutchik sentiments")
