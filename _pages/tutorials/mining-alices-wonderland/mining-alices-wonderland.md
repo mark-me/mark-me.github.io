@@ -33,7 +33,7 @@ The nrc dataset I'll be using attributes one or more sentiments per word, which 
 
 The paragraphs are the thing that tie the sentiments to the characters. I assumed that the sentiments that co-appear in the paragraph with characters, tells us something about the character. The sentiment profile then, is partly determined by the relative frequencies in which the sentiments co-appear with a character in paragraphs. Relative frequencies are calculated like this:
 
-$latex \displaystyle f_{sentiment} = \frac{n_{sentiment}}{n_{paragraph}}$
+<img src="/_pages/tutorials/mining-alices-wonderland/formula-freq-sentiment.png" alt="Lift sentiment formula" width="841" height="174" align="center"/>
 
 Relative frequencies in itself is not good enough because the book is probably scewed in a certain sentimental direction, which does not help if we want to know what makes a character unique. To counter this I use something I called lift: the relative sentiment frequency of corrected by the relative frequency of the total. As the total I've taken Alice's relative sentiment frequencies. So the lift was calculated like this:
 
@@ -172,9 +172,9 @@ In the next section we take the downloaded book and first add some line numbers 
 tbl_paragraphs >- book_alice %>%
   mutate(line = row_number()) %>%
   filter(line >= 10 & line < 3338) %>% # Skipping irrelevant lines
-  mutate(is_chapter_title = str_detect(text, "CHAPTER")) %>% 
+  mutate(is_chapter_title = str_detect(text, "CHAPTER")) %>%
   mutate(qty_words = sapply(gregexpr("[[:alpha:]]+", text), function(x) sum(x >; 0))) %>%
-  mutate(is_paragraph = !is_chapter_title & qty_words > 0) 
+  mutate(is_paragraph = !is_chapter_title & qty_words > 0)
 ```
  
  After this the [_rle_](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rle.html) function is used to find consequtive rows belong to a paragraph and when it is broken by non-paragraph lines. Each row in resulting data-frame tells us how many lines are part of one paragraph, or the number of lines between paragraphs.
@@ -187,7 +187,7 @@ tbl_paragraphs >- book_alice %>%
 The we use this data frame to create a new column in the paragraph data frame to set an identifier for each paragraph. With the function _seq_ a number is generated for each set of consequtive lines. The _rep_ function repeats this number for the number of consequtive lines. In the next _mutate_ function the paragraph identifiers are removed if the set of consequtive rows are not part of a paragraph.
 
 ```r
-tbl_paragraphs %<>% mutate(id_paragraph = rep(seq(1,nrow(tbl_paragraph_id),1), 
+tbl_paragraphs %<>% mutate(id_paragraph = rep(seq(1,nrow(tbl_paragraph_id),1),
                                               tbl_paragraph_id$length)) %>%
   mutate(id_paragraph = ifelse(is_paragraph, id_paragraph, NA))
 ```
@@ -196,11 +196,11 @@ Next we'll un-nest all words in each line so each word will become one row and p
 
 ```r
 tbl_word <- tbl_paragraphs %>%
-  unnest_tokens(word, text) %>% 
+  unnest_tokens(word, text) %>%
   anti_join(stop_words, by = "word") %>%
   mutate(word = str_extract(word, "[a-z']+")) %>%
   group_by(id_paragraph, word) %>%
-  summarise(qty_word = n()) 
+  summarise(qty_word = n())
 ```
 
 ## Finding sentiments
@@ -208,7 +208,7 @@ tbl_word <- tbl_paragraphs %>%
 We'll use the sentiments data frame from the **tidytext** package to create a custom data frame. But before we do that we'll create our own data frame that specifies how many degrees each sentiment should be rotated to fit it on Plutchik's wheel. The sentiments are then factored ordered by their order in Plutchik's wheel.
 
 ```r
-sentiment_order <- c("fear", "trust", "joy", "anticipation", 
+sentiment_order <- c("fear", "trust", "joy", "anticipation",
                      "anger", "disgust", "sadness", "surprise")
 degrees_sentiment <- c(0, 45, 90, 135, 180, 225, 270, 315)
 tbl_sentiments <- data.frame(sentiment_order, degrees_sentiment)
@@ -266,7 +266,7 @@ Before two data frames we just created, tbl_par_personea and _tbl_par_sentiments
 tbl_persona_sentiments <- tbl_par_personea %>%
   group_by(persona) %>%
   mutate(qty_paragraphs = n_distinct(id_paragraph)) %>%
-  inner_join(tbl_par_sentiments, by ="id_paragraph") %>% 
+  inner_join(tbl_par_sentiments, by ="id_paragraph") %>%
   group_by(persona, sentiment, qty_paragraphs) %>%
   summarise(qty_sentiments = sum(qty_sentiment)) %>%
   ungroup() %>%
