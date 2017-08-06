@@ -315,7 +315,7 @@ tbl_persona_sentiments %<>%
 
 <a href="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" alt="Sentiment profile mess" width="780" height="397" align="center"/>
-<img src="/zoom.png" width="16" height="16" align="right"/> Zoom</a>
+<img src="/zoom.png" width="16" height="16"/> Zoom</a>
 
 ## Building the graph
 
@@ -325,7 +325,7 @@ ggrepel Stacking plots
 
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" alt="Sentiment profile" width="780" height="397" align="center"/>
-<img src="/zoom.png" width="16" height="16" align="right"/> Zoom</a>
+<img src="/zoom.png" width="16" height="16"/> Zoom</a>
 
 
 ## And a stupid version
