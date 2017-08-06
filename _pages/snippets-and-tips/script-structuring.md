@@ -31,4 +31,6 @@ When working on a project, you probably want all your files to be in a folder yo
 
 The default directory is your 'My Documents' directory. When changing the working directory, keep in mind that R uses foward slashes (/) instead of the Windows standard of backward slashes (\). If the working directory is a subfolder of your 'My documents' folder use the ~ as the start of your working directory call to _setwd_; in this way other users can use the exact replica of the script as long as they use the same folder conventions. And example:
 
-```rsetwd("~/R scripts/Customer & Market Engagement/")```
+```r
+setwd("~/R scripts/My Project/")
+```

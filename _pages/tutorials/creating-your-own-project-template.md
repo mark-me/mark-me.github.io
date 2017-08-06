@@ -32,7 +32,9 @@ In R itself it will:
 
 # Saving the script
 
-To start off with you can [save the project.r script](https://github.com/mark-me/The-R-Pages/blob/master/project.r) in your the default working directory. If you have no idea what I'm talking about you can find this through the options screen: ![working_directory_setting](https://markzwart.files.wordpress.com/2017/05/working_directory_setting.png) Probably your default working directory is different than mine. The ~ sign refers to the home directory. In Windows the home directory is not a familiar concept, but is is the My Documents directory instead. If you're a control freak like me, you want a different working directory than the default. If you have chosen another than the default you should also adjust the script to make it work. For an explanation if <span style="color:#ff0000;">TODO</span>
+To start off with you can [save the project.r script](https://github.com/mark-me/The-R-Pages/blob/master/project.r) in your the default working directory. If you have no idea what I'm talking about you can find this through the options screen: 
+![working_directory_setting](https://markzwart.files.wordpress.com/2017/05/working_directory_setting.png) 
+Probably your default working directory is different than mine. The ~ sign refers to the home directory. In Windows the home directory is not a familiar concept, but is is the My Documents directory instead. If you're a control freak like me, you want a different working directory than the default. If you have chosen another than the default you should also adjust the script to make it work. For an explanation if <span style="color:#ff0000;">TODO</span>
 
 # Creating a project
 
@@ -41,14 +43,31 @@ To create a project you start by opening and executing the project.r file. By do
 *   The name of the project
 *   The sub directory for your the project base directory and sub directories
 
-Let's say I want to create a project called 'Test project' in the sub directory 'R Scripts' of my default working directory. This would translate in the following function call: [code lang="r"]open_project("Test project", "~/R Scripts")[/code] Now the directories are created, and a script called 'main.r' is put in the project base directory '~/R Scripts/Test project'.
+Let's say I want to create a project called 'Test project' in the sub directory 'R Scripts' of my default working directory. This would translate in the following function call: 
+
+```r
+open_project("Test project", "~/R Scripts")
+```
+
+Now the directories are created, and a script called 'main.r' is put in the project base directory '~/R Scripts/Test project'.
 
 # Using your project
 
-You can start using your project by opening the main.r file. You can give the file any name you want. When you open the file you'll see the following two statements: [code lang="r"] source("~/R Scripts/project.r") # Loads and executes project script open_project("Test project", "~/R Scripts") # Creates standard variables and functions [/code] The _open_project()_ call will not create file file this time, but just open it. Now you can start by creating your project within this file.
+You can start using your project by opening the main.r file. You can give the file any name you want. When you open the file you'll see the following two statements: 
+
+```r
+source("~/R Scripts/project.r")
+open_project("Test project", "~/R Scripts") # Creates standard variables and functions 
+```
+
+The _open_project()_ call will not create file file this time, but just open it. Now you can start by creating your project within this file.
 
 ## Reading and writing data
 
-When you read input files, such as CSV files, you can use the _paste0()_ function to create a file string like so: [code lang="r"] paste0(dir_input, "/", "filename.csv") [/code]
+When you read input files, such as CSV files, you can use the _paste0()_ function to create a file string like so: 
+
+```r
+paste0(dir_input, "/", "filename.csv")
+```
 
 # Explaining the script
