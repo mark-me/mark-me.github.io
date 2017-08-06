@@ -22,6 +22,8 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mark-me
 
 # Build settings
+gems:
+  - jemoji
 sass:
   sass_dir: _sass
 include: ["_pages"]
