@@ -33,11 +33,11 @@ The nrc dataset I'll be using attributes one or more sentiments per word, which 
 
 The paragraphs are the thing that tie the sentiments to the characters. I assumed that the sentiments that co-appear in the paragraph with characters, tells us something about the character. The sentiment profile then, is partly determined by the relative frequencies in which the sentiments co-appear with a character in paragraphs. Relative frequencies are calculated like this:
 
-<img src="/_pages/tutorials/mining-alices-wonderland/formula-freq-sentiment.png" alt="Frequency sentiment formula" width="215" height="45" align="center"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/formula-freq-sentiment.png" alt="Frequency sentiment formula" width="215" height="45" align="middle"/>
 
 Relative frequencies in itself is not good enough because the book is probably scewed in a certain sentimental direction, which does not help if we want to know what makes a character unique. To counter this I use something I called lift: the relative sentiment frequency of corrected by the relative frequency of the total. As the total I've taken Alice's relative sentiment frequencies. So the lift was calculated like this:
 
-<img src="/_pages/tutorials/mining-alices-wonderland/formula-lift-sentiment.png" alt="Lift sentiment formula" width="215" height="45" align="center"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/formula-lift-sentiment.png" alt="Lift sentiment formula" width="215" height="45" align="middle"/>
 
 Luckily the ebook had white lines to delimit the paragraphs;  sometimes life is easy.
 
@@ -240,7 +240,7 @@ tbl_par_sentiments <- tbl_words %>%
 ```
 
 When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. The idea that Alice will get more used to the absurdities of Wonderland the longer she stays there does make sense.
-<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="820" height="457" align="center"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="820" height="457" align="middle"/>
 
 ## Finding characters
 
@@ -256,7 +256,7 @@ tbl_par_personea <- tbl_words %>%
 ```
 
 In the plot below, you can see how Alice, unsurprisingly, plays a big role throughout the book.
-<img src="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" alt="Character appearance" width="780" height="465" align="center"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" alt="Character appearance" width="780" height="465" align="middle"/>
 
 ## Combining persons and sentiments
 
