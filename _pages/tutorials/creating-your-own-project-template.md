@@ -33,7 +33,7 @@ In R itself it will:
 # Saving the script
 
 To start off with you can [save the project.r script](https://github.com/mark-me/The-R-Pages/blob/master/project.r) in your the default working directory. If you have no idea what I'm talking about you can find this through the options screen: 
-<img src="/_pages/tutorials/working_directory_setting.png" alt="" width="820" height="457" align="center"/>
+<img src="/_pages/tutorials/working_directory_setting.png" alt="" width="780" height="457" align="center"/>
 Probably your default working directory is different than mine. The ~ sign refers to the home directory. In Windows the home directory is not a familiar concept, but is is the My Documents directory instead. If you're a control freak like me, you want a different working directory than the default. If you have chosen another than the default you should also adjust the script to make it work. For an explanation if <span style="color:#ff0000;">TODO</span>
 
 # Creating a project
