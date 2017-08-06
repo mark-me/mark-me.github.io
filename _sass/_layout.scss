@@ -109,7 +109,7 @@ aside {
 					box-shadow: 0;
 					&:hover,
 					&:active {
-						background: $header;
+						background: $heading-font-color;
 						text-decoration: none;
 						color: $main;
 					}
