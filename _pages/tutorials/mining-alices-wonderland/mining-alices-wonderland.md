@@ -239,7 +239,7 @@ tbl_par_sentiments <- tbl_words %>%
   summarise(qty_sentiment = n())
 ```
 
-When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. This fits with the idea that Alice will get more used to the absurdities of Wonderland the longer she stays there.
+When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. The idea that Alice will get more used to the absurdities of Wonderland the longer she stays there does make sense.
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="820" height="457" align="center"/>
 
 ## Finding characters
