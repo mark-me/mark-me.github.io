@@ -317,7 +317,10 @@ ggrepel Stacking plots
 
 # The Result
 
+<a href="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" alt="Sentiment profile" width="780" height="397" align="center"/>
+Zoom</a>
+
 
 ## And a stupid version
 ![Alt text](https://markzwart.files.wordpress.com/2017/07/alice-in-wonderland.png "Plutchik sentiments")
