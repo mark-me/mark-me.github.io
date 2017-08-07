@@ -3,6 +3,10 @@ layout: page
 title: Graphs
 permalink: /graph-tips/
 ---
+
+* TOC 
+{:toc}
+
 # ggplot
 
 ggplot has a lot of nice extensions: [http://www.ggplot2-exts.org/gallery/](http://www.ggplot2-exts.org/gallery/) ggplot axes labelling quickly end up with scientific notations... Not something I really like. You can force ggplot to display 'normal' numbers by adding this to your plot statement: 
