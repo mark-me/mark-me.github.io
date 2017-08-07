@@ -3,6 +3,9 @@ layout: page
 title: Script structuring
 permalink: /script-structuring/
 ---
+
+{:toc}
+
 # Marking sections in a script
 
 When R scripts become longer, you'll find you want to make subdivisions in the scripts so you can easily navigate it, avoiding endless scrolling. You can mark sections by creating a section by starting a comment like normal (#), typing a section tile and following that by a series of '-' signs like this:
