@@ -22,8 +22,18 @@ R uses several kinds of data structures:
 
 # Factoring
 
-Factoring data is done, so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables.
-When factoring a variable, R transforms the actual value to an internal value. It is especially important to realize this when treating a numeric value as a factored variable. After factoring a numeric variable, you cannot automatically assume that the mutation you make on that variable is the one you expect it to be. For example: when adding 1 to a factored numeric variable _**TODO**_
+Factoring data is used so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables.
+When factoring a variable, R transforms the actual value to an internal value. It is especially important to realize this when treating a numeric value as a factored variable. After factoring a numeric variable, you cannot automatically assume that the mutation you make on that variable is the one you expect it to be. For example: when adding 1 to a factored numeric variable:
+```r
+mtcars %>%
+  mutate(fac_gear = factor(gear, ordered = TRUE)) %>%
+  mutate(gear_plus = gear + 1) %>%
+  mutate(fac_gear_plus = as.numeric(fac_gear) + 1) %>%
+  select(gear, gear_plus, fac_gear, fac_gear_plus)
+```
+
+**TODO**
+
 By default the order of factors is determined by sorting the values, if you want to specify your own factor ordering you can define a factored variable like this:
 
 ```r
