@@ -392,7 +392,8 @@ plutchik_wheel(max_radius) +
 
 ## And a stupid version
 
-I'm not sharing all stupid thoughts I had creating this, but one stands out in it's simplicity and could not resist showing it.
+I'm not sharing all stupid thoughts I had creating this, but one stands out in it's simplicity and could not resist showing it. Next to that, this graph shows a technique that I found really useful: the [*ggrepel*](http://www.ggplot2-exts.org/ggrepel.html) library. With this library you can make text labels, but unlike normal text labels, they make use of an algorithm that ensures they don't overlap when things get crowded.
+
 When I first thought of drawing the wheel, I thought I'd draw spider graphs on it. Then I quickly realised it would become too crowded for interpretation. Then I thought I could just as well take the center of gravity for each spider graph. After struggling to do this I finally realised you can not take a mean of the sentiments. When you look at the wheel you quickly realise that fear is not the opposite of anger, nor is surprise of anticipation and so on. None the less I'll explain the process of making this non-sensical chart.
 
 First we're going to isolate person center of gravity by calculating the x and y coordinates of each sentiment lift. Then we'll calculate the center of gravity of a spider graph by taking the mean of x coordinates and y coordinates.
