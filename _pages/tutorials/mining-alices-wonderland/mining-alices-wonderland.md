@@ -43,7 +43,7 @@ Relative frequencies in itself is not good enough because the book is probably s
 <img src="/_pages/tutorials/mining-alices-wonderland/formula-lift-sentiment.png" alt="Lift sentiment formula" width="215" height="45" align="middle"/>
 {: refdef}
 
-Luckily the ebook had white lines to delimit the paragraphs;  sometimes life is easy.
+Luckily the ebook had white lines to delimit the paragraphs; sometimes life is easy.
 
 ## Plutchik's wheel
 
@@ -268,7 +268,7 @@ In the plot below, you can see how Alice, unsurprisingly, plays a big role throu
 
 ## Combining persons and sentiments
 
-Before two data frames we just created, tbl_par_personea and _tbl_par_sentiments_, are joined to find out which sentiments are associated with characters, the total number of mentions of a character in the book are counted without creating an intermediary table. This is achieved by using the _mutate_ function instead of the usual _summarise_ function after the _group_by_ function. After the sentiments are matched with the persons by paragraphs, the
+Before two data frames we just created, tbl_par_personea and _tbl_par_sentiments_, are joined to find out which sentiments are associated with characters, the total number of mentions of a character in the book are counted without creating an intermediary table. This is achieved by using the _mutate_ function instead of the usual _summarise_ function after the _group_by_ function. After the sentiments are matched with the characters by paragraphs, the number of sentiment occurrences are summed per character-sentiment combinations. After this the _ungroup_ function is called to be able to do further grouping. The total sum of sentiment occurences per character is summed to calculate the relative frequency of sentiments. To ensure we have all sentiments are represented for each character we add all missing sentiments with the great _complete_ function. The first argument in this function specifies which group we want to complete (the characters), then we specify which unique values we want to fill put when missing by using the _sentiment_ variable within the _nesting_ function. In the _fill_ parameter we specify the values we want to give to the variables when the new sentiments are added.
 
 ```r
 tbl_persona_sentiments <- tbl_par_personea %>%
@@ -301,6 +301,8 @@ tbl_persona_sentiments %<>%
 ```
 
 ## A character's sentiment profile
+
+To determine the unqiueness of the sentiment profile we use the lift measure; we will measure how much each sentiment for a character is over- or underrepresented in comparison to alice. So we first put the relative sentiment frequencies of alice in the data frame _tbl_alice_sentiments_ to join them with the sentiments of all characters. Based on the sentiment lift we also calculate another measure, which I'll call impact, that shows how much the sentiment deviates from Alice's profile, irrespective whether it's over or underrepresented. This measure will later be used in the visualisation.
 
 ```r
 tbl_alice_sentiments <- tbl_persona_sentiments %>%
