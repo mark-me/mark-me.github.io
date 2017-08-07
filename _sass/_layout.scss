@@ -130,13 +130,14 @@ aside {
  * Site footer
  */
 .site-footer {
+	padding: 30px 0;
 	position: fixed;
   	bottom: 0;
   	left: 0;
   	background: #fff;
  	width: 100%;
   	z-index: 2;
-  	border-bottom: 1px solid lighten($light, 30%);
+  	border-top: 1px solid lighten($light, 30%);
   	box-shadow: 0px 2px 2px RGBA(4, 25, 54, .1);
   	color: #828282;
 }
