@@ -131,4 +131,6 @@ aside {
  */
 .site-footer {
   border-top: 1px solid lighten($light, 30%);
+  @include relative-font-size(0.9375);
+  color: #828282;
 }
