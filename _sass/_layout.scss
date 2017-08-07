@@ -131,6 +131,7 @@ aside {
 footer {
 	position: fixed;
 	width:100%;
+	overflow: none; 
 	bottom:0px;
 	left: 0px;
     border-top: 1px solid $light;
