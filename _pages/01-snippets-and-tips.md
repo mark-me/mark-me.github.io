@@ -4,12 +4,6 @@ title: Snippets and tips
 permalink: /snippets-and-tips/
 ---
 
-# Header 1
-
-## Header 2
-
-### Header 3
-
 Here I put snippets and tips, I’ve divided them in sections:
 
 * [R Studio tips](/r-studio-tips/)
