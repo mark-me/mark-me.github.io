@@ -50,7 +50,7 @@ The _glimpse()_ function is a great alternative for the _str()_ function: is sho
 
 ## The trouble with currency
 
-Since we live on the European mainland, we often get currency data delivered that doesn't comply to the English/US standard. Decimal separators are commas instead of points and big number separators are decimals. If you want to turn these currencies into the R/US/English compliant versions you can use this code.
+Since I live on the European mainland, I often get currency data delivered that doesn't comply to the English/US standard. Decimal separators are commas instead of points and big number separators are decimals. If you want to turn these currencies into the R/US/English compliant versions you can use this code.
 
 ```r
 tbl_revenue %<>% mutate(amt_revenue = gsub("[.]", "", amt_revenue)) %>% # Removing thousand separators (.) from value
@@ -115,12 +115,22 @@ mtcars %>% mutate(carb_new = case_when(.$carb == 1 ~ "one",
 
 There are three ways of binning data:
 
-1.  Equal observations in bins
-2.  Equal value ranges
-3.  Cutting values at specific values
+1.  Equal observations in bins by using the [**Hmisc**](https://www.rdocumentation.org/packages/Hmisc) package. In the example below the iris's are binnen in groups of 3 observations by Sepal.Length
+  
+```r
+iris %>% mutate(Sepal.Length_bin = cut2(Sepal.Length, g=3))
+```
+
+2.  Equal value intervals using the _cut_ function that also is from the **Hmisc** package:
 
 ```r
-bin_year = cut(year_number, c(-Inf, 1900, 1925, 1950, 1960, 1970, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2099))
+iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, rep(5:10)))
+```
+
+3.  Cutting values at specific values:
+
+```r
+iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, c(-Inf, 6, 7, Inf)))
 ```
 
 ## Aggregates on non-aggregates
