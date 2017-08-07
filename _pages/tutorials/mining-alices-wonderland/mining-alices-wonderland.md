@@ -3,7 +3,7 @@ layout: page
 title: Mining Alice's Wonderland
 permalink: /mining-alices-wonderland/
 ---
-<img src="/_pages/tutorials/mining-alices-wonderland/catterpillar.jpg" alt="alice catterpillar" width="376" height="284" align="right"/> As a kid I was captivated by the strange world of Disney's Alice in Wonderland: nothing seemed to make sense and everything was wonderfully weird and exciting. When I read the 'real' book as an adult, I found out what also gave it's appeal to a kids mind: the strange context with questions being asked in Alice will make you [wonder off...](https://www.youtube.com/watch?v=bZl7zl2Yozk)
+<img src="/_pages/tutorials/mining-alices-wonderland/catterpillar.jpg" alt="alice catterpillar" width="376" height="284" align="right"/> As a kid I was captivated by the strange world of Disney's Alice in Wonderland: nothing seemed to make sense and everything was wonderfully weird and exciting. When I read the 'real' book as an adult, I found out what also gave it's appeal to a kids mind: the strange context with questions being asked in Alice will make you [wonder off...](https://www.youtube.com/watch?v=9Bk9ao6cSFs)
 
 I decided it was time to learn some text mining and learned about the **[gutenbergr](https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html) **library. This  library allows you to scrape information about writers, books and even the books itself from the [project Gutenberg](https://www.gutenberg.org/). And since Alice was on there, it was a no-brainer to have [Alice's Adventures in Wonderland](https://www.gutenberg.org/files/11/11-h/11-h.htm) as a try-out.  What I wanted to know: how are the characters in Alice's world viewed? In text mining terms: what are the sentiments associated with the characters?
 
