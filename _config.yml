@@ -14,14 +14,17 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: R explorations
-author: Mark Zwart
-email: mark.zwart@pobox.com
+author:
+  name: Mark Zwart
+  email: mark.zwart@pobox.com
+  github: mark-me
+  linkedIn:
+    country: in
+    username: markzwart76
 description: > # this means to ignore newlines until "baseurl:"
   Everything R related. Here I share Snippets and tips, Tutorials and Presentations.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  mark-me
-linkedin_username:  markzwart76
 
 # Build settings
 sass:

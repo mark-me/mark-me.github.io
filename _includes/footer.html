@@ -1,21 +1,35 @@
-<footer class="site-footer">
+<footer>
+  &copy;2017 - {{ site.author.name}}
 
-	  
-  &copy;2017 - Mark Zwart
-  
+  <!-- RSS feed is sure to be there -->
   &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
-  <a href="mailto:{{ site.email }}"
-	<span class="fa fa-fw fa-envelope"/>
-  </a>&nbsp;
-
-
-    <a href="https://github.com/mark-me">
+  <!--<a href="/feed.xml">
+    <span class="fa fa-fw fa-rss"/>
+  </a>&nbsp;-->
+  {% if site.author.email %}
+    <a href="mailto:{{ site.author.email }}"
+    <span class="fa fa-fw fa-envelope"/>
+    </a>&nbsp;
+  {% endif %}
+  {% if site.author.twitter %}
+    <a href="https://twitter.com/{{ site.author.twitter }}">
+      <span class="fa fa-fw fa-twitter"/>
+    </a>&nbsp;
+  {% endif %}
+  {% if site.author.github %}
+    <a href="https://github.com/{{ site.author.github }}">
       <span class="fa fa-fw fa-github"/>
     </a>&nbsp;
-    
-    <a href="https://linkedin.com/in/markzwart76">
+  {% endif %}
+  {% if site.author.linkedIn %}
+    <a href="https://linkedin.com/{{ site.author.linkedIn.country }}/{{ site.author.linkedIn.username }}">
       <span class="fa fa-fw fa-linkedin"/>
     </a>&nbsp;
+  {% endif %}
+  {% if site.author.stackoverflowID %}
+    <a href="https://stackoverflow.com/users/{{ site.author.stackoverflowID }}">
+      <span class="fa fa-fw fa-stack-overflow"/>
+    </a>&nbsp;
+  {% endif %}
 
 </footer>
-

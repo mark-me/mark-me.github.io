@@ -10,7 +10,6 @@ body {
 title_header {
 	font-weight: 600;
 	color: #FFFFFF;
-	#font-family: $heading-font-color;
 	line-height: 1.5;
 	color: #FFFFFF;
 	font-size: 2.5em;
@@ -129,15 +128,22 @@ aside {
 /**
  * Site footer
  */
-.site-footer {
-	padding: 30px 0;
+footer {
 	position: fixed;
-  	bottom: 0;
-  	left: 0;
-  	background: #fff;
- 	width: 100%;
-  	z-index: 2;
-  	border-top: 1px solid lighten($light, 30%);
-  	box-shadow: 0px 2px 2px RGBA(4, 25, 54, .1);
-  	color: #828282;
+	width:100%;
+	bottom:0px;
+	left: 0px;
+    border-top: 1px solid $light;
+	background-color: #ffffff;
+    color: $link-color;
+    text-align: center;
+    padding: 0.6667em 0;
+
+	a {
+		color: $link-color;
+		&:focus,
+		&:hover {
+			color: darken($link-color, 20%);
+		}
+	}
 }
