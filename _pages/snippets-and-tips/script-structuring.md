@@ -4,6 +4,7 @@ title: Script structuring
 permalink: /script-structuring/
 ---
 
+* TOC
 {:toc}
 
 # Marking sections in a script
