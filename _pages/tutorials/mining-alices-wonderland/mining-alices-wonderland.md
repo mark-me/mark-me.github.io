@@ -329,7 +329,70 @@ So facetting the graph by character makes it all removes all clutter. Now we can
 
 ## Building the graph
 
-ggrepel Stacking plots
+To draw the sentiment lift on Plutchik's wheel we have to rotate the lift values like we did in drawing the wheel itself for the _plutchik_wheel_ function.
+
+```r
+tbl_persona_sentiments  %<>%
+  inner_join(tbl_sentiments, by = "sentiment") %>%
+  mutate(x_base = cos(degrees_sentiment * pi/180),
+         y_base = sin(degrees_sentiment * pi/180),
+         x_lift = lift_sentiment * cos(degrees_sentiment * pi/180),
+         y_lift = lift_sentiment * sin(degrees_sentiment * pi/180))
+```
+Now we have the outer limit on the center of each petal, we also have to get the points of the border of each petal. For that we repeat the previous data frame three times and combine then in one data frame:
+
+* For the left hand border we rotate the value 22.5 degrees counter-clockwise.
+* One for the center we keep it as is.
+* And for the right hand border we rotate the value 22.5 degrees clockwise.
+
+```r
+tbl_sentiment_outline <- rbind(tbl_sentiments %>% mutate(degrees_sentiment = degrees_sentiment - 22.5),
+                               tbl_sentiments,
+                               tbl_sentiments %>% mutate(degrees_sentiment = degrees_sentiment + 22.5))
+```
+
+Rotate petals of each sentiment lift so the coordinates correspond to the sentiment
+
+```r
+tbl_sentiment_petal <- tbl_persona_sentiments %>%
+  select(-degrees_sentiment) %>%
+  inner_join(tbl_sentiment_outline, by = "sentiment") %>%
+  mutate(x_base = cos(degrees_sentiment * pi/180),
+         y_base = sin(degrees_sentiment * pi/180),
+         x_lift = lift_sentiment * cos(degrees_sentiment * pi/180),
+         y_lift = lift_sentiment * sin(degrees_sentiment * pi/180))
+```
+
+Set the points of forming each petal so they line up (base and lift) and draw a polygon
+
+```r
+tbl_sentiment_petal <- rbind(tbl_sentiment_petal %>%
+                              mutate(point_order = degrees_sentiment + 45) %>%
+                              select(persona, sentiment, point_order, impact, x = x_lift, y = y_lift),
+                            tbl_sentiment_petal %>%
+                              mutate(point_order = -1 * (degrees_sentiment + 45)) %>%
+                              select(persona, sentiment, point_order, impact, x = x_base, y = y_base)) %>%
+                        arrange(persona, sentiment, point_order)
+```
+
+Determing sentiment circle radius
+
+```r
+max_radius <- max(sqrt(tbl_sentiment_petal$x ^ 2 + tbl_sentiment_petal$y ^ 2))
+```
+
+Drawing the wheel and stacking the sentiment petals unto it
+
+```r
+plutchik_wheel(max_radius) +
+  geom_polygon(data = tbl_sentiment_petal, aes(x, y, col = persona, group = sentiment, alpha = impact), fill = "slategrey") +
+  geom_point(data = tbl_person_center, aes(x = x_center, y = y_center, col = persona))  +
+  facet_wrap(~persona, ncol = 5) +
+  scale_color_manual(values = personea_colors) +
+  scale_fill_manual(values = plutchik_colors) +
+  guides(col = FALSE) +
+  labs(list(alpha = "Impact"))
+```
 
 # The Result
 
@@ -339,4 +402,38 @@ ggrepel Stacking plots
 
 
 ## And a stupid version
+
+Drawing the Plutchick wheel with sentiment centers.
+
+First we're going to isolate person centers
+
+```r
+tbl_person_center <- tbl_persona_sentiments %>%
+  group_by(persona) %>%
+  summarise(x_center = mean(x_lift),
+            y_center = mean(y_lift))
+```
+
+Determing sentiment circle radius
+
+```r
+max_radius <- max(sqrt(tbl_person_center$x_center ^ 2 + tbl_person_center$y_center ^ 2)) * 1.2
+```
+
+The ggplot of profiles
+
+```r
+plutchik_wheel(max_radius) +
+  geom_point(data = tbl_person_center, aes(x = x_center, y = y_center, col = persona)) +
+  geom_label_repel(data = tbl_person_center,
+                   aes(x_center, y_center, label = persona),
+                   alpha = 0.6,
+                   fill = "white",
+                   color = 'black',
+                   segment.color = "black"
+  ) +
+  scale_color_manual(values = personea_colors) +
+  guides(col = FALSE)
+```
+
 ![Alt text](https://markzwart.files.wordpress.com/2017/07/alice-in-wonderland.png "Plutchik sentiments")
