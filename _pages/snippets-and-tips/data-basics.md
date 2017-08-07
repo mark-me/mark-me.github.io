@@ -4,18 +4,10 @@ title: Data basics
 permalink: /data-basics/
 ---
 
-*   [Data structures](#data-structures)
-    *   [Factoring](#factoring)
-    *   [Inspecting data structures](#inspecting)
-*   [Data transformation](#data-transformation)
-    *   [The trouble with currency](#currency-trouble)
-    *   [Joining tables](#joining-tables)
-    *   [Stacking tables (unions)](#stacking-tables)
-    *   [Recoding data](#recoding)
-    *   [Binning data](#binning)
-    *   [Aggregates on non-aggregates](#windowed-calculations)
+* TOC
+{:toc}
 
-# Data structures<a name="data-structures"></a>
+# Data structures
 
 R uses several kinds of data structures:
 
@@ -27,7 +19,7 @@ R uses several kinds of data structures:
     *   _tbl_ is a more more user friendly implementation of a data frame from the **tibble** library, which is part of the **tidyverse** library
         *   A data frame can be converted to a table using the _as_data_frame(data_frame)_ function
     *   _data.table_ is most commonly used for very large data-sets, but even when using the BIS data of a country I did not have to use this.
-<a name="factoring"></a>
+
 # Factoring
 
 Factoring data is done, so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables.
@@ -49,13 +41,13 @@ rating_pd = gdata::reorder.factor(rating_pd, new.order=c("AAA", "AA", "A", "BBB"
 ```r
 drop.levels(tbl_revenue$sector)
 ```
-<a name="inspecting"></a>
+
 # Inspecting data structures
 
 The _glimpse()_ function is a great alternative for the _str()_ function: is shows data-types in a compacter way, and the screen size is taken into consideration for the output.
-<a name="data-transformation"></a>
+
 # Data transformation
-<a name="currency-trouble"></a>
+
 ## The trouble with currency
 
 Since we live on the European mainland, we often get currency data delivered that doesn't comply to the English/US standard. Decimal separators are commas instead of points and big number separators are decimals. If you want to turn these currencies into the R/US/English compliant versions you can use this code.
@@ -65,7 +57,7 @@ tbl_revenue %<>% mutate(amt_revenue = gsub("[.]", "", amt_revenue)) %>% # Removi
   mutate(amt_revenue = gsub("[,]", ".", amt_revenue)) %>% # Replacing decimal separator (,) with . from value
   mutate(amt_revenue = as.numeric(amt_revenue))
 ```
-<a name="joining-tables"></a>
+
 ## Joining tables
 
 Joining tables is most commonly done using the **dplyr** library. Joins of the dplyr library are more comprehensive than in SQL. Joins from dplyr transforms data in a way that SQL would take care of by using _IN_ or _NOT IN_ statements in the _WHERE_ clause.
@@ -94,11 +86,11 @@ inner_join(table_x, table_y, by="key_column")
 ```r
 inner_join(table_x, table_y, by=c("key_column_x"="key_column_y"))
 ```
-<a name="stacking-tables"></a>
+
 ## Stacking tables
 
 Stacking tables, the SQL equivalent is _UNION_ statement, is done by the _bind_rows(table_a, table_b, ..., table_z)_ function. If the names of the tables match, the operation is performed automatically, irrespective of the column order.
-<a name="recoding"></a>
+
 ## Recoding data
 
 Sometimes labels for groups of data are almost right, but just need a little tweaking: you want to replace the old versions with new versions. This is the code to achieve this. Remember to refactor the variable after this to take effect.
@@ -118,7 +110,7 @@ mtcars %>% mutate(carb_new = case_when(.$carb == 1 ~ "one",
                                        .$carb == 4 ~ "four",
                                        ELSE ~ "other" ))
 ```
-<a name="binning"></a>
+
 ## Binning data
 
 There are three ways of binning data:
@@ -130,7 +122,7 @@ There are three ways of binning data:
 ```r
 bin_year = cut(year_number, c(-Inf, 1900, 1925, 1950, 1960, 1970, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2099))
 ```
-<a name="windowed-calculations"></a>
+
 ## Aggregates on non-aggregates
 
 Sometimes you want to have the values of aggregates on the non-aggregated level. Let's take an example from a data-set _iris_. This data-set contains measurements of petals and sepals (the large 'under'-flowers). Below you see a sample of this data.
