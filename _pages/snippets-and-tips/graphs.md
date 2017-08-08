@@ -39,7 +39,7 @@ wordcloud(text, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
 The random.order variable specifies whether the most frequent word is plot first, or whether words are plot randomly. Passing the brewer.pal() function to the color parameter tells the wordcloud to use 8 colours from the RColorbrewer [Dark2](http://colorbrewer2.org/#type=qualitative&scheme=Dark2&n=3) palette: 
 <img src="/_pages/snippets-and-tips/wordcloud_kerst.png" alt="Wordcloud 'kerst'" align="center"/> 
 
-The [wordcloud2 library](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) offers more advanced formatting, even allowing you to define the shape of the wordcloud: [https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html). The down-side? Slow as.... 
+The [wordcloud2 library](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) offers more advanced formatting, even allowing you to define the shape of the [wordcloud](http://www.r-graph-gallery.com/2016/12/09/the-wordcloud2-library/). The down-side? Slow as.... 
 
 <img src="/_pages/snippets-and-tips/wordcloud_shaped.png" alt="Shaped word cloud" align="center"/> 
 
