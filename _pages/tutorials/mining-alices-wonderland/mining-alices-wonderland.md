@@ -73,7 +73,7 @@ plutchik_colors <- c( "#8cff8c", "#ffffb1", "#ffc48c", "#ff8c8c",
 
 Plutchik's wheel has 8 spokes, which I'll refer to as petals. My approach to drawing the wheel is drawing each petal and then rotating it to the position corresponding to the sentiment.
 
-<img src="/_pages/tutorials/mining-alices-wonderland/rotating-emotions.png" alt="Rotating sentiments" width="535" height="393" align="right"/> 
+<img src="/_pages/tutorials/mining-alices-wonderland/rotating-emotions.png" alt="Rotating sentiments" width="535" height="393" align="right"/>
 
 To create a closed polygon for each petal, 5 points draw a petal: one from the origin (0, 0), three points on the perimeter of the wheel, and one again at the origin to close the polygon. The points at the perimeter of the wheel are part of the total wheel. So calculate these points we take the radius of the circle, and rotate them by 22.5 degrees (360 degreed / (8 petals * petal edges)). First we create a vector with the rotations needed for one petal:
 
@@ -217,10 +217,14 @@ tbl_word <- tbl_paragraphs %>%
 Now that we can count all word, a word cloud can be created. For this example I use the fancier option of using the [**wordcloud2**](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) package. With this package you have extensive control on how your wordcloud can look. One of the options I've used here is using a transparent version of a silhouette of the chesire cat. I used this statement to create the wordcloud
 
 ```r
-wordcloud2(data.frame(tbl_word_freq), figPath = "cheshire-cat.png", size = 1,  color="whitesmoke" , backgroundColor="black")
+wordcloud2(data.frame(tbl_word_freq),
+           figPath = "cheshire-cat.png",
+           size = 1,
+           color = "whitesmoke",
+           backgroundColor = "black")
 ```
 
-<img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/> 
+<img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/>
 
 ## Finding sentiments
 
@@ -338,6 +342,8 @@ In this first attempt to show the sentiment profiles we quickly see it's too cro
 
 So facetting the graph by character makes it all removes all clutter. Now we can read all the seperate character profiles and compare them, but where is Plutchik's wheel? To achieve this we're just going to do a bit more.
 
+![Sentiment profile](/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png){:class="img-responsive"}
+
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" alt="Sentiment profile, not the best" width="780" height="397" align="center"/>
 <i class='fa fa-search-plus '></i> Zoom</a>
@@ -351,9 +357,11 @@ To draw the sentiment lift on Plutchik's wheel we have to rotate the lift values
 * And for the right hand border we rotate the value 22.5 degrees clockwise.
 
 ```r
-tbl_sentiment_outline <- rbind(tbl_sentiments %>% mutate(degrees_sentiment = degrees_sentiment - 22.5),
+tbl_sentiment_outline <- rbind(tbl_sentiments %>%
+                                 mutate(degrees_sentiment = degrees_sentiment - 22.5),
                                tbl_sentiments,
-                               tbl_sentiments %>% mutate(degrees_sentiment = degrees_sentiment + 22.5))
+                               tbl_sentiments %>%
+                                 mutate(degrees_sentiment = degrees_sentiment + 22.5))
 ```
 
 Rotate petals of each sentiment lift so the coordinates correspond to the sentiment
@@ -372,10 +380,12 @@ Set the points of forming each petal so they line up (base and lift) and draw a 
 ```r
 tbl_sentiment_petal <- rbind(tbl_sentiment_petal %>%
                                mutate(point_order = degrees_sentiment + 45) %>%
-                               select(persona, sentiment, point_order, impact, x = x_lift, y = y_lift),
+                               select(persona, sentiment, point_order, impact,
+                                      x = x_lift, y = y_lift),
                              tbl_sentiment_petal %>%
                                mutate(point_order = -1 * (degrees_sentiment + 45)) %>%
-                               select(persona, sentiment, point_order, impact, x = x_base, y = y_base)) %>%
+                               select(persona, sentiment, point_order, impact,
+                                      x = x_base, y = y_base)) %>%
                        arrange(persona, sentiment, point_order)
 ```
 
