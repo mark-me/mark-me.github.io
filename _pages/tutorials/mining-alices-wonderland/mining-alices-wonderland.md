@@ -225,11 +225,9 @@ wordcloud2(data.frame(tbl_word_freq),
 ```
 
 {:refdef: style="text-align: center;"}
-![My Image]({{ site.baseimg }}/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png)
-{: refdef}
-
-{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/>
+<i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
 ## Finding sentiments
