@@ -228,7 +228,9 @@ wordcloud2(data.frame(tbl_word_freq),
 ![My Image]({{ site.baseimg }}/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png)
 {: refdef}
 
+{:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/>
+{: refdef}
 
 ## Finding sentiments
 
@@ -345,8 +347,6 @@ In this first attempt to show the sentiment profiles we quickly see it's too cro
 <i class='fa fa-search-plus '></i> Zoom</a>
 
 So facetting the graph by character makes it all removes all clutter. Now we can read all the seperate character profiles and compare them, but where is Plutchik's wheel? To achieve this we're just going to do a bit more.
-
-![Sentiment profile](/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png){:class="img-responsive"}
 
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" alt="Sentiment profile, not the best" width="780" height="397" align="center"/>
