@@ -226,7 +226,7 @@ wordcloud2(data.frame(tbl_word_freq),
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
