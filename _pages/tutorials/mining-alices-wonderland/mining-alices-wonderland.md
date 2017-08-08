@@ -47,7 +47,7 @@ Luckily the ebook had white lines to delimit the paragraphs; sometimes life is e
 
 ## Plutchik's wheel
 
-<img src="/_pages/tutorials/mining-alices-wonderland/plutchik-wheel.png" alt="Plutchik wheel" width="367" height="356" align="right"/> Remember the lexicons? I don't know whether this is coicidence, but the sentiment terms used in the nrc lexicon fit surprisingly well with [Plutchik's wheel of emotions](https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#Plutchik.27s_wheel_of_emotions). As it is such a nice fit, I thought I'd use it as the basis of my plots.
+<a href="/_pages/tutorials/mining-alices-wonderland/plutchik-wheel.png" target="_blank"><img src="/_pages/tutorials/mining-alices-wonderland/plutchik-wheel.png" alt="Plutchik wheel" width="367" height="356" align="right"/><i class='fa fa-search-plus '></i> Zoom</a> Remember the lexicons? I don't know whether this is coicidence, but the sentiment terms used in the nrc lexicon fit surprisingly well with [Plutchik's wheel of emotions](https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#Plutchik.27s_wheel_of_emotions). As it is such a nice fit, I thought I'd use it as the basis of my plots.
 
 As a psychologist, my first thought was: spider-graphs; create a character profile by plotting the value sentiment confidence of a character on each of the emotion scales and connect the dots. To do this I put the confidence value on the x axis, and rotated it to the corresponding emotion petal to find out the x and y coordinates of that sentiment value. For example
 
