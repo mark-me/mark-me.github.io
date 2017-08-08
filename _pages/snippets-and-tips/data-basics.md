@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Data basics
+comments: true
 permalink: /data-basics/
 ---
 

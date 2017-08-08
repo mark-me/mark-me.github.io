@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Machine learning for the layman
+comments: true
 permalink: /machine-learning-layman/
 ---
 

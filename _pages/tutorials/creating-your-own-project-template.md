@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Creating your own project template
+comments: true
 permalink: /project-template/
 ---
 

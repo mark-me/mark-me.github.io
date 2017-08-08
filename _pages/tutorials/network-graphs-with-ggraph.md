@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Networked graphs with ggraph
+comments: true
 permalink: /network-graphs-ggraph/
 ---
 The [**ggraph** library](https://www.rdocumentation.org/packages/ggraph/versions/0.1.1/topics/ggraph) focuses on networks graphs. In these types of graphs information is stored in nodes and links between them. Nodes are sometimes called vertices, while links are sometimes called edges. ggraph, like ggplot2, follows the Grammar of Graphics paradigm. [code lang="r"] # Loading libraries library(ggraph) # Graph graphs library(igraph) # Graph graphs [/code]

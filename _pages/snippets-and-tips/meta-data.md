@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Meta-data manipulation
+comments: true
 permalink: /meta-data-manipulation/
 ---
 # Column renaming

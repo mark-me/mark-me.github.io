@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Importing and exporting data
+comments: true
 permalink: /importing-exporting/
 ---
 

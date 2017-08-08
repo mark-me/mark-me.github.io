@@ -1,6 +1,7 @@
 ---
 layout: page
 title: R Studio tips
+comments: true
 permalink: /r-studio-tips/
 ---
 # Shortcuts

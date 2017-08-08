@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Graphs
+comments: true
 permalink: /graph-tips/
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Data inspection
+comments: true
 permalink: /data-inspection/
 ---
 ## Cross tabs

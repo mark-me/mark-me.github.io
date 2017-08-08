@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Script structuring
+comments: true
 permalink: /script-structuring/
 ---
 
