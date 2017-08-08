@@ -70,7 +70,11 @@ plutchik_colors <- c( "#8cff8c", "#ffffb1", "#ffc48c", "#ff8c8c",
                       "#ffc6ff", "#8c8cff", "#a5dbff", "#8cc68c")
 ```
 
-Plutchik's wheel has 8 spokes, which I'll refer to as petals. To create a closed polygon for each petal, 5 points draw a petal: one from the origin (0, 0), three points on the perimeter of the wheel, and one again at the origin to close the polygon. The points at the perimeter of the wheel are part of the total wheel. So calculate these points we take the radius of the circle, and rotate them by 22.5 degrees (360 degreed / (8 petals * petal edges)). First we create a vector with the rotations needed for one petal:
+Plutchik's wheel has 8 spokes, which I'll refer to as petals. My approach to drawing the wheel is drawing each petal and then rotating it to the position corresponding to the sentiment.
+
+<img src="/_pages/tutorials/mining-alices-wonderland/rotating-emotions.png" alt="Rotating sentiments" width="535" height="393" align="right"/> 
+
+To create a closed polygon for each petal, 5 points draw a petal: one from the origin (0, 0), three points on the perimeter of the wheel, and one again at the origin to close the polygon. The points at the perimeter of the wheel are part of the total wheel. So calculate these points we take the radius of the circle, and rotate them by 22.5 degrees (360 degreed / (8 petals * petal edges)). First we create a vector with the rotations needed for one petal:
 
 ```r
 petal <- rep(c(0, 1:3, 0) ,8)
