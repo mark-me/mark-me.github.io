@@ -41,7 +41,7 @@ The random.order variable specifies whether the most frequent word is plot first
 
 The [wordcloud2 library](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) offers more advanced formatting, even allowing you to define the shape of the [wordcloud](http://www.r-graph-gallery.com/2016/12/09/the-wordcloud2-library/). The down-side? Slow as.... This example below, is coming from my tutorial [Mining Alice's Wonderland](/mining-alices-wonderland/)
 
-<img src="/_pages/tutorial/mining-alices-wonderland/rabbit-cloud.png" alt="Shaped word cloud" align="center"/> 
+<img src="/_pages/tutorials/mining-alices-wonderland/rabbit-cloud.png" alt="Shaped word cloud" align="center"/> 
 
 # ggmap
 
