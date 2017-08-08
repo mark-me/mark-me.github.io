@@ -5,3 +5,6 @@ layout: default
 <h2>{{ page.title }}</h2>
    
     {{ content }}
+
+{% include disqus.html %}
+{% if page.comments %} • <a href="https://sgeos.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}
