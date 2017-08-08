@@ -211,6 +211,12 @@ tbl_word <- tbl_paragraphs %>%
   summarise(qty_word = n())
 ```
 
+## Creating a word cloud
+
+Now that we can count all words.
+
+<img src="/_pages/tutorials/mining-alices-wonderland/rabbit-cloud.png" alt="Shaped word cloud" align="center"/> 
+
 ## Finding sentiments
 
 We'll use the sentiments data frame from the **tidytext** package to create a custom data frame. But before we do that we'll create our own data frame that specifies how many degrees each sentiment should be rotated to fit it on Plutchik's wheel. The sentiments are then factored ordered by their order in Plutchik's wheel.
