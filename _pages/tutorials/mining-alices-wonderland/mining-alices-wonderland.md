@@ -213,13 +213,13 @@ tbl_word <- tbl_paragraphs %>%
 
 ## Creating a word cloud
 
-Now that we can count all word, a word cloud can be created. For this example I use the fancier option of using the [**wordcloud2**](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) package. With this package you have extensive control on how your wordcloud can look. One of the options I've used here is using a transparent version of a silhouette of the rabbit, sadly it was not the best example I could have used, but here we go. I used this statement to create the wordcloud
+Now that we can count all word, a word cloud can be created. For this example I use the fancier option of using the [**wordcloud2**](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) package. With this package you have extensive control on how your wordcloud can look. One of the options I've used here is using a transparent version of a silhouette of the chesire cat. I used this statement to create the wordcloud
 
 ```r
-wordcloud2(tbl_rabbit_freq, figPath = "rabbit.png", size = 1.5, color = "black")
+wordcloud2(data.frame(tbl_word_freq), figPath = "cheshire-cat.png", size = 1,  color="whitesmoke" , backgroundColor="black")
 ```
 
-<img src="/_pages/tutorials/mining-alices-wonderland/rabbit-cloud.png" alt="Shaped word cloud" align="center"/> 
+<img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center"/> 
 
 ## Finding sentiments
 
