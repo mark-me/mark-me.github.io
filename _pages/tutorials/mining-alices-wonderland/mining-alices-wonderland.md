@@ -349,7 +349,7 @@ In this first attempt to show the sentiment profiles we quickly see it's too cro
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" alt="Sentiment profile mess" width="75%" height="75%" align="center"/><br>
+<img src="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" alt="Sentiment profile mess" width="90%" height="90%" align="center"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
@@ -357,7 +357,7 @@ So facetting the graph by character makes it all removes all clutter. Now we can
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" alt="Sentiment profile, not the best" width="75%" height="75%" align="center"/><br>
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" alt="Sentiment profile, not the best" width="90%" height="90%" align="center"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
