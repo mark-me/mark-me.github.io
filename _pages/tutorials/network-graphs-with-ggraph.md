@@ -39,4 +39,4 @@ ggraph(graph) +
   theme_void()
 ```
 
-<img src="/_pages/tutorials/network-graphs-with-ggraph.png" alt="" width="100%" height="100%" align="center"/>
+<img src="/_pages/tutorials/network-graphs-with-ggraph.png" alt="" width="508" height="333" align="center"/>
