@@ -270,7 +270,7 @@ When we look at the occurence of sentiments throughout the book, we see that sur
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="75%" height="75%" align="middle"/><br>
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="85%" height="85%" align="middle"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
