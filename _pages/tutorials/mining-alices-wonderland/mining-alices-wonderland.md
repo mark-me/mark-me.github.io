@@ -270,7 +270,7 @@ When we look at the occurence of sentiments throughout the book, we see that sur
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="85%" height="85%" align="middle"/><br>
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="90%" height="90%" align="middle"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
@@ -288,9 +288,13 @@ tbl_par_personea <- tbl_words %>%
 ```
 
 In the plot below, you can see how Alice, unsurprisingly, plays a big role throughout the book.
+
+{:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" alt="Character appearance" width="780" height="465" align="middle"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/person_appearance.png" alt="Character appearance" width="90%" height="90%" align="middle"/>
 <i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
 
 ## Combining persons and sentiments
 
