@@ -267,9 +267,12 @@ tbl_par_sentiments <- tbl_words %>%
 ```
 
 When we look at the occurence of sentiments throughout the book, we see that surprise and fear make place for trust. The idea that Alice will get more used to the absurdities of Wonderland the longer she stays there does make sense.
+
+{:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="820" height="457" align="middle"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment_density.png" alt="Sentiment density" width="75%" height="75%" align="middle"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
 
 ## Finding characters
 
