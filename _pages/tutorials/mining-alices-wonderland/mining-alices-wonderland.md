@@ -219,7 +219,7 @@ Now that we can count all word, a word cloud can be created. For this example I 
 wordcloud2(data.frame(tbl_word_freq), figPath = "cheshire-cat.png", size = 1,  color="whitesmoke" , backgroundColor="black")
 ```
 
-<img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center"/> 
+<img src="/_pages/tutorials/mining-alices-wonderland/cheshire-cat-cloud.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/> 
 
 ## Finding sentiments
 
