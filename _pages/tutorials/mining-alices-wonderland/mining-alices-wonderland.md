@@ -464,7 +464,7 @@ plutchik_wheel(max_radius) +
 ```
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment-centers.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/sentiment-centers.png" alt="Sentiment centers" width="70%" height="70%" align="center"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment-centers.png" alt="Sentiment centers" width="70%" height="70%" align="center"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
