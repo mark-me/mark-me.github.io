@@ -345,15 +345,7 @@ tbl_persona_sentiments %<>%
   mutate(impact = abs(lift_sentiment - 1))
 ```
 
-In this first attempt to show the sentiment profiles we quickly see it's too crowded:
-
-{:refdef: style="text-align: center;"}
-<a href="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/person_sentiment_1.png" alt="Sentiment profile mess" width="100%" height="100%" align="center"/><br>
-<i class='fa fa-search-plus '></i> Zoom</a>
-{: refdef}
-
-So facetting the graph by character makes it all removes all clutter. Now we can read all the seperate character profiles and compare them, but where is Plutchik's wheel? To achieve this we're just going to do a bit more.
+Now we can read all the seperate character profiles and compare them, but where is Plutchik's wheel? To achieve this we're just going to do a bit more.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment_profiles.png" target="_blank">
