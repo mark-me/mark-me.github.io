@@ -462,10 +462,11 @@ plutchik_wheel(max_radius) +
   scale_color_manual(values = personea_colors) +
   guides(col = FALSE)
 ```
+{:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment-centers.png" target="_blank">
-<img src="/_pages/tutorials/mining-alices-wonderland/sentiment-centers.png" alt="Sentiment centers" width="100%" height="100%" align="center"/>
+<img src="/_pages/tutorials/mining-alices-wonderland/sentiment-centers.png" alt="Sentiment centers" width="70%" height="70%" align="center"/>
 <i class='fa fa-search-plus '></i> Zoom</a>
-
+{: refdef}
 
 The total script can be downloaded from [here](https://gist.github.com/mark-me/d080979ce8beb595faf1dcab38b6e392)
 
