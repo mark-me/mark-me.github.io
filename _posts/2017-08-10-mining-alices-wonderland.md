@@ -11,3 +11,4 @@ I decided it was time to learn some text mining and learned about the **[gutenb
 For this tutorial I've assumed that you're pretty familiar with the **tidyverse** and **ggplot2**. First I'll discuss the concepts that drove the script, after which I'll jump into the technical workout of these concepts. The final script can be found in a link on the end of the tutorial.
 
 [Read more...](/mining-alices-wonderland/)
+<br><br><br><br>
