@@ -2,6 +2,7 @@
 layout: page
 title: Tutorials
 permalink: /tutorials/
+navigation_weight: 2
 ---
 
 I've created some tutorials:

@@ -2,6 +2,7 @@
 layout: page
 title: Snippets and tips
 permalink: /snippets-and-tips/
+navigation_weight: 1
 ---
 
 Here I put snippets and tips, I’ve divided them in sections:

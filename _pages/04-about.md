@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+navigation_weight: 4
 ---
 
 <img src="/_pages/me1.jpg" alt="Me" width="376" height="284" align="right"/>
