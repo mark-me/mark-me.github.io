@@ -27,6 +27,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
+plugins:
+  - jekyll-feed
 sass:
   sass_dir: _sass
 include: ["_pages"]
