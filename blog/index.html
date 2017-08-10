@@ -7,7 +7,7 @@ navigation_weight: 5
 {% for post in site.posts %}
 		<time>{{ post.date | date: "%b %-d, %Y" }}</time>
 		<h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
-		<img src="{{ post.image }}" alt="alice catterpillar" width="350" height="272" align="left"/>
+		<img src="{{ post.image }}" alt="alice catterpillar" width="30%" height="30%" align="left"/>
 {% endfor %}
 
 <p>subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
