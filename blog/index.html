@@ -5,8 +5,7 @@ navigation_weight: 5
 
 <h1>Blog posts</h1>
 {% for post in site.posts %}
-		<time>{{ post.date | date: "%b %-d, %Y" }}</time>
-		<h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+		<h3><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>    <time>{{ post.date | date: "%b %-d, %Y" }}</time>
 		<p>{{ post.excerpt }}</p>
 {% endfor %}
 
