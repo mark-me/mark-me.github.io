@@ -50,6 +50,10 @@ a:hover {
 	color: $link-hover-color;
 	text-decoration: underline;
 }
+a:active {
+	color: $link-hover-color;
+	text-decoration: underline;
+}
 header {
 	background: $header;
 	padding: 0px 15px;
@@ -69,11 +73,22 @@ main {
 	margin: 0 auto;
 }
 time {
+	font-size: 0.8em;
+	text-align: right;
 	color: #898989;
+}
+blogheader{
+	color: #898989;
+	text-align: left;
 }
 .container {
 	max-width: $content-width;
 	margin: 0 auto;
+}
+.boxed {
+  border: 1px solid $light;
+  box-shadow: 2px 2px 2px RGBA(4, 25, 54, .1);
+  padding: 5px 10px;
 }
 
 /**

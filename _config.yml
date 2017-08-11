@@ -23,7 +23,7 @@ author:
     username: markzwart76
 description: > # this means to ignore newlines until "baseurl:"
   Everything R related. Here I share Snippets and tips, Tutorials and Presentations.
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "https://mark-me.github.io/" # the subpath of your site, e.g. /blog
 url: "https://mark-me.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
