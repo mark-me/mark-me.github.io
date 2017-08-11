@@ -5,7 +5,7 @@ comments: true
 permalink: /project-template/
 ---
 
-A lot of times you are using the same stuff doing the same things across projects. Wouldn't it be nice if a lot of this could be done by default? It would save you time and bring consistency in your projects. To adress this problem I've created a [script](<script src="https://gist.github.com/mark-me/9815ffab041a5aebd410d21343a8128c.js"></script>) I've been using ever since. In this tutorial I'll show how to use a script that makes a template for this. I'll also show you what is in the script so you can adapt it to suit your own needs.
+A lot of times you are using the same stuff doing the same things across projects. Wouldn't it be nice if a lot of this could be done by default? It would save you time and bring consistency in your projects. To adress this problem I've created a [script](https://gist.githubusercontent.com/mark-me/9815ffab041a5aebd410d21343a8128c/raw/c549cbe56722178053010e47a98c9100b19cbbab/project.R) I've been using ever since. In this tutorial I'll show how to use a script that makes a template for this. I'll also show you what is in the script so you can adapt it to suit your own needs.
 
 # What the script does
 
