@@ -102,6 +102,17 @@ inner_join(table_x, table_y, by=c("key_column_x"="key_column_y"))
 
 Stacking tables, the SQL equivalent is _UNION_ statement, is done by the _bind_rows(table_a, table_b, ..., table_z)_ function. If the names of the tables match, the operation is performed automatically, irrespective of the column order.
 
+## Completing data
+
+Sometimes we want to make sure certain combinations are always present in a data frame, but sometimes that doesn't happen in the actual data itself. Let's take an example from the tutorial on [text mining](/mining-alices-wonderland/). Here we have a set of data with characters and sentiments. It could be not all characters have sentiments in the data, but we do want them in the dataset to show they are missing. To achieve this we can use the [_complete_](http://tidyr.tidyverse.org/reference/complete.html) function. The first argument in this function specifies which group we want to complete (the characters), then we specify which unique values we want to fill put when missing by using the _sentiment_ variable within the _nesting_ function. In the _fill_ parameter we specify the values we want to give to the variables when the new sentiments are added.
+
+```r
+tbl_person_sentiments %<>%
+  complete(persona, nesting(sentiment), fill = list(qty_sentiments = 0,
+                                                    qty_sentiment_persona = 0,
+                                                    perc_sentiments = 0))
+```
+
 ## Recoding data
 
 Sometimes labels for groups of data are almost right, but just need a little tweaking: you want to replace the old versions with new versions. This is the code to achieve this. Remember to refactor the variable after this to take effect.
