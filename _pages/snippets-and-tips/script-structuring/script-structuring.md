@@ -12,18 +12,18 @@ permalink: /script-structuring/
 
 When R scripts become longer, you'll find you want to make subdivisions in the scripts so you can easily navigate it, avoiding endless scrolling. You can mark sections by creating a section by starting a comment like normal (#), typing a section tile and following that by a series of '-' signs like this:
 
-```r 
+```r
 # Section title -------
 ```
 
-This allows you to fold your code (hide code, showing only the section header), or jump through the script Code folding: 
+This allows you to fold your code (hide code, showing only the section header), or jump through the script Code folding:
 
-<img src="/_pages/snippets-and-tips/code_folding.png" alt="Folding 1" align="center"/> 
+<img src="/_pages/snippets-and-tips/script-structuring/code_folding.png" alt="Folding 1" align="center"/>
 
-<img src="/_pages/snippets-and-tips/code_folding2.png" alt="Folding 2" align="center"/> 
+<img src="/_pages/snippets-and-tips/script-structuring/code_folding2.png" alt="Folding 2" align="center"/>
 
-Section navigation: 
-<img src="/_pages/snippets-and-tips/code_navigation.png" alt="Navigation" align="center"/> 
+Section navigation:
+<img src="/_pages/snippets-and-tips/script-structuring/code_navigation.png" alt="Navigation" align="center"/>
 
 # Calling scripts from scripts
 
