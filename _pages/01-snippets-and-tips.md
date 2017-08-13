@@ -15,14 +15,14 @@ navigation_weight: 1
 
 
 <div class="boxed">
-<img class="boximage" src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" width="70" height="70" align="left"/>
+<img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" hspace="20" width="60" height="60" align="left"/>
 <a href="/r-studio-tips/">R Studio tips</a><br>
 Description
 <br>
 </div>
-
+<br>
 <div class="boxed">
-<img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" hspace="20" width="70" height="70" align="left"/>
+<img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" hspace="20" width="60" height="60" align="left"/>
 <a href="/script-structuring/">Script structuring</a><br>
 Making scripts easier to read and navigate.
 <br>
