@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Data basics
+title: Data transformation
 comments: true
 permalink: /data-transformation/
 ---

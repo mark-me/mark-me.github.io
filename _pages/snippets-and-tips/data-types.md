@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Data basics
+title: Data types and structures
 comments: true
 permalink: /data-types/
 ---

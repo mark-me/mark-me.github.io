@@ -9,7 +9,7 @@ Here I put snippets and tips, I’ve divided them in sections:
 
 * [R Studio tips](/r-studio-tips/)
 * [Script structuring](/script-structuring/)
-* [Data types](/data-types/)
+* [Data types and structures](/data-types/)
 * [Meta-data manipulation](/meta-data-manipulation/)
 * [Data inspection](/data-inspection/)
 * [Data transformation](/data-transformation/)
