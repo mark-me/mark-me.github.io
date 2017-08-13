@@ -19,5 +19,5 @@ Here I put snippets and tips, I’ve divided them in sections:
 
 <div class="boxed">
 <h3>[R Studio tips](/r-studio-tips/)</h3>
-Description
+Description<br>
 </div>
