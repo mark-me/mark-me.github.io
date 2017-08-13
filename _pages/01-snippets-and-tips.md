@@ -14,14 +14,14 @@ navigation_weight: 1
 * [Graphs](/graph-tips/)
 
 
-<div class="boxed">
-<img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" style="margin: 0px 5px" width="60" height="60" align="left"/>
+<div class="boxed_pages">
+<img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/r-studio-tips/">R Studio tips</a><br>
 Description
 <br>
 </div>
 <br>
-<div class="boxed">
+<div class="boxed_pages">
 <img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/script-structuring/">Script structuring</a><br>
 Making scripts easier to read and navigate.
