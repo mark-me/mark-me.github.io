@@ -4,7 +4,7 @@ title: Data inspection
 comments: true
 permalink: /data-inspection/
 ---
-## Cross tabs
+# Cross tabs
 
 To see cross-tabulations with frequencies you can use the statement below, do also all table entries can be found that didn't contain any value.
 
@@ -12,7 +12,7 @@ To see cross-tabulations with frequencies you can use the statement below, do al
 table(colum_values_rows, column_values_across, useNA = "ifany")
 ```
 
-## Correlation matrices are boring
+# Correlation matrices are boring
 
 When making correlation matrices to inspect possible relations between variables, I often get scared by the table I get. Using the following pseudo code, you can plot the correlation matrix in a network graph that is less daunting to look at, using the **qgraph** library:
 

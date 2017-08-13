@@ -2,64 +2,13 @@
 layout: page
 title: Data basics
 comments: true
-permalink: /data-basics/
+permalink: /data-transformation/
 ---
 
 * TOC
 {:toc}
 
-# Data structures
-
-R uses several kinds of data structures:
-
-*   _Variables_ - a variable contains a single value. The can contain a number (integer or double), characters or a logical value.
-*   _Vectors_ - A vector is a list of contain only one data type.
-*   _Lists_ - A list is a list (surprise, surprise) that can contain different data-types for each element. A list entry could also contain a vector, another list or even a table.
-*   _Tables_ - A table is usually a combination of vectors, in which each vector functions as a column. R had different implementations of tables.
-    *   The _data frame_ is the standard R table solution.
-    *   _tbl_ is a more more user friendly implementation of a data frame from the **tibble** library, which is part of the **tidyverse** library
-        *   A data frame can be converted to a table using the _as_data_frame(data_frame)_ function
-    *   _data.table_ is most commonly used for very large data-sets, but even when using the BIS data of a country I did not have to use this.
-
-# Factoring
-
-Factoring data is used so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables.
-When factoring a variable, R transforms the actual value to an internal value. It is especially important to realize this when treating a numeric value as a factored variable. After factoring a numeric variable, you cannot automatically assume that the mutation you make on that variable is the one you expect it to be. For example: when adding 1 to a factored numeric variable:
-```r
-mtcars %>%
-  mutate(fac_gear = factor(gear, ordered = TRUE)) %>%
-  mutate(gear_plus = gear + 1) %>%
-  mutate(fac_gear_plus = as.numeric(fac_gear) + 1) %>%
-  select(gear, gear_plus, fac_gear, fac_gear_plus)
-```
-
-**TODO**
-
-By default the order of factors is determined by sorting the values, if you want to specify your own factor ordering you can define a factored variable like this:
-
-```r
-rating_pd <- factor(rating_pd, levels=c("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"), ordered=TRUE)
-```
-
-If the variable was already factored and the order is is not as it should be, the ordering can be adjusted as in the example:
-
-```r
-rating_pd = gdata::reorder.factor(rating_pd, new.order=c("AAA", "AA", "A", "BBB", "BB", "B", "CCC", "CC", "C", "D"))
-```
-<a name="dropping-factor-levels"></a>
-## Dropping levels from factors
-
-```r
-drop.levels(tbl_revenue$sector)
-```
-
-# Inspecting data structures
-
-The _glimpse()_ function is a great alternative for the _str()_ function: is shows data-types in a compacter way, and the screen size is taken into consideration for the output.
-
-# Data transformation
-
-## The trouble with currency
+# The trouble with currency
 
 Since I live on the European mainland, I often get currency data delivered that doesn't comply to the English/US standard. Decimal separators are commas instead of points and big number separators are decimals. If you want to turn these currencies into the R/US/English compliant versions you can use this code.
 
@@ -69,11 +18,11 @@ tbl_revenue %<>% mutate(amt_revenue = gsub("[.]", "", amt_revenue)) %>% # Removi
   mutate(amt_revenue = as.numeric(amt_revenue))
 ```
 
-## Joining tables
+# Joining tables
 
 Joining tables is most commonly done using the **dplyr** library. Joins of the dplyr library are more comprehensive than in SQL. Joins from dplyr transforms data in a way that SQL would take care of by using _IN_ or _NOT IN_ statements in the _WHERE_ clause.
 
-### Join types
+## Join types
 
 *   _inner_join(table_x, table_y)_ - Same as SQL, returns all rows from x where there are matching values in y, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.
 *   _left_join(table_x, table_y)_ - Same as SQL, returns all rows from x, and all columns from x and y. If there are multiple matches between x and y, all combination of the matches are returned.
@@ -82,7 +31,7 @@ Joining tables is most commonly done using the **dplyr** library. Joins of the d
 *   _semi_join(table_x, table_y)_ - Returns all rows from x where there are matching values in y, keeping just columns from x.
 *   _anti_join(table_x, table_y)_ - Returns all rows from x where there are not matching values in y, keeping just columns from x.
 
-### Key matching
+## Key matching
 
 When joining the tables, the key(s) on which you join is specified in the specified in the _by_ argument of the joining function (the SQL equivalent of _ON_).
 
@@ -98,11 +47,11 @@ inner_join(table_x, table_y, by="key_column")
 inner_join(table_x, table_y, by=c("key_column_x"="key_column_y"))
 ```
 
-## Stacking tables
+# Stacking tables
 
 Stacking tables, the SQL equivalent is _UNION_ statement, is done by the _bind_rows(table_a, table_b, ..., table_z)_ function. If the names of the tables match, the operation is performed automatically, irrespective of the column order.
 
-## Completing data
+# Completing data
 
 Sometimes we want to make sure certain combinations are always present in a data frame, but sometimes that doesn't happen in the actual data itself. Let's take an example from the tutorial on [text mining](/mining-alices-wonderland/). Here we have a set of data with characters and sentiments. It could be not all characters have sentiments in the data, but we do want them in the dataset to show they are missing. To achieve this we can use the [_complete_](http://tidyr.tidyverse.org/reference/complete.html) function. The first argument in this function specifies which group we want to complete (the characters), then we specify which unique values we want to fill put when missing by using the _sentiment_ variable within the _nesting_ function. In the _fill_ parameter we specify the values we want to give to the variables when the new sentiments are added.
 
@@ -113,7 +62,7 @@ tbl_person_sentiments %<>%
                                                     perc_sentiments = 0))
 ```
 
-## Recoding data
+# Recoding data
 
 Sometimes labels for groups of data are almost right, but just need a little tweaking: you want to replace the old versions with new versions. This is the code to achieve this. Remember to refactor the variable after this to take effect.
 
@@ -133,7 +82,7 @@ mtcars %>% mutate(carb_new = case_when(.$carb == 1 ~ "one",
                                        ELSE ~ "other" ))
 ```
 
-## Binning data
+# Binning data
 
 There are three ways of binning data:
 
@@ -152,7 +101,7 @@ iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, rep(5:10)))
 iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, c(-Inf, 6, 7, Inf)))
 ```
 
-## Aggregates on non-aggregates
+# Aggregates on non-aggregates
 
 Sometimes you want to have the values of aggregates on the non-aggregated level. Let's take an example from a data-set _iris_. This data-set contains measurements of petals and sepals (the large 'under'-flowers). Below you see a sample of this data.
 

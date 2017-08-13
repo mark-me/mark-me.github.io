@@ -9,9 +9,10 @@ Here I put snippets and tips, I’ve divided them in sections:
 
 * [R Studio tips](/r-studio-tips/)
 * [Script structuring](/script-structuring/)
-* [Data basics](/data-basics/)
-* [Data inspection](/data-inspection/)
+* [Data types](/data-types/)
 * [Meta-data manipulation](/meta-data-manipulation/)
+* [Data inspection](/data-inspection/)
+* [Data transformation](/data-transformation/)
 * [Importing and exporting](/importing-exporting/)
 * [Graphs](/graph-tips/)
 
