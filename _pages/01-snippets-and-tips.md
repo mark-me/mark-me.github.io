@@ -18,6 +18,6 @@ Here I put snippets and tips, I’ve divided them in sections:
 
 
 <div class="boxed">
-<blogheader><a href="{{ prepend: site.baseurl }}/r-studio-tips/"></a>R Studio tips</blogheader>
+<blogheader><a href="{{ prepend: site.baseurl }}/r-studio-tips/"></a>R Studio tips</blogheader><br>
 Description<br>
 </div>
