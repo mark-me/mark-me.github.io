@@ -1,4 +1,4 @@
----
+----
 layout: page
 title: Snippets and tips
 permalink: /snippets-and-tips/
@@ -25,6 +25,22 @@ Description
 <div class="box_pages">
 <img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/script-structuring/">Script structuring</a><br>
+Making scripts easier to read and navigate.
+<br>
+</div>
+</div>
+
+<div id="wrap">
+<div class="box_pages">
+<img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
+<a href="/data-types/">Data types and structures</a><br>
+Description
+<br>
+</div>
+<br>
+<div class="box_pages">
+<img src="/_pages/snippets-and-tips/meta-data.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
+<a href="/meta-data-manipulation/">Meta-data manipulation</a><br>
 Making scripts easier to read and navigate.
 <br>
 </div>
