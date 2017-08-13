@@ -18,7 +18,8 @@ Here I put snippets and tips, I’ve divided them in sections:
 
 
 <div class="boxed">
-<img src="_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" width="70" height="70" align="left"/>
+<img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" width="70" height="70" align="left"/>
 <a href="/r-studio-tips/">R Studio tips</a><br>
-Description<br>
+Description
+<br><br>
 </div>
