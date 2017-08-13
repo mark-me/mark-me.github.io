@@ -22,7 +22,7 @@ Description
 </div>
 <br>
 <div class="boxed">
-<img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" hspace="20" width="60" height="60" align="left"/>
+<img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/script-structuring/">Script structuring</a><br>
 Making scripts easier to read and navigate.
 <br>
