@@ -95,10 +95,18 @@ blogtext{
   box-shadow: 2px 2px 2px RGBA(4, 25, 54, .1);
   padding: 5px 10px;
 }
-.boxed_pages {
-  border: 1px solid $light;
-  box-shadow: 2px 2px 2px RGBA(4, 25, 54, .1);
-  padding: 5px 2px;
+
+#wrap{
+    width:100%;
+    margin:0 auto;
+}
+.box_pages{
+    float:left;
+    width:48%;
+    height:200px;
+    background:orange;
+    border:2px solid red;
+    margin:0 auto;
 }
 
 /**
