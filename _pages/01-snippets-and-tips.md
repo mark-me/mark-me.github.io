@@ -9,7 +9,7 @@ navigation_weight: 1
 <img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/r-studio-tips/">R Studio tips</a><br>
 Tips on working with R Studio.
-<br><br>
+<br>
 </div>
 
 <div class="boxed">
