@@ -5,15 +5,6 @@ permalink: /snippets-and-tips/
 navigation_weight: 1
 ---
 
-* [R Studio tips](/r-studio-tips/)
-* [Script structuring](/script-structuring/)
-* [Data types and structures](/data-types/)
-* [Meta-data manipulation](/meta-data-manipulation/)
-* [Data inspection](/data-inspection/)
-* [Data transformation](/data-transformation/)
-* [Importing and exporting](/importing-exporting/)
-* [Graphs](/graph-tips/)
-
 <div class="boxed">
 <img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/r-studio-tips/">R Studio tips</a><br>
@@ -22,7 +13,7 @@ Tips on working with R Studio.
 </div>
 
 <div class="boxed">
-<img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
+<img src="/_pages/snippets-and-tips/script-structuring.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/script-structuring/">Script structuring</a><br>
 Making scripts easier to read and navigate.
 <br><br>
