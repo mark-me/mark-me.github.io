@@ -27,3 +27,17 @@ Description
 Making scripts easier to read and navigate.
 <br><br>
 </div>
+
+<div class="boxed">
+<img src="/_pages/snippets-and-tips/data-types.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
+<a href="/data-types/">Data types and structures</a><br>
+Description
+<br><br>
+</div>
+
+<div class="boxed">
+<img src="/_pages/snippets-and-tips/meta-data.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
+<a href="/meta-data-manipulation/">Meta-data manipulation</a><br>
+Making scripts easier to read and navigate.
+<br><br>
+</div>
