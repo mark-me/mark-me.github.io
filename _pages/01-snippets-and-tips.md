@@ -3,7 +3,7 @@ layout: page
 title: Snippets and tips
 permalink: /snippets-and-tips/
 navigation_weight: 1
----
+----
 
 * [R Studio tips](/r-studio-tips/)
 * [Script structuring](/script-structuring/)
