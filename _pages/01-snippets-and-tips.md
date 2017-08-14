@@ -20,7 +20,7 @@ navigation_weight: 1
 Description
 <br>
 </div>
-<br>
+
 <div class="boxed">
 <img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
 <a href="/script-structuring/">Script structuring</a><br>
