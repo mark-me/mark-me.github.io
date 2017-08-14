@@ -1,4 +1,4 @@
-<br><br>---
+---
 layout: page
 title: Snippets and tips
 permalink: /snippets-and-tips/
