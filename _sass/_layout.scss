@@ -96,6 +96,8 @@ blogtext{
   padding: 5px 10px;
 }
 .boxed_page {
+  border: 1px solid $light;
+  box-shadow: 2px 2px 2px RGBA(4, 25, 54, .1);	
   padding: 10px 7px;
   margin-top: 7px;
 }
