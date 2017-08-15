@@ -6,8 +6,8 @@ navigation_weight: 1
 ---
 {% assign rows = site.data.snippet-index.size | divided_by: 2.0 | ceil %}
 {% for i in (1..rows) %}
-  <div>
   {% assign offset = forloop.index0 | times: 2 %}
+    <div>
     {% for page in site.data.snippet-index limit:2 offset:offset %}
         <div class="boxed_page">
             <div>
@@ -20,7 +20,7 @@ navigation_weight: 1
             </div>
         <div>
     {% endfor %}
-  </div>
+    </div>
 {% endfor %}
 
 
