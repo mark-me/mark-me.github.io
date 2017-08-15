@@ -105,6 +105,12 @@ blogtext{
 }
 #left { float:left }
 #right { float:right }
+.container {
+  display: flex;
+}
+.container > div {
+  flex: 1; /*grow*/
+}
 
 /**
  * Navigation bar
