@@ -98,15 +98,8 @@ blogtext{
 .boxed_page {
   border: 1px solid $light;
   box-shadow: 2px 2px 2px RGBA(4, 25, 54, .1);	
-  padding: 10px 7px;
+  padding: 5px 7px;
   margin-top: 7px;
-}
-#left_page {
-  width: 50%;
-  float: left;
-}
-#right_page {
-  margin-left: 50%;
 }
 
 /**
