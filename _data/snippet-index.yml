@@ -1,0 +1,39 @@
+- title: R Studio tips
+  description: Tips on working with R Studio.
+  url: /r-studio-tips/
+  image: /_pages/snippets-and-tips/r-studio-tips.png
+
+- title: Script structuring
+  url: /script-structuring/
+  description: Making easier to reading and navigation.
+  image: /_pages/snippets-and-tips/script-structuring.png
+
+- title: Importing and exporting
+  url: /importing-exporting/
+  description: Mutating, restructuring, grouping and summing data. 
+  image: /_pages/snippets-and-tips/importing-exporting.png
+
+- title: Data types and structures
+  url: /data-types/
+  description: Information on data types and data structures and how to handle them.
+  image: /_pages/snippets-and-tips/data-types.png
+  
+- title: Meta-data manipulation
+  url: /meta-data-manipulation/
+  description: Review and edit metadata. 
+  image: /_pages/snippets-and-tips/meta-data.png
+  
+- title: Data transformation
+  url: /script-structuring/
+  description: Mutating, restructuring, grouping and summing data.
+  image: /_pages/snippets-and-tips/data-transformation.png
+  
+- title: Data inspection
+  url: /data-inspection/
+  description: Making summaries to inspect data.
+  image: /_pages/snippets-and-tips/data-inspection.png  
+  
+- title: Graphs
+  url: /graphs/
+  description: Mutating, restructuring, grouping and summing data.
+  image: /_pages/snippets-and-tips/graphs.png
