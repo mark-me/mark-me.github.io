@@ -34,6 +34,6 @@
   image: /_pages/snippets-and-tips/data-inspection.png  
   
 - title: Graphs
-  url: /graphs/
+  url: /graph-tips/
   description: Mutating, restructuring, grouping and summing data.
   image: /_pages/snippets-and-tips/graphs.png
