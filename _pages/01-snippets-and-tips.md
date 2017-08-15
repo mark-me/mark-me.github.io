@@ -41,7 +41,7 @@ navigation_weight: 1
       <br>
     </div>
   </div>
-</div
+</div>
 
 <div id="container">
   <div id="left_page">
