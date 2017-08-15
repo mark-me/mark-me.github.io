@@ -97,7 +97,7 @@ blogtext{
 }
 .boxed_page {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100vh;	
   border: 1px solid $light;
   box-shadow: 2px 2px 2px RGBA(4, 25, 54, .1);	
