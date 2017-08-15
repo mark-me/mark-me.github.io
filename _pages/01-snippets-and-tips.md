@@ -5,7 +5,6 @@ permalink: /snippets-and-tips/
 navigation_weight: 1
 ---
 
-<ul>
 {% for page in site.data.snippet-index %}
   <div class="boxed_page">
     <img src="{{ page.image }}" alt="Image text" style="margin: 0px 10px" width="48" height="48" align="left"/>
@@ -13,9 +12,8 @@ navigation_weight: 1
     {{ page.description }}
     <br>
   </div>
-  <li>
 {% endfor %}
-</ul>
+
 
 <div id="container">
   <div id="left_page">
