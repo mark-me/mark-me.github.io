@@ -5,6 +5,16 @@ permalink: /snippets-and-tips/
 navigation_weight: 1
 ---
 
+<ul>
+{% for page in site.data.snippet-index %}
+  <li>
+    <a href="{{ page.url }}">
+      {{ page.title }}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+
 <div id="container">
   <div id="left_page">
     <div class="boxed_page">
