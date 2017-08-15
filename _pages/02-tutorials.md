@@ -5,8 +5,12 @@ permalink: /tutorials/
 navigation_weight: 2
 ---
 
-I've created some tutorials:
-
-* [Creating your own project template](/project-template/)
-* [Working with networked graphs in ggraph](/network-graphs-ggraph/)
-* [Mining Alice's Wonderland](/mining-alices-wonderland/)
+{% for page in site.data.tutorial-index %}
+  <div class="boxed_page">
+    <img src="{{ page.image }}" alt="Image text" style="margin: 0px 10px" width="48" height="48" align="left"/>
+    <a href="{{ page.url }}">{{ page.title }}</a><br>
+    {{ page.description }}
+    <br>
+  </div>   
+{% endfor %}
+<br><br>
