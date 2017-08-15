@@ -4,6 +4,7 @@ title: Snippets and tips
 permalink: /snippets-and-tips/
 navigation_weight: 1
 ---
+
 {% assign rows = site.data.snippet-index.size | divided_by: 2.0 | ceil %}
 {% for i in (1..rows) %}
   {% assign offset = forloop.index0 | times: 2 %}
