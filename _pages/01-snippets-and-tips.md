@@ -6,22 +6,24 @@ navigation_weight: 1
 ---
 
 {% for page in site.data.snippet-index %}
-  {{ forloop.index }}
   {% if forloop.index | modulo:2 == 0 %}
     <div id="container">
       <div id="left_page">  
+        <div class="boxed_page">
+          <img src="{{ page.image }}" alt="Image text" style="margin: 0px 10px" width="48" height="48" align="left"/>
+          <a href="{{ page.url }}">{{ page.title }}</a><br>
+          {{ page.description }}
+          <br>
+        </div>   
+      </div>   
   {% else %}
     <div id="right_page">
-  {% endif %}
-  <div class="boxed_page">
-    <img src="{{ page.image }}" alt="Image text" style="margin: 0px 10px" width="48" height="48" align="left"/>
-    <a href="{{ page.url }}">{{ page.title }}</a><br>
-    {{ page.description }}
-    <br>
-  </div>
-  {% if forloop.index | modulo:2 == 0 %}
-    </div>
-  {% else %}
+      <div id="left_page">  
+        <div class="boxed_page">
+          <img src="{{ page.image }}" alt="Image text" style="margin: 0px 10px" width="48" height="48" align="left"/>
+          <a href="{{ page.url }}">{{ page.title }}</a><br>
+          {{ page.description }}
+          <br>
       </div>
     </div>
   {% endif %}  
