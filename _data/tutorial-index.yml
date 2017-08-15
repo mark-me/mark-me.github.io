@@ -10,5 +10,5 @@
   
 - title: Mining Alice’s Wonderland
   url: /project-template/
-  image: _pages/tutorials/mining-alices-wonderland/sentiment-centers.png
+  image: /_pages/tutorials/mining-alices-wonderland/sentiment-centers.png
   description: A sentiment analysis for Alice's Adventures in Wonderland using the tidytext, gutenbergr and ggplot libraries.  
