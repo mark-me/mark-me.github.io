@@ -4,7 +4,7 @@ title: Snippets and tips
 permalink: /snippets-and-tips/
 navigation_weight: 1
 ---
-<div id="left">
+<div id="left_page">
   <div class="boxed_page">
     <img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
     <a href="/r-studio-tips/">R Studio tips</a><br>
@@ -13,7 +13,7 @@ navigation_weight: 1
   </div>
 </div>
 
-<div id="left">
+<div id="right_page">
   <div class="boxed_page">
     <img src="/_pages/snippets-and-tips/script-structuring.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
     <a href="/script-structuring/">Script structuring</a><br>
