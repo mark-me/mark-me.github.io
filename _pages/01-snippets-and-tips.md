@@ -18,7 +18,7 @@ navigation_weight: 1
     <div class="boxed_page">
       <img src="/_pages/snippets-and-tips/script-structuring.png" alt="Image text" style="margin: 0px 10px" width="48" height="48" align="left"/>
       <a href="/script-structuring/">Script structuring</a><br>
-      Making scripts easier to read and navigate.
+      Making easier to reading and navigation.
       <br>
     </div>
   </div>
