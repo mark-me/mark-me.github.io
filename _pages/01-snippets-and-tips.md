@@ -13,11 +13,13 @@ navigation_weight: 1
   </div>
 </div>
 
-<div class="boxed_page">
-  <img src="/_pages/snippets-and-tips/script-structuring.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
-  <a href="/script-structuring/">Script structuring</a><br>
-  Making scripts easier to read and navigate.
-  <br>
+<div id="left">
+  <div class="boxed_page">
+    <img src="/_pages/snippets-and-tips/script-structuring.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
+    <a href="/script-structuring/">Script structuring</a><br>
+    Making scripts easier to read and navigate.
+    <br>
+  </div>
 </div>
 
 <div class="boxed_page">
