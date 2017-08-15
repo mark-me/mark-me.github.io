@@ -109,6 +109,7 @@ blogtext{
 }
 .index_item_right > div {
   flex: 1; /*grow*/
+  overflow-y: auto;
 }
 
 /**
