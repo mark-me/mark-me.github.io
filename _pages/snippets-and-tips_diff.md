@@ -1,13 +1,19 @@
-<div class="box_pages">
-<img src="/_pages/snippets-and-tips/r-studio-tips.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
-<a href="/r-studio-tips/">R Studio tips</a><br>
-Description
-<br>
-</div>
-<br>
-<div class="box_pages">
-<img src="/_pages/snippets-and-tips/data-transformation.png" alt="Image text" style="margin: 0px 10px" width="60" height="60" align="left"/>
-<a href="/script-structuring/">Script structuring</a><br>
-Making scripts easier to read and navigate.
-<br>
-</div>
+
+{% assign rows = site.data.snippet-index.size | divided_by: 2.0 | ceil %}
+{% for i in (1..rows) %}
+  {% assign offset = forloop.index0 | times: 2 %}
+  <div>
+    {% for page in site.data.snippet-index limit:2 offset:offset %}
+        <div class="boxed_page">
+            <div>
+              <img src="{{ page.image }}" alt="Image text" style="margin: 0px 10px" width="54" height="54" align="left"/>
+            </div>
+            <div>
+              <a href="{{ page.url }}">{{ page.title }}</a><br>
+              {{ page.description }}
+              <br>
+            </div>
+        <div>
+    {% endfor %}
+  </div>
+{% endfor %}
