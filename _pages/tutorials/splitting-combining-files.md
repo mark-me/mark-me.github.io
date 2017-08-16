@@ -15,7 +15,7 @@ First we're going to define:
 
 1. how many output files we want, 
 2. what the input file is and
-3. what the location and base name of the output files are
+3. what the location and base name of the output files are.
 
 ```r
 qty_files <- 20                 # The number of files you want to create
@@ -23,4 +23,19 @@ file_input <- "~/input.csv"     # The file you want to split
 file_output_base <- "~/output"  # The base of the output filename
 ```
 
+
+
 # Combining files
+
+To combine multiple CSV files in one data frame we're going to need those CSV file names first.  For this we're going to use the _list.files_ function together with a regular expression pattern. The pattern in the syntax below assumes the file name starts with 'input', is followed by some characters (.*) and ends with the extension .csv. 
+
+```r 
+filenames <- list.files(pattern="^input.*.csv$")
+```
+
+To combine multiple CSV files in one data frame we're going crazy and using a _do.call_ function and combine that with a _lapply_ function. 
+```r 
+tbl_revenue <- do.call("rbind", lapply(filenames, read.csv, header = TRUE, sep=";", dec=","))
+```
+
+That's all. Since the combining took only two statements I didn't bother to make a downloadable script.
