@@ -26,7 +26,7 @@ file_output_base <- "~/output"  # The base of the output filename
 Next we're going to read the input file and afterwards determine the number of rows we're going to split the file by. If you'd want to use the 'by x rows' scenario, you can replace the code following the ```qty recs <- ``` by the number of desired rows.
 
 ```r
-df_input <- read.csv2(file_input)              # (";" seperated is assumed, use read.csv for "," separated)
+df_input <- read.csv2(file_input)  # (";" seperated is assumed, use read.csv for "," separated)
 qty_recs <- ceiling(nrow(df_input)/qty_files) 
 ```
 
