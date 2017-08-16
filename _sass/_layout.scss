@@ -90,6 +90,7 @@ blogtext{
 	max-width: $content-width;
 	margin: 0 auto;
 }
+
 .boxed {
   border: 1px solid $light;
   box-shadow: 2px 2px 2px RGBA(4, 25, 54, .1);
@@ -112,7 +113,7 @@ blogtext{
 .index_item_left {
   border: 1px solid $light;
   flex: initial;
-  width: 60px;
+  width: 100px;
 }
 .index_item_right > div {
   border: 1px solid $light;
