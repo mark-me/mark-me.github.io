@@ -34,6 +34,7 @@ Having the data loaded and knowing the number of records we want to put in each 
 ```r
 lst_outputs <- split(df_input, (as.numeric(rownames(df_input))-1) %/% qty_recs)
 ```
+Let's 
 
 # Combining files
 
