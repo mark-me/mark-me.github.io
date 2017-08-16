@@ -12,3 +12,9 @@
   url: /project-template/
   image: /_pages/tutorials/mining-alices-wonderland/sentiment-centers.png
   description: A sentiment analysis for Alice's Adventures in Wonderland using the tidytext, gutenbergr and ggplot libraries.  
+  
+- title: Splitting and combining files
+  url: /splitting-combining-files/
+  image: /_pages/tutorials/splitting-combining-files.png
+  description: Splitting and/or combining files.... Nothing more.
+  
