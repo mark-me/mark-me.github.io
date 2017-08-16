@@ -5,14 +5,25 @@ permalink: /snippets-and-tips/
 navigation_weight: 1
 ---
 
-<div class="boxed_page">
-  <div class="index_item_left">
-    Left
-  </div>
-  <div class="index_item_right">
-    Right
-  </div>
+<div class="box_row">
+    <div class="boxed_page">
+      <div class="index_item_left">
+        Left
+      </div>
+      <div class="index_item_right">
+        Right
+      </div>
+    </div>
+    <div class="boxed_page">
+      <div class="index_item_left">
+        Left
+      </div>
+      <div class="index_item_right">
+        Right
+      </div>
+    </div>
 </div>
+
 
 {% assign rows = site.data.snippet-index.size | divided_by: 2.0 | ceil %}
 {% for i in (1..rows) %}
