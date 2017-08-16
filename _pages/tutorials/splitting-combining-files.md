@@ -40,7 +40,7 @@ Now we have a list, in which each item is a part of the input data frame. You ca
 ```r
 names(lst_outputs) <- paste0("output_", 1:length(lst_outputs))
 ```
-Now the list items are named, we can use the lapply function to 'iterate' over all data frames (the ```1:length(lst_outputs)``` part). We create a inline function in which we call the _write.csv2_ function, where eacht dataframe in the list is passed with ```lst_outputs[[i]]```, the filenames are created ```file = paste0(names(lst_outputs[i]), ".csv")````.
+Now the list items are named, we can use the lapply function to 'iterate' over all data frames (the ```1:length(lst_outputs)``` part). We create a inline function in which we call the _write.csv2_ function, where eacht dataframe in the list is passed with ```lst_outputs[[i]]```, the filenames are created ```file = paste0(names(lst_outputs[i]), ".csv")```.
 ```r
 lapply(1:length(lst_outputs), 
        function(i)
