@@ -34,7 +34,7 @@ Having the data loaded and knowing the number of records we want to put in each 
 ```r
 lst_outputs <- split(df_input, (as.numeric(rownames(df_input))-1) %/% qty_recs)
 ```
-Let's 
+Let's go through what's happening here. Basicly we take the data frame's rownames (which are the rownumbers as strings by default), and divide that by the _qty_records_ field, and round that to and integer. You can't see a 'round'-like function here, because it is made redundant by using the ```%/%``` operator; which is called the integer division. This results in a vector with the same number for _qty_records_ records, which is used by the _split_ function to split the dataframe on each number change.
 
 # Combining files
 
@@ -43,7 +43,7 @@ To combine multiple CSV files in one data frame we're going to need those CSV fi
 filenames <- list.files(pattern="^input.*.csv$")
 ```
 
-To combine multiple CSV files in one data frame we're going crazy and using a _do.call_ function and combine that with a _lapply_ function. 
+To combine multiple CSV files in one data frame we're going crazy and using a _do.call_ function and combine that with a _lapply_ function. With the ```lapply(filenames, read.csv, header = TRUE, sep=";", dec=",")```
 ```r 
 tbl_revenue <- do.call("rbind", lapply(filenames, read.csv, header = TRUE, sep=";", dec=","))
 ```
