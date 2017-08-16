@@ -23,15 +23,14 @@ file_input <- "~/input.csv"     # The file you want to split
 file_output_base <- "~/output"  # The base of the output filename
 ```
 
-Next we're going to read the input file and afterwards determine the number of rows we're going to split the file by. If you'd want to use the 'by x rows' scenario, you can replace the code following the ```r qty recs <- ``` by the number of desired rows.
+Next we're going to read the input file and afterwards determine the number of rows we're going to split the file by. If you'd want to use the 'by x rows' scenario, you can replace the code following the ```qty recs <- ``` by the number of desired rows.
 
-'''r
+```r
 df_input <- read.csv2(file_input)              # (";" seperated is assumed, use read.csv for "," separated)
 qty_recs <- ceiling(nrow(df_input)/qty_files) 
-'''
+```
 
 Having the data loaded and knowing the number of records we want to put in each output file, we will create a list of data frames by splitting the input data frame.
-
 ```r
 lst_outputs <- split(df_input, (as.numeric(rownames(df_input))-1) %/% qty_recs)
 ```
@@ -39,7 +38,6 @@ lst_outputs <- split(df_input, (as.numeric(rownames(df_input))-1) %/% qty_recs)
 # Combining files
 
 To combine multiple CSV files in one data frame we're going to need those CSV file names first.  For this we're going to use the _list.files_ function together with a regular expression pattern. The pattern in the syntax below assumes the file name starts with 'input', is followed by some characters (.*) and ends with the extension .csv. 
-
 ```r 
 filenames <- list.files(pattern="^input.*.csv$")
 ```
