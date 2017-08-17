@@ -111,9 +111,11 @@ blogtext{
 }
 .index_item_left {
   flex: initial;
+  margin-right: 7px;
 }
 .index_item_right > div {
   flex: 1; /*grow*/
+  margin-left: 7px;
 }
 
 /**
