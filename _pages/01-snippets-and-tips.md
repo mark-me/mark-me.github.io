@@ -43,17 +43,3 @@ navigation_weight: 1
     {% endfor %}
   </div>
 {% endfor %}
-
-{% for page in site.data.snippet-index %}
-  <div class="boxed_page">
-    <div>
-      <img src="{{ page.image }}" alt="Image text" style="margin: 0px 10px" width="54" height="54" align="left"/>
-    </div>
-    <div>
-      <a href="{{ page.url }}">{{ page.title }}</a><br>
-      {{ page.description }}
-      <br>
-    </div>
-  </div>
-{% endfor %}
-<br><br>
