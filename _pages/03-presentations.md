@@ -5,7 +5,7 @@ permalink: /presentations/
 navigation_weight: 1
 ---
 
-<title>Title</title>
+<title_page>Title</title_page>
 
 # Header 1
 
