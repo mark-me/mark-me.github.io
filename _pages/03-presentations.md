@@ -5,8 +5,6 @@ permalink: /presentations/
 navigation_weight: 1
 ---
 
-Now and then I give R related presentations to collegues, which I collect those here.
-
 {% for page in site.data.presentations-index %}
   <div class="boxed_page">
     <div class = "index_item_left">
