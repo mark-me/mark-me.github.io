@@ -14,7 +14,7 @@ Now and then I give R related presentations to collegues, which I collect those 
     </div>
     <div clas = "index_item_right">
       <p style="text-align:left;"><a href="{{ page.url }}">{{ page.title }}</a><br>&nbsp;<span style="float:right;">
-		<time>&nbsp;•&nbsp;{{ site.author.name}}</time></p>
+		<time>&nbsp;•&nbsp;{{ page.author}}</time></p>
       {{ page.description }}
       <br>
     </div>
