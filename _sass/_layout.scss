@@ -20,6 +20,20 @@ title_header {
 	}
 }
 
+title {
+	font-weight: 600;
+	color: $main;
+	font-family: $heading-font;
+	line-height: 1.5;color: $heading-font-color;
+	font-size: 2em;
+	a,
+	a:visited {
+		text-decoration: none;
+		color: $main;
+	}
+}
+
+
 h1,
 h2,
 h3 {
