@@ -19,7 +19,7 @@
   image: /_pages/snippets-and-tips/data-types.png
   
 - title: Data transformation
-  url: /script-structuring/
+  url: /data-transformation/
   description: Mutating, restructuring, grouping and summing data.
   image: /_pages/snippets-and-tips/data-transformation.png
   
