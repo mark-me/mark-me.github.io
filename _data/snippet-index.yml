@@ -15,18 +15,13 @@
 
 - title: Data types and structures
   url: /data-types/
-  description: Information on data types and data structures and how to handle them.
+  description: Information on data types and data structures and how to create and change them.
   image: /_pages/snippets-and-tips/data-types.png
   
 - title: Meta-data manipulation
   url: /meta-data-manipulation/
   description: Review and edit metadata. 
   image: /_pages/snippets-and-tips/meta-data.png
-  
-- title: Data transformation
-  url: /script-structuring/
-  description: Mutating, restructuring, grouping and summing data.
-  image: /_pages/snippets-and-tips/data-transformation.png
   
 - title: Data inspection
   url: /data-inspection/
