@@ -5,14 +5,6 @@ permalink: /presentations/
 navigation_weight: 1
 ---
 
-<title_page>Title</title_page>
-
-# Header 1
-
-## Header 2
-
-### Header 3
-
 Now and then I give presentations to collegues. I collect those here.
 
 * [Machine learning for the laymen](/machine-learning-layman/) – A presentation given to my collegues of Marketing showing them what machine learning is, the classes of algorithms and some examples of those.
