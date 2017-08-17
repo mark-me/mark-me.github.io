@@ -30,5 +30,5 @@
   
 - title: Graphs
   url: /graph-tips/
-  description: Mutating, restructuring, grouping and summing data.
+  description: Using multiple libraries like ggplot, wordcloud(2), ggmaps....
   image: /_pages/snippets-and-tips/graphs.png
