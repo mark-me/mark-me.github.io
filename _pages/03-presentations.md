@@ -5,7 +5,13 @@ permalink: /presentations/
 navigation_weight: 1
 ---
 
+<title>Title</title>
 
+# Header 1
+
+## Header 2
+
+### Header 3
 
 Now and then I give presentations to collegues. I collect those here.
 
