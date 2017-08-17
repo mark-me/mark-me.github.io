@@ -11,8 +11,7 @@ navigation_weight: 1
       <img src="{{ page.image }}" style="margin: 0px 10px" width="54" height="54" align="left"/>
     </div>
     <div clas = "index_item_right">
-      <p style="text-align:left;"><blogheader><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></blogheader>&nbsp;<span style="float:right;">
-<time>&nbsp;•&nbsp;{{ page.author}}</time></p>
+      <p style="text-align:left;"><blogheader><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></blogheader>&nbsp;•&nbsp;{{ page.author}}</time></p>
       {{ page.description }}
       <br>
     </div>
