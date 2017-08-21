@@ -12,7 +12,7 @@ navigation_weight: 1
     </div>
     <div clas = "index_item_right">
       <blogheader><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></blogheader><time>{% if page.author %}&nbsp;•&nbsp;{{ page.author}}{% endif %}</time>
-      <p>{{ page.description }}</p>
+      <p class="spacer">{{ page.description }}</p>
     </div>
   </div>
 {% endfor %}
