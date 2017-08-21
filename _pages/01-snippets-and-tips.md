@@ -16,7 +16,7 @@ navigation_weight: 1
         </div>
         <div class="index_item_right">
           <a href="{{ page.url }}">{{ page.title }}</a><br>
-          {{ page.description }}
+          <p>{{ page.description }}</p>
           <br>
         </div>
       </div>
