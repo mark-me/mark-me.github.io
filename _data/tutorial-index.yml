@@ -1,23 +1,19 @@
 - title: Creating your own project template
-  author: Mark Zwart
   url: /project-template/
   image: /_pages/tutorials/project-template.png
   description: Using a script that creates a standard setup for your R projects.
   
 - title: Working with networked graphs in ggraph
-  author: Mark Zwart
   url: /network-graphs-ggraph/
   image: /_pages/tutorials/network-graphs.png
   description: Creating network graphs using the ggraph package.
   
 - title: Mining Alice’s Wonderland
-  author: Mark Zwart
   url: /project-template/
   image: /_pages/tutorials/mining-alices-wonderland/sentiment-centers.png
   description: A sentiment analysis for Alice's Adventures in Wonderland using the tidytext, gutenbergr and ggplot libraries.  
   
 - title: Splitting and combining files
-  author: Mark Zwart
   url: /splitting-combining-files/
   image: /_pages/tutorials/splitting-combining-files.png
   description: Splitting and/or combining files.... Nothing more.
