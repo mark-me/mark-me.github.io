@@ -100,7 +100,8 @@ blogtext{
 	text-align: left;
 }
 p.spacer {
-	line-height: 20% 
+    margin-top: 0.5em;
+    margin-bottom: 0.5em; 
 }
 .container {
 	max-width: $content-width;
