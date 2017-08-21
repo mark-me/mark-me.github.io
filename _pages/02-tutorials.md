@@ -12,7 +12,8 @@ navigation_weight: 2
     </div>
     <div clas = "index_item_right">
       <a href="{{ page.url }}">{{ page.title }}</a><time>{% if page.author %}&nbsp;•&nbsp;{{ page.author}}{% endif %}</time><br>
-      <br>{{ page.description }}
+      <p class="spacer">&nbsp;</p>
+      {{ page.description }}
     </div>
   </div>
 {% endfor %}
