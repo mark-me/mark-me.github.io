@@ -17,4 +17,3 @@ navigation_weight: 1
     </div>
   </div>
 {% endfor %}
-<br><br>
