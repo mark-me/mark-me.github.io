@@ -12,7 +12,7 @@ navigation_weight: 1
     {% for page in site.data.snippet-index limit:2 offset:offset %}
       <div class="boxed_page">
         <div class="index_item_left">
-          <img src="{{ page.image }}" alt="Image text" style="margin: 0px 5px" width="54" height="54" align="left"/>
+          <a href="{{ page.url }}"><img src="{{ page.image }}" alt="Image text" style="margin: 0px 5px" width="54" height="54" align="left"/></a>
         </div>
         <div class="index_item_right">
           <a href="{{ page.url }}">{{ page.title }}</a><br>
