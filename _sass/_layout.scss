@@ -204,12 +204,12 @@ footer {
 	overflow: none;
 	bottom:0px;
 	left: 0px;
-    border-top: 1px solid $light;
+    	border-top: 1px solid $light;
 	background-color: #ffffff;
-    color: $link-color;
-    text-align: center;
-    padding: 0.3em 0;
-
+   	color: $link-color;
+    	text-align: center;
+    	padding: 0.3em 0;
+	font-size: 0.7em;
 	a {
 		color: $link-color;
 		&:focus,
