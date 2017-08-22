@@ -11,7 +11,7 @@ title_header {
 	font-weight: 600;
 	text-decoration:underline;
 	color: #FFFFFF;
-	line-height: 1.2;
+	line-height: 2.2;
 	color: #FFFFFF;
 	font-size: 2.5em;
 	a,
@@ -24,15 +24,15 @@ title_header {
 title_subheader {
 	font-weight: 600;
 	color: $heading-font;
-	line-height: 1.2;
+	line-height: 2.2;
 	font-size: 2.5em;
 }
 
 title_page {
 	font-weight: 600;
-	color: $heading-font;
 	font-family: $heading-font;
-	line-height: 1.5;color: $heading-font-color;
+	line-height: 1.5;
+	color: $heading-font-color;
 	font-size: 2em;
 	a,
 	a:visited {
