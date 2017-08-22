@@ -9,6 +9,20 @@ body {
 
 title_header {
 	font-weight: 600;
+	text-decoration:underline;
+	color: #FFFFFF;
+	line-height: 1.2;
+	color: #FFFFFF;
+	font-size: 2.5em;
+	a,
+	a:visited {
+		text-decoration: none;
+		color: #FFFFFF;
+	}
+}
+
+title_subheader {
+	font-weight: 600;
 	color: #FFFFFF;
 	line-height: 1.2;
 	color: #FFFFFF;
