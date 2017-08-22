@@ -7,7 +7,7 @@ navigation_weight: 5
 {% for post in site.posts %}
 <div class="boxed">
 		<p style="text-align:left;"><blogheader><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></blogheader>&nbsp;<span style="float:right;">
-		<time>{{ post.date | date: "%-d-%m-%Y" }}&nbsp;•&nbsp;{{ site.author.name}}</time></p>
+		<time>{{ site.author.name}}&nbsp;•&nbsp;{{ post.date | date: "%-d-%m-%Y" }}</time></p>
 		<p><blogtext>{{ post.content }}</blogtext></p>
 </div> 		
 {% endfor %}
