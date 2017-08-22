@@ -18,7 +18,7 @@ If you adhere to certain column naming conventions (like using the prefix _amt__
 *   _matches():_ matches a regular expression
 *   _num_range():_ a numerical range like x01, x02, x03.
 *   _one_of():_ variables in character vector.
-*   _everything():_ all variables.
+*   _everything():_ all variables, except those previously used in the select statement. This makes it an ideal candidate for column re-ordering.
 
 An example with the iris data-set (form the **tidyverse**) is:
 
