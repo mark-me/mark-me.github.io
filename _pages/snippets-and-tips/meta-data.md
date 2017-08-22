@@ -30,20 +30,3 @@ You can reorder all columns by _select_ing them one by one, but by making use of
 mtcars %<>% select(cyl, disp, hp, everything())
 ```
 
-# Selecting multiple columns at once
-
-If you adhere to certain column naming conventions (like using the prefix _amt__ for currency columns), you can use certain functions to select multiple columns in one statement.
-
-*   _starts_with():_ starts with a prefix
-*   _ends_with():_ ends with a prefix
-*   _contains():_ contains a literal string
-*   _matches():_ matches a regular expression
-*   _num_range():_ a numerical range like x01, x02, x03.
-*   _one_of():_ variables in character vector.
-*   _everything():_ all variables.
-
-An example with the iris data-set (form the **tidyverse**) is:
-
-```r
-select(iris, starts_with("Petal"))
-```
