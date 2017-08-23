@@ -22,7 +22,7 @@ If we want to group customers by similarity, we need a measure(s) of their simil
 * **Euclidian distance**: this is the distance we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. <img src="/_pages/tutorials/kmeans/manhattan.jpg" width="376" height="251" align="right"/> 
 * **Manhattan distance**: this is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not
 * **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
-* **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets.
+* **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)).
 
 In addition correltion coefficient can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here.
 
