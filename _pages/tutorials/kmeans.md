@@ -3,6 +3,7 @@ layout: post
 title: k-Means Clustering
 comments: true
 permalink: /kmeans/
+published: false
 ---
 
 k-Means clustering is one of the techniques that make sense of large clouds of observations by grouping them.
