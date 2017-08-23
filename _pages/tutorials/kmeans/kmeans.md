@@ -6,7 +6,11 @@ permalink: /clustering-methods/
 published: true
 ---
 
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters). ([Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis))
+
 k-Means clustering is one of the techniques that make sense of large samples of observations by grouping them on similar behaviour. For example, we have the idea that we can group customers by the kinds of articles they buy. In cluster analysis terms this means we want to see if we can group customers by similarity. 
+
+
 
 # Determining a distance measure
 
