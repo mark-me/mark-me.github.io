@@ -6,7 +6,11 @@ permalink: /kmeans/
 published: false
 ---
 
-k-Means clustering is one of the techniques that make sense of large clouds of observations by grouping them.
+k-Means clustering is one of the techniques that make sense of large clouds of observations by grouping them. 
+
+# Data preparation
+
+When the data we choose to cluster 
 
 # Determining clusterability
 
