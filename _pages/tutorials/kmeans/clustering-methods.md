@@ -17,7 +17,7 @@ In this tutorial I explore:
 
 # Determining similarity (distance)
 
-If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four most important are:
+If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four I found most useful are:
 
 * **Euclidian distance**: this is the distance we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. <img src="manhattan.jpg" width="376" height="251" align="right"/> 
 * **Manhattan distance**: this is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not
@@ -45,10 +45,11 @@ The value of distance measures is intimately related to the scale on which measu
 ## Hopkins statistic
 
 
-## 
+# k-Means clustering
 
 
-# Choosing k
+
+## Choosing k
 
 The k-means clustering algorithm splits the data into a set of k clusters, where k must by us. Each cluster is represented by means of points belonging to the cluster, the so-called medioid. Although we have the final say what k must be, it is cannot be based on wish thinking. The optimal k is determined by similarity of objects: objects within a cluster should be as similar as possible, whereas objects from different clusters should be as dissimilar as possible.
 
