@@ -10,7 +10,7 @@ k-Means clustering is one of the techniques that make sense of large samples of 
 
 # Data preparation
 
-## Distance
+## Choosing a distance measure
 
 If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters.
 There are many distance metrics, but the four most important are:
@@ -22,6 +22,9 @@ There are many distance metrics, but the four most important are:
 
 In addition correltion coefficient can also be turned into distance measures by subtracting them from zero. 
 
+## Scaling
+
+The value of distance measures is intimately related to the scale on which measurements are made. 
 
 # Determining clusterability
 
