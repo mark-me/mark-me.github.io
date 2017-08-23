@@ -6,13 +6,16 @@ permalink: /clustering-methods/
 published: true
 ---
 
-Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters). ([Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis))
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters) (source: [Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis)). Cluster is usually used to make sense of large samples of observations by grouping them on similar behaviour. For example: we have the idea that we can group customers by the kinds of articles they buy, but the large population of customers does not let us readily see how these groups are formed, or even if they are there. 
 
-k-Means clustering is one of the techniques that make sense of large samples of observations by grouping them on similar behaviour. For example, we have the idea that we can group customers by the kinds of articles they buy. In cluster analysis terms this means we want to see if we can group customers by similarity. 
+In this tutorial I explore:
 
+* what kinds of similarity we can calculate, 
+* how these result in choices of clustering algorithms,
+* how we execute these algorithms in R
+* and how we use the results withing the *tidy* framework
 
-
-# Determining a distance measure
+# Determining similarity (distance)
 
 If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four most important are:
 
