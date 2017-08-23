@@ -45,7 +45,7 @@ The value of distance measures is intimately related to the scale on which measu
 ## Hopkins statistic
 
 
-# k-Means clustering
+# Means clustering
 
 
 
@@ -65,3 +65,12 @@ The **[factoextra](http://www.sthda.com/english/rpkgs/factoextra/#cluster-analys
 ```r
 kmeans(x, centers, iter.max = 10, nstart = 1)
 ```
+
+# Median clustering
+
+
+
+# Mediod clustering
+
+[PAM](http://www.sthda.com/english/wiki/partitioning-cluster-analysis-quick-start-guide-unsupervised-machine-learning#pam-partitioning-around-medoids)
+
