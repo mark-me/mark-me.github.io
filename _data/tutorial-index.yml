@@ -18,7 +18,7 @@
   image: /_pages/tutorials/splitting-combining-files.png
   description: Splitting and/or combining files.... Nothing more.
   
-#- title: k-Means clustering
-#  url: /kmeans/
+#- title: Clustering methods
+#  url: /clustering-methods/
 #  image: /_pages/tutorials/kmeans.png
-#  description: Doing k-Means clustering, and using it within the tidy framework.  
+#  description: Choosing and executing different clustering methods, and using it within the tidy framework.  
