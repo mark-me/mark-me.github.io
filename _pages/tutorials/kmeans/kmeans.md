@@ -12,12 +12,15 @@ k-Means clustering is one of the techniques that make sense of large samples of 
 
 ## Distance
 
-If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are 
+If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters.
+There are many distance metrics, but the four most important are:
 
-* Hamming distances: the number of positions between two strings of equal length at which the corresponding symbols are different.
-* Jaccard distance: the inverse of the number of elements both observations share divided (compared to), all elements in both sets
+* **Euclidian distance**: this is the distance we're all used to: the shortest distance between two points.
+* **Manhattan distance**: this is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings.  
+* **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
+* **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets.
 
-
+In addition coefficient measures can also be used as a distance measure, bu sub
 
 
 # Determining clusterability
