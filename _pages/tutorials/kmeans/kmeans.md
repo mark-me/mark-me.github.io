@@ -3,7 +3,7 @@ layout: post
 title: Clustering methods
 comments: true
 permalink: /clustering-methods/
-published: false
+published: true
 ---
 
 k-Means clustering is one of the techniques that make sense of large samples of observations by grouping them on similar behaviour. For example, we have the idea that we can group customers by the kinds of articles they buy. In cluster analysis terms this means we want to see if we can group customers by similarity. 
