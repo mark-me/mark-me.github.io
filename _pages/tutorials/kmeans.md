@@ -6,11 +6,18 @@ permalink: /kmeans/
 published: false
 ---
 
-k-Means clustering is one of the techniques that make sense of large clouds of observations by grouping them. 
+k-Means clustering is one of the techniques that make sense of large samples of observations by grouping them on similar behaviour. For example, we have the idea that we can group customers by the kinds of articles they buy. In cluster analysis terms this means we want to see if we can group customers by similarity. 
 
 # Data preparation
 
-When the data we choose to cluster 
+## Distance
+
+If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are 
+
+* Hamming distances: the number of positions between two strings of equal length at which the corresponding symbols are different.
+
+
+
 
 # Determining clusterability
 
