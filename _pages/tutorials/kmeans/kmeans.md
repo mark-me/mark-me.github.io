@@ -15,6 +15,7 @@ k-Means clustering is one of the techniques that make sense of large samples of 
 If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are 
 
 * Hamming distances: the number of positions between two strings of equal length at which the corresponding symbols are different.
+* Jaccard distance: the inverse of the number of elements both observations share divided (compared to), all elements in both sets
 
 
 
