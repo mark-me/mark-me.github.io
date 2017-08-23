@@ -24,7 +24,7 @@ If we want to group customers by similarity, we need a measure(s) of their simil
 * **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
 * **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets.
 
-In addition correltion coefficient can also be turned into distance measures by subtracting them from zero. 
+In addition correltion coefficient can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here.
 
 # Choosing a clustering algorithm
 
