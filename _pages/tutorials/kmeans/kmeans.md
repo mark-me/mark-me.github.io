@@ -20,7 +20,7 @@ There are many distance metrics, but the four most important are:
 * **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
 * **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets.
 
-In addition coefficient measures can also be used as a distance measure, bu sub
+In addition correltion coefficient can also be turned into distance measures by subtracting them from zero. 
 
 
 # Determining clusterability
