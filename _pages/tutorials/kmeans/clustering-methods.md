@@ -19,7 +19,7 @@ In this tutorial I explore:
 
 If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four I found most useful are:
 
-* **Euclidian distance**: this is the distance we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. <img src="manhattan.jpg" width="376" height="251" align="right"/> 
+* **Euclidian distance**: this is the distance we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. <img src="/_pages/tutorials/kmeans/manhattan.jpg" width="376" height="251" align="right"/> 
 * **Manhattan distance**: this is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not
 * **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
 * **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets.
