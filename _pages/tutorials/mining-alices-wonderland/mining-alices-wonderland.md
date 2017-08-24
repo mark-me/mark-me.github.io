@@ -420,6 +420,7 @@ The result of the ggplot created above is this:
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" alt="Sentiment profile" width="780" height="397" align="center"/>
 <i class='fa fa-search-plus '></i> Zoom</a>
+
 Here we can see that Alice's profile is 'flat', which makes sense since she served as the base. We can see that the Rabbit is somewhat more associated with feelings of anticipation and trust, but evokes less disgust. The Cheshire cat, on the other hand, evokes plenty of disgust and surprise and is not well trusted.
 
 ## And a stupid version
