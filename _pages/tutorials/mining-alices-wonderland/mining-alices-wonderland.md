@@ -400,7 +400,7 @@ The ggplot Pluchtick wheel function needs a radius to be drawn for an optimal si
 max_radius <- max(sqrt(tbl_sentiment_petal$x ^ 2 + tbl_sentiment_petal$y ^ 2))
 ```
 
-**ggplot2** allows you to stack multiple _ggplots_ 
+**ggplot2** allows you to stack multiple _ggplots_, which comes in handy in this case. We use the _plutchik_wheel_ function which returns the _ggplot_ted 
 
 ```r
 plutchik_wheel(max_radius) +
