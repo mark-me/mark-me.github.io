@@ -394,13 +394,13 @@ tbl_sentiment_petal <- rbind(tbl_sentiment_petal %>%
                        arrange(persona, sentiment, point_order)
 ```
 
-The ggplot Pluchtick wheel function needs a radius to be drawn for an optimal size. We determine the sentiment circle's radius each of the petal's points distance from the origin with the help of good old Pythagoras, and then finding the maximum size.
+The ggplot Pluchtick wheel function needs a radius to be drawn for an optimal size. We determine the sentiment circle's radius each of the petal's points distance from the origin, with the help of good old Pythagoras, and then finding the maximum petal size.
 
 ```r
 max_radius <- max(sqrt(tbl_sentiment_petal$x ^ 2 + tbl_sentiment_petal$y ^ 2))
 ```
 
-Drawing the wheel and stacking the sentiment petals unto it
+**ggplot2** allows you to stack multiple _ggplots_ 
 
 ```r
 plutchik_wheel(max_radius) +
