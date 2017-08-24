@@ -380,7 +380,7 @@ tbl_sentiment_petal <- tbl_persona_sentiments %>%
          y_lift = lift_sentiment * sin(degrees_sentiment * pi/180))
 ```
 
-The _geom_polygon_ Set the points of forming each petal so they line up (base and lift) and draw a polygon
+The _geom_polygon_ is pretty picky about point order; it somehow has trouble mind-reading what I want. We need to order the points correctly so the function knows how to close the Set the points of forming each petal so they line up (base and lift) and draw a polygon
 
 ```r
 tbl_sentiment_petal <- rbind(tbl_sentiment_petal %>%
