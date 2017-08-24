@@ -400,15 +400,13 @@ The ggplot Pluchtick wheel function needs a radius to be drawn for an optimal si
 max_radius <- max(sqrt(tbl_sentiment_petal$x ^ 2 + tbl_sentiment_petal$y ^ 2))
 ```
 
-**ggplot2** allows you to stack multiple _ggplots_, which comes in handy in this case. We use the _plutchik_wheel_ function which returns the _ggplot_ted 
+**ggplot2** allows you to stack multiple _ggplots_, which comes in handy in this case. We use the _plutchik_wheel_ function which returns the ggplotted Pluchtick wheel and use it as a basis to put on a _geom_polygon_ layer that we use to draw the profile within petals. The polygon's line is coloured by persona. The polygon fill is gray, and it's opacity is determined by the impact (absolute difference between base and lift). 
 
 ```r
 plutchik_wheel(max_radius) +
   geom_polygon(data = tbl_sentiment_petal,
                aes(x, y, col = persona, group = sentiment, alpha = impact),
                fill = "slategrey") +
-  geom_point(data = tbl_person_center,
-             aes(x = x_center, y = y_center, col = persona))  +
   facet_wrap(~persona, ncol = 5) +
   scale_color_manual(values = personea_colors) +
   scale_fill_manual(values = plutchik_colors) +
@@ -418,10 +416,11 @@ plutchik_wheel(max_radius) +
 
 # The Result
 
+The result of the ggplot created above is this:
 <a href="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" target="_blank">
 <img src="/_pages/tutorials/mining-alices-wonderland/sentiment-wheels.png" alt="Sentiment profile" width="780" height="397" align="center"/>
 <i class='fa fa-search-plus '></i> Zoom</a>
-
+Here we can see that Alice's profile is 'flat', which makes sense since she served as the base. We can see that the Rabbit is somewhat more associated with feelings of anticipation and trust, but evokes less disgust. The Cheshire cat, on the other hand, evokes plenty of disgust and surprise and is not well trusted.
 
 ## And a stupid version
 
