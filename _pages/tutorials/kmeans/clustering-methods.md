@@ -68,7 +68,11 @@ kmeans(x, centers, iter.max = 10, nstart = 1)
 
 # Median clustering
 
+A 
+*[skmeans](https://www.rdocumentation.org/packages/skmeans/versions/0.2-11)*
 [median](https://rstudio-pubs-static.s3.amazonaws.com/75036_b3e83952e88e4c98ad4fffbee571260f.html)
+
+
 
 # Mediod clustering
 
