@@ -15,7 +15,7 @@ navigation_weight: 1
           <a href="{{ page.url }}"><img src="{{ page.image }}" alt="Image text" style="margin: 0px 5px" width="54" height="54" align="left"/></a>
         </div>
         <div class="index_item_right">
-          <a class = "link-index-font" href="{{ page.url }}">{{ page.title }}</a><br>
+          <link_index href="{{ page.url }}">{{ page.title }}</link_index><br>
           <p class="spacer">{{ page.description }}</p>
         </div>
       </div>
