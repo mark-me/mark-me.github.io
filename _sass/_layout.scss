@@ -69,6 +69,12 @@ a:active {
 	color: $link-hover-color;
 	text-decoration: underline;
 }
+link_index {
+	font-family: link-index-font;
+	color: $link-color;
+	text-decoration: underline;
+	font-weight: bold;
+}
 header {
 	background: $header;
 	padding: 0px 15px;
