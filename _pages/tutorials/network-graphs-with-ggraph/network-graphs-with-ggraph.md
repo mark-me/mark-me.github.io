@@ -54,6 +54,7 @@ ggraph(graph) +
 Before we draw the graph the random seed is set, the ggraph function uses to put the nodes on the grid. The _geom_edge_link_ 
 
 This results in the graph.
+
 <img src="/_pages/tutorials/network-graphs-with-ggraph.png" alt="" width="508" height="333" align="center"/>
 
 # Tree/Hierarchical network
@@ -76,8 +77,8 @@ Again we draw the graph, but there are some differences
 
 ```r
 ggraph(graph, 'igraph', algorithm = 'tree') + 
-  geom_edge_diagonal2(edge_width = 0.5, alpha =.4) +
-  geom_node_label(aes(label=node, fill= type), col = "white", fontface = "bold", hjust = "inward")	+
+  geom_edge_diagonal(edge_width = 0.5, alpha =.4) +
+  geom_node_label(aes(label=node, fill= type), col = "white", fontface = "bold", hjust = "inward") +
   scale_color_brewer(palette="Set2") +
   guides(fill = FALSE) +
   theme_void() +
@@ -86,4 +87,10 @@ ggraph(graph, 'igraph', algorithm = 'tree') +
 
 
 This resulting graph:
-<img src="/_pages/tutorials/network-graphs-with-ggraph/ggraph-hierarchical.png" alt="" width="800" height="565" align="center"/>
+{:refdef: style="text-align: center;"}
+<a href="cheshire-cat-cloud.png" target="_blank">
+<img src="ggraph-hierarchical.png" alt="" width="800" height="565" align="center"/>
+<br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
