@@ -1,0 +1,24 @@
+parent,child
+Machine learning,Detect
+Machine learning,Predict
+Detect,Groups
+Detect,Structure
+Detect,Optimum
+Predict,Classes
+Predict,Values
+Groups,k-Means
+Groups,Hierachical
+Groups,Fuzzy
+Structure,MDS
+Structure,PCA
+Optimum,Genetic algorithm
+Classes,Decision tree
+Classes,Random forest
+Classes,Logistic regression
+Classes,kNN
+Classes,Neural networks
+Classes,SVM
+Values,Linear regression
+Values,kNN
+Values,Neural networks
+Values,Polynomal regression

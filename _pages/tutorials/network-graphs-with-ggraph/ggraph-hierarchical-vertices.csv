@@ -1,0 +1,23 @@
+node,type,unsupervised
+Machine learning,Core,NA
+Detect,Goal,NA
+Predict,Goal,NA
+Groups,Output,NA
+Structure,Output,NA
+Optimum,Output,NA
+Classes,Output,NA
+Values,Output,NA
+k-Means,Algorithm,Unsupervised
+Hierachical,Algorithm,Unsupervised
+Fuzzy,Algorithm,Unsupervised
+MDS,Algorithm,Unsupervised
+PCA,Algorithm,Unsupervised
+Genetic algorithm,Algorithm,Unsupervised
+Decision tree,Algorithm,Supervised
+Random forest,Algorithm,Supervised
+Logistic regression,Algorithm,Supervised
+kNN,Algorithm,Supervised
+Neural networks,Algorithm,Supervised
+SVM,Algorithm,Supervised
+Linear regression,Algorithm,Supervised
+Polynomal regression,Algorithm,Supervised
