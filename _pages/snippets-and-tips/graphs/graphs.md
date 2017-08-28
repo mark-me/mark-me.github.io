@@ -44,6 +44,10 @@ The [wordcloud2 library](https://cran.r-project.org/web/packages/wordcloud2/vign
 
 <img src="/_pages/tutorials/mining-alices-wonderland/rabbit-cloud.png" alt="Shaped word cloud" align="center"/>
 
+# Network graphs
+
+Networked graphs can be created using the **ggraph** library. I've created a [tutorial](/network-graphs-ggraph/) with two examples of networked graphs.
+
 # ggmap
 
 With the [ggmap library](https://cran.r-project.org/web/packages/ggmap/ggmap.pdf) you can plot data on a Google Map or OpenStreetMap amongst others.
