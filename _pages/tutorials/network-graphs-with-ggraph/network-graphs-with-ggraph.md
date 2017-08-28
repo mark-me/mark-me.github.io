@@ -89,7 +89,8 @@ Again we draw the graph, but there are some differences.
 ```r
 ggraph(graph, layout = 'igraph', algorithm = 'tree') + 
   geom_edge_diagonal(edge_width = 0.5, alpha =.4) +
-  geom_node_label(aes(label=node, fill= type), col = "white", fontface = "bold", hjust = "inward") +
+  geom_node_label(aes(label=node, fill= type), 
+                  col = "white", fontface = "bold", hjust = "inward") +
   scale_color_brewer(palette="Set2") +
   guides(fill = FALSE) +
   theme_void() +
