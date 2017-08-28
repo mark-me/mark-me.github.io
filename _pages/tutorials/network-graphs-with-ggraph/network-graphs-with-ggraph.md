@@ -105,3 +105,6 @@ This resulting graph:
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
+# Other lay-outs
+
+There are a lot more interesting lay-outs available, but I didn't get to try those out yet. A nice overview of possibilities can be found [here](http://www.data-imaginist.com/2017/ggraph-introduction-layouts/).
