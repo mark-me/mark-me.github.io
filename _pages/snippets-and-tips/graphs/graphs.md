@@ -46,7 +46,13 @@ The [wordcloud2 library](https://cran.r-project.org/web/packages/wordcloud2/vign
 
 # Network graphs
 
-Networked graphs can be created using the **ggraph** library. I've created a [tutorial](/network-graphs-ggraph/) with two examples of networked graphs.
+Networked graphs can be created using the **ggraph** library. I've created a [tutorial](/network-graphs-ggraph/) with two examples of networked graphs, one of which looks like this:
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/network-graphs-with-ggraph/ggraph-hierarchical.png" target="_blank">
+<img src="/_pages/tutorials/network-graphs-with-ggraph/ggraph-hierarchical.png" alt="" width="800" height="565" align="center"/>
+<br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
 
 # ggmap
 
