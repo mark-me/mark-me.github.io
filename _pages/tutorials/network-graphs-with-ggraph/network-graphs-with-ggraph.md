@@ -23,19 +23,19 @@ ggraph is used to create plots consist of _nodes_ and _links_. Since the number 
 from <- c("D", "E", "F", "B", "C", "G", "H", "I")
 to <- c("B", "C", "C", "A", "A", "C", "B", "A")
 weight <- c(.5, 0.3, 0.3, 1, 1, .4, .7, .6 )
-links <- data.frame(from, to, weight)
+tbl_links <- data.frame(from, to, weight)
 ```
 When creating the 'node' table, take care to put in all the nodes that are in the 'from' or in the 'to' column in the link table.
 ```r
 # Create nodes data frame
 name <- c("A", "B", "C", "D", "E", "F", "G", "H", "I")
 depth <- c("0", "1", "1", "2", "2", "2", "2", "2", "1")
-nodes <- data.frame(name, depth)
+tbl_nodes <- data.frame(name, depth)
 ```
 The link table should be parsed to an 'graph' data type. For example this could be done for data frames with the _data_frame_to_graph()_ function.
 
 ```r
-graph <- graph_from_data_frame(links, nodes, directed = TRUE)
+graph <- graph_from_data_frame(tbl_links, tbl_nodes, directed = TRUE)
 ```
 ## Drawing the graph
 
