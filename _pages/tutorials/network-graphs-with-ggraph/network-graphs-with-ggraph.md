@@ -51,7 +51,13 @@ ggraph(graph) +
   scale_color_brewer(palette="Set1") +
   theme_void()
 ```
-Before we draw the graph the random seed is set, the ggraph function uses to put the nodes on the grid. The _geom_edge_link_ 
+Before we draw the graph the random seed is set, the ggraph function uses to put the nodes on the grid. 
+
+* _geom_edge_link_ is used to manipulate the link width through aesthetics. 
+* _geom_node_point_ is used to manipulate node color, size and opacity. 
+* _geom_node_text_ is used to print node text (_label_ parameter), color those labels, set the font size of the labels, and ensure the text of the nodes do not overlap (the _repel_ parameter).
+* _scale_color_brewer_ determines the palette, other _scale_color_ functions can be used as well.
+* _theme_void_ removes all things that appear in other graphs, like grids, axes and so on.
 
 This results in the graph.
 
@@ -73,10 +79,15 @@ graph <- graph_from_data_frame(tbl_edges, tbl_vertices, directed = TRUE)
 
 ## Drawing the graph
 
-Again we draw the graph, but there are some differences
+Again we draw the graph, but there are some differences. 
+
+* _ggraph_ function's parameter layout is set to 'igraph' so it can use some predefined layouts like the tree-layout as is specified in the _algorithm_ parameter.
+* _geom_edge_diagonal_ is used to get the fluid lines.
+* _geom_node_label_ is used to display text instead of the previous _geom_node_text_. This type of text had a background. _hjust_ is set to "inward" so the labels don't drop from view.
+* _coord_flip_ is used for a clearer layout.
 
 ```r
-ggraph(graph, 'igraph', algorithm = 'tree') + 
+ggraph(graph, layout = 'igraph', algorithm = 'tree') + 
   geom_edge_diagonal(edge_width = 0.5, alpha =.4) +
   geom_node_label(aes(label=node, fill= type), col = "white", fontface = "bold", hjust = "inward") +
   scale_color_brewer(palette="Set2") +
@@ -85,11 +96,10 @@ ggraph(graph, 'igraph', algorithm = 'tree') +
   coord_flip()
 ```
 
-
 This resulting graph:
 {:refdef: style="text-align: center;"}
-<a href="cheshire-cat-cloud.png" target="_blank">
-<img src="ggraph-hierarchical.png" alt="" width="800" height="565" align="center"/>
+<a href="/_pages/tutorials/network-graphs-with-ggraph/ggraph-hierarchical.png" target="_blank">
+<img src="/_pages/tutorials/network-graphs-with-ggraph/ggraph-hierarchical.png" alt="" width="800" height="565" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
