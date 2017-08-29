@@ -38,7 +38,7 @@ The paragraphs are the thing that tie the sentiments to the characters. I assume
 <img src="/_pages/tutorials/mining-alices-wonderland/formula-freq-sentiment.png" alt="Frequency sentiment formula" width="215" height="45" align="middle"/>
 {: refdef}
 
-Relative frequencies in itself is not good enough because the book is probably scewed in a certain sentimental direction, which does not help if we want to know what makes a character unique. To counter this I use something I called lift: the relative sentiment frequency of corrected by the relative frequency of the total. As the total I've taken Alice's relative sentiment frequencies. So the lift was calculated like this:
+Relative frequencies in itself is not good enough because the book is probably scewed in a certain sentimental direction, which does not help if we want to know what makes a character unique. To counter this I use something I called lift: the relative sentiment frequency of a character, corrected by the relative frequency of the total. As the total I've taken Alice's relative sentiment frequencies. So the lift was calculated like this:
 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/mining-alices-wonderland/formula-lift-sentiment.png" alt="Lift sentiment formula" width="215" height="45" align="middle"/>
@@ -75,7 +75,7 @@ Plutchik's wheel has 8 spokes, which I'll refer to as petals. My approach to dra
 
 <img src="/_pages/tutorials/mining-alices-wonderland/rotating-emotions.png" alt="Rotating sentiments" width="535" height="393" align="right"/>
 
-To create a closed polygon for each petal, 5 points draw a petal: one from the origin (0, 0), three points on the perimeter of the wheel, and one again at the origin to close the polygon. The points at the perimeter of the wheel are part of the total wheel. So calculate these points we take the radius of the circle, and rotate them by 22.5 degrees (360 degreed / (8 petals * petal edges)). First we create a vector with the rotations needed for one petal:
+To create a closed polygon for each petal, 5 points draw a petal: one from the origin (0, 0), three points on the perimeter of the wheel, and one again at the origin to close the polygon. The points at the perimeter of the wheel are part of the total wheel. So to calculate these points we take the radius of the circle, and rotate them by 22.5 degrees (360 degreed / (8 petals * petal edges)). First we create a vector with the rotations needed for one petal:
 
 ```r
 petal <- rep(c(0, 1:3, 0) ,8)
@@ -107,7 +107,7 @@ Then we create a vector for grouping the other vectors by petal, with this we'll
 id <- as.factor(rep(c(1:8), each = 5))
 ```
 
-Now we've got all ingredients for drawing the petals. Next a factored vector is created with the petal names, with the names positions so the show in the middle of the perimeter. All other positions in the vector have NA as a value so no text will be displayed, this will generate a warning message that 32 values are removed that conating missing values (geom_text).
+Now we've got all ingredients for drawing the petals. Next a factored vector is created with the petal names, with the names positions so they show up in the middle of the perimeter. All other positions in the vector have NA as a value so no text will be displayed, this will generate a warning message that 32 values are removed that conating missing values (geom_text).
 
 ```r
 emotions <- factor(c( NA, NA, "Trust", NA, NA,
@@ -175,7 +175,7 @@ library(tidytext)
 library(stringr)
 ```
 
-In the next section we take the downloaded book and first add some line numbers to it; which we use to skip some irrelevant lines of the book containing the title and such. After which we find out the rows that are just chapter headings, and the count the words in each line. We mark the lines which doesn't contain a chapter header and which have words as paragraphs.
+In the next section we take the downloaded book and add some line numbers to it first. We use these line numbers to skip some irrelevant lines of the book containing the title and such. After which we find out which rows are just chapter headings, and then we count the words in each line. We mark the lines which don't contain a chapter header and which have words as paragraphs.
 
 ```r
 tbl_paragraphs >- book_alice %>%
