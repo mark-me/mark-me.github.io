@@ -97,3 +97,16 @@ tbl_sheet <- gs_read(sheet, ws = "sheet name")
 ```
 
 where ws can be used to reference a sheet by index or by name (the above example is done by name).
+
+# Standard transforms on import
+
+Often times the column names of a file are messy; they contain '?', '%', spaces or other strange signs. With the **[janitor](https://www.rdocumentation.org/packages/janitor)** library you can fix this in one command by calling the _clean_names_ function. This function, which is can be used by piping the data frame through the function, will convert all strange signs to underscored, and will make all letters lower case.
+
+Excel sheets have a tendency to contain empty rows and/or colums. The **janitor** library also has two handy functions to fix this: _remove_empty_rows_ and _remove_empty_cols_. If we combine the three above functions it would look something like this:
+
+```r
+tbl_imported %<>%
+  clean_names() %>%
+  remove_empty_rows() %>%
+  remove_empty_cols() 
+```
