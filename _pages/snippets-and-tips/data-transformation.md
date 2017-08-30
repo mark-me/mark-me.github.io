@@ -126,13 +126,13 @@ iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, c(-Inf, 6, 7, Inf)))
 Sometimes you want to have the values of aggregates on the non-aggregated level. Let's take an example from a data-set _iris_. This data-set contains measurements of petals and sepals (the large 'under'-flowers). Below you see a sample of this data.
 
 |Sepal.Length|Sepal.Width|Petal.Length|Petal.Width|Species|
-|---         |   :---:   |    :---:   |    :---:  | :---: |
-|1|5.1|3.5|1.4|0.2|setosa|
-|2|4.9|3|1.4|0.2|setosa|
-|3|4.7||3.2|1.3|0.2|setosa|
-|4|4.6|3.1|1.5|0.2|setosa|
-|5|5|3.6|1.4|0.2|setosa|
-|6|5.4|3.9|1.7|0.4|setosa|
+|  :---:     |   :---:   |    :---:   |    :---:  | :---: |
+|5.1|3.5|1.4|0.2|setosa|
+|4.9|3|1.4|0.2|setosa|
+|4.7|3.2|1.3|0.2|setosa|
+|4.6|3.1|1.5|0.2|setosa|
+|5|3.6|1.4|0.2|setosa|
+|5.4|3.9|1.7|0.4|setosa|
 
 The table contains 50 measurements of each of the iris specis (setosa, versicolor and virginica). If we want this same table to contain the average length and width of the sepals and petals per species we could do this by creating an aggregated the table (_group_by())_ and with summarized data (_summarise()_), and then join the original iris data-set with the temporary table. But we can also do this in one step, by using the _group_by_ function and then the _mutate_ function instead of the _summarise_ function, like so:
 
@@ -146,180 +146,11 @@ iris %>% group_by(Species) %>%
 
 Which output would look like this:
 
-<table class="gmisc_table" style="border-collapse: collapse; margin-top: 1em; margin-bottom: 1em;">
-
-<thead>
-
-<tr>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Sepal.Length</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Sepal.Width</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Petal.Length</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Petal.Width</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Species</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Sepal.Length.Avg</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Sepal.Width.Avg</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Petal.Length.Avg</th>
-
-<th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">Petal.Width.Avg</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td style="text-align: left;">1</td>
-
-<td style="text-align: center;">5.1</td>
-
-<td style="text-align: center;">3.5</td>
-
-<td style="text-align: center;">1.4</td>
-
-<td style="text-align: center;">0.2</td>
-
-<td style="text-align: center;">setosa</td>
-
-<td style="text-align: center;">5.006</td>
-
-<td style="text-align: center;">3.428</td>
-
-<td style="text-align: center;">1.462</td>
-
-<td style="text-align: center;">0.246</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: left;">2</td>
-
-<td style="text-align: center;">4.9</td>
-
-<td style="text-align: center;">3</td>
-
-<td style="text-align: center;">1.4</td>
-
-<td style="text-align: center;">0.2</td>
-
-<td style="text-align: center;">setosa</td>
-
-<td style="text-align: center;">5.006</td>
-
-<td style="text-align: center;">3.428</td>
-
-<td style="text-align: center;">1.462</td>
-
-<td style="text-align: center;">0.246</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: left;">3</td>
-
-<td style="text-align: center;">4.7</td>
-
-<td style="text-align: center;">3.2</td>
-
-<td style="text-align: center;">1.3</td>
-
-<td style="text-align: center;">0.2</td>
-
-<td style="text-align: center;">setosa</td>
-
-<td style="text-align: center;">5.006</td>
-
-<td style="text-align: center;">3.428</td>
-
-<td style="text-align: center;">1.462</td>
-
-<td style="text-align: center;">0.246</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: left;">4</td>
-
-<td style="text-align: center;">4.6</td>
-
-<td style="text-align: center;">3.1</td>
-
-<td style="text-align: center;">1.5</td>
-
-<td style="text-align: center;">0.2</td>
-
-<td style="text-align: center;">setosa</td>
-
-<td style="text-align: center;">5.006</td>
-
-<td style="text-align: center;">3.428</td>
-
-<td style="text-align: center;">1.462</td>
-
-<td style="text-align: center;">0.246</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align: left;">5</td>
-
-<td style="text-align: center;">5</td>
-
-<td style="text-align: center;">3.6</td>
-
-<td style="text-align: center;">1.4</td>
-
-<td style="text-align: center;">0.2</td>
-
-<td style="text-align: center;">setosa</td>
-
-<td style="text-align: center;">5.006</td>
-
-<td style="text-align: center;">3.428</td>
-
-<td style="text-align: center;">1.462</td>
-
-<td style="text-align: center;">0.246</td>
-
-</tr>
-
-<tr>
-
-<td style="border-bottom: 2px solid grey; text-align: left;">6</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">5.4</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">3.9</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">1.7</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">0.4</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">setosa</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">5.006</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">3.428</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">1.462</td>
-
-<td style="border-bottom: 2px solid grey; text-align: center;">0.246</td>
-
-</tr>
-
-</tbody>
-
-</table>
+|Sepal.Length|Sepal.Width|Petal.Length|Petal.Width|Species|Sepal.Length.Avg|Sepal.Width.Avg|Petal.Length.Avg|Petal.Width.Avg|
+|  :---:     |   :---:   |    :---:   |    :---:  | :---: |     :---:      |     :---:     |       :---:    |     :---:     |
+|5.1|3.5|1.4|0.2|setosa|5.006|3.428|1.462|0.246|
+|4.9|3|1.4|0.2|setosa|5.006|3.428|1.462|0.246|
+|4.7|3.2|1.3|0.2|setosa|5.006|3.428|1.462|0.246|
+|4.6|3.1|1.5|0.2|setosa|5.006|3.428|1.462|0.246|
+|5|3.6|1.4|0.2|setosa|5.006|3.428|1.462|0.246|
+|5.4|3.9|1.7|0.4|setosa|5.006|3.428|1.462|0.246|
