@@ -123,18 +123,16 @@ iris %>%
                                 c(-Inf, 6, 7, Inf), 
                                 labels = c("< 6", "6-7", "> 7")))
 ```
-
-Results in:
+The _labels_ parameter is optional, allowing you to specify how the intervals are displayed. This is especially useful when you bin values that exceed a 1.000, since the default will be in hard to read scientific notation. To show the default output I've left the two last rows in the example output below as if the function was called without a _labels_ parameter.
 
 |Sepal.Length|Sepal.Width|Petal.Length|Petal.Width|Species|Sepal.Length_bin|
 |    ---:    |   ---:    |    ---:    |   ---:    | :---: |       :---:    |     
 |**5.7**|2.8|4.1|1.3|versicolor|**< 6**|
 |**6.3**|3.3|6.0|2.5|virginica|**6-7**|
-|**5.8**|2.7|5.1|1.9|virginica|**< 6**|
 |**7.1**|3.0|5.9|2.1|virginica|**> 7**|
 |**6.3**|2.9|5.6|1.8|virginica|**6-7**|
-|**6.5**|3.0|5.8|2.2|virginica|**6-7**|
-
+|*6.5*|3.0|5.8|2.2|virginica|*(6,7]*|
+|*5.8*|2.7|5.1|1.9|virginica|*(-Inf,6]*|
 
 # Aggregates on non-aggregates
 
