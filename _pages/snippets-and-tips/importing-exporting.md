@@ -86,7 +86,7 @@ where ws can be used to reference a sheet by index or by name (the above example
 
 # Temporary files
 
-Most of the time, all data called in a script is loaded and calculated on the fly. But sometimes, when handling especially large data sets that seldom change, it might be preferable to store data in temporary files that are quick to access and came fully transformed beforehand. This is when the fst library comes in handy. The **fst** library enables you to save data from R in a binary format that loads really quickly, and loads that data fully R prepared Writing fst files is done with: 
+Most of the time, all data called in a script is loaded and calculated on the fly. But sometimes, when handling especially large data sets that seldom change, it might be preferable to store data in temporary files that are quick to access and came fully transformed beforehand. This is when the fst library comes in handy. The **[fst](http://www.fstpackage.org/)** library enables you to save data from R in a binary format that loads really quickly, and loads that data fully R prepared Writing fst files is done with: 
 
 ```r
 write.fst(data frame, "file_name.fst", 100)
