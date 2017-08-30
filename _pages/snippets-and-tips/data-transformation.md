@@ -118,7 +118,7 @@ iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, rep(5:10)))
 
 3) Cutting values at specific values:
 ```r
-iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, c(-Inf, 6, 7, Inf)))
+iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, c(-Inf, 6, 7, Inf), labels = c("< 6", "6-7", "> 7")))
 ```
 
 Results in:
