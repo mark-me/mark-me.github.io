@@ -121,6 +121,18 @@ iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, rep(5:10)))
 iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, c(-Inf, 6, 7, Inf)))
 ```
 
+Results in:
+
+|Sepal.Length|Sepal.Width|Petal.Length|Petal.Width|Species|Sepal.Length_bin|
+|    ---:    |   ---:    |    ---:    |   ---:    | :---: |       :---:    |     
+|**5.7**|2.8|4.1|1.3|versicolor|**< 6**|
+|**6.3**|3.3|6.0|2.5|virginica|**6-7**|
+|**5.8**|2.7|5.1|1.9|virginica|**< 6**|
+|**7.1**|3.0|5.9|2.1|virginica|**> 7**|
+|**6.3**|2.9|5.6|1.8|virginica|**6-7**|
+|**6.5**|3.0|5.8|2.2|virginica|**6-7**|
+
+
 # Aggregates on non-aggregates
 
 Sometimes you want to have the values of aggregates on the non-aggregated level. Let's take an example from a data-set _iris_. This data-set contains measurements of petals and sepals (the large 'under'-flowers). Below you see a sample of this data.
