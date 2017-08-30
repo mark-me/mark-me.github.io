@@ -12,6 +12,15 @@ To see cross-tabulations with frequencies you can use the statement below, do al
 table(colum_values_rows, column_values_across, useNA = "ifany")
 ```
 
+The library **[janitor](https://www.rdocumentation.org/packages/janitor)** allows you to do crosstabs withing the tidy framework like this:
+```r
+mtcars %>% 
+  crosstab(cyl, gear)
+```
+Unlike the _table_ function, this will show any missing values by default. If you want to hide this, you can pass FALSE to the parameter _show_na_. 
+
+If you'd like to add row, column or totalwise percentages you can use the _adorn_crosstab_ function 
+
 # Correlation matrices are boring
 
 When making correlation matrices to inspect possible relations between variables, I often get scared by the table I get. Using the following pseudo code, you can plot the correlation matrix in a network graph that is less daunting to look at, using the **qgraph** library:
