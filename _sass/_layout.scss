@@ -142,10 +142,18 @@ table{
     font: normal 13px Arial, sans-serif;
 }
 th{
-    border:2px solid #000000;
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: left;
+    text-shadow: 1px 1px 1px #fff;
 }
 td{
-    border:1px solid #000000;
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
 }
 
 /**
