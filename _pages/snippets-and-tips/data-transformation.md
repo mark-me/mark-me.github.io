@@ -20,11 +20,19 @@ If you adhere to certain column naming conventions (like using the prefix _amt__
 *   _one_of():_ variables in character vector.
 *   _everything():_ all variables, except those previously used in the select statement. This makes it an ideal candidate for column re-ordering.
 
-An example with the iris data-set (form the **tidyverse**) is:
-
+An example with the iris data-set (which is part of the **tidyverse**) is:
 ```r
-select(iris, starts_with("Petal"))
+iris %>%
+   select(starts_with("Petal"))
 ```
+Resulting in:
+
+|Petal.Length|Petal.Width|
+|    ---:    |    ---:   |
+|1.4|0.2|
+|1.4|0.2|
+|1.3|0.2|
+|1.5|0.2|
 
 You can also use the - prefix to deselect multiple columns like this.
 
