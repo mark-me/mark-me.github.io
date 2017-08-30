@@ -10,7 +10,7 @@ permalink: /importing-exporting/
 
 # Excel
 
-Accessing Excel files can be done using the **XLConnect** library. The library depends on Java. Make sure you have a Java installed that is the same bit version (32/64 bit) as the R server you're using. When using Excel files, you first have to connect to the file. For example: 
+Accessing Excel files can be done using the **[XLConnect](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf)** library. The library depends on Java. Make sure you have a Java installed that is the same bit version (32/64 bit) as the R server you're using. When using Excel files, you first have to connect to the file. For example: 
 
 ```r
 data_book <- loadWorkbook("data-file.xlsx")
@@ -38,7 +38,7 @@ write_clipboard(data_frame)
 
 # Twitter
 
-You can scrape Twitter using R by making use to the **twitteR** library. First you have to get authentication tokens for your Twitter account. Don't ask me how to do that anymore, lost in the mists that I call memory,but you should be able to find out yourself. Using that token information you should first set up authentication, like this: 
+You can scrape Twitter using R by making use to the **[twitteR](https://www.rdocumentation.org/packages/twitteR)** library. First you have to get authentication tokens for your Twitter account. Don't ask me how to do that anymore, lost in the mists that I call memory,but you should be able to find out yourself. Using that token information you should first set up authentication, like this: 
 
 ```r
 api_key <- "Xx89asxcsdjy48k" 
@@ -64,7 +64,7 @@ After this, read up on the subject of [Text mining](#TheRPages-Textmining) you c
 
 # Google Sheets
 
-With the library **googlesheets** you can access... Google sheets. After you've loaded the library gain access to your Google Drive by issueing the command that gives a file listing of all the files you have in your google drive: 
+With the library **[googlesheets](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html)** you can access... Google sheets. After you've loaded the library gain access to your Google Drive by issueing the command that gives a file listing of all the files you have in your google drive: 
 
 ```r
 (google_sheets <- gs_ls())
