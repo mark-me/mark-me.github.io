@@ -32,9 +32,19 @@ Resulting in:
 |1.4|0.2|
 |1.4|0.2|
 |1.3|0.2|
-|1.5|0.2|
 
-You can also use the - prefix to deselect multiple columns like this.
+You can also use the - prefix to deselect multiple columns like this:
+```r
+iris %>%
+  select(-starts_with("Petal"))
+```
+Resulting in the 'opposite' data set:
+
+|Sepal.Length|Sepal.Width|Species|
+|    ---:    |    ---:   | :---: |
+|5.1|3.5|setosa|
+|4.9|3.0|setosa|
+|4.7|3.2|setosa|
 
 # The trouble with currency
 
