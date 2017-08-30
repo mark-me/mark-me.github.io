@@ -8,20 +8,6 @@ permalink: /importing-exporting/
 * TOC 
 {:toc}
 
-# Temporary files
-
-Most of the time, all data called in a script is loaded and calculated on the fly. But sometimes, when handling especially large data sets that seldom change, it might be preferable to store data in temporary files that are quick to access and came fully transformed beforehand. This is when the fst library comes in handy. The **fst** library enables you to save data from R in a binary format that loads really quickly, and loads that data fully R prepared Writing fst files is done with: 
-
-```r
-write.fst(data frame, "file_name.fst", 100)
-```
-
-Reading fst files (and immediate conversion to _tbl_):where 100 is the compression rate (0 is not compression, 100 is most compressed)
-
-```r
-tbl_df(read.fst("file_name.fst"))
-```
-
 # Excel
 
 Accessing Excel files can be done using the **XLConnect** library. The library depends on Java. Make sure you have a Java installed that is the same bit version (32/64 bit) as the R server you're using. When using Excel files, you first have to connect to the file. For example: 
@@ -97,6 +83,20 @@ tbl_sheet <- gs_read(sheet, ws = "sheet name")
 ```
 
 where ws can be used to reference a sheet by index or by name (the above example is done by name).
+
+# Temporary files
+
+Most of the time, all data called in a script is loaded and calculated on the fly. But sometimes, when handling especially large data sets that seldom change, it might be preferable to store data in temporary files that are quick to access and came fully transformed beforehand. This is when the fst library comes in handy. The **fst** library enables you to save data from R in a binary format that loads really quickly, and loads that data fully R prepared Writing fst files is done with: 
+
+```r
+write.fst(data frame, "file_name.fst", 100)
+```
+
+Reading fst files (and immediate conversion to _tbl_):where 100 is the compression rate (0 is not compression, 100 is most compressed)
+
+```r
+tbl_df(read.fst("file_name.fst"))
+```
 
 # Standard transforms on import
 
