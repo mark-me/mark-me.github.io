@@ -25,7 +25,7 @@ mtcars %>%
   crosstab(cyl, gear) %>% 
   adorn_totals() 
 ```
-| |cyl|3|4|5|Total
+| |cyl|3|4|5|Total|
 |---|---|---|---|---|
 |1|4|1|8|2|11|
 |2|6|2|4|1|7|
