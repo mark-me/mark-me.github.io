@@ -19,6 +19,12 @@ mtcars %>%
 ```
 Unlike the _table_ function, this will show any missing values by default. If you want to hide this, you can pass FALSE to the parameter _show_na_. 
 
+If you'd like to add totals to your crosstab you can use the function _adorn_totals_:
+```r
+mtcars %>% 
+  crosstab(cyl, gear) %>% 
+  adorn_totals() 
+```
 If you'd like to add row, column or totalwise percentages you can use the _adorn_crosstab_ function 
 
 # Correlation matrices are boring
