@@ -25,7 +25,21 @@ mtcars %>%
   crosstab(cyl, gear) %>% 
   adorn_totals() 
 ```
-If you'd like to add row, column or totalwise percentages you can use the _adorn_crosstab_ function 
+| |cyl|3|4|5|Total
+|---|---|---|---|---|
+|1|4|1|8|2|11|
+|2|6|2|4|1|7|
+|3|8|12|0|2|14|
+|4|Total|15|12|5|32|
+
+If you'd like to add row, column or totalwise percentages you can use the _adorn_crosstab_ function and pass the values "row", "col" and "all" to the _denom_ parameter. Below is an example of a column percentage:
+```r
+mtcars %>% 
+  crosstab(cyl, gear)%>% 
+  adorn_crosstab(denom = "col")
+```
+
+
 
 # Correlation matrices are boring
 
