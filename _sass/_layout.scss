@@ -136,21 +136,22 @@ p.spacer {
 }
 
 table{
-    border: solid 1px #541a3b;
-    border-collapse: collapse;
-    border-spacing: 0;
+	width: 100%;
+    	border: solid 1px #541a3b;
+    	border-collapse: collapse;
+   	border-spacing: 0;
 }
 th{
-    background-color: #541a3b;
-    border: solid 1px #541a3b;
-    color: #FFFFFF;
-    padding: 0px;
-    text-align: left;
+    	background-color: #541a3b;
+    	border: solid 1px #541a3b;
+    	color: #FFFFFF;
+    	padding: 1px;
+    	text-align: left;
 }
 td{
-    border: solid 1px #541a3b;
-    color: #333;
-    padding: 0px;
+   	border: solid 1px #541a3b;
+    	color: #333;
+    	padding: 1px;
 }
 
 /**
