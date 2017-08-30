@@ -136,9 +136,10 @@ p.spacer {
 }
 
 table{
+    border: solid 1px #DDEEEE;
     border-collapse: collapse;
     border-spacing: 0;
-    border:2px solid #ff0000;
+    font: normal 13px Arial, sans-serif;
 }
 th{
     border:2px solid #000000;
