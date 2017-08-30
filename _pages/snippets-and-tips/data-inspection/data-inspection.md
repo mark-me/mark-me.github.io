@@ -4,6 +4,10 @@ title: Data inspection
 comments: true
 permalink: /data-inspection/
 ---
+
+* TOC
+{:toc}
+
 # Cross tabs
 
 To see cross-tabulations with frequencies you can use the statement below, do also all table entries can be found that didn't contain any value.
