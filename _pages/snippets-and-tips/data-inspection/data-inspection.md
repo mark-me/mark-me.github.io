@@ -46,6 +46,14 @@ mtcars %>%
 |6|13.3%  (2)|33.3% (4)|20.0% (1)|
 |8|80.0% (12)| 0.0% (0)|40.0% (2)|
 
+# Spotting duplicates
+
+Before doing any analysis I often check if there are duplicate observations in my data. I used to do this by creating a temporary table, with a counter and then joining on it. Since I've found the _get_dupes_ function from the **janitor** library, I don't have to do all that anymore. If I want to see all rows that are duplicates for the key rows _key1_ and _key2_ (etc.) I can use this command:
+```r
+tbl_data %>%
+  get_dupes(key1, key2)
+```
+
 # Correlation matrices are boring
 
 When making correlation matrices to inspect possible relations between variables, I often get scared by the table I get. Using the following pseudo code, you can plot the correlation matrix in a network graph that is less daunting to look at, using the **qgraph** library:
