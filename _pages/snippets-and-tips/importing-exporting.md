@@ -24,7 +24,6 @@ tbl_data <- tbl_df(readWorksheet(data_book, sheet = "Data"))
 ## Copying data frames into Excel
 
 Especially when I began using R, I sometimes had to fall back on Excel to do some quick checks. You can put data frames (or tbls) on the clipboard by creating this function: 
-
 ```r
 df_to_clipboard <- function(df, row.names = FALSE, col.names = TRUE, ...) {
     write.table(df, "clipboard-16384", sep = "\t",
@@ -35,7 +34,6 @@ df_to_clipboard <- function(df, row.names = FALSE, col.names = TRUE, ...) {
   }
 ``` 
 and using it like this
-
 ```r
 df_to_clipboard(data_frame)
 ```
@@ -53,13 +51,11 @@ setup_twitter_oauth(api_key, api_secret, access_token, access_token_secret)
 ```
 
 After which you can retrieve tweets: 
-
 ```r
 tweets <- searchTwitter("Trump", n=400, lang="nl")
 ```
 
 The searchTwitter function returns the data in a difficult to read list format. This can be changed to an easy to use data frame like so: 
-
 ```r
 df_tweet <- twListToDF(tweets)
 ```
@@ -69,19 +65,16 @@ After this, read up on the subject of [Text mining](#TheRPages-Textmining) you c
 # Google Sheets
 
 With the library **[googlesheets](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html)** you can access... Google sheets. After you've loaded the library gain access to your Google Drive by issueing the command that gives a file listing of all the files you have in your google drive: 
-
 ```r
 (google_sheets <- gs_ls())
 ```
 
 This opens the browser where it asks you to grant permission for R to access your Google Drive. After you've confirmed you'll get a list with all the Sheet files. You can open one of these using: 
-
 ```r
 sheet <- gs_title("file name")
 ```
 
 You can read a sheet's data by using: 
-
 ```r
 tbl_sheet <- gs_read(sheet, ws = "sheet name")
 ```
@@ -91,13 +84,11 @@ where ws can be used to reference a sheet by index or by name (the above example
 # Temporary files
 
 Most of the time, all data called in a script is loaded and calculated on the fly. But sometimes, when handling especially large data sets that seldom change, it might be preferable to store data in temporary files that are quick to access and came fully transformed beforehand. This is when the fst library comes in handy. The **[fst](http://www.fstpackage.org/)** library enables you to save data from R in a binary format that loads really quickly, and loads that data fully R prepared Writing fst files is done with: 
-
 ```r
 write.fst(data frame, "file_name.fst", 100)
 ```
 
 Reading fst files (and immediate conversion to _tbl_):where 100 is the compression rate (0 is not compression, 100 is most compressed)
-
 ```r
 tbl_df(read.fst("file_name.fst"))
 ```
@@ -107,7 +98,6 @@ tbl_df(read.fst("file_name.fst"))
 Often times the column names of a file are messy; they contain '?', '%', spaces or other strange signs. With the **[janitor](https://www.rdocumentation.org/packages/janitor)** library you can fix this in one command by calling the _clean_names_ function. This function, which is can be used by piping the data frame through the function, will convert all strange signs to underscored, and will make all letters lower case.
 
 Excel sheets have a tendency to contain empty rows and/or colums. The **janitor** library also has two handy functions to fix this: _remove_empty_rows_ and _remove_empty_cols_. If we combine the three above functions it would look something like this:
-
 ```r
 tbl_imported %<>%
   clean_names() %>%
