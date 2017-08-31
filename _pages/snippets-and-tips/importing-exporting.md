@@ -10,7 +10,22 @@ permalink: /importing-exporting/
 
 # Excel
 
-Accessing Excel files can be done using the **[XLConnect](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf)** library. The library depends on Java. Make sure you have a Java installed that is the same bit version (32/64 bit) as the R server you're using. When using Excel files, you first have to connect to the file. For example: 
+## openxlsx
+
+The **[openxlsx](https://www.rdocumentation.org/packages/openxlsx/)** library does not depend on Java (which others do), but might require some extra steps to transform dates. Reading an Excel file is done like this:
+```r
+tbl_iris <- read.xlsx("iris.xlsx")
+```
+Empty rows and columns are skipped automatically. The default sheet read is the first, you can change this by passing and index or sheetname to the _sheet_ parameter.
+
+And writing:
+```r
+write.xlsx(iris, "iris.xlsx")
+```
+
+## XLConnect
+
+The **[XLConnect](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf)** library is dependent on Java. Make sure you have a Java installed that is the same bit version (32/64 bit) as the R server you're using. When using Excel files, you first have to connect to the file. For example: 
 ```r
 data_book <- loadWorkbook("data-file.xlsx")
 ```
