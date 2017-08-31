@@ -31,6 +31,13 @@ Whenever you tend to re-use script in several instances, you might want to place
 
 This could be employed, for example, when you create multiple analysis scripts on the same set of input files. Frequently, reading and transforming data is generic for all analyses. Data needs to be read and transformed to it meets R needs: dates need to be R dates, numbers need to be recognized as such, values might need to be factored, empty values need to be handled and so on. It makes sense to put all this data-set related statements in a separate script. Calling the script in the analysis script will result in the creation of variables, data-sets and functions so they are made available in the analysis script itself.
 
+## An example of script in script
+
+I prefer to keep the bulk of my data processing out of my R Markdown document. For this reason I make R script files for eacht source file, so I can easily 
+
+<img src="/_pages/snippets-and-tips/script-structuring/data-prep.png" alt="Navigation" align="center"/>
+
+
 # Setting working directories
 
 When working on a project, you probably want all your files to be in a folder you made for that project. If you set the working directory in a script, all following file calls are presumed to be files within that directory.
