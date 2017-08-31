@@ -73,9 +73,9 @@ Joining tables is most commonly done using the **dplyr** library. Joins of the d
 When joining the tables, the key(s) on which you join is specified in the specified in the _by_ argument of the joining function (the SQL equivalent of _ON_).
 
 *   When only matching on only **one column**, the _by_ argument can be simple a string containing the column name, for example:
-   ```r
-   inner_join(table_x, table_y, by="key_column")
-   ```
+```r
+inner_join(table_x, table_y, by="key_column")
+```
 
 *   Matching on differing **column names** is done by passing a vector to the _by_ argument like:
 
@@ -112,10 +112,11 @@ When you want to recode data in such a way that you'd wind up using a lot of _if
 
 ```r
 ELSE <- TRUE # I use this ELSE variable as a placeholder for the TRUE statement. Why not write a TRUE instead? I'm a nerd....
-mtcars %>% mutate(carb_new = case_when(.$carb == 1 ~ "one",
-                                       .$carb == 2 ~ "two",
-                                       .$carb == 4 ~ "four",
-                                       ELSE ~ "other" ))
+mtcars %>% 
+  mutate(carb_new = case_when(.$carb == 1 ~ "one",
+                              .$carb == 2 ~ "two",
+                              .$carb == 4 ~ "four",
+                              ELSE ~ "other" ))
 ```
 
 # Binning data
@@ -129,7 +130,8 @@ iris %>% mutate(Sepal.Length_bin = cut2(Sepal.Length, g=3))
 
 2) Equal value intervals using the _cut_ function that also is from the **Hmisc** package:
 ```r
-iris %>% mutate(Sepal.Length_bin = cut(Sepal.Length, rep(5:10)))
+iris %>% 
+  mutate(Sepal.Length_bin = cut(Sepal.Length, rep(5:10)))
 ```
 
 3) Cutting values at specific values:
