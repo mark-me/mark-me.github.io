@@ -27,7 +27,9 @@ Section navigation:
 
 # Calling scripts from scripts
 
-Whenever you tend to re-use script in several instances, you might want to place it in a seperate file you can call from within the script you intend to execute. You can call a script using the _source(filename)_ function For example this could be employed when you create multiple analysis scripts on the same set of input files. Frequently, reading and transforming data is generic for all analyses: data needs to be read and transformed to it meets R needs: dates need to be R dates, numbers need to be recognized as such, values might need to be factored, empty values need to be handled and so on. It makes sense to put all this data-set related statements in a separate script. Calling the script in the analysis script will result in the creation of variables, data-sets and functions so they are made available in the analysis script itself.
+Whenever you tend to re-use script in several instances, you might want to place it in a seperate file you can call from within the script you intend to execute. You can call a script using the _source(filename)_ function.
+
+This could be employed, for example, when you create multiple analysis scripts on the same set of input files. Frequently, reading and transforming data is generic for all analyses. Data needs to be read and transformed to it meets R needs: dates need to be R dates, numbers need to be recognized as such, values might need to be factored, empty values need to be handled and so on. It makes sense to put all this data-set related statements in a separate script. Calling the script in the analysis script will result in the creation of variables, data-sets and functions so they are made available in the analysis script itself.
 
 # Setting working directories
 
