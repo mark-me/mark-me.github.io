@@ -26,14 +26,18 @@ tbl_data <- tbl_df(readWorksheet(data_book, sheet = "Data"))
 Especially when I began using R, I sometimes had to fall back on Excel to do some quick checks. You can put data frames (or tbls) on the clipboard by creating this function: 
 
 ```r
-write_clipboard <- function(x,row.names=FALSE,col.names=TRUE,...) {
-  write.table(x,"clipboard",sep="\t",row.names=row.names,col.names=col.names,...) 
-} 
+df_to_clipboard <- function(df, row.names = FALSE, col.names = TRUE, ...) {
+    write.table(df, "clipboard-16384", sep = "\t",
+      row.names = row.names,
+      col.names = col.names,
+      ...
+    )
+  }
 ``` 
 and using it like this
 
 ```r
-write_clipboard(data_frame)
+df_to_clipboard(data_frame)
 ```
 
 # Twitter
