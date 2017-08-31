@@ -21,7 +21,7 @@
 - title: Structuring data processing
   url: /structuring-data-processing/
   image: /_pages/tutorials/splitting-combining-files.png
-  Description: A template for data-processing in your project.
+  description: A template for data-processing in your project.
 
 #- title: Clustering methods
 #  url: /clustering-methods/
