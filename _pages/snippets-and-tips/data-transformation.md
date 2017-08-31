@@ -185,3 +185,16 @@ Which output would look like this:
 |4.6|3.1|1.5|0.2|setosa|5.006|3.428|1.462|0.246|
 |5|3.6|1.4|0.2|setosa|5.006|3.428|1.462|0.246|
 |5.4|3.9|1.7|0.4|setosa|5.006|3.428|1.462|0.246|
+
+# Standard transforms on import
+
+Often times the column names of a file are messy; they contain '?', '%', spaces or other strange signs. With the **[janitor](https://www.rdocumentation.org/packages/janitor)** library you can fix this in one command by calling the _clean_names_ function. This function, which is can be used by piping the data frame through the function, will convert all strange signs to underscored, and will make all letters lower case.
+
+Excel sheets have a tendency to contain empty rows and/or colums. The **janitor** library also has two handy functions to fix this: _remove_empty_rows_ and _remove_empty_cols_. If we combine the three above functions it would look something like this:
+
+```r
+tbl_imported %<>%
+  clean_names() %>%
+  remove_empty_rows() %>%
+  remove_empty_cols() 
+```
