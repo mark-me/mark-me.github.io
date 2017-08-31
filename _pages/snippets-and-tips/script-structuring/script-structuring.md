@@ -37,6 +37,25 @@ I prefer to keep the bulk of my data processing out of my R Markdown document, s
 
 <img src="/_pages/snippets-and-tips/script-structuring/data-prep.png" alt="Navigation" align="center"/>
 
+In each data-prep file I don't do the data processing directly, instead I create a function containing all data processing. Why do I do this? I might not want to do all data-processing again and again every day I restart my computer, but instead load all pre-processed data. The skeleton of that function looks something like this:
+```r
+prep_datasource_A <- function(do_processing){
+
+  if(process_data){
+    
+    # Load raw data
+    # Transform raw data
+    # Write processed file
+    
+  } else {
+  
+    # Load previously processed data
+  
+  }
+}
+```
+As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data.
+
 
 # Setting working directories
 
