@@ -11,12 +11,10 @@ permalink: /importing-exporting/
 # Excel
 
 Accessing Excel files can be done using the **[XLConnect](https://cran.r-project.org/web/packages/XLConnect/vignettes/XLConnect.pdf)** library. The library depends on Java. Make sure you have a Java installed that is the same bit version (32/64 bit) as the R server you're using. When using Excel files, you first have to connect to the file. For example: 
-
 ```r
 data_book <- loadWorkbook("data-file.xlsx")
 ```
 Reading a worksheet can be done like so: 
-
 ```r
 tbl_data <- tbl_df(readWorksheet(data_book, sheet = "Data"))
 ```
