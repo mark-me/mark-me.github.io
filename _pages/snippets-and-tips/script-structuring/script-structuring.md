@@ -56,7 +56,6 @@ prep_datasource_A <- function(do_processing){
 ```
 As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data.
 
-
 # Setting working directories
 
 When working on a project, you probably want all your files to be in a folder you made for that project. If you set the working directory in a script, all following file calls are presumed to be files within that directory.
