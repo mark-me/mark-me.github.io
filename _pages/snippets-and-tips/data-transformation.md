@@ -49,7 +49,6 @@ Resulting in the 'opposite' data set:
 # The trouble with currency
 
 Since I live on the European mainland, I often get currency data delivered that doesn't comply to the English/US standard. Decimal separators are commas instead of points and big number separators are decimals. If you want to turn these currencies into the R/US/English compliant versions you can use this code.
-
 ```r
 tbl_revenue %<>% mutate(amt_revenue = gsub("[.]", "", amt_revenue)) %>% # Removing thousand separators (.) from value
   mutate(amt_revenue = gsub("[,]", ".", amt_revenue)) %>% # Replacing decimal separator (,) with . from value
@@ -74,10 +73,9 @@ Joining tables is most commonly done using the **dplyr** library. Joins of the d
 When joining the tables, the key(s) on which you join is specified in the specified in the _by_ argument of the joining function (the SQL equivalent of _ON_).
 
 *   When only matching on only **one column**, the _by_ argument can be simple a string containing the column name, for example:
-
-```r
-inner_join(table_x, table_y, by="key_column")
-```
+   ```r
+   inner_join(table_x, table_y, by="key_column")
+   ```
 
 *   Matching on differing **column names** is done by passing a vector to the _by_ argument like:
 
