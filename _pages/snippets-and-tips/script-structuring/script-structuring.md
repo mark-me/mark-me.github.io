@@ -33,7 +33,7 @@ This could be employed, for example, when you create multiple analysis scripts o
 
 ## An example of script in script
 
-I prefer to keep the bulk of my data processing out of my R Markdown document. For this reason I make R script files for eacht source file, so I can easily 
+I prefer to keep the bulk of my data processing out of my R Markdown document, so my analysis isn't cluttered by code. For this reason I make R script files for each source file, so I can easily locate where I should adjust what in case something is not how I wanted things to be. All the files for each data source is called from a central data-prep file, wherein I do all data transformations that are cross-source. This idea is depicted in the diagram below:
 
 <img src="/_pages/snippets-and-tips/script-structuring/data-prep.png" alt="Navigation" align="center"/>
 
