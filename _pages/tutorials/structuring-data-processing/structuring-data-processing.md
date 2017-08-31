@@ -5,9 +5,16 @@ comments: true
 permalink: /structuring-data-processing/
 ---
 
-I prefer to keep the bulk of my data processing out of my R Markdown document, so my analysis isn't cluttered by code. For this reason I make R script files for each source file, so I can easily locate where I should adjust what in case something is not how I wanted things to be. All the files for each data source is called from a central data-prep file, wherein I do all data transformations that are cross-source. This idea is depicted in the diagram below:
+I prefer to keep the bulk of my data processing out of my R Markdown document, so my analysis isn't cluttered by code. Also I'd hate to do all data-processing again and again every day I restart my computer when I go working on my project. To achieve this I made a framework I'll explain here to prevent both things from happening
+
+# Project scripts structure
+
+For this reason I make R script files for each source file, so I can easily locate where I should adjust what in case something is not how I wanted things to be. All the files for each data source is called from a central data-prep file, wherein I do all data transformations that are cross-source. This idea is depicted in the diagram below:
 
 <img src="/_pages/snippets-and-tips/script-structuring/data-prep.png" alt="Navigation" align="center"/>
+
+
+# Data processing functions
 
 In each data-prep file I don't do the data processing directly, instead I create a function containing all data processing. Why do I do this? I might not want to do all data-processing again and again every day I restart my computer, but instead load all pre-processed data. The skeleton of that function looks something like this:
 ```r
