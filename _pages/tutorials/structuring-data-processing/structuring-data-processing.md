@@ -14,11 +14,14 @@ To address these problems this I made a framework which I'll explain in this tut
 
 # Project scripts structure
 
-To ensure I don't get one blob of code I make R script files that will do data loading and transforming for each source. This way I can easily locate where I should adjust code in case something is not how I wanted things to be. All the files for each data source is called from a central data-prep file, wherein I do all data transformations take place that are cross-source. This idea is depicted in the diagram below:
+To ensure I don't get one blob of code, I make R script files that will do data loading and transforming for each source. This way I can easily locate where I should adjust code in case something is not how I wanted things to be. 
+All the files for each data source is called from a central data-prep file, wherein I do all data transformations take place that are cross-source. This idea is depicted in the diagram below:
 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/script-structuring/data-prep.png" alt="Script structure" align="middle"/>
 {: refdef}
+
+As a side effect this approach let's you recycle the data prep scripts for source files for different projects using the same 
 
 # Data processing functions
 
@@ -36,4 +39,4 @@ prep_datasource_A <- function(do_processing){
   # return a data frame with processed data
 }
 ```
-As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data.
+As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data. I use the **[fst]** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usgae [here](/importing-exporting/#temporary-files).
