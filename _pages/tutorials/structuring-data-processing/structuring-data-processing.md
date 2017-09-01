@@ -28,8 +28,8 @@ prep_datasource_A <- function(do_processing){
 
   if(process_data){
     
-    # Load raw data
-    # Transform raw data
+    # Load source data
+    # Transform source data
     # Write processed file
     
   } else {
@@ -37,6 +37,7 @@ prep_datasource_A <- function(do_processing){
     # Load previously processed data
   
   }
+  # return a data frame with processed data
 }
 ```
 As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data.
