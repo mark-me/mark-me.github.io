@@ -25,7 +25,7 @@ As a side effect this approach let's you recycle the data prep scripts for sourc
 
 # Data processing functions
 
-In each data-prep file I don't do the data processing directly, instead I create a function containing all data processing. Why do I do this? I might not want to do all data-processing again and again every day I restart my computer, but instead load all pre-processed data. The skeleton of that function looks something like this:
+In each data-prep script for a source, data processing isn't processed directly, instead all data processing is put inside a function. This function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or we load pre-processed data. The skeleton of that function looks something like this:
 ```r
 prep_datasource_A <- function(do_processing){
 
@@ -39,4 +39,5 @@ prep_datasource_A <- function(do_processing){
   # return a data frame with processed data
 }
 ```
-As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data. I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usage [here](/importing-exporting/#temporary-files).
+I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usage [here](/importing-exporting/#temporary-files).
+
