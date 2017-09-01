@@ -36,6 +36,7 @@ prep_datasource_A <- function(do_processing){
   } else {
     # Load previously processed data
   }
+  # check if data frame exists, otherwise **stopifnot(exists("df") )**
   # return a data frame with processed data
 }
 ```
