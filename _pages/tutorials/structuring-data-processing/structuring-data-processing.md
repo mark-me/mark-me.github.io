@@ -27,15 +27,11 @@ In each data-prep file I don't do the data processing directly, instead I create
 prep_datasource_A <- function(do_processing){
 
   if(process_data){
-    
     # Load source data
     # Transform source data
     # Write processed file
-    
   } else {
-  
     # Load previously processed data
-  
   }
   # return a data frame with processed data
 }
