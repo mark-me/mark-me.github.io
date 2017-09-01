@@ -31,13 +31,13 @@ prep_datasource_A <- function(do_processing){
 
   if(process_data){
     # Load source data
-    # Transform source data
-    # Write processed file
+    # Transform source data in data frame 'df'
+    # Write dataframe 'df' to processed file
   } else {
-    # Load previously processed data
+    # Load previously processed data in a data frame 'df'
   }
-  # check if data frame exists, otherwise **stopifnot(exists("df") )**
-  # return a data frame with processed data
+  stopifnot(exists("df") )  # check if data frame 'df' exists, otherwise stop the script
+  # return the data frame 'df' with processed data
 }
 ```
 I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usage [here](/importing-exporting/#temporary-files).
