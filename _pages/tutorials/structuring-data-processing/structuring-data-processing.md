@@ -39,4 +39,4 @@ prep_datasource_A <- function(do_processing){
   # return a data frame with processed data
 }
 ```
-As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data. I use the **[fst]** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usgae [here](/importing-exporting/#temporary-files).
+As you can see the function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or whether we load pre-processed data. I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usgae [here](/importing-exporting/#temporary-files).
