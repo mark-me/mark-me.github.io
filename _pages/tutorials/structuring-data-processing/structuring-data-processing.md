@@ -33,8 +33,10 @@ prep_datasource_a <- function(do_processing){
     # Load source data
     # Transform source data in data frame 'df_source_a'
     # Write dataframe 'df_source_a' to processed file
+    write.fst(df_source_a, "source_a.fst", 100)
   } else {
     # Load previously processed data in a data frame 'df_source_a'
+    df_source_a <- read.fst("source_a.fst")
   }
   stopifnot(exists("df_source_a"))  # If 'df_source_a' doesn't exists, stop the script
   return(df_source_a)
@@ -53,18 +55,22 @@ source("prep_datasource_c.R")
 Then another function is created that looks quite similar to the _prep_datasource_a_ function, but it first calls all data source prep functions.
 ```r
 prep_datasources <- function(do_processing){
-
   prep_datasource_a(do_processing)
   prep_datasource_b(do_processing)
   prep_datasource_c(do_processing)
 
   if(process_data){
-    # Create cross data source in data frame 'df'
-    # Write dataframe 'df' to processed file
+    # Create cross data source in data frame 'df_source_general'
+    # Write dataframe 'df_source_general' to processed file
   } else {
-    # Load previously processed data in a data frame 'df'
+    # Load previously processed data in a data frame 'df_source_general'
   }
-  stopifnot(exists("df") )  # check if data frame 'df' exists, otherwise stop the script
-  # return the data frame 'df' with processed data
+  stopifnot(exists("df_source_general"))  # If 'df_source_general' doesn't exists, stop the script
+  # Create a list with all data frames and return it
+  list_df <- list(df_source_a = df_source_a, 
+                  df_source_b = df_source_b, 
+                  df_source_c = df_source_c, 
+                  df_source_general = df_source_general)
+  return(list_df)
 }
 ```
