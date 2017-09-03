@@ -23,15 +23,43 @@ All the files for each data source is called from a central data-prep file, wher
 
 As a side effect this approach let's you recycle the data prep scripts for source files for different projects using the same 
 
-# Data processing functions
+# Data source functions
 
 In each data-prep script for a source, data processing isn't processed directly, instead all data processing is put inside a function. This function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or we load pre-processed data. The skeleton of that function looks something like this:
 ```r
-prep_datasource_A <- function(do_processing){
+prep_datasource_a <- function(do_processing){
 
   if(process_data){
     # Load source data
-    # Transform source data in data frame 'df'
+    # Transform source data in data frame 'df_source_a'
+    # Write dataframe 'df_source_a' to processed file
+  } else {
+    # Load previously processed data in a data frame 'df_source_a'
+  }
+  stopifnot(exists("df_source_a") )  # check if data frame 'df_source_a' exists, otherwise stop the script
+  return(df_source_a)
+}
+```
+I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usage [here](/importing-exporting/#temporary-files).
+
+# Integration function
+
+In the general data-prep script file the data source scripts are loaded, which looks something along the lines of this:
+```r
+source("prep_datasource_a.R")
+source("prep_datasource_b.R")
+source("prep_datasource_c.R")
+```
+Then another function is created that looks quite similar to the _prep_datasource_a_ function, but it first calls all data source prep functions.
+```r
+prep_datasources <- function(do_processing){
+
+  prep_datasource_a(do_processing)
+  prep_datasource_b(do_processing)
+  prep_datasource_c(do_processing)
+
+  if(process_data){
+    # Create cross data source in data frame 'df'
     # Write dataframe 'df' to processed file
   } else {
     # Load previously processed data in a data frame 'df'
@@ -40,5 +68,3 @@ prep_datasource_A <- function(do_processing){
   # return the data frame 'df' with processed data
 }
 ```
-I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usage [here](/importing-exporting/#temporary-files).
-
