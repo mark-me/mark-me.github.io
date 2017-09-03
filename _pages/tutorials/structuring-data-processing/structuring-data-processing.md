@@ -36,7 +36,7 @@ prep_datasource_a <- function(do_processing){
   } else {
     # Load previously processed data in a data frame 'df_source_a'
   }
-  stopifnot(exists("df_source_a") )  # check if data frame 'df_source_a' exists, otherwise stop the script
+  stopifnot(exists("df_source_a"))  # If 'df_source_a' doesn't exists, stop the script
   return(df_source_a)
 }
 ```
