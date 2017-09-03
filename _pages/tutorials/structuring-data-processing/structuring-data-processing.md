@@ -44,15 +44,15 @@ prep_datasource_a <- function(do_processing){
 ```
 I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usage [here](/importing-exporting/#temporary-files).
 
-# Integration function
+# General data-prep function
 
-In the general data-prep script file the data source scripts are loaded, which looks something along the lines of this:
+In the general data-prep script, which I'll call _data-prep.R_, the data source scripts are loaded, which looks something along the lines of this:
 ```r
 source("prep_datasource_a.R")
 source("prep_datasource_b.R")
 source("prep_datasource_c.R")
 ```
-Then another function is created that looks quite similar to the _prep_datasource_a_ function, but it first calls all data source prep functions.
+Then another function is created that looks quite similar to the _prep_datasource_a_ function, but it first calls all data source prep functions. Depending on the value of the _do_processing_ parameter the general data-prepping is done, or a pre-prepped file is loaded. Then a list is created with all the data frames, so all can be returned to the analysis script.
 ```r
 prep_datasources <- function(do_processing){
   prep_datasource_a(do_processing)
@@ -62,8 +62,10 @@ prep_datasources <- function(do_processing){
   if(process_data){
     # Create cross data source in data frame 'df_source_general'
     # Write dataframe 'df_source_general' to processed file
+    write.fst(df_source_general, "source_general.fst", 100)
   } else {
     # Load previously processed data in a data frame 'df_source_general'
+    df_source_general <- read.fst("source_general.fst")
   }
   stopifnot(exists("df_source_general"))  # If 'df_source_general' doesn't exists, stop the script
   # Create a list with all data frames and return it
@@ -74,3 +76,16 @@ prep_datasources <- function(do_processing){
   return(list_df)
 }
 ```
+
+# Analysis script
+
+In the analysis script, be sure to point the working directory where it contains all scripts. The general data prep script is loaded, which in turn will load all data source prepping scripts. The _do_processing_ variable controls whether the data-prepping is done from scratch or the pre-prepped data is loaded from files. The _prep_datasources_ function is called with the _do_processing_ variable as a parameter from within the _list2env_ function. The _list2env_ function will unlist the data frame list and put all the data frames in the environment. 
+```r
+setwd("/home/mark/R Scripts/structuring-data-processing/")
+source("data-prep.R")
+
+do_processing <- FALSE
+
+list2env(prep_datasources(do_processing) ,.GlobalEnv)
+```
+Now you're good to go doing your analysis!
