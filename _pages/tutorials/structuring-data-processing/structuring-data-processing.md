@@ -21,7 +21,7 @@ All the files for each data source is called from a central data-prep file, wher
 <img src="/_pages/snippets-and-tips/script-structuring/data-prep.png" alt="Script structure" align="middle"/>
 {: refdef}
 
-As a side effect this approach let's you recycle the data prep scripts for source files for different projects using the same 
+As a side effect this approach let's you recycle the data prep scripts for source files for different projects using the same source data. In the following sections 
 
 # Data source functions
 
@@ -86,6 +86,6 @@ source("data-prep.R")
 
 do_processing <- FALSE
 
-list2env(prep_datasources(do_processing) ,.GlobalEnv)
+list2env(prep_datasources(do_processing), .GlobalEnv)
 ```
 Now you're good to go doing your analysis!
