@@ -104,4 +104,17 @@ dir_output_data <- NULL
 
 ## Creating/initializing project structure
 
-The function _open_project_
+The function _open_project_ creates/reopens the project. 
+
+* The first line within the function _this_file_location_ points at the  
+* The the projects subdirectories if they don't exist, and the placeholders created above will be filled with the corresponding directories.
+* A copy of the script is placed in the project's base directory
+* If it doesn't exist yet, a file 'main.R' is created, which you can use as a starting point for your project. If you decide not to use this file, make sure to copy it's content at the top of your project's main file.
+
+## Miscellaneous functions
+
+The rest of the script creates functions that are optional, functions I find useful in a lot of projects myself. Of course you can delete those or add to those as you please. The functions were already specified earlier in this tutorial.
+
+# Final thoughts
+
+Although the script has some flaws to it, it made my life a lot easier so far. If you have any improvements on it, please let me know. Happy R-ing!
