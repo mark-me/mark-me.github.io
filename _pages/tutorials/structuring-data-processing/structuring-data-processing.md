@@ -29,7 +29,7 @@ In each data-prep script for a source, data processing isn't processed directly,
 ```r
 prep_datasource_a <- function(do_processing){
 
-  if(process_data){
+  if(do_processing){
     # Load source data
     # Transform source data in data frame 'df_source_a'
     # Write dataframe 'df_source_a' to processed file
@@ -59,7 +59,7 @@ prep_datasources <- function(do_processing){
   prep_datasource_b(do_processing)
   prep_datasource_c(do_processing)
 
-  if(process_data){
+  if(do_processing){
     # Create cross data source in data frame 'df_source_general'
     # Write dataframe 'df_source_general' to processed file
     write.fst(df_source_general, "source_general.fst", 100)
