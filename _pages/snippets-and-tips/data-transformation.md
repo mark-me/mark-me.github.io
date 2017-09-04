@@ -152,7 +152,7 @@ The _labels_ parameter is optional, allowing you to specify how the intervals ar
 |*6.5*|3.0|5.8|2.2|virginica|*(6,7]*|
 |*5.8*|2.7|5.1|1.9|virginica|*(-Inf,6]*|
 
-# Aggregates on non-aggregates
+# Calculating aggregates on non-aggregated data
 
 Sometimes you want to have the values of aggregates on the non-aggregated level. Let's take an example from a data-set _iris_. This data-set contains measurements of petals and sepals (the large 'under'-flowers). Below you see a sample of this data.
 
