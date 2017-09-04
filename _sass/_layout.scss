@@ -137,19 +137,19 @@ p.spacer {
 
 table{
 	width: 100%;
-    	border: solid 1px #541a3b;
+    	border: solid 1px $table-header;
     	border-collapse: collapse;
    	border-spacing: 0;
 }
 th{
-    	background-color: #541a3b;
-    	border: solid 1px #541a3b;
+    	background-color: $table-header;
+    	border: solid 1px $table-header;
     	color: #FFFFFF;
     	padding: 2px;
     	text-align: left;
 }
 td{
-   	border: solid 1px #541a3b;
+   	border: solid 1px $table-header;
     	color: #333;
     	padding: 2px;
 }
