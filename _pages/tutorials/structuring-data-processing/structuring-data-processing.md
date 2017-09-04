@@ -23,7 +23,7 @@ All the files for each data source is called from a central data-prep file, wher
 
 As a side effect this approach let's you recycle the data prep scripts for source files for different projects using the same source data. In the following sections I'll discuss the scripts for data-source prepping, general prepping and the final analysis script. I've also created a working example with nonsensical data you can download [here](https://github.com/mark-me/mark-me.github.io/raw/master/_pages/tutorials/structuring-data-processing/structuring-data-processing.zip).
 
-# Data source functions
+# Data source scripts
 
 In each data-prep script for a source, data processing isn't processed directly, instead all data processing is put inside a function. This function takes a boolean _process_data_. The value of this parameter determines whether we process the data from scratch or we load pre-processed data. The skeleton of that function looks something like this:
 ```r
@@ -44,7 +44,7 @@ prep_datasource_a <- function(do_processing){
 ```
 I use the **fst** library for processed file storage and retrieval since it is fast and creates compact files. I explain **fst**'s usage [here](/importing-exporting/#temporary-files).
 
-# General data-prep function
+# General data-prep script
 
 In the general data-prep script, which I'll call _data-prep.R_, the data source scripts are loaded, which looks something along the lines of this:
 ```r
