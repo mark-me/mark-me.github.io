@@ -21,7 +21,7 @@ All the files for each data source is called from a central data-prep file, wher
 <img src="/_pages/snippets-and-tips/script-structuring/data-prep.png" alt="Script structure" align="middle"/>
 {: refdef}
 
-As a side effect this approach let's you recycle the data prep scripts for source files for different projects using the same source data. In the following sections I'll discuss the scripts for data-source prepping, general prepping and the final analysis script. I've also created a working example with nonsensical code you can download [here](https://github.com/mark-me/mark-me.github.io/raw/master/_pages/tutorials/structuring-data-processing/structuring-data-processing.zip).
+As a side effect this approach let's you recycle the data prep scripts for source files for different projects using the same source data. In the following sections I'll discuss the scripts for data-source prepping, general prepping and the final analysis script. I've also created a working example with nonsensical data you can download [here](https://github.com/mark-me/mark-me.github.io/raw/master/_pages/tutorials/structuring-data-processing/structuring-data-processing.zip).
 
 # Data source functions
 
