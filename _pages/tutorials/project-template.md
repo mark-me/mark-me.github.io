@@ -72,3 +72,32 @@ paste0(dir_input, "/", "filename.csv")
 ```
 
 # Explaining the script
+
+## Installing missing packages
+
+* The vector _list_of_packages_ contains all packages I regularly use; you can adjust this to your own needs. 
+* This list is compared to the already installed packages, resulting in a vector _new_packages_ that contains only the packages that are not yet installed. 
+* If uninstalled packages are detected, these are installed.
+* Load all packages
+* remove the vectors after use
+```r
+list_of_packages <- c("ggplot2", "dplyr", "magrittr", "purrr", "fst", "ggmap", "ggthemes", "reshape2", "scales", "xlsx",
+                       "stringr", "RColorBrewer", "qgraph", "Hmisc", "factoextra", "cluster", "kimisc", "ggrepel", "class",
+                       "lubridate", "tidyr", "broom", "funr")
+new_packages <- list_of_packages[!(list_of_packages %in% installed.packages()[,"Package"])]
+if(length(new_packages)) install.packages(new_packages)
+lapply(list_of_packages, require, character.only = TRUE)
+rm(list_of_packages, new_packages)
+```
+## Create directory variables
+
+Variables are created that are the placeholders for the subdirectories created as part of the project:
+```r
+dir_project <- NULL
+dir_input <- NULL
+dir_output_data <- NULL
+```
+
+## Creating/initializing project structure
+
+The function _open_project_
