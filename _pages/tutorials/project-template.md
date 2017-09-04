@@ -84,9 +84,10 @@ The following is done in the script below:
 * remove the vectors after use
 
 ```r
-list_of_packages <- c("ggplot2", "dplyr", "magrittr", "purrr", "fst", "ggmap", "ggthemes", "reshape2", "scales", "xlsx",
-                       "stringr", "RColorBrewer", "qgraph", "Hmisc", "factoextra", "cluster", "kimisc", "ggrepel", "class",
-                       "lubridate", "tidyr", "broom", "funr")
+list_of_packages <- c("ggplot2", "dplyr", "magrittr", "purrr", "fst", "ggmap", "ggthemes", 
+                      "reshape2", "scales", "xlsx", "stringr", "RColorBrewer", "qgraph", 
+                      "Hmisc", "factoextra", "cluster", "kimisc", "ggrepel", "class",
+                      "lubridate", "tidyr", "broom", "funr")
 new_packages <- list_of_packages[!(list_of_packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
 lapply(list_of_packages, require, character.only = TRUE)
