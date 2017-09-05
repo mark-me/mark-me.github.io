@@ -53,7 +53,7 @@ You probably know you can filter a data frame by using the _filter_ function. An
 iris %>% 
   filter(Species == "setosa" | Species == "versicolor"))
 ```
-This is OK when it is on two values like this, but if you add more and more values it will degrade readability. Instead you can use the _%in%_ operator together with a vector of values to achieve the same result:
+This is OK when it is on two values like this, but if you add more and more values it will degrade the readability of your code. Instead you can use the _%in%_ operator together with a vector of values to achieve the same result:
 ```r
 iris %>% 
   filter(Species %in% c("setosa", "versicolor"))
