@@ -12,13 +12,13 @@ permalink: /data-transformation/
 
 If you adhere to certain column naming conventions (like using the prefix _amt__ for currency columns), you can use certain functions to select multiple columns in one statement.
 
-*   _starts_with():_ starts with a prefix
-*   _ends_with():_ ends with a prefix
-*   _contains():_ contains a literal string
-*   _matches():_ matches a regular expression
-*   _num_range():_ a numerical range like x01, x02, x03.
-*   _one_of():_ variables in character vector.
-*   _everything():_ all variables, except those previously used in the select statement. This makes it an ideal candidate for column re-ordering.
+*   _starts_with()_ - starts with a prefix
+*   _ends_with()_ - ends with a prefix
+*   _contains()_ - contains a literal string
+*   _matches()_ - matches a regular expression
+*   _num_range()_ - a numerical range like x01, x02, x03.
+*   _one_of()_ - variables in character vector.
+*   _everything()_ - all variables, except those previously used in the select statement. This makes it an ideal candidate for column re-ordering.
 
 An example with the iris data-set (which is part of the **tidyverse**) is:
 ```r
@@ -45,6 +45,24 @@ Resulting in the 'opposite' data set:
 |5.1|3.5|setosa|
 |4.9|3.0|setosa|
 |4.7|3.2|setosa|
+
+# Filtering on multiple values
+
+You probably know you can filter a data frame by using the _filter_ function. And if you want to filter on multiple values on one column you can use the _|_ operator like this:
+```r
+iris %>% 
+  filter(Species == "setosa" | Species == "versicolor"))
+```
+This is OK when it is on two values like this, but if you add more and more values it will degrade readability. Instead you can use the _%in%_ operator together with a vector of values to achieve the same result:
+```r
+iris %>% 
+  filter(Species %in% c("setosa", "versicolor"))
+```
+If you want to exclude multiple values by using the _%nin%_ operator like this:
+```r
+iris %>% 
+  filter(Species %nin% c("setosa", "versicolor"))
+```
 
 # The trouble with currency
 
