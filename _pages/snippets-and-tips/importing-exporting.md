@@ -110,7 +110,7 @@ data_frame <- tbl_df(read.fst("file_name.fst"))
 ```
 The current version (writing this on September 6th, 2017), the CRAN version has a bug where dates are saved as numbers (the developer has fixed this), which made me switch to the RDS format which is part of the R base.
 
-# RDS files
+## RDS files
 
 A native format for storing objects quickly is RDS. You can write a (compressed) file like this:
 ```r
