@@ -18,7 +18,7 @@ And now for something I don't normally do, but will now for recrateal purposes, 
 ```r
 library(missForest)
 ```
-The create random NA data in the data set in 10% of the cases:
+The create random NA data in the data set in 10% of the cases, not being picky about which variable the NA is created for:
 ```r
 tbl_iris_miss <- prodNA(iris, noNA = 0.1)
 ```
@@ -63,6 +63,18 @@ ggplot(tbl_comparison) +
 ```
 
 # Methods
+
+# Means, medians and other 'simple' replacements
+
+Loading the required **Hmisc** library:
+```r
+library(Hmisc)
+```
+Putting means:
+```r
+tbl_iris_miss$imputed_sepal_length <- with(tbl_iris_miss, impute(Sepal.Length, mean))
+```
+
 
 ## kNN
 
