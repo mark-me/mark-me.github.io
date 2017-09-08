@@ -29,6 +29,24 @@ Now to see what the extent is the missing data is I can use a plot function, _ag
 ```r
 tbl_iris_imp <- kNN(tbl_iris_miss)
 ```
+
+```r
+tbl_iris_miss %>% 
+  gather(key = variable, value) %>% 
+  filter(is.na(value)) %>% 
+  ggplot() +
+    geom_bar(aes(x = variable, fill = variable)) +
+    guides(fill = FALSE) +
+    labs(list(title = "MIssing values per variable")) +
+    theme_minimal()
+```
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/impute-missings/VIM-plot.png" target="_blank">
+<img src="/_pages/tutorials/impute-missings/VIM-plot.png" alt="" width="547" height="400" align="center"/>
+<br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
 ```r
 mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
                   numbers = TRUE, sortVars = TRUE,
@@ -36,8 +54,8 @@ mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
                   gap = 3, ylab = c("Missing data", "Pattern"))
 ```
 {:refdef: style="text-align: center;"}
-<a href="/_pages/tutorials/impute-missings/VIM-plot.png" target="_blank">
-<img src="/_pages/tutorials/impute-missings/VIM-plot.png" alt="" width="547" height="400" align="center"/>
+<a href="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" target="_blank">
+<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="530" height="500" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
