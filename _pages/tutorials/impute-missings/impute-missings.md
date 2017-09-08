@@ -33,6 +33,13 @@ mice_plot <- aggr(tbl_iris_miss, col=c('navyblue','yellow'),
                   labels=names(tbl_iris_miss), cex.axis=.7,
                   gap=3, ylab=c("Missing data","Pattern"))
 ```
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/impute-missings/VIM-plot.png" target="_blank">
+<img src="/_pages/tutorials/impute-missings/VIM-plot.png" alt="" width="547" height="400" align="center"/>
+<br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
 ## Missing value patterns
 ```
 md.pattern(tbl_iris_miss)
