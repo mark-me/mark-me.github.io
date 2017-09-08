@@ -26,4 +26,9 @@
 #- title: Clustering methods
 #  url: /clustering-methods/
 #  image: /_pages/tutorials/kmeans.png
-#  description: Choosing and executing different clustering methods, and using it within the tidy framework.  
+#  description: Choosing and executing different clustering methods, and using it within the tidy framework.
+
+#- title: Replacing missing data with best guesses
+#  url: /impute-missings/
+#  image: /_pages/tutorials/kmeans.png
+#  description: Inspecting the extent of your missing value problem, and ways to fix them.  
