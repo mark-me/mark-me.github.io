@@ -64,7 +64,7 @@ ggplot(tbl_comparison) +
 
 # Methods
 
-# Means, medians and other 'simple' replacements
+## Means, medians and other 'simple' replacements
 
 Loading the required **Hmisc** library:
 ```r
