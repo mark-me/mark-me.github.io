@@ -43,7 +43,7 @@ tbl_iris_miss %>%
 ```
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" target="_blank">
-<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="530" height="500" align="center"/>
+<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="530" height="450" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
@@ -57,7 +57,7 @@ mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
 ```
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/VIM-plot.png" target="_blank">
-<img src="/_pages/tutorials/impute-missings/VIM-plot.png" alt="" width="547" height="400" align="center"/>
+<img src="/_pages/tutorials/impute-missings/VIM-plot.png" alt="" width="442" height="400" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
