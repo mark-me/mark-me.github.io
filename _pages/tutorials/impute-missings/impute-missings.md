@@ -8,8 +8,7 @@ permalink: /impute-missings/
 * TOC
 {:toc}
 
-# Creating a data set
-
+# Mutilated data
 The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** data set. First a copy is created for reference puproses:
 ```r
 tbl_iris_orig <- iris
