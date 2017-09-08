@@ -30,6 +30,7 @@ Now to see what the extent is the missing data is I can use a plot function, _ag
 tbl_iris_imp <- kNN(tbl_iris_miss)
 ```
 
+First we'll take a look at the number of cases per variable:
 ```r
 tbl_iris_miss %>% 
   gather(key = variable, value) %>% 
@@ -47,6 +48,7 @@ tbl_iris_miss %>%
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
+Then we'll see how many cases are affected and how:
 ```r
 mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
                   numbers = TRUE, sortVars = TRUE,
