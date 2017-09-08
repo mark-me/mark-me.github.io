@@ -14,7 +14,7 @@ The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/w
 ```r
 tbl_iris_orig <- iris
 ```
-And now for something I don't normally do, but will now for recrateal purposes, introducing some missing values in the iris data set. To I'll be using the _prodNA_ function from the **missForest** package. So the librart needs to be loaded first:
+And now for something I don't normally do, but will now for recrateal purposes, introducing some missing values in the iris data set. To I'll be using the _prodNA_ function from the **[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)** package. So the librart needs to be loaded first:
 ```r
 library(missForest)
 ```
