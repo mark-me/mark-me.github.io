@@ -46,6 +46,7 @@ mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
 ```
 md.pattern(tbl_iris_miss)
 ```
+The output will look something like this:
 
 |  |Petal.Length|Species|Sepal.Width|Sepal.Length|Petal.Width|
 | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -56,6 +57,8 @@ md.pattern(tbl_iris_miss)
 |14|1|1|1|1|0|1|
 |...|...|...|...|...|...|...|
 |  |12|13|15|16|19|75|
+
+Interpreting
 
 # Reviewing solutions
 
