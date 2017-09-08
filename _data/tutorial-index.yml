@@ -31,4 +31,4 @@
 - title: Replacing missing data with best guesses
   url: /impute-missings/
   image: /_pages/tutorials/impute-missings/impute-missings.png
-  description: Inspecting the extent of your missing value problem, and ways to fix them.  
+  description: Inspecting the extent of your missing value problems, and ways to fix them.  
