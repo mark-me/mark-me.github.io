@@ -1,3 +1,9 @@
+---
+layout: page
+title: Replacing missing data with best guesses
+comments: true
+permalink: /impute-missings/
+---
 
 # Creating a data set
 
@@ -26,4 +32,25 @@ mice_plot <- aggr(tbl_iris_miss, col=c('navyblue','yellow'),
 
 # Missing value patterns
 md.pattern(tbl_iris_miss)
+```
+
+## Methods
+
+## kNN
+
+**[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library
+```r
+tbl_iris_imp <- kNN(tbl_iris_miss)
+```
+
+## Decision tree
+
+**[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)**
+```r
+library(missForest)
+```
+
+```r
+iris.imp <- missForest(tbl_iris_miss)
+tbl_iris_imp <- iris.imp$ximp
 ```
