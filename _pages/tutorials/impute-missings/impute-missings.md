@@ -71,7 +71,7 @@ Fir this we'll use the **[VIM](https://www.rdocumentation.org/packages/VIM/versi
 tbl_iris_imp <- kNN(tbl_iris_miss)
 ```
 
-Then we apply the _kNN_ function for the whole data frame, end put the set, the original set included, replaced NA's in the data frame: _tbl_iris_imp_: 
+Then we apply the _kNN_ function for the whole data frame, end put the set, the original set included, replaced NA's in the data frame _tbl_iris_imp_: 
 ```r
 tbl_iris_imp <- kNN(tbl_iris_miss)
 ```
