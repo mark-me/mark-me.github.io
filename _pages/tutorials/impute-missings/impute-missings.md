@@ -25,13 +25,15 @@ tbl_iris_miss <- prodNA(iris, noNA = 0.1)
 
 # Visualize the mess
 
-Now to see what the extent is the missing data is I can use a plot function, _aggr_, from the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library.
+Now to see what the extent is the missing data is I can use a plot function, _aggr_, from the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. So first we'll load that library.
 ```r
-library(VIM)
-mice_plot <- aggr(tbl_iris_miss, col=c('navyblue','yellow'),
-                  numbers=TRUE, sortVars=TRUE,
-                  labels=names(tbl_iris_miss), cex.axis=.7,
-                  gap=3, ylab=c("Missing data","Pattern"))
+tbl_iris_imp <- kNN(tbl_iris_miss)
+```
+```r
+mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
+                  numbers = TRUE, sortVars = TRUE,
+                  labels = names(tbl_iris_miss), cex.axis = .7,
+                  gap = 3, ylab = c("Missing data", "Pattern"))
 ```
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/VIM-plot.png" target="_blank">
@@ -64,7 +66,12 @@ ggplot(tbl_comparison) +
 
 ## kNN
 
-**[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library
+Fir this we'll use the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library we used before to inpect the extent of the missing values mess. If you didn't load the library, we'll do it now.
+```r
+tbl_iris_imp <- kNN(tbl_iris_miss)
+```
+
+Then we apply the _kNN_ function for the whole data frame, end put the set, the original set included, replaced NA's in the data frame: _tbl_iris_imp_: 
 ```r
 tbl_iris_imp <- kNN(tbl_iris_miss)
 ```
