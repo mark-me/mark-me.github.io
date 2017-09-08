@@ -37,7 +37,22 @@ mice_plot <- aggr(tbl_iris_miss, col=c('navyblue','yellow'),
 md.pattern(tbl_iris_miss)
 ```
 
-## Methods
+# Reviewing solutions
+
+```r
+tbl_comparison <- data_frame(orig = tbl_iris_orig$Species,
+                             miss = tbl_iris_miss$Species,
+                             imp = tbl_iris_imp$Species)
+```
+
+```r
+tbl_comparison <- tbl_comparison[!complete.cases(tbl_comparison), ]
+ggplot(tbl_comparison) +
+  geom_jitter(aes(x = orig, y = imp)) +
+  geom_abline(slope = 1, intercept = 0)
+```
+
+# Methods
 
 ## kNN
 
