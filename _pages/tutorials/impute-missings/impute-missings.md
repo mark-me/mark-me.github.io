@@ -5,6 +5,9 @@ comments: true
 permalink: /impute-missings/
 ---
 
+* TOC
+{:toc}
+
 # Creating a data set
 
 The demo data set for this I'll be using the **iris** data set. First a copy is created for reference puproses:
