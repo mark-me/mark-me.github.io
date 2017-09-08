@@ -93,7 +93,7 @@ ggplot(tbl_comparison) +
   geom_abline(slope = 1, intercept = 0)
 ```
 
-# Methods
+# Solutions
 
 ## Means, medians and other 'simple' replacements
 
