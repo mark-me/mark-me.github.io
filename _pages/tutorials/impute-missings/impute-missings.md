@@ -49,7 +49,7 @@ md.pattern(tbl_iris_miss)
 The output will look something like this:
 
 |  |Petal.Length|Species|Sepal.Width|Sepal.Length|Petal.Width|
-| ---: | ---: | ---: | ---: | ---: | ---: |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 |88|1|1|1|1|1|0|
 |10|1|1|1|0|1|1|
 |10|1|1|0|1|1|1|
