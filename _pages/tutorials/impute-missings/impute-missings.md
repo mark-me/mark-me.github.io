@@ -36,7 +36,7 @@ tbl_iris_miss %>%
   gather(key = variable, value) %>% 
   filter(is.na(value)) %>% 
   ggplot() +
-    geom_bar(aes(x = variable, fill = variable)) +
+    geom_bar(aes(x = variable), fill = "#3E0425") +
     guides(fill = FALSE) +
     labs(list(title = "MIssing values per variable")) +
     theme_minimal()
