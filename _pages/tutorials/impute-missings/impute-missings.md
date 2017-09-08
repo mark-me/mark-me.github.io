@@ -42,10 +42,8 @@ tbl_iris_miss %>%
     theme_minimal()
 ```
 {:refdef: style="text-align: center;"}
-<a href="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" target="_blank">
-<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="394" height="400" align="center"/>
+<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="443" height="450" align="center"/>
 <br>
-<i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
 Then we'll see how many cases are affected and how:
