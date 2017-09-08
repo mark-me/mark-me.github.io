@@ -28,7 +28,7 @@
 #  image: /_pages/tutorials/kmeans.png
 #  description: Choosing and executing different clustering methods, and using it within the tidy framework.
 
-#- title: Replacing missing data with best guesses
-#  url: /impute-missings/
-#  image: /_pages/tutorials/kmeans.png
-#  description: Inspecting the extent of your missing value problem, and ways to fix them.  
+- title: Replacing missing data with best guesses
+  url: /impute-missings/
+  image: /_pages/tutorials/impute-missings/impute-missings.png
+  description: Inspecting the extent of your missing value problem, and ways to fix them.  
