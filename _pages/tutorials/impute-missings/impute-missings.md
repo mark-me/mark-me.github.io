@@ -48,7 +48,7 @@ tbl_iris_miss %>%
             perc_missing = sum(is.na(value)/n())) %>% 
   ggplot() +
     geom_col(aes(x = variable, y = qty_missing), fill = "#541a3b") +
-    geom_label(aes(x = variable, y = qty_missing, label = sprintf("%1.2f%%", 100*perc_missing))) +
+    geom_label(aes(x = variable, y = qty_missing, label = sprintf("%1.1f%%", 100*perc_missing))) +
     guides(fill = FALSE) +
     labs(list(title = "Missing values per variable", x = "Variable", y = "Qty Missing")) +
     theme_minimal()
