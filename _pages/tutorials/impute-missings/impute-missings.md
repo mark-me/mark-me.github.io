@@ -9,22 +9,22 @@ permalink: /impute-missings/
 {:toc}
 
 # Mutilated data
-The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** data set. First a copy is created for reference puproses:
+The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** data set. Which, unlike a lot of real-world examples is very complete. First a copy is created for reference puproses:
 ```r
 tbl_iris_orig <- iris
 ```
-And now for something I don't normally do, but will now for recrateal purposes, introducing some missing values in the iris data set. To I'll be using the _prodNA_ function from the **[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)** package. So the librart needs to be loaded first:
+And now for something I won't normally do but will now do, for recrateal purposes, creating some missing values in the iris data set. To I'll be using the _prodNA_ function from the **[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)** package. So the librart needs to be loaded first:
 ```r
 library(missForest)
 ```
-The create random NA data in the data set in 10% of the cases, not being picky about which variable the NA is created for:
+Now I'll randomly replace data with NA's in the iris data in 10% of the cases, not being picky about which variable the NA is replaced in:
 ```r
 tbl_iris_miss <- prodNA(iris, noNA = 0.1)
 ```
 
 # Visualize the mess
 
-Now to see what the extent is the missing data is I can use a plot function, _aggr_, from the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. So first we'll load that library.
+Now to see the extent to which the missing data is missing I can use a plot function, _aggr_, from the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. So first we'll load that library.
 ```r
 tbl_iris_imp <- kNN(tbl_iris_miss)
 ```
