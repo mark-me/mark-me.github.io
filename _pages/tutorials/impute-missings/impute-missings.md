@@ -31,7 +31,7 @@ Now I'll randomly replace data with NA's in the iris data in 10% of the cases, n
 tbl_iris_miss <- prodNA(iris, noNA = 0.1)
 ```
 
-# Visualize the mess
+# Visualizing the mess
 
 Now to see the extent to which the missing data is missing I can use a plot function, _aggr_, from the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. So first we'll load that library.
 ```r
