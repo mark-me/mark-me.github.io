@@ -42,11 +42,15 @@ First we'll take a look at the number of cases per variable:
 ```r
 tbl_iris_miss %>% 
   gather(key = variable, value) %>% 
-  filter(is.na(value)) %>% 
+  group_by(variable) %>% 
+  summarise(qty_missing = sum(is.na(value)),
+            qty_total = n(),
+            perc_missing = sum(is.na(value)/n())) %>% 
   ggplot() +
-    geom_bar(aes(x = variable), fill = "#3E0425") +
+    geom_col(aes(x = variable, y = qty_missing), fill = "#541a3b") +
+    geom_label(aes(x = variable, y = qty_missing, label = sprintf("%1.2f%%", 100*perc_missing))) +
     guides(fill = FALSE) +
-    labs(list(title = "MIssing values per variable")) +
+    labs(list(title = "Missing values per variable", x = "Variable", y = "Qty Missing")) +
     theme_minimal()
 ```
 {:refdef: style="text-align: center;"}
