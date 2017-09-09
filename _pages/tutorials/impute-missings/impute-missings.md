@@ -8,6 +8,10 @@ permalink: /impute-missings/
 * TOC
 {:toc}
 
+# Framework
+
+Complete cases (training & testing), incomplete cases (application set). Create testing by random replacing.
+
 # Let's mutilate some data
 The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** data set. Which, unlike a lot of real-world examples is very complete. First a copy is created for reference puproses:
 ```r
