@@ -142,3 +142,58 @@ library(missForest)
 iris.imp <- missForest(tbl_iris_miss)
 tbl_iris_imp <- iris.imp$ximp
 ```
+
+## HMisc approach
+
+```r
+library(Hmisc)
+```
+
+```r
+impute_arg <- aregImpute(~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width +
+                           Species, data = tbl_iris_miss, n.impute = 5)
+```
+
+```r
+impute_arg
+```
+
+```
+Multiple Imputation using Bootstrap and PMM
+
+aregImpute(formula = ~Sepal.Length + Sepal.Width + Petal.Length + 
+    Petal.Width + Species, data = tbl_iris_miss, n.impute = 5)
+
+n: 150 	p: 5 	Imputations: 5  	nk: 3 
+
+Number of NAs:
+Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+          17           14           12           18           14 
+
+             type d.f.
+Sepal.Length    s    2
+Sepal.Width     s    2
+Petal.Length    s    2
+Petal.Width     s    2
+Species         c    2
+
+Transformation of Target Variables Forced to be Linear
+
+R-squares for Predicting Non-Missing Values for Each Variable
+Using Last Imputations of Predictors
+Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
+       0.877        0.721        0.978        0.967        0.992 
+```
+
+```r
+tbl_iris_hmisc <- impute.transcan(impute_arg,
+                                  imputation = 5,
+                                  data = tbl_iris_miss,
+                                  list.out = TRUE,
+                                  pr = FALSE,
+                                  check = FALSE)
+
+tbl_iris_hmisc <- data.frame(matrix(unlist(tbl_iris_hmisc), nrow = nrow(tbl_iris_orig)))
+names(tbl_iris_hmisc) <- names(tbl_iris_orig)
+```
+
