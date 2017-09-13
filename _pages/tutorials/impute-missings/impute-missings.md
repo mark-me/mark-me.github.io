@@ -109,7 +109,7 @@ ggplot(tbl_comparison) +
 
 ## Means, medians and other 'simple' replacements
 
-Loading the required **Hmisc** library:
+Loading the required **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library:
 ```r
 library(Hmisc)
 ```
@@ -145,10 +145,13 @@ tbl_iris_imp <- iris.imp$ximp
 
 ## HMisc approach
 
+Imputation that is based on bootstrapping and/or pmm can be done by using the _aregImpute_ function from the **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library. If not done before the library is loaded like this:
 ```r
 library(Hmisc)
 ```
+In bootstrapping, different bootstrap resamples are used for each of multiple imputations. Then, a flexible additive model (non parametric regression method) is fitted on samples taken with replacements from original data and missing values (acts as dependent variable) are predicted using non-missing values (independent variable).
 
+Then, it uses predictive mean matching (default) to impute missing values. Predictive mean matching works well for continuous and categorical (binary & multi-level) without the need for computing residuals and maximum likelihood fit.
 ```r
 impute_arg <- aregImpute(~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width +
                            Species, data = tbl_iris_miss, n.impute = 5)
