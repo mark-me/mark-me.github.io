@@ -214,7 +214,7 @@ tbl_word <- tbl_paragraphs %>%
 
 ## Creating a word cloud
 
-Now that we can count all word, a word cloud can be created. For this example I use the fancier option of using the [**wordcloud2**](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) package. With this package you have extensive control on how your wordcloud can look. One of the options I've used here is using a transparent version of a silhouette of the chesire cat. I used this statement to create the wordcloud
+Now that we can count all words, a word cloud can be created. For this example I use the fancier option of using the [**wordcloud2**](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) package. With this package you have extensive control on how your wordcloud can look. One of the options I've used here is using a transparent version of a silhouette of the chesire cat. I used this statement to create the wordcloud
 
 ```r
 wordcloud2(data.frame(tbl_word_freq),
@@ -257,7 +257,7 @@ tbl_sentiment_lexicon <- sentiments %>%
   mutate(sentiment = factor(sentiment, levels = sentiment_order, ordered = TRUE))
 ```
 
-This pepared _tbl_sentiment_lexicon_ data frame is used together with the _tbl_word_ data frame to tie the sentiments to paragraphs. The sentiments are grouped by paragraph and their frequency is counted.
+This pepared data frame _tbl_sentiment_lexicon_ is used together with the _tbl_word_ data frame to tie the sentiments to paragraphs. The sentiments are grouped by paragraph and their frequency is counted.
 
 ```r
 tbl_par_sentiments <- tbl_words %>%
@@ -298,7 +298,7 @@ The plot below shows when the characters appearance throut the book. As you can 
 
 ## Combining persons and sentiments
 
-To find out what sentiments are associated with each character the two data frames we just created, tbl_par_personea and _tbl_par_sentiments_, are joined to find out which sentiments are associated with characters. But before we do the join the total number of mentions of a character in the book are counted without creating an intermediary table. This is achieved by using the _mutate_ function instead of the usual _summarise_ function after calling the _group_by_ function. After the sentiments are matched with the characters by paragraphs, the number of sentiment occurrences are summed per character-sentiment combinations. After this the _ungroup_ function is called to be able to do further grouping. The total sum of sentiment occurences per character is summed to calculate the relative frequency of sentiments. To ensure we have all sentiments are represented for each character we add all missing sentiments with the great _complete_ function. The first argument in this function specifies which group we want to complete (the characters), then we specify which unique values we want to fill put when missing by using the _sentiment_ variable within the _nesting_ function. In the _fill_ parameter we specify the values we want to give to the variables when the new sentiments are added.
+To find out what sentiments are associated with each character the two data frames we just created, tbl_par_personea and _tbl_par_sentiments_, are joined to find out which sentiments are associated with characters. But before we do the join the total number of mentions of a character in the book are counted without creating an intermediary table. This is achieved by using the _mutate_ function instead of the usual _summarise_ function after calling the _group_by_ function. After the sentiments are matched with the characters by paragraphs, the number of sentiment occurrences are summed per character-sentiment combinations. After this the _ungroup_ function is called to be able to do further grouping. The total sum of sentiment occurences per character is summed to calculate the relative frequency of sentiments. To ensure all sentiments are represented for each character we add all missing sentiments with the great _complete_ function. The first argument in this function specifies which group we want to complete (the characters), then we specify which unique values we want to create when missing by using the _sentiment_ variable within the _nesting_ function. In the _fill_ parameter we specify the values we want to give to the variables when the new sentiments are added.
 
 ```r
 tbl_persona_sentiments <- tbl_par_personea %>%
