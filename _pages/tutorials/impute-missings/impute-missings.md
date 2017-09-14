@@ -36,8 +36,10 @@ tbl_iris_miss <- prodNA(iris, noNA = 0.1)
 To visualize how much of a mess the data is in terms of missing values I've created a function _plot_missing_values_. The function should be applicable to any data-frame. The output of the function applied to the mutilated _tbl_iris_miss_ data frame looks like this:
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="821" height="400" align="center"/>
+<a href="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" target="_blank">
+<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="718" height="350" align="center"/>
 <br>
+<i class='fa fa-search-plus '></i> Zoom</a
 {: refdef}
 
 The graph on the left shows the percentage and number of values that are missing per variable. The plot on the right shows how the observations are affected. 
