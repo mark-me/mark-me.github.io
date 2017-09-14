@@ -33,30 +33,75 @@ tbl_iris_miss <- prodNA(iris, noNA = 0.1)
 
 # Visualizing the mess
 
-Now to see the extent to which the missing data is missing I can use a plot function, _aggr_, from the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. So first we'll load that library.
-```r
-tbl_iris_imp <- kNN(tbl_iris_miss)
-```
+To visualize how much of a mess the data is in terms of missing values I've created a function _plot_missing_values_. The function should be applicable to any data-frame. The output of the function applied to the mutilated _tbl_iris_miss_ data frame looks like this:
 
-First we'll take a look at the number of cases per variable:
-```r
-tbl_iris_miss %>% 
-  gather(key = variable, value) %>% 
-  group_by(variable) %>% 
-  summarise(qty_missing = sum(is.na(value)),
-            qty_total = n(),
-            perc_missing = sum(is.na(value)/n())) %>% 
-  ggplot() +
-    geom_col(aes(x = variable, y = qty_missing), fill = "#541a3b") +
-    geom_label(aes(x = variable, y = qty_missing, label = sprintf("%1.1f%%", 100*perc_missing))) +
-    guides(fill = FALSE) +
-    labs(list(title = "Missing values per variable", x = "Variable", y = "Qty Missing")) +
-    theme_minimal()
-```
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="443" height="450" align="center"/>
 <br>
 {: refdef}
+
+The graph on the left shows the percentage and number of values that are missing per variable. The plot on the right shows how the observations are affected. 
+
+
+that stiches together two ggplots by using the _ggarrange_ function of the **[ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/)** library
+```r
+plot_missing_values <- function(df) {
+  
+  df_missing_by_var <- df %>% 
+    gather(key = variable, value) %>% 
+    group_by(variable) %>% 
+    summarise(qty_missing = sum(is.na(value)),
+              qty_total = n(),
+              perc_missing = sum(is.na(value)/n()))
+  
+  p_miss_vars <- ggplot(df_missing_by_var) +
+    geom_col(aes(x = variable, y = perc_missing), fill = "#541a3b") +
+    geom_text(aes(x = variable, 
+                  y = perc_missing, 
+                  label = qty_missing),
+              col = "white",
+              hjust = 1
+    ) +
+    guides(fill = FALSE, col = FALSE, size = FALSE) +
+    labs(list(title = "Missing values per variable", 
+              x = "Variable", 
+              y = "% Missing")) +
+    scale_y_continuous(labels =  percent) +
+    coord_flip() + 
+    theme_minimal()
+
+  rm(df_missing_by_var)
+  
+  tbl_miss_pattern <- df %>% 
+    mutate_all(funs(is.na))%>%
+    group_by_all() %>% 
+    summarise(qty = n()) %>% 
+    arrange(desc(qty)) %>% 
+    ungroup() %>% 
+    mutate(id = row_number()) %>% 
+    gather(key = variable, is_missing, -id, -qty)
+  
+  p_miss_pattern <- ggplot(tbl_miss_pattern) +
+    geom_raster(aes(x = variable, y = reorder(id, qty), fill = is_missing)) +
+    geom_text(aes(y = reorder(id, qty), label = as.character(qty)), x = 1, col = "white") +
+    scale_fill_manual(values = c("#541a3b", "#bf81bf")) +
+    theme_minimal() + 
+    theme(axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0),
+          axis.text.y = element_blank(),
+          panel.grid.major = element_blank(), 
+          panel.grid.minor = element_blank(),
+          panel.background = element_blank()) +
+    guides(fill = FALSE) + 
+    labs(list(title = "Missing value patterns", y = "Cases", x = "", fill = "Missing"))
+  
+  rm(tbl_miss_pattern)
+  
+  ggarrange(p_miss_vars, p_miss_pattern)
+}
+```
+
+
+
 
 Then we'll see how many cases are affected and how:
 ```r
