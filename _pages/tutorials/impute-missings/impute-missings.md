@@ -115,9 +115,6 @@ plot_missing_values <- function(df) {
 }
 ```
 
-
-
-
 Then we'll see how many cases are affected and how:
 ```r
 mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
@@ -151,21 +148,6 @@ The output will look something like this:
 |  |12|13|15|16|19|75|
 
 Interpreting
-
-# Reviewing solutions
-
-```r
-tbl_comparison <- data_frame(orig = tbl_iris_orig$Species,
-                             miss = tbl_iris_miss$Species,
-                             imp = tbl_iris_imp$Species)
-```
-
-```r
-tbl_comparison <- tbl_comparison[!complete.cases(tbl_comparison), ]
-ggplot(tbl_comparison) +
-  geom_jitter(aes(x = orig, y = imp)) +
-  geom_abline(slope = 1, intercept = 0)
-```
 
 # Solutions
 
@@ -242,3 +224,74 @@ tbl_imp_areg %<>%
 
 # Evaluating methods
 
+```r
+tbl_orig %<>% mutate(method = "Original")
+tbl_verif %<>% mutate(method = "Verification")
+tbl_imputations <- rbind(tbl_orig,
+                         tbl_verif,
+                         tbl_imp_knn, 
+                         tbl_imp_forest,
+                         tbl_imp_areg)
+```
+
+## Factor variables
+
+```r
+tbl_imp_factor <- tbl_imputations %>% 
+  select(method, which(sapply(.,is.factor))) %>% 
+  cbind(., id= rep(1:nrow(tbl_orig), 5)) %>% 
+  gather(key = variable, value, -id, -method)
+```
+
+```r
+tbl_imp_factor_orig <- tbl_imp_factor %>% 
+  filter(method == "Original") %>% 
+  select(-method) %>% 
+  rename(value_orig = value)
+```
+
+```r
+tbl_imp_factor_verif <- tbl_imp_factor %>% 
+  filter(method == "Verification") %>% 
+  select(-method) %>% 
+  rename(value_verif = value)
+```
+
+```r
+tbl_imp_factor %<>%
+  filter(method %nin% c("Original", "Verification")) %>%
+  rename(value_imp = value) %>% 
+  inner_join(tbl_imp_factor_orig, by = c("id", "variable")) %>%
+  inner_join(tbl_imp_factor_verif, by = c("id", "variable"))
+```
+
+## Numerical variables
+
+```r
+tbl_imp_numeric <- tbl_imputations %>% 
+  select(method, which(sapply(.,is.numeric))) %>% 
+  cbind(., id= rep(1:nrow(tbl_orig), 5))%>% 
+  gather(key = variable, value, -id, -method)
+```
+
+```r
+tbl_imp_num_orig <- tbl_imp_numeric %>% 
+  filter(method == "Original") %>% 
+  select(-method) %>% 
+  rename(value_orig = value)
+```
+
+```r
+tbl_imp_num_verif <- tbl_imp_numeric %>% 
+  filter(method == "Verification") %>% 
+  select(-method) %>% 
+  rename(value_verif = value)
+```
+
+```r
+tbl_imp_numeric %<>%
+  filter(method %nin% c("Original", "Verification")) %>% 
+  rename(value_imp = value) %>% 
+  inner_join(tbl_imp_num_orig, by = c("id", "variable")) %>% 
+  inner_join(tbl_imp_num_verif, by = c("id", "variable"))
+```
