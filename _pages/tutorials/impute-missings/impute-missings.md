@@ -16,19 +16,26 @@ When thinking about tackling missing data, I first inspect what variables are af
 2. a systematic failure in the storage or
 3. a random registration errors.
 
-Each of these posibilities needs its own solution. In the first case you recode the missings to a corresponding 'not there' value. In the second case of systemic failure, I would consider discarding the observations. In case of the third option, random errors, I'd follow the steps layed out in this tutorial.
+Each of these posibilities needs its own solution. In the first case you recode the missings to a corresponding 'not there' value. In the second case of systemic failure, I would consider discarding the observations. In case of the third option, random errors, I'd follow the steps layed out in this tutorial. Several missing value guessing methods will be used.
 
 # Framework
 
- Complete cases (training & testing), incomplete cases (application set). Create testing by random replacing.
+The nice thing about using different guessinng methods to complete cases, is you can choose which one performs best. To asses which method performs best, we'll be using each method to predict some values that are not actually missing and match those predictions with the actual data. We'll be using three sets of data throughout this procedure:
 
-# Let's mutilate some data
+1. Original data-set : this is the dataset which needs to have missing values replaced by their best guess.
+2. Verification data-set : in this set extra missing values are introduced to see how the methods compare.
+2. Imputed data-set: this will contain all original data with best guesses replacing the missing values.
+
+# The original data-set
 
 The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** data set. Which, unlike a lot of real-world examples is very complete. First a copy is created for reference puproses:
 ```r
 tbl_iris_orig <- iris
 ```
-And now for something I won't normally do but will now do, for recrateal purposes, creating some missing values in the iris data set. To I'll be using the _prodNA_ function from the **[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)** package. So the librart needs to be loaded first:
+
+# The verification data-set
+
+And now for something I won't normally do, but will now do for recrateal purposes, I'll mutilate some data creating some missing values in the iris data set to create a verification set. To I'll be using the _prodNA_ function from the **[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)** package. So the librart needs to be loaded first:
 ```r
 library(missForest)
 ```
