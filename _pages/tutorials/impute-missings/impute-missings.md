@@ -30,7 +30,7 @@ The nice thing about using different guessinng methods to complete cases, is you
 
 The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** data set. Which, unlike a lot of real-world examples is very complete. First a copy is created for reference puproses:
 ```r
-tbl_iris_orig <- iris
+tbl_orig <- iris
 ```
 
 # The verification data-set
@@ -41,7 +41,7 @@ library(missForest)
 ```
 Now I'll randomly replace data with NA's in the iris data in 10% of the cases, not being picky about which variable the NA is replaced in:
 ```r
-tbl_iris_miss <- prodNA(iris, noNA = 0.1)
+tbl_verif <- prodNA(iris, noNA = 0.1)
 ```
 
 # Visualizing the mess
@@ -136,7 +136,7 @@ mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
 
 ## Missing value patterns
 ```
-md.pattern(tbl_iris_miss)
+md.pattern(tbl_verif)
 ```
 The output will look something like this:
 
@@ -185,7 +185,10 @@ tbl_iris_miss$imputed_sepal_length <- with(tbl_iris_miss, impute(Sepal.Length, m
 
 Fir this we'll use the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library we used before to inpect the extent of the missing values mess. If you didn't load the library, we'll do it now.
 ```r
-tbl_iris_imp <- kNN(tbl_iris_miss)
+tbl_imp_knn <- kNN(tbl_verif)
+tbl_imp_knn %<>%
+  select(names(tbl_verif))
+tbl_imp_knn$method = "kNN"
 ```
 
 Then we apply the _kNN_ function for the whole data frame, end put the set, the original set included, replaced NA's in the data frame _tbl_iris_imp_: 
@@ -201,8 +204,9 @@ library(missForest)
 ```
 
 ```r
-iris.imp <- missForest(tbl_iris_miss)
-tbl_iris_imp <- iris.imp$ximp
+forest <- missForest(tbl_verif)
+tbl_imp_forest <- forest$ximp
+tbl_imp_forest$method = "missForest"
 ```
 
 ## HMisc approach
@@ -215,50 +219,26 @@ In bootstrapping, different bootstrap resamples are used for each of multiple im
 
 Then, it uses predictive mean matching (default) to impute missing values. Predictive mean matching works well for continuous and categorical (binary & multi-level) without the need for computing residuals and maximum likelihood fit.
 ```r
-impute_arg <- aregImpute(~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width +
-                           Species, data = tbl_iris_miss, n.impute = 5)
+impute_areg <- aregImpute(~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width +
+                           Species, data = tbl_verif, n.impute = 5)
 ```
 
 ```r
-impute_arg
+tbl_imp_areg <- impute.transcan(impute_areg,
+                                imputation = 5,
+                                data = tbl_verif,
+                                list.out = TRUE,
+                                pr = FALSE,
+                                check = FALSE)
 ```
-
-```
-Multiple Imputation using Bootstrap and PMM
-
-aregImpute(formula = ~Sepal.Length + Sepal.Width + Petal.Length + 
-    Petal.Width + Species, data = tbl_iris_miss, n.impute = 5)
-
-n: 150 	p: 5 	Imputations: 5  	nk: 3 
-
-Number of NAs:
-Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
-          17           14           12           18           14 
-
-             type d.f.
-Sepal.Length    s    2
-Sepal.Width     s    2
-Petal.Length    s    2
-Petal.Width     s    2
-Species         c    2
-
-Transformation of Target Variables Forced to be Linear
-
-R-squares for Predicting Non-Missing Values for Each Variable
-Using Last Imputations of Predictors
-Sepal.Length  Sepal.Width Petal.Length  Petal.Width      Species 
-       0.877        0.721        0.978        0.967        0.992 
-```
-
+Extracting the imputations
 ```r
-tbl_iris_hmisc <- impute.transcan(impute_arg,
-                                  imputation = 5,
-                                  data = tbl_iris_miss,
-                                  list.out = TRUE,
-                                  pr = FALSE,
-                                  check = FALSE)
-
-tbl_iris_hmisc <- data.frame(matrix(unlist(tbl_iris_hmisc), nrow = nrow(tbl_iris_orig)))
-names(tbl_iris_hmisc) <- names(tbl_iris_orig)
+tbl_imp_areg <- data.frame(matrix(unlist(tbl_imp_areg), nrow = nrow(tbl_orig)))
+names(tbl_imp_areg) <- names(tbl_orig)
+tbl_imp_areg %<>%
+  mutate(method = "impute_areg") %>% 
+  mutate(Species = factor(levels(tbl_orig$Species)[Species]))
 ```
+
+# Evaluating methods
 
