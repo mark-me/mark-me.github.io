@@ -304,7 +304,7 @@ tbl_imp_numeric %>%
     facet_wrap(~variable, ncol = 2, scales = "free")
 ```
 
-### Evaluate by RMSE
+### RMSE
 ```r
 tbl_imp_numeric %>% 
   mutate(error_sq = (value_imp - value_orig) ^ 2)%>% 
@@ -314,7 +314,7 @@ tbl_imp_numeric %>%
     geom_col(position = "dodge")
 ```
 
-### Evaluate by violin plots
+### Violin plots
 ```r
 tbl_imp_numeric %>% 
   mutate(perc_error = (value_imp - value_orig)/value_orig) %>% 
