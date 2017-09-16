@@ -295,3 +295,32 @@ tbl_imp_numeric %<>%
   inner_join(tbl_imp_num_orig, by = c("id", "variable")) %>% 
   inner_join(tbl_imp_num_verif, by = c("id", "variable"))
 ```
+```r
+tbl_imp_numeric %>% 
+  filter(is.na(value_verif) & !is.na(value_orig)) %>% 
+  ggplot(aes(x = value_orig, y = value_imp, col = method)) +
+    geom_abline(intercept = 0, slope = 1) +
+    geom_point() +
+    facet_wrap(~variable, ncol = 2, scales = "free")
+```
+
+### Evaluate numeric imputations RMSE
+```r
+tbl_imp_numeric %>% 
+  mutate(error_sq = (value_imp - value_orig) ^ 2)%>% 
+  group_by(method, variable) %>% 
+  summarise(rmse = sqrt(sum(error_sq))/n()) %>% 
+  ggplot(aes(x = variable, y = rmse, fill = method)) +
+    geom_col(position = "dodge")
+```
+
+### Evaluate numeric imputations boxplots
+```r
+tbl_imp_numeric %>% 
+  mutate(perc_error = (value_imp - value_orig)/value_orig) %>% 
+  ggplot(aes(x = method, y = perc_error, col = method, fill = method)) +
+    geom_jitter(alpha = 0.4) +
+    geom_violin(alpha = 0.4) +
+    scale_y_continuous(labels = percent) +
+    facet_wrap(~variable, ncol = 2, scales = "free")
+```
