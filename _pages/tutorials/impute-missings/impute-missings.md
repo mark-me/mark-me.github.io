@@ -8,9 +8,15 @@ permalink: /impute-missings/
 * TOC
 {:toc}
 
-# Guessing or discarding
+# Recoding, discarding or guessing
 
-Assumptions: data missing because of random registration errors, not systematic.
+When thinking about tackling missing data, I first inspect what variables are affected by them, and think what the caused these missing values. They could be the result of: 
+
+1. being a value in itself,
+2. a systematic failure in the storage or
+3. a random registration errors.
+
+Each of these posibilities needs its own solution. In the first case you recode the missings to a corresponding 'not there' value. In the second case of systemic failure, I would consider discarding the observations. In case of the third option, random errors, I'd follow the steps layed out in this tutorial.
 
 # Framework
 
