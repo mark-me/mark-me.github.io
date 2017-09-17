@@ -76,27 +76,33 @@ tbl_imp_random <- tbl_verif %>%
   mutate(Sepal.Width = with(., impute(Sepal.Width, fun = "random"))) %>% 
   mutate(Petal.Length = with(., impute(Petal.Length, fun = "random"))) %>% 
   mutate(Petal.Width = with(., impute(Petal.Width, fun = "random"))) %>% 
-  mutate(Species = with(., impute(Species)))
+  mutate(Species = with(., impute(Species))) %>% 
+  mutate(method = "random")
 ```
+Note the last adds the method used to impute the data as the _method_ column, so we can later compare the several methods; we'll add this column to each data-set.
 
 ## kNN
 
-For using the k Nearest Neighbor (kNN) algorithm we'll use the _kNN_ function fro the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. If you're not already familiar with the KNN, you can check out my presentation about (Machine Learning](/machine-learning-layman/).
+For using the k Nearest Neighbor (kNN) algorithm we'll use the _kNN_ function fro the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. 
+```r
+library(VIM)
+```
+If you're not already familiar with the KNN, you can check out my presentation about (Machine Learning](/machine-learning-layman/).
 ```r
 tbl_imp_knn <- kNN(tbl_verif)
 tbl_imp_knn %<>%
   select(names(tbl_verif))
 tbl_imp_knn$method = "kNN"
 ```
-The first statement applies the kNN algorithm, and it extends the data with a logical column for each original column. In these columns the value TRUE indicates the value was placed there by the kNN algorithm. Since we don't need those we'll only select the columns from the original data frame with the second statement. The last statement adds the function name used to impute the data as the _method_ column, so we can later compare the several methods; we'll add this column to each data-set.
+The first statement applies the kNN algorithm, and it extends the data with a logical column for each original column. In these columns the value TRUE indicates the value was placed there by the kNN algorithm. Since we don't need those we'll only select the columns from the original data frame with the second statement. The last statement, as for the previous method, adds the function name used to impute the data as the _method_ column, so we can later compare the several methods.
 
 ## Random forest
 
-**[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)**
+To apply the Random Forest algorithm I've used the _missForest_ from the library with the same name **[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)**
 ```r
 library(missForest)
 ```
-
+With the statements below a completed data-set is created. The first statement applies the Missing Forest algorithm. The second statement retrieves the completed data-set from the acquired solution. The last statement, like for the previous method, adds the _method_ variable for later comparison. 
 ```r
 forest <- missForest(tbl_verif)
 tbl_imp_forest <- forest$ximp
@@ -116,7 +122,7 @@ Then, it uses predictive mean matching (default) to impute missing values. Predi
 impute_areg <- aregImpute(~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width +
                            Species, data = tbl_verif, n.impute = 5)
 ```
-
+Applying the found solution.
 ```r
 tbl_imp_areg <- impute.transcan(impute_areg,
                                 imputation = 5,
@@ -136,6 +142,7 @@ tbl_imp_areg %<>%
 
 # Evaluating methods
 
+To evaluate the different methods
 ```r
 tbl_orig %<>% mutate(method = "Original")
 tbl_verif %<>% mutate(method = "Verification")
