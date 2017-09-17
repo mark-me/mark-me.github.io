@@ -81,7 +81,7 @@ tbl_imp_random <- tbl_verif %>%
 
 ## kNN
 
-Fir this we'll use the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library we used before to inpect the extent of the missing values mess. If you didn't load the library, we'll do it now.
+For using the k Nearest Neighbor (kNN) algorithm we'll use the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)**. If you're not already familiar with the KNN, you can check out my presentation about (Machine Learning](/machine-learning-layman/).
 ```r
 tbl_imp_knn <- kNN(tbl_verif)
 tbl_imp_knn %<>%
