@@ -77,7 +77,7 @@ tbl_imp_random <- tbl_verif %>%
   mutate(Petal.Length = with(., impute(Petal.Length, fun = "random"))) %>% 
   mutate(Petal.Width = with(., impute(Petal.Width, fun = "random"))) %>% 
   mutate(Species = with(., impute(Species))) %>% 
-  mutate(method = "random")
+  mutate(method = "Random")
 ```
 Note the last adds the method used to impute the data as the _method_ column, so we can later compare the several methods; we'll add this column to each data-set.
 
