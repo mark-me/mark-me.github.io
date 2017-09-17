@@ -65,7 +65,7 @@ plot_missing_values(tbl_verif)
 
 ## Means, medians and other 'simple' replacements
 
-We can use simple imputattions by using the _impute_ function from the **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library:
+We can use simple imputations using the _impute_ function from the **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library:
 ```r
 library(Hmisc)
 ```
@@ -78,7 +78,6 @@ tbl_imp_random <- tbl_verif %>%
   mutate(Petal.Width = with(., impute(Petal.Width, fun = "random"))) %>% 
   mutate(Species = with(., impute(Species)))
 ```
-
 
 ## kNN
 
