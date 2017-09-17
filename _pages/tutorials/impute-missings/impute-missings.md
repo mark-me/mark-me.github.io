@@ -56,7 +56,7 @@ To visualize how much of a mess the data is in terms of missing values I've crea
 
 The graph on the left shows the percentage and number of values that are missing per variable. The plot on the right shows how the observations are affected. The numbers and percentages in the right plot are the number and percentage of observations that fit that missing value pattern.
 
-The function _plot_missing_values_ creates those plots. I won't go into detail explaining how the function is created, but you can use it for any data frame. Here I've used it like this:
+The function _plot_missing_values_ creates those plots. I won't go into detail explaining how the function is created, but you can use it for any data frame. The function is part of the script which you can download [here](url). I've used the function like this:
 ```r
 plot_missing_values(tbl_verif)
 ```
@@ -81,20 +81,16 @@ tbl_imp_random <- tbl_verif %>%
 
 ## kNN
 
-For using the k Nearest Neighbor (kNN) algorithm we'll use the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)**. If you're not already familiar with the KNN, you can check out my presentation about (Machine Learning](/machine-learning-layman/).
+For using the k Nearest Neighbor (kNN) algorithm we'll use the _kNN_ function fro the **[VIM](https://www.rdocumentation.org/packages/VIM/versions/4.7.0/topics/VIM-package)** library. If you're not already familiar with the KNN, you can check out my presentation about (Machine Learning](/machine-learning-layman/).
 ```r
 tbl_imp_knn <- kNN(tbl_verif)
 tbl_imp_knn %<>%
   select(names(tbl_verif))
 tbl_imp_knn$method = "kNN"
 ```
+The first statement applies the kNN algorithm, and it extends the data with a logical column for each original column. In these columns the value TRUE indicates the value was placed there by the kNN algorithm. Since we don't need those we'll only select the columns from the original data frame with the second statement. The last statement adds the function name used to impute the data as the _method_ column, so we can later compare the several methods; we'll add this column to each data-set.
 
-Then we apply the _kNN_ function for the whole data frame, end put the set, the original set included, replaced NA's in the data frame _tbl_iris_imp_: 
-```r
-tbl_iris_imp <- kNN(tbl_iris_miss)
-```
-
-## Decision tree
+## Random forest
 
 **[missForest](https://www.rdocumentation.org/packages/missForest/versions/1.4)**
 ```r
