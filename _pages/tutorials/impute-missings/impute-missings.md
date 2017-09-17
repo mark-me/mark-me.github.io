@@ -109,8 +109,9 @@ tbl_imp_forest <- forest$ximp
 tbl_imp_forest$method = "missForest"
 ```
 
-## HMisc approach
+## Additive regression
 
+https://en.wikipedia.org/wiki/Additive_model
 Imputation that is based on [bootstrapping](http://thestatsgeek.com/2013/07/02/the-miracle-of-the-bootstrap/) and/or predictive mean matching ([pmm](https://statisticalhorizons.com/predictive-mean-matching)) can be done by using the _aregImpute_ function from the **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library. If not done before the library is loaded like this:
 ```r
 library(Hmisc)
