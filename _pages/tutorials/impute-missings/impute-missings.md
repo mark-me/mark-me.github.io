@@ -54,111 +54,29 @@ To visualize how much of a mess the data is in terms of missing values I've crea
 <i class='fa fa-search-plus '></i> Zoom</a
 {: refdef}
 
-The graph on the left shows the percentage and number of values that are missing per variable. The plot on the right shows how the observations are affected. 
+The graph on the left shows the percentage and number of values that are missing per variable. The plot on the right shows how the observations are affected. The numbers and percentages in the right plot are the number and percentage of observations that fit that missing value pattern.
 
-
-that stiches together two ggplots by using the _ggarrange_ function of the **[ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/)** library
+The function _plot_missing_values_ creates those plots. I won't go into detail explaining how the function is created, but you can use it for any data frame. Here I've used it like this:
 ```r
-plot_missing_values <- function(df) {
-  
-  df_missing_by_var <- df %>% 
-    gather(key = variable, value) %>% 
-    group_by(variable) %>% 
-    summarise(qty_missing = sum(is.na(value)),
-              qty_total = n(),
-              perc_missing = sum(is.na(value)/n()))
-  
-  p_miss_vars <- ggplot(df_missing_by_var) +
-    geom_col(aes(x = variable, y = perc_missing), fill = "#541a3b") +
-    geom_text(aes(x = variable, 
-                  y = perc_missing, 
-                  label = qty_missing),
-              col = "white",
-              hjust = 1
-    ) +
-    guides(fill = FALSE, col = FALSE, size = FALSE) +
-    labs(list(title = "Missing values per variable", 
-              x = "Variable", 
-              y = "% Missing")) +
-    scale_y_continuous(labels =  percent) +
-    coord_flip() + 
-    theme_minimal()
-
-  rm(df_missing_by_var)
-  
-  tbl_miss_pattern <- df %>% 
-    mutate_all(funs(is.na))%>%
-    group_by_all() %>% 
-    summarise(qty = n()) %>% 
-    arrange(desc(qty)) %>% 
-    ungroup() %>% 
-    mutate(id = row_number()) %>% 
-    gather(key = variable, is_missing, -id, -qty)
-  
-  p_miss_pattern <- ggplot(tbl_miss_pattern) +
-    geom_raster(aes(x = variable, y = reorder(id, qty), fill = is_missing)) +
-    geom_text(aes(y = reorder(id, qty), label = as.character(qty)), x = 1, col = "white") +
-    scale_fill_manual(values = c("#541a3b", "#bf81bf")) +
-    theme_minimal() + 
-    theme(axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0),
-          axis.text.y = element_blank(),
-          panel.grid.major = element_blank(), 
-          panel.grid.minor = element_blank(),
-          panel.background = element_blank()) +
-    guides(fill = FALSE) + 
-    labs(list(title = "Missing value patterns", y = "Cases", x = "", fill = "Missing"))
-  
-  rm(tbl_miss_pattern)
-  
-  ggarrange(p_miss_vars, p_miss_pattern)
-}
+plot_missing_values(tbl_verif)
 ```
-
-Then we'll see how many cases are affected and how:
-```r
-mice_plot <- aggr(tbl_iris_miss, col = c("navyblue", "yellow"),
-                  numbers = TRUE, sortVars = TRUE,
-                  labels = names(tbl_iris_miss), cex.axis = .7,
-                  gap = 3, ylab = c("Missing data", "Pattern"))
-```
-
-<a href="/_pages/tutorials/impute-missings/VIM-plot.png" target="_blank">
-{:refdef: style="text-align: center;"}
-<img src="/_pages/tutorials/impute-missings/VIM-plot.png" alt="" width="442" height="400" align="center"/>
-<br>
-{: refdef}
-<i class='fa fa-search-plus '></i> Zoom</a>
-
-
-## Missing value patterns
-```
-md.pattern(tbl_verif)
-```
-The output will look something like this:
-
-|  |Petal.Length|Species|Sepal.Width|Sepal.Length|Petal.Width|
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|88|1|1|1|1|1|0|
-|10|1|1|1|0|1|1|
-|10|1|1|0|1|1|1|
-| 7|0|1|1|1|1|1|
-|14|1|1|1|1|0|1|
-|...|...|...|...|...|...|...|
-|  |12|13|15|16|19|75|
-
-Interpreting
 
 # Solutions
 
 ## Means, medians and other 'simple' replacements
 
-Loading the required **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library:
+We can use simple imputattions by using the _impute_ function from the **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library:
 ```r
 library(Hmisc)
 ```
-Putting means:
+We can use loads of different functions to replace missing values, like _mean_, _max_, _min_ or _median_. In this case I won't be using any of those, but instead I'll use random values. Normally the _fun_ argument just takes the function, meaning the name doesn't need to be in a string; random is the exception however. Note that I'm not passing anything for _fun_ argument for the _Species_ column. This is because _impute_ would ignore any _fun_ value in the case of factor variables. Instead the _impute_ function will always take the most frequent occuring value for factor variables.
 ```r
-tbl_iris_miss$imputed_sepal_length <- with(tbl_iris_miss, impute(Sepal.Length, mean))
+tbl_imp_random <- tbl_verif %>% 
+  mutate(Sepal.Length = with(., impute(Sepal.Length, fun = "random"))) %>% 
+  mutate(Sepal.Width = with(., impute(Sepal.Width, fun = "random"))) %>% 
+  mutate(Petal.Length = with(., impute(Petal.Length, fun = "random"))) %>% 
+  mutate(Petal.Width = with(., impute(Petal.Width, fun = "random"))) %>% 
+  mutate(Species = with(., impute(Species)))
 ```
 
 
