@@ -11,7 +11,6 @@ permalink: /impute-missings/
 # Recoding, discarding or guessing
 
 When thinking about tackling missing data, I first inspect what variables are affected by them, and think what the caused these missing values. They could be the result of: 
-
 1. being a value in itself,
 2. a systematic failure in the storage or
 3. a random registration errors.
