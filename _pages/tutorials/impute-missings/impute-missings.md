@@ -51,7 +51,7 @@ To visualize how much of a mess the data is in terms of missing values I've crea
 <a href="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" target="_blank">
 <img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="718" height="350" align="center"/>
 <br>
-<i class='fa fa-search-plus '></i> Zoom</a
+<i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
 The graph on the left shows the percentage and number of values that are missing per variable. The plot on the right shows how the observations are affected. The numbers and percentages in the right plot are the number and percentage of observations that fit that missing value pattern.
