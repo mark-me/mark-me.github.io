@@ -4,23 +4,23 @@ title: Mining Alice's Wonderland
 permalink: /mining-alices-wonderland/
 comments: true
 ---
-<img src="/_pages/tutorials/mining-alices-wonderland/catterpillar.jpg" alt="alice catterpillar" width="376" height="284" align="right"/> As a kid I was captivated by the strange world of Disney's Alice in Wonderland: nothing seemed to make sense and everything was wonderfully weird and exciting. When I read the 'real' book as an adult, I found out what also gave it's appeal to a kids mind: the strange context with questions being asked in Alice will make you [wonder off...](https://www.youtube.com/watch?v=9Bk9ao6cSFs)
+<img src="/_pages/tutorials/mining-alices-wonderland/catterpillar.jpg" alt="alice catterpillar" width="376" height="284" align="right"/> As a kid I was captivated by the strange world of Disney's Alice in Wonderland: nothing seemed to make sense and everything was wonderfully weird and exciting. When I read the 'real' book as an adult, I found out what also gave its appeal to a kids mind: the strange context with questions are being asked in Alice will make you [wonder off...](https://www.youtube.com/watch?v=9Bk9ao6cSFs)
 
-I decided it was time to learn some text mining and learned about the **[gutenbergr](https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html) **library. This  library allows you to scrape information about writers, books and even the books itself from the [project Gutenberg](https://www.gutenberg.org/). And since Alice was on there, it was a no-brainer to have [Alice's Adventures in Wonderland](https://www.gutenberg.org/files/11/11-h/11-h.htm) as a try-out.  What I wanted to know: how are the characters in Alice's world viewed? In text mining terms: what are the sentiments associated with the characters? To explore this I've written a script that can be downloaded [here](https://gist.github.com/mark-me/d080979ce8beb595faf1dcab38b6e392)
+I decided it was time to learn some text mining and learned about the **[gutenbergr](https://cran.r-project.org/web/packages/gutenbergr/vignettes/intro.html) **library. This  library allows you to scrape information about writers, books and even the books itself from the [project Gutenberg](https://www.gutenberg.org/). And since Alice was on there, it was a no-brainer to have [Alice's Adventures in Wonderland](https://www.gutenberg.org/files/11/11-h/11-h.htm) as a trial.  What I wanted to know: how are the characters in Alice's world perceived? In text mining terms: what are the sentiments associated with the characters? To explore this I've written a script that can be downloaded [here](https://gist.github.com/mark-me/d080979ce8beb595faf1dcab38b6e392)
 
-For this tutorial I've assumed that you're pretty familiar with the **tidyverse** and **ggplot2**. First I'll discuss the concepts that drove the script, after which I'll jump into the technical workout of these concepts. The final script can be found in a link on the end of the tutorial.
+For this tutorial I've assumed that you're pretty familiar with the **tidyverse** and **ggplot2**. First I'll discuss the concepts that drove the script, after which I'll jump into the technical workout of these concepts. The final script can be found in a link at the end of the tutorial.
 
 # The building blocks
 
 ## Sentiments
 
-Two of the most important datasets that are part of the **[tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)** package are the _stop_words_ and _sentiments_. The first is useful when removing common words like, and, or or the. The other, _sentiments_ is useful for us to determine the emotions associated with the characters. The sentiment dataset contains 4 columns:
+Two of the most important datasets that are part of the **[tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)** package are the _stop_words_ and _sentiments_. The first is useful when removing common words like prepositions and conjuctions. The other - _sentiments_ - is useful for us to determine the emotions associated with the characters. The sentiment dataset contains 4 columns:
 
 *   lexicon - the dataset contains several lexicons, each having their own characteristic way of  representing sentiments:
     *   [nrc](http://www.nrc-cnrc.gc.ca/eng/rd/ict/emotion_lexicons.html) - This is the lexicon we'll be using. It associates words with 8 basic emotions. These sentiments are found in the _sentiment_ column.
     *   bing - This lexicon divides words in either having negative or positive connotations. Which of it is can be found in the _sentiment_ column.
     *   AFINN - This lexicon also divides words in negative or positive connotations, but takes a scale approach inste ad of the bing binary approach.
-*   word - you use this column to join the dataset on
+*   word - you use this column to join the dataset with
 *   sentiment - Depending on the lexicon you're using this is filled with descriptions.
 *   score - if you use the AFINN lexicon this column contains the numerical value.
 
@@ -28,7 +28,7 @@ The nrc dataset I'll be using attributes one or more sentiments per word, which 
 
 ## Characters
 
-<img src="/_pages/tutorials/mining-alices-wonderland/queen.jpg" alt="Off with their heads!" width="238" height="190" align="right"/> This one speaks for itself. A vector of characters is what was needed, and I saw little options that just type all the characters myself. Typing stuff like that makes me understand the Queen of Hearts....
+<img src="/_pages/tutorials/mining-alices-wonderland/queen.jpg" alt="Off with their heads!" width="238" height="190" align="right"/> This one speaks for itself. A vector of characters is what was needed, and I saw little options that just type all. Typing stuff like that makes me understand the Queen of Hearts....
 
 ## Paragraphs
 
@@ -38,7 +38,7 @@ The paragraphs are the thing that tie the sentiments to the characters. I assume
 <img src="/_pages/tutorials/mining-alices-wonderland/formula-freq-sentiment.png" alt="Frequency sentiment formula" width="215" height="45" align="middle"/>
 {: refdef}
 
-Relative frequencies in itself is not good enough because the book is probably scewed in a certain sentimental direction, which does not help if we want to know what makes a character unique. To counter this I use something I called lift: the relative sentiment frequency of a character, corrected by the relative frequency of the total. As the total I've taken Alice's relative sentiment frequencies. So the lift was calculated like this:
+Relative frequencies in itself are not good enough because the book is probably scewed in a certain sentimental direction, which does not help if we want to know what makes a character unique. To counter this I use something I called lift: the relative sentiment frequency of a character, corrected by the relative frequency of the total. As the total I've taken Alice's relative sentiment frequencies. So the lift was calculated like this:
 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/mining-alices-wonderland/formula-lift-sentiment.png" alt="Lift sentiment formula" width="215" height="45" align="middle"/>
@@ -107,7 +107,7 @@ Then we create a vector for grouping the other vectors by petal, with this we'll
 id <- as.factor(rep(c(1:8), each = 5))
 ```
 
-Now we've got all ingredients for drawing the petals. Next a factored vector is created with the petal names, with the names positions so they show up in the middle of the perimeter. All other positions in the vector have NA as a value so no text will be displayed, this will generate a warning message that 32 values are removed that conating missing values (geom_text).
+Now we've got all ingredients for drawing the petals. Next a factored vector is created with the petal names, with the names positions so they show up in the middle of the perimeter. All other positions in the vector have NA as a value so no text will be displayed, this will generate a warning message that 32 values are removed that contain missing values (geom_text).
 
 ```r
 emotions <- factor(c( NA, NA, "Trust", NA, NA,
@@ -167,7 +167,7 @@ Besides using the **tidyverse** library for this tutorial, we're going to use t
 *   **[tidytext](https://cran.r-project.org/web/packages/tidytext/vignettes/tidytext.html)** - this library brings the tidyverse and text mining together. It allows you to make tidy data-frames to pass on to text mining tools.
 *   [**stringr**](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html) - a library packed with functions for text manipulation.
 
-So let's start by loading the necesarry libraries:
+So let's start by loading the necessary libraries:
 
 ```r
 library(tidyverse)
@@ -186,14 +186,14 @@ tbl_paragraphs >- book_alice %>%
   mutate(is_paragraph = !is_chapter_title & qty_words > 0)
 ```
  
- After this the [_rle_](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rle.html) function is used to find consequtive rows belong to a paragraph and when it is broken by non-paragraph lines. Each row in resulting data-frame tells us how many lines are part of one paragraph, or the number of lines between paragraphs.
+ After this the [_rle_](https://stat.ethz.ch/R-manual/R-devel/library/base/html/rle.html) function is used to find consecutive rows belong to a paragraph and when it is broken by non-paragraph lines. Each row in resulting data-frame tells us how many lines are part of one paragraph, or the number of lines between paragraphs.
  
 ```r
  tbl_paragraph_id <- data.frame(length = rle(tbl_paragraphs$is_paragraph)[[1]],
                                 value = rle(tbl_paragraphs$is_paragraph)[[2]])
 ```
 
-The we use this data frame to create a new column in the paragraph data frame to set an identifier for each paragraph. With the function _seq_ a number is generated for each set of consequtive lines. The _rep_ function repeats this number for the number of consequtive lines. In the next _mutate_ function the paragraph identifiers are removed if the set of consequtive rows are not part of a paragraph.
+The we use this data frame to create a new column in the paragraph data frame to set an identifier for each paragraph. With the function _seq_ a number is generated for each set of consecutive lines. The _rep_ function repeats this number for the number of consecutive lines. In the next _mutate_ function the paragraph identifiers are removed if the set of consecutive rows are not part of a paragraph.
 
 ```r
 tbl_paragraphs %<>% mutate(id_paragraph = rep(seq(1,nrow(tbl_paragraph_id),1),
@@ -214,7 +214,7 @@ tbl_word <- tbl_paragraphs %>%
 
 ## Creating a word cloud
 
-Now that we can count all words, a word cloud can be created. For this example I use the fancier option of using the [**wordcloud2**](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) package. With this package you have extensive control on how your wordcloud can look. One of the options I've used here is using a transparent version of a silhouette of the chesire cat. I used this statement to create the wordcloud
+Now that we can count all words, a word cloud can be created. For this example I use the fancier option of using the [**wordcloud2**](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) package. With this package you have extensive control on how your wordcloud can look. One of the options I've used here is using a transparent version of a silhouette of the Cheshire cat. I used this statement to create the wordcloud
 
 ```r
 wordcloud2(data.frame(tbl_word_freq),
@@ -332,7 +332,7 @@ tbl_persona_sentiments %<>%
 
 ## A character's sentiment profile
 
-To determine the unqiueness of the sentiment profile we use the lift measure; we will measure how much each sentiment for a character is over- or underrepresented in comparison to alice. So we first put the relative sentiment frequencies of alice in the data frame _tbl_alice_sentiments_ to join them with the sentiments of all characters. Based on the sentiment lift we also calculate another measure, which I'll call impact, that shows how much the sentiment deviates from Alice's profile, irrespective whether it's over or underrepresented. This measure will later be used in the visualisation.
+To determine the uniqueness of the sentiment profile we use the lift measure; we will measure how much each sentiment for a character is over- or underrepresented in comparison to Alice. So we first put the relative sentiment frequencies of Alice in the data frame _tbl_alice_sentiments_ to join them with the sentiments of all characters. Based on the sentiment lift we also calculate another measure, which I'll call impact, that shows how much the sentiment deviates from Alice's profile, irrespective whether it's over or underrepresented. This measure will later be used in the visualisation.
 
 ```r
 tbl_alice_sentiments <- tbl_persona_sentiments %>%
@@ -425,7 +425,7 @@ Here we can see that Alice's profile is 'flat', which makes sense since she serv
 
 ## And a stupid version
 
-I'm not sharing all stupid thoughts I had creating this, but one stands out in it's simplicity and could not resist showing it. Next to that, this graph shows a technique that I found really useful: the [*ggrepel*](http://www.ggplot2-exts.org/ggrepel.html) library. With this library you can make text labels, but unlike normal text labels, they make use of an algorithm that ensures they don't overlap when things get crowded.
+I'm not sharing all stupid thoughts I had creating this, but one stands out in in its simplicity and could not resist showing it. Besides that, this graph shows a technique that I found really useful: the [*ggrepel*](http://www.ggplot2-exts.org/ggrepel.html) library. With this library you can make text labels, but unlike normal text labels, they make use of an algorithm that ensures they don't overlap when things get crowded.
 
 When I first thought of drawing the wheel, I thought I'd draw spider graphs on it. Then I quickly realised it would become too crowded for interpretation. Then I thought I could just as well take the center of gravity for each spider graph. After struggling to do this I finally realised you can not take a mean of the sentiments. When you look at the wheel you quickly realise that fear is not the opposite of anger, nor is surprise of anticipation and so on. None the less I'll explain the process of making this non-sensical chart.
 
