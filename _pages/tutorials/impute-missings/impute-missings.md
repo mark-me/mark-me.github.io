@@ -8,7 +8,7 @@ permalink: /impute-missings/
 * TOC
 {:toc}
 
-# Recoding, discarding or guessing
+# Types of missing data
 
 When thinking about tackling missing data, I first inspect what variables are affected by them, and think what the caused these missing values. They could be the result of: 
 1. being a value in itself,
