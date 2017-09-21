@@ -186,6 +186,10 @@ tbl_imp_factor %<>%
   inner_join(tbl_imp_factor_verif, by = c("id", "variable"))
 ```
 
+### Categorical factors
+
+### Ordinal factors
+
 ## Numerical variables
 
 ```r
