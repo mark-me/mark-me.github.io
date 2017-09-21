@@ -233,13 +233,15 @@ tbl_imp_numeric %>%
     facet_wrap(~variable, ncol = 2, scales = "free")
 ```
 
-### RMSE
+### RSME
+
+[RSME](https://en.wikipedia.org/wiki/Root-mean-square_deviation)
 ```r
 tbl_imp_numeric %>% 
   mutate(error_sq = (value_imp - value_orig) ^ 2)%>% 
   group_by(method, variable) %>% 
-  summarise(rmse = sqrt(sum(error_sq))/n()) %>% 
-  ggplot(aes(x = variable, y = rmse, fill = method)) +
+  summarise(rsme = sqrt(sum(error_sq))/n()) %>% 
+  ggplot(aes(x = variable, y = rsme, fill = method)) +
     geom_col(position = "dodge")
 ```
 
