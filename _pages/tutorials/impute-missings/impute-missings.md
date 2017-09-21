@@ -188,7 +188,11 @@ tbl_imp_factor %<>%
 
 ### Categorical factors
 
+[Chi-squared test](https://en.wikipedia.org/wiki/Chi-squared_test)
+
 ### Ordinal factors
+
+[Wilcoxon signed-rank test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test)
 
 ## Numerical variables
 
