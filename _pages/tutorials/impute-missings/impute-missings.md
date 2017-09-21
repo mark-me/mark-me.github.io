@@ -25,14 +25,14 @@ The nice thing about using different guessinng methods to complete cases, is you
 2. Verification data-set : in this set extra missing values are introduced to see how the methods compare.
 2. Imputed data-set: this will contain all original data with best guesses replacing the missing values.
 
-# The original data-set
+## The original data-set
 
 The demo data set for this I'll be using the **[iris](https://en.wikipedia.org/wiki/Iris_flower_data_set)** data set. Which, unlike a lot of real-world examples is very complete. First a copy is created to create the original data-set:
 ```r
 tbl_orig <- iris
 ```
 
-# The verification data-set
+## The verification data-set
 
 And now for something I won't normally do, but will now do for recrateal purposes, I'll mutilate some data creating some missing values in the iris data set to create a verification set. To I'll be using the _prodNA_ function from the **[missForest](https://www.rdocumentation.org/packages/missForest/)** package. So the librart needs to be loaded first:
 ```r
