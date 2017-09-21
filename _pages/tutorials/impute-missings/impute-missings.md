@@ -12,8 +12,8 @@ permalink: /impute-missings/
 
 When thinking about tackling missing data, I first inspect what variables are affected by them, and think what the caused these missing values. They could be the result of: 
 1. being a value in itself,
-2. a systematic failure in the storage or
-3. a random registration errors.
+2. a systematic failure in the storage or retrieval (Missing Not at Random MNAR) or
+3. a random registration errors (Missing Completely at Random MAR).
 
 Each of these posibilities needs its own solution. In the first case you recode the missings to a corresponding 'not there' value. In the second case of systemic failure, I would consider discarding the observations. In case of the third option, random errors, I'd follow the steps layed out in this tutorial. Several missing value guessing methods will be used.
 
@@ -111,6 +111,7 @@ tbl_imp_forest$method = "missForest"
 
 ## Additive regression
 
+Additive regression is a nonparametric regression method. With nonparametric regression the relation between dependent and independent variables is not dependent on any preconceived shape, unlike the assumption behind linear regression that the relation is expressed as a line.
 https://en.wikipedia.org/wiki/Additive_model
 Imputation that is based on [bootstrapping](http://thestatsgeek.com/2013/07/02/the-miracle-of-the-bootstrap/) and/or predictive mean matching ([pmm](https://statisticalhorizons.com/predictive-mean-matching)) can be done by using the _aregImpute_ function from the **[Hmisc](https://www.rdocumentation.org/packages/Hmisc)** library. If not done before the library is loaded like this:
 ```r
