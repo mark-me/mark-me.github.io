@@ -45,7 +45,7 @@ tbl_verif <- prodNA(iris, noNA = 0.1)
 
 # Visualizing the mess
 
-To visualize how much of a mess the data is in terms of missing values I've created a function _plot_missing_values_. The function should be applicable to any data-frame. The output of the function applied to the mutilated _tbl_iris_miss_ data frame looks like this:
+To visualize how much of a mess the data is in terms of missing values I've created a function _plot_missing_values_. Normally you'd want to inspect missing values in the original data-frame, but since that has no missing values, we'll do it on the mutilated data-set. The function should be applicable to any data-frame. The output of the function applied to the mutilated _tbl_verif_ data frame looks like this:
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" target="_blank">
