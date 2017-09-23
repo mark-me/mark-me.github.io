@@ -2,8 +2,10 @@
   description: A presentation given to my collegues of Marketing showing them what machine learning is, the classes of algorithms and some examples of those.
   url: /machine-learning-layman/
   image: /_pages/presentations/machine-learning-layman.png
+  language: R, Python
   
 - title: Use case R
   description: The first presentation I gave to my collegues of Analytics to show them my findings while using R for the first time (Dutch). 
   url: /use-case-r/
   image: /_pages/snippets-and-tips/r-studio-tips.png
+  language: R
