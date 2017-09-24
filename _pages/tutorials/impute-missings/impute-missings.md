@@ -236,6 +236,12 @@ tbl_imp_numeric %>%
 ### RSME
 
 [RSME](https://en.wikipedia.org/wiki/Root-mean-square_deviation)
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-rsme.png" target="_blank">
+<img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-rsme.png" alt="" width="490" height="498" align="center"/>
+<br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
 ```r
 tbl_imp_numeric %>% 
   mutate(error_sq = (value_imp - value_orig) ^ 2)%>% 
