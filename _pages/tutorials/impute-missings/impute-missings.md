@@ -249,7 +249,7 @@ tbl_imp_numeric %>%
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" target="_blank">
-<img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" alt="" width="718" height="350" align="center"/>
+<img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" alt="" width="459" height="466" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
