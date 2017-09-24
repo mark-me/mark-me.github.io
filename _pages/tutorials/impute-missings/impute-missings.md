@@ -250,9 +250,11 @@ tbl_imp_numeric %>%
   ggplot(aes(x = variable, y = rsme, fill = method)) +
     geom_col(position = "dodge")
 ```
+The RSME metric assumes heterostedacity. Most of the data I work with is clearly not normally distributed
 
 ### Violin plots
 
+To counter the we can use violinplots (which I like to call [Barbapapa](https://www.youtube.com/watch?v=4YTxfs-Tuaw) plots)
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" target="_blank">
 <img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" alt="" width="459" height="466" align="center"/>
