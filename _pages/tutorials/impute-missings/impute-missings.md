@@ -246,6 +246,13 @@ tbl_imp_numeric %>%
 ```
 
 ### Violin plots
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" target="_blank">
+<img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" alt="" width="718" height="350" align="center"/>
+<br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
 ```r
 tbl_imp_numeric %>% 
   mutate(perc_error = (value_imp - value_orig)/value_orig) %>% 
