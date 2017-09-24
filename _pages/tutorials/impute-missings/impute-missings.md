@@ -144,7 +144,7 @@ tbl_imp_areg %<>%
 
 # Evaluating methods
 
-To evaluate the different methods
+To evaluate the different methods I created a data frame containing all data frames of the original data-set, the verification data-set and all imputation method data frames.
 ```r
 tbl_orig %<>% mutate(method = "Original")
 tbl_verif %<>% mutate(method = "Verification")
@@ -157,6 +157,7 @@ tbl_imputations <- rbind(tbl_orig,
 
 ## Factor variables
 
+From the 
 ```r
 tbl_imp_factor <- tbl_imputations %>% 
   select(method, which(sapply(.,is.factor))) %>% 
@@ -235,7 +236,7 @@ tbl_imp_numeric %>%
 
 ### RSME
 
-[RSME](https://en.wikipedia.org/wiki/Root-mean-square_deviation)
+To compare the numerical imputations for the methods you can use the [RSME](https://en.wikipedia.org/wiki/Root-mean-square_deviation) metric:
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-rsme.png" target="_blank">
 <img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-rsme.png" alt="" width="490" height="498" align="center"/>
@@ -250,17 +251,18 @@ tbl_imp_numeric %>%
   ggplot(aes(x = variable, y = rsme, fill = method)) +
     geom_col(position = "dodge")
 ```
-The RSME metric assumes heterostedacity. Most of the data I work with is clearly not normally distributed
+The RSME metric assumes heteroskedasticity, but most of the data I work with are clearly not normally distributed. So most liklely I'll be using the next option: violin plots. 
 
 ### Violin plots
 
-To counter the we can use violinplots (which I like to call [Barbapapa](https://www.youtube.com/watch?v=4YTxfs-Tuaw) plots)
+Inspect the distribution of errors we can use violinplots, which I like to call [Barbapapa](https://www.youtube.com/watch?v=4YTxfs-Tuaw) plots, to eliminate the need for heteroskedasticity.
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" target="_blank">
 <img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" alt="" width="459" height="466" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
+In this violin plot I added the individual data points with the _geom_jitter_ function to demonstrate how violin plots work: more data-points around a value will result in an increased width in the violin plot. Probably you'll have more data points in your set, which makes the _geom_jitter_ clog the plot, so you'll probably want to remove it.
 ```r
 tbl_imp_numeric %>% 
   mutate(perc_error = (value_imp - value_orig)/value_orig) %>% 
