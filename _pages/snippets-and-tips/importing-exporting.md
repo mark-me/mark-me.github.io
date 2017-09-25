@@ -12,7 +12,7 @@ permalink: /importing-exporting/
 
 ## readr
 
-For quite some time I've used the _read.csv_, _read.csv2_, _read.table_ functions and the like from the **utils** library. But recently I found the **[readr](https://www.rdocumentation.org/packages/readr)** library with comparable functions, but with much faster file processing, more intelligence in column type guessing (including date/time) and more 'graceful' failing when some of the type guessing does not the desired effect. Another plus point is that the function returns a [tibble](/data-types/#data-structures) instead of a data frame.
+For quite some time I've used the _read.csv_, _read.csv2_, _read.table_ functions and the like from the **[utils](https://stat.ethz.ch/R-manual/R-devel/library/utils/html/00Index.html)** library. But recently I found the **[readr](https://www.rdocumentation.org/packages/readr)** library with comparable functions, but with much faster file processing, more intelligence in column type guessing (including date/time) and more 'graceful' failing when some of the type guessing does not the desired effect. Another plus point is that the function returns a [tibble](/data-types/#data-structures) instead of a data frame.
 
 There are 7 flat file reading functions in this library, but the 4 I will most likely use are:
 
