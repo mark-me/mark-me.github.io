@@ -8,6 +8,20 @@ permalink: /importing-exporting/
 * TOC 
 {:toc}
 
+# Flat files
+
+## readr
+
+For quite some time I've used the _read.csv_, _read.csv2_, _read.table_ functions and the like from the **utils** library. But recently I found the **[readr](https://www.rdocumentation.org/packages/readr)** library with comparable functions, but with much faster file processing, more intelligence in column type guessing (including date/time) and more 'graceful' failing when some of the type guessing does not the desired effect.
+
+There are 7 flat file reading functions in this library, but the 4 I will most likely use are:
+
+* _read_csv_ and _read_csv2_ - comma separated (CSV) files, for the American and European standards respectively.
+* _read_tsv_ - tab separated files
+* _read_delim_ - generic function for delimited files, which gives you most control.
+* _read_fwf_ - fixed width files
+
+
 # Excel
 
 ## openxlsx
