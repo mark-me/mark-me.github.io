@@ -21,7 +21,7 @@ There are 7 flat file reading functions in this library, but the 4 I will most l
 * _read_delim_ - generic function for delimited files, which gives you most control.
 * _read_fwf_ - fixed width files
 
-The 'graceful' failing is very useful: it gives me a good way to debug importing, which is a problem that always seems to hount me. Next to the imported data, the returned tibble also contains data about the guessed column types and the problems it encountered during processing. It stores this data in attributes.
+The 'graceful' failing is very useful: it gives me a good way to debug importing, which is a problem that always seems to hount me. Next to the imported data, the returned tibble also contains data about the guessed column types and the problems it encountered during processing. It stores this data in [attributes](/data-types/#extra-metadata).
 
 # Excel
 
