@@ -21,6 +21,22 @@ R uses several kinds of data structures:
         *   A data frame can be converted to a table using the _as_data_frame(data_frame)_ function
     *   _data.table_ is most commonly used for very large data-sets, but even when using the BIS data of a country I did not have to use this.
 
+# Extra metadata
+
+You can use 'Attributes' to store all kinds of extra metadata about any kind of object, be it lists, vectors or tables. You've probably seen them already in the Environment window of R Studio, or when using the _str_ function. You can recognise them there because they have a prefix that looks something like 
+```
+- attr(*, "spec")
+```
+In this case the attribute is called spec. Let's say this attribute is part of the data frame 'df'. When we want to see what is in that attribute, we can get a listing like this:
+```r
+attr(df, "spec")
+```
+As is pretty much expected, you can set an attribute like this:
+```r
+attr(df, "spec") <- "This is an attribute text"
+```
+In this example I only assigned a value to the attribute 'spec', but you can assign any type of data to it.
+
 # Factoring
 
 Factoring data is used so that R understands you are using variable to make distinctions between groups of data, instead of it being a variable that is a name or identifier. Factors can be categorical variables, or ordinal variables.
