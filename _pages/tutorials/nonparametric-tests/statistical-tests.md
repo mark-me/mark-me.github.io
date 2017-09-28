@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Nonparametric tests
+title: Statistical tests
 comments: true
-permalink: /nonparametric-tests/
+permalink: /statistical-tests/
 ---
 
 # Levels of measurement
