@@ -7,12 +7,12 @@ permalink: /nonparametric-tests/
 
 # Levels of measurement
 
-A variable can be categorized as one of the following, in order of increasing information value:
+A variable can be categorized as one of the following levels of measurements, in order of increasing information value:
 
-* A categorical variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binominal is a variable that can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binominal variables.
-* An ordinal variable contains values that can be ordered like ranks and scores. You can say that one value higher than the other, but you can't say one value is 2 times more important. An example of this is army ranks: a General is higher in rank than a Major, but you can't say a General outranks a Major 2 times.
-* Interval variables
-* Ratio variables
+* A **categorical** variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binominal is a variable that can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binominal variables.
+* An **ordinal** variable contains values that can be ordered like ranks and scores. You can say that one value higher than the other, but you can't say one value is 2 times more important. An example of this is army ranks: a General is higher in rank than a Major, but you can't say a General outranks a Major 2 times.
+* A **interval** variable
+* A **ratio** variable
 
 # Kinds of test
 
