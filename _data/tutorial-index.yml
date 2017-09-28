@@ -1,12 +1,17 @@
-- title: Structuring data processing
-  url: /structuring-data-processing/
+- title: Statistical tests
+  url: /statistical-tests/
   image: /_pages/tutorials/structuring-data-processing/structuring-data-processing.png
-  description: A template for data-processing in your project.
+  description: Choosing, executing and interpreting statistical tests.
 
 - title: Creating your own project template
   url: /project-template/
   image: /_pages/tutorials/project-template.png
   description: Using a script that creates a standard setup for your R projects.
+  
+ - title: Structuring data processing
+  url: /structuring-data-processing/
+  image: /_pages/tutorials/structuring-data-processing/structuring-data-processing.png
+  description: A template for data-processing in your project.
   
 - title: Working with networked graphs in ggraph
   url: /network-graphs-ggraph/
