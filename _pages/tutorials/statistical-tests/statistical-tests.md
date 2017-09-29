@@ -42,7 +42,7 @@ The previous sections should have given you enough rope to find out what kind of
 | Goal | Categorical | Ordinal | Normally distributed | 
 | :--- | :-------- | :--------- | :------------------- |
 | Describe one group | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | Mode, Median, Interquartile Range | Mean, SD |
-| 1 Sample | Chi-square, Binominal test | Wilcoxon text | One sample t-test |
+| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | Wilcoxon text | One sample t-test |
 | 2 Unrelated samples | Chi-square | Mann-Whitney test | Unpaired t-test |
 | 2 Related samples | McNemar's test | Wilcoxon test | Paired t-test |
 | Association 2 variables | Contigency coefficients | Spearman correlation | Pearson correlation |
