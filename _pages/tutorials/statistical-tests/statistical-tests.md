@@ -162,7 +162,7 @@ sample estimates:
 probability of success 
                    0.7 
 ```
-The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75% of our customers are male. Like with the Chi-squared test you can access the p.value property if you store the _binom.test_ function's result in a variable.
+The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75% of our customers are male. Like with the Chi-squared test, you can access the p.value property if you store the _binom.test_ function's result in a variable.
 
 ## Two unrelated samples
 
