@@ -4,6 +4,8 @@ title: Statistical tests
 comments: true
 permalink: /statistical-tests/
 ---
+
+Here's a table of contents for you:
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | [Mean, SD](/statistical-tests/#mean-sd) |
