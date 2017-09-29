@@ -43,7 +43,7 @@ The previous sections should have given you enough rope to find out what kind of
 | :--- | :-------- | :--------- | :------------------- |
 | Describe one group | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | Mean, SD |
 | 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | Wilcoxon text | One sample t-test |
-| 2 Unrelated samples | Chi-square | Mann-Whitney test | Unpaired t-test |
+| 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | Mann-Whitney test | Unpaired t-test |
 | 2 Related samples | McNemar's test | Wilcoxon test | Paired t-test |
 | Association 2 variables | Contigency coefficients | Spearman correlation | Pearson correlation |
 
@@ -171,3 +171,8 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 ```r
 
 ```
+
+## Two related samples
+
+### McNemar’s test
+
