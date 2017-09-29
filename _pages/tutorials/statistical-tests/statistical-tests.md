@@ -41,7 +41,7 @@ The previous sections should have given you enough rope to find out what kind of
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
-| Describe one group | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | Mean, SD |
+| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | Mean, SD |
 | 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | Wilcoxon text | One sample t-test |
 | 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | Mann-Whitney test | Unpaired t-test |
 | 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | Paired t-test |
@@ -50,7 +50,7 @@ The previous sections should have given you enough rope to find out what kind of
 
 # Categorical variables
 
-## Describe one group
+## Descriptive
 
 ### Proportion
 
@@ -178,13 +178,23 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 ## Association between 2 variables
 
+### Contigency coefficients	
+
 # Ordinal variables
 
-## Describe one group
+## Descriptive
+
+### Mode, Median
+
+### Interquartile Range
 
 ## One sample
 
+### Wilcoxon test
+
 ## Two unrelated samples
+
+### Mann-Whitney test
 
 ## Two unrelated samples
 
@@ -192,7 +202,7 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 # Gaussian variables
 
-## Describe one group
+## Descriptive
 
 ## One sample
 
