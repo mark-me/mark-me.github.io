@@ -143,3 +143,8 @@ Where the p-value of .9942 tells us we can trust this dice when we want to play 
 
 ### Binominal test
 
+With the [binominal test](https://en.wikipedia.org/wiki/Binomial_test) you test whether one value is higher or lower in occurence than expected.
+
+The binominal test is used when there is only two outcomes: succes or failure. While this doesn't mean the variable can only have two values, but only one of the values could be considered succes. If a few values are considered a succes, I would recommend creating a new variable in which you recode the values into a logical values of successes and failures.
+
+The test in R is done by using the function _[binom.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html)_.
