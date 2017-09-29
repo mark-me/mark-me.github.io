@@ -89,27 +89,27 @@ calc_mode <- function(x){
 In the case where there is one value with the highest frequency that value will be returned:
 ```r
 > table(diamonds$cut)
-
      Fair      Good Very Good   Premium     Ideal 
      1610      4906     12082     13791     21551 
+
 > calc_mode(diamonds$cut)
 [1] "Ideal"
 ```
 In case all values have the same frequency _NA_ will be reported as the mode
 ```r
 > table(iris$Species)
-
     setosa versicolor  virginica 
         50         50         50 
+
 > calc_mode(iris$Species)
 [1] NA
 ```
 When there are multiple values with the same frequency, all those will be returned
 ```r
 > table(mtcars$mpg)
-
 10.4 13.3 14.3 14.7   15 15.2 15.5 15.8 16.4 17.3 17.8 18.1 18.7 19.2 19.7   21 21.4 21.5 22.8 24.4   26 27.3 30.4 32.4 33.9 
    2    1    1    1    1    2    1    1    1    1    1    1    1    2    1    2    2    1    2    1    1    1    2    1    1 
+
 > calc_mode(mtcars$mpg)
 [1] 10.4 15.2 19.2 21.0 21.4 22.8 30.4
 ```
