@@ -189,9 +189,7 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 ## Descriptive
 
-### Mode, Median
-
-### Interquartile Range
+### Median, Interquartile Range
 
 ## One sample
 
