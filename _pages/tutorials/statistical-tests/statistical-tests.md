@@ -14,7 +14,7 @@ Statistical test allow us to draw conclusions about the distribution of a popula
 
 This tutorial shows you how to choose your test for the conclusion you're trying to reach and how to apply them.
 
-# Type of conclusion
+# Types of conclusions
 
 Sometimes you just want to describe one variable, but mostly you use it to show which direction a population differs in in comparison to a theorethical distribution or in comparison to another group.
 
