@@ -39,7 +39,7 @@ The level of measurement of the variable determines which type of test you can u
 
 The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and found out which level measurement your variable's at, you can find out the test by making the correct crossing in the table below: 
 
-| Goal | Categorical | Ordinal | Gaussian | 
+| Goal | [Categorical](/statistical-tests/#categorical-variables) | [Ordinal](/statistical-tests/#ordinal-variables) | [Gaussian](/statistical-tests/#gaussian-variables) | 
 | :--- | :-------- | :--------- | :------------------- |
 | Describe one group | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | Mean, SD |
 | 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | Wilcoxon text | One sample t-test |
