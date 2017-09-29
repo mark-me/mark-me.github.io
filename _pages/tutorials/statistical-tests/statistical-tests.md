@@ -35,6 +35,7 @@ The level of measurement of the variable determines which type of test you can u
 
 # Putting it all together
 
+The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and found out which level measurement your variable's at, you can find out the test by making the correct crossing in the table below: 
 
 | Goal | Categorical | Ordinal | Normally distributed | 
 | :--- | :-------- | :--------- | :------------------- |
@@ -45,15 +46,73 @@ The level of measurement of the variable determines which type of test you can u
 | Association 2 variables | Contigency coefficients | Spearman correlation | Pearson correlation |
 
 
-
-# Binominal variables
+# Categorical variables
 
 ## Describe one group
 
 ### Proportion
 
+There are many ways to do this but, for no particular reason, I've chosen to do this with the **dplyr** framework:
+```r
+iris %>% 
+  group_by(Species) %>% 
+  summarise (n = n()) %>%
+  mutate(proportion = n / sum(n))
+```
+This shows the proportion of each species of iris (33% for each):
+```
+# A tibble: 3 x 3
+     Species     n proportion
+      <fctr> <int>      <dbl>
+1     setosa    50  0.3333333
+2 versicolor    50  0.3333333
+3  virginica    50  0.3333333
+```
 
 ### Mode
+
+There is no standard function to calculate the mode that I know of (if you know one, please leave a comment), so I created called _calc_mode_:
+```r
+calc_mode <- function(x){ 
+  table_freq = table(x)
+  max_freq = max(table_freq)
+  if (all(table_freq == max_freq))
+    mod = NA
+  else
+    if(is.numeric(x))
+      mod = as.numeric(names(table_freq)[table_freq == max_freq])
+  else
+    mod = names(table_freq)[table_freq == max_freq]
+  return(mod)
+}
+```
+In the case where there is one value with the highest frequency that value will be returned:
+```r
+> table(diamonds$cut)
+
+     Fair      Good Very Good   Premium     Ideal 
+     1610      4906     12082     13791     21551 
+> calc_mode(diamonds$cut)
+[1] "Ideal"
+```
+In case all values have the same frequency _NA_ will be reported as the mode
+```r
+> table(iris$Species)
+
+    setosa versicolor  virginica 
+        50         50         50 
+> calc_mode(iris$Species)
+[1] NA
+```
+When there are multiple values with the same frequency, all those will be returned
+```r
+> table(mtcars$mpg)
+
+10.4 13.3 14.3 14.7   15 15.2 15.5 15.8 16.4 17.3 17.8 18.1 18.7 19.2 19.7   21 21.4 21.5 22.8 24.4   26 27.3 30.4 32.4 33.9 
+   2    1    1    1    1    2    1    1    1    1    1    1    1    2    1    2    2    1    2    1    1    1    2    1    1 
+> calc_mode(mtcars$mpg)
+[1] 10.4 15.2 19.2 21.0 21.4 22.8 30.4
+```
 
 ## One sample
 
