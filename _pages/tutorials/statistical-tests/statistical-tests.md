@@ -42,10 +42,10 @@ The previous sections should have given you enough rope to find out what kind of
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | Mean, SD |
-| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | Wilcoxon text | One sample t-test |
-| 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | Mann-Whitney test | Unpaired t-test |
-| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | Paired t-test |
-| Association 2 variables | Contigency coefficients | Spearman correlation | Pearson correlation |
+| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | Wilcoxon text | [One sample t-test](/statistical-tests/#one-sample-t-test) |
+| 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | Mann-Whitney test | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
+| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | [Paired t-test](/statistical-tests/#paired-t-test) |
+| Association 2 variables | Contigency coefficients | Spearman correlation | [Pearson correlation](/statistical-tests/#pearson-correlation) |
 
 
 # Categorical variables
