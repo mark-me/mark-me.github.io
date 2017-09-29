@@ -200,14 +200,26 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 ## Association between 2 variables
 
+### Spearman correlation
+
 # Gaussian variables
 
 ## Descriptive
 
+### Mean, SD
+
 ## One sample
 
-## Two unrelated samples
+### One sample t-test
 
 ## Two unrelated samples
+
+### Unpaired t-test
+
+## Two unrelated samples
+
+### Paired t-test
 
 ## Association between 2 variables
+
+### Pearson correlation
