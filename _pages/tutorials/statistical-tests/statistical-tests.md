@@ -128,7 +128,7 @@ Then we fill a vector which expected probabilities of each side being thrown:
 ```r
 exp_throws <- c(rep(1/6, 6))
 ```
-Then the function _chisq.test_ to test whether this dice isn't tampered with, or needs to be replaced:
+Then the function _[chisq.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/chisq.test.html)_ to test whether this dice isn't tampered with, or needs to be replaced:
 ```r
 chisq.test(throws, p = exp_throws)
 ```
@@ -147,4 +147,27 @@ With the [binominal test](https://en.wikipedia.org/wiki/Binomial_test) you test 
 
 The binominal test is used when there is only two outcomes: succes or failure. While this doesn't mean the variable can only have two values, but only one of the values could be considered succes. If a few values are considered a succes, I would recommend creating a new variable in which you recode the values into a logical values of successes and failures.
 
-The test in R is done by using the function _[binom.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html)_.
+The test in R is done by using the function _[binom.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html)_. Suppose we think about 75% of our customers are male (the things we think about...), we have no data on it, so we start collecting it by randomly calling 100 of them and registring their gender. We find that 70 of the customers were male. Do we now reject our initial hypothesis of 75%? Let's find piece of mind, and an answer to this pressing question:
+```r
+binom.test(70, 100, p = .75, alternative = "two.sided")
+```
+The output:
+```
+data:  70 and 100
+number of successes = 70, number of trials = 100, p-value = 0.2491
+alternative hypothesis: true probability of success is not equal to 0.75
+95 percent confidence interval:
+ 0.6001853 0.7875936
+sample estimates:
+probability of success 
+                   0.7 
+```
+The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75% of our customers are male. Like with the Chi-squared test you can access the p.value property if you store the _binom.test_ function's result in a variable.
+
+## Two unrelated samples
+
+### Two sample Chi-Square test
+
+```r
+
+```
