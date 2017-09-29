@@ -41,7 +41,7 @@ The previous sections should have given you enough rope to find out what kind of
 
 | Goal | Categorical | Ordinal | Normally distributed | 
 | :--- | :-------- | :--------- | :------------------- |
-| Describe one group | [Proportion](/nonparametric-tests/#Proportion), [Mode]((/nonparametric-tests/#Mode) | Mode, Median, Interquartile Range | Mean, SD |
+| Describe one group | [Proportion](/nonparametric-tests/###Proportion), [Mode](/nonparametric-tests/###Mode) | Mode, Median, Interquartile Range | Mean, SD |
 | 1 Sample | Chi-square, Binominal test | Wilcoxon text | One sample t-test |
 | 2 Unrelated samples | Chi-square | Mann-Whitney test | Unpaired t-test |
 | 2 Related samples | McNemar's test | Wilcoxon test | Paired t-test |
