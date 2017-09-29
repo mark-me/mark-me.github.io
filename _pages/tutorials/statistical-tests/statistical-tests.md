@@ -118,3 +118,28 @@ When there are multiple values with the same frequency, all those will be return
 
 ## One sample
 
+### Chi-Square Goodness of Fit test
+
+With the [Chi-Square Goodness of Fit Test](http://www.stat.yale.edu/Courses/1997-98/101/chigf.htm) you test whether your data fits an hypothetical distribution you'd expect. Let's take the example of dice. First you have a data set you've collected by throwing a dice 100 times, recording the number of times each is up, from 1 to 6:
+```r
+throws <- c(18, 16, 15, 17, 16, 18)
+```
+Then we fill a vector which expected probabilities of each side being thrown:
+```r
+exp_throws <- c(rep(1/6, 6))
+```
+Then the function _chisq.test_ to test whether this dice isn't tampered with, or needs to be replaced:
+```r
+chisq.test(throws, p = exp_throws)
+```
+Resulting in:
+```
+Chi-squared test for given probabilities
+
+data:  throws
+X-squared = 0.44, df = 5, p-value = 0.9942
+```
+Where the p-value of .9942 tells us we can trust this dice when we want to play a fair game. If you store the result in a variable, you can access the p.value property; this might come in handy if you want to use the result of the test later on in your script.
+
+### Binominal test
+
