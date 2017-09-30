@@ -24,7 +24,7 @@ This tutorial shows you how to choose your test for the conclusion you're trying
 
 # Types of conclusions
 
-Sometimes you just want to describe one variable, but mostly you use it to show which direction a population differs in in comparison to a theorethical distribution or in comparison to another group. Although these types of descriptions don't need statistical tests, I'll describe them here since they can be a part of interpreting the statistical test results.
+Sometimes you just want to describe one variable. Although these types of descriptions don't need statistical tests, I'll describe them here since they should be a part of interpreting the statistical test results. Statistical tests say whether they change, but descriptions on distibutions tell you in what direction they change.
 
 One sample tests are done when you want to find out whether your measurements differ from some kind of theorethical distribution. For example: you might want to find out whether you have a dice that doesn't get the random result you'd expect from a dice. In this case you'd expect that the dice would throw 1 to 6 about 1/6th of the time.
 
@@ -45,7 +45,7 @@ The level of measurement of the variable determines which type of test you can u
 
 # Putting it all together
 
-The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and found out which level measurement your variable's at, you can find out the test by making the correct crossing in the table below: 
+The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and found out which level measurement your variable is at, you can find out the test by making the correct crossing in the table below: 
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
@@ -204,7 +204,7 @@ The p value is below 0.05 and tells us that there is a difference in hair color 
 
 **[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test)** is used to see whether observations differ in values on two sets of varibles. It's usefull for comparing results of questionaires for the same person across a period of time.
 
-In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebooks/search/?query=The+decline+of+good+taste)_ Dr. Edward McAuliffe lamented the ascent of the bow-tie and the decline of the cravat. Being the reputed scientist he was, he didn't go by feeling but relentlessly caarried out two questionnaires to the same 2.000 men with 2 years in between. The men were asked if they wouldd rather wear a bow-tie or a cravat. Here I recreate the results:
+In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebooks/search/?query=The+decline+of+good+taste)_ Dr. Edward McAuliffe lamented the ascent of the frivolous bow-tie and the decline of the refined cravat. Being the reputed scientist he was, he didn't go by feeling but relentlessly carried out two questionnaires to the same 2.000 men with 2 years in between. The men were asked if they wouldd rather wear a bow-tie or a cravat. Here I recreate the results:
 ```r
 tbl_cravat <- data.frame(first_result = c(rep("Cravat", 1500), rep("Bow-tie", 500)), 
                        second_result = c(rep("Cravat", 1100), rep("Bow-tie", 700), rep("Cravat", 200)))
