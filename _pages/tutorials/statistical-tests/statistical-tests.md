@@ -204,17 +204,30 @@ The p value is below 0.05 and tells us that there is a difference in hair color 
 
 **[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test)** is used to see whether observations differ in values on two sets of varibles. It's usefull for comparing results of questionaires for the same person across a period of time.
 
-In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebooks/search/?query=The+decline+of+good+taste)_ Edward discusses As the dataset to demonstrate cravat. _[mcnemar.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/mcnemar.test.html)_
+In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebooks/search/?query=The+decline+of+good+taste)_ Edward McAuliffe laments the ascent of the bow tie and the decline of the cravat. Being the good scientist he didn't go by feeling, but did two questionnaires to the same men with 2 years in between. The men were asked if they approve of wearing a cravat. Here I recreate the results:
 ```r
-tbl_data <- data.frame(first_result = c(rep("Approve", 1500), rep("Disapprove", 500)), 
+tbl_cravat <- data.frame(first_result = c(rep("Approve", 1500), rep("Disapprove", 500)), 
                        second_result = c(rep("Approve", 1100), rep("Disapprove", 700), rep("Approve", 200)))
 
 tbl_data %<>%
   group_by(first_result, second_result) %>% 
   summarise(qty = n()) %>% 
-  ungroup() %>% 
-  spread(key = second_result, value = qty)
+  ungroup() %>%
+  spread(key = second_result, value = qty) %>% 
+  select(Approve, Disapprove)
 ```
+To test whether their opinions changed we can apply the data frame to the _[mcnemar.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/mcnemar.test.html)_ function.
+```r
+mcnemar.test(as.matrix(tbl_data))
+```
+Output:
+```
+	McNemar's Chi-squared test with continuity correction
+
+data:  as.matrix(tbl_data)
+McNemar's chi-squared = 66.002, df = 1, p-value = 4.505e-16
+```
+
 
 ## Association between 2 variables
 
