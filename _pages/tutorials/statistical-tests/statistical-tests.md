@@ -204,7 +204,7 @@ The p value is below 0.05 and tells us that there is a difference in hair color 
 
 **[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test)** is used to see whether observations differ in values on two sets of varibles. It's usefull for comparing results of questionaires for the same person across a period of time.
 
-In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebooks/search/?query=The+decline+of+good+taste)_ Dr. Edward McAuliffe lamented the ascent of the frivolous bow-tie and the decline of the refined cravat. Being the reputed scientist he was, he didn't go by feeling but relentlessly carried out two questionnaires to the same 2.000 men with 2 years in between. The men were asked if they wouldd rather wear a bow-tie or a cravat. Here I recreate the results:
+In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebooks/search/?query=The+decline+of+good+taste)_ Dr. Edward McAuliffe lamented the ascent of the frivolous bow-tie to the expense of the refined [cravat](https://mccannbespoke.co.uk/how-to-wear-a-cravat/). Being the reputed scientist he was, he didn't go by feeling but relentlessly carried out two questionnaires to the same 2.000 men with 2 years in between. The men were asked if they wouldd rather wear a bow-tie or a cravat. Here I recreate the results:
 ```r
 tbl_cravat <- data.frame(first_result = c(rep("Cravat", 1500), rep("Bow-tie", 500)), 
                        second_result = c(rep("Cravat", 1100), rep("Bow-tie", 700), rep("Cravat", 200)))
