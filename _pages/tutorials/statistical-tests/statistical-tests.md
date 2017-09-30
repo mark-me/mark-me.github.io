@@ -227,7 +227,7 @@ Output:
 data:  as.matrix(tbl_data)
 McNemar's chi-squared = 66.002, df = 1, p-value = 4.505e-16
 ```
-Seeing the p value is so low, we can assume the f toward the cravat changed and morn with Dr. McAuliffe about this great loss in gentlemanly traditions...
+Seeing the p value is so low, we can assume the general sentiment toward the cravat changed. And seeing the direction of the fashion evolution we will mourn together with Dr. McAuliffe about this great loss in gentlemanly traditions...
 
 ## Association between 2 variables
 
