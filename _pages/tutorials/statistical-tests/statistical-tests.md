@@ -24,7 +24,7 @@ This tutorial shows you how to choose your test for the conclusion you're trying
 
 # Types of conclusions
 
-Sometimes you just want to describe one variable, but mostly you use it to show which direction a population differs in in comparison to a theorethical distribution or in comparison to another group.
+Sometimes you just want to describe one variable, but mostly you use it to show which direction a population differs in in comparison to a theorethical distribution or in comparison to another group. Although these types of descriptions don't need statistical tests, I'll describe them here since they can be a part of interpreting the statistical test results.
 
 One sample tests are done when you want to find out whether your measurements differ from some kind of theorethical distribution. For example: you might want to find out whether you have a dice that doesn't get the random result you'd expect from a dice. In this case you'd expect that the dice would throw 1 to 6 about 1/6th of the time.
 
@@ -176,13 +176,33 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 ### Two sample Chi-Square test
 
+The two sample Chi-square test can be used to compare two groups for categorical variables. A typical marketing application would be A-B testing. But because I want to give an example, I'll take a R dataset about hair color. I'm very, very interested if the sexes differ in hair color. For this I use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)** data-set. I must prepare it so the frequencies of the sexes are in two columns, and I need to remove the _Hair_ color column for the _chisq.test_ function to be able to process it.
 ```r
-
+tbl_hair_sex <- as.data.frame(HairEyeColor) %>% 
+  group_by(Hair, Sex) %>% 
+  summarise(qty = sum(Freq)) %>% 
+  ungroup() %>% 
+  spread(key = Sex, value = qty) %>% 
+  select(Male, Female)
 ```
+Then the function is applied:
+```
+chisq.test(tbl_hair_sex)
+```
+The output:
+```
+	Pearson's Chi-squared test
+
+data:  tbl_hair_sex
+X-squared = 7.9942, df = 3, p-value = 0.04613
+```
+The p value is below 0.05 and tells us that there is a difference in hair color between men and women in the sample. When you look at the data, you would see that this is mostly caused by the the female students have proportionally blonder hair.
 
 ## Two related samples
 
 ### McNemar’s test
+
+**[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test)** is used to see whether observations differ in values on two sets of varibles. It could be used to see wether customers
 
 ## Association between 2 variables
 
