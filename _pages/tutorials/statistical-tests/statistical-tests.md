@@ -204,7 +204,7 @@ The p value is below 0.05 and tells us that there is a difference in hair color 
 
 **[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test)** is used to see whether observations differ in values on two sets of varibles. It's usefull for comparing results of questionaires for the same person across a period of time.
 
-In his classic book "The Decline of Good Taste" Edward discusses As the dataset to demonstrate cravat. _[mcnemar.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/mcnemar.test.html)_
+In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebooks/search/?query=The+decline+of+good+taste)_ Edward discusses As the dataset to demonstrate cravat. _[mcnemar.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/mcnemar.test.html)_
 ```r
 tbl_data <- data.frame(first_result = c(rep("Approve", 1500), rep("Disapprove", 500)), 
                        second_result = c(rep("Approve", 1100), rep("Disapprove", 700), rep("Approve", 200)))
