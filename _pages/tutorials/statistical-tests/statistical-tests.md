@@ -7,7 +7,7 @@ permalink: /statistical-tests/
 
 This tutorial is one in a series of four. The goal of this whole tutorial shows you how to choose your test and how to apply nd interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests.
 
-| Goal | Categorical | Ordinal | Gaussian | 
+| Goal | Categorical | Ordinal | Interval/Ratio | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | [Mean, SD](/statistical-tests/#mean-sd) |
 | 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon text](/statistical-tests/#wilcoxon-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
@@ -41,7 +41,7 @@ A variable can be categorized as one of the following levels of measurements, in
 * A **interval** variable has values that are ordered, and the difference between has meaning, but there is no absolute 0 point, which makes it difficult to interpret differences in terms of absolute magnitude. Money value is an example of an interval level variable, which may sound a bit counterintuitive. Money can take negative values, which makes it impossible to say that someone with 1 million Euros on his bank account has twice as much money as someone that has 1 million Euros in debt. The [Big Mac Index](https://en.wikipedia.org/wiki/Big_Mac_Index) is another case in point.
 * A **ratio** variable has values like interval variables, but here there is an absolute 0 point. 0 Kelvin is an example: there is no temperature below 0 Kelvin, which also means that the 700 degrees Kelvin is twice as hot as 350 degrees Kelvin. Quantities are the only example in my field that I know of. 
 
-The level of measurement of the variable determines which type of test you can use. The main distinction between tests are the parametric versus nonparametric tests. Parametric tests make assumptions about the defining properties of the variable's distribution of the population. Mostly they assume that the variable is normally distributed for the population. In my experience in Marketing they never are (please let me know if you have an example in which it is the case). So for me, this rules out parametric tests. 
+The level of measurement of the variable determines which type of test you can use. The main distinction between tests are the parametric versus nonparametric tests. Nonparametric tests are the tests that I've categorized here in the Categorical and Ordinal variables. Parametric tests can only be done from interval and ratio variables, but additionaly tests make assumptions about the defining properties of the variable's distribution of the population. Mostly they assume that the variable is normally distributed for the population (i.e. [Gaussian](https://en.wikipedia.org/wiki/Normal_distribution)). In my experience in Marketing variables never follow a Gaussian distribution (please let me know if you have an example in which it is the case). So for me, this rules out parametric tests, and whenever I think I have an interval or ratio level variable I still take the tests associated with ordinal variables. The downside to my approach is that the nonparametric tests are less powerful for detecting effects, so it makes my conclusions more conservative.
 
 # Putting it all together
 
