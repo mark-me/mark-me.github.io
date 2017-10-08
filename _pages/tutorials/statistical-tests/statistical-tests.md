@@ -176,7 +176,9 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 ### Two sample Chi-Square test
 
-The two sample Chi-square test can be used to compare two groups for categorical variables. A typical marketing application would be A-B testing. But because I want to give an example, I'll take a R dataset about hair color. I'm very, very interested if the sexes differ in hair color. For this I use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)** data-set. I must prepare it so the frequencies of the sexes are in two columns, and I need to remove the _Hair_ color column for the _chisq.test_ function to be able to process it.
+<img src="/_pages/tutorials/statistical-tests/debbie-harry.jpg" alt="Me" width="227" height="300" align="right"/>
+
+The two sample Chi-square test can be used to compare two groups for categorical variables. A typical marketing application would be A-B testing. But because I want to give an example, I'll take a R dataset about hair color. I'm very, very interested if the sexes differ in hair color. For this I use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)** data-set, which very usefully specifies whether hair is painted or not. I must prepare it so the frequencies of the sexes are in two columns, and I need to remove the _Hair_ color column for the _chisq.test_ function to be able to process it.
 ```r
 tbl_hair_sex <- as.data.frame(HairEyeColor) %>% 
   group_by(Hair, Sex) %>% 
