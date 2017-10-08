@@ -236,7 +236,27 @@ Seeing the p value is so low, we can assume the general sentiment toward the cra
 
 ## Association between 2 variables
 
-### Contigency coefficients	
+### Contigency coefficients or Cramer's V	
+
+The contingency coefficient makes use of the Chi-Square. Since we've already did  Chi-square test on the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)**, we'll do the same here, but the Chi-square test result is stored in a list to use it in the final contingency correlation:
+```r
+res_chisq <- chisq.test(tbl_hair_sex)
+```
+Then we calculate the contingency coefficient like this:
+```r
+sqrt((res_chisq$statistic/nrow(tbl_hair_sex)) / min(nrow(tbl_hair_sex) - 1, ncolumn(tbl_hair_sex) - 1))
+```
+Output:
+```
+X-squared 
+0.8163986 
+```
+You can ignore the name X-squared here, since it has no meaning here. The coefficient is pretty high, so there is a strong association between sex and hair color.
+
+The contingency coefficient is [critiqued](https://accendoreliability.com/contingency-coefficient/) for not reaching it's outer limits of -1 and +1. This is where [Cramer's V](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) comes in: the values come between 0 and 1. The value is calculated by taking the square root of chi-square divided by sample size, n, times m. m is the smaller of (rows - 1) or (columns - 1).
+```r
+sqrt(res_chisq$statistic/min(nrow(tbl_hair_sex) + res_chisq$statistic))
+```
 
 # Ordinal variables
 
