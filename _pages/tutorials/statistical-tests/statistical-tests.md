@@ -240,7 +240,9 @@ Seeing the p value is so low, we can assume the general sentiment toward the cra
 
 ## Association between 2 variables
 
-### Contigency coefficients or Cramer's V	
+### Contigency coefficients or Cramer's V
+
+<img src="/_pages/tutorials/statistical-tests/steven-seagal.jpg" alt="Me" width="170" height="222" align="right"/>
 
 The contingency coefficient makes use of the Chi-Square. Since we've already did  Chi-square test on the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)**, we'll do the same here, but the Chi-square test result is stored in a list to use it in the final contingency correlation:
 ```r
