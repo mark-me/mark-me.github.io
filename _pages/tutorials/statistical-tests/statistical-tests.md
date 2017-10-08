@@ -155,7 +155,7 @@ With the [binominal test](https://en.wikipedia.org/wiki/Binomial_test) you test 
 
 The binominal test is used when there is only two outcomes: succes or failure. While this doesn't mean the variable can only have two values, but only one of the values could be considered succes. If a few values are considered a succes, I would recommend creating a new variable in which you recode the values into a logical values of successes and failures.
 
-The test in R is done by using the function _[binom.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html)_. Suppose we think about 75% of our customers are male (the things we think about...), we have no data on it, so we start collecting it by randomly calling 100 of them and registring their gender. We find that 70 of the customers were male. Do we now reject our initial hypothesis of 75%? Let's find piece of mind, and an answer to this pressing question:
+The test in R is done by using the function _[binom.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html)_. Suppose we think about 75% of our customers are male (the things we think about...), we have no data on it, so we start collecting it by randomly calling 100 of them and registring their gender. We find that 70 of the customers were male. Do we now reject our initial hypothesis of 75%? Let's find piece of mind, and answer this pressing question:
 ```r
 binom.test(70, 100, p = .75, alternative = "two.sided")
 ```
