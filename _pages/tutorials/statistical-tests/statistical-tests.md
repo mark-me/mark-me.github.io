@@ -151,7 +151,7 @@ Where the p-value of .9942 tells us we can trust this dice when we want to play 
 
 ### Binominal test
 
-<img src="/_pages/tutorials/statistical-tests/toilet-sign.png" alt="Me" width="289" height="200" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/toilet-sign.png" alt="Me" width="217" height="150" align="right"/>
 
 With the [binominal test](https://en.wikipedia.org/wiki/Binomial_test) you test whether one value is higher or lower in occurence than expected.
 
