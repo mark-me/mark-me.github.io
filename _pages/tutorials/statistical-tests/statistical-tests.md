@@ -202,7 +202,7 @@ The p value is below 0.05 and tells us that there is a difference in hair color 
 
 ### McNemar’s test
 
-<img src="/_pages/tutorials/statistical-tests/cravat.jpg" alt="Me" width="170" height="222" align="left"/>
+<img src="/_pages/tutorials/statistical-tests/cravat.jpg" alt="Me" width="170" height="222" align="right"/>
 
 **[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test)** is used to see whether observations differ in values on two sets of variables. It's useful for comparing results of questionaires for the same person across a period of time.
 
@@ -244,7 +244,7 @@ res_chisq <- chisq.test(tbl_hair_sex)
 ```
 Then we calculate the contingency coefficient like this:
 ```r
-sqrt((res_chisq$statistic/nrow(tbl_hair_sex)) / min(nrow(tbl_hair_sex) - 1, ncolumn(tbl_hair_sex) - 1))
+sqrt(res_chisq$statistic/min(nrow(tbl_hair_sex) + res_chisq$statistic))
 ```
 Output:
 ```
@@ -255,7 +255,7 @@ You can ignore the name X-squared here, since it has no meaning here. The coeffi
 
 The contingency coefficient is [critiqued](https://accendoreliability.com/contingency-coefficient/) for not reaching it's outer limits of -1 and +1. This is where [Cramer's V](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) comes in: the values come between 0 and 1. The value is calculated by taking the square root of chi-square divided by sample size, n, times m. m is the smaller of (rows - 1) or (columns - 1).
 ```r
-sqrt(res_chisq$statistic/min(nrow(tbl_hair_sex) + res_chisq$statistic))
+sqrt((res_chisq$statistic/nrow(tbl_hair_sex)) / min(nrow(tbl_hair_sex) - 1, ncolumn(tbl_hair_sex) - 1))
 ```
 
 # Ordinal variables
