@@ -182,7 +182,7 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 <img src="/_pages/tutorials/statistical-tests/debbie-harry.jpg" alt="Me" width="129" height="170" align="right"/>
 
-The two sample Chi-square test can be used to compare two groups for categorical variables. A typical marketing application would be A-B testing. But because I want to give an example, I'll take a R dataset about hair color. I'm very, very interested if the sexes differ in hair color. For this I use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)** data-set, which very usefully specifies whether hair is painted or not. I must prepare it so the frequencies of the sexes are in two columns, and I need to remove the _Hair_ color column for the _chisq.test_ function to be able to process it.
+The two sample Chi-square test can be used to compare two groups for categorical variables. A typical marketing application would be A-B testing. But because I want to give an example, I'll take a R dataset about hair color. I'm very, very interested if the sexes differ in hair color. For this I use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)** data-set; since it's not specified whether the reported haircolor is dyed or natural, I'll assume it's natural. I must prepare it so the frequencies of the sexes are in two columns, and I need to remove the _Hair_ color column for the _chisq.test_ function to be able to process it.
 ```r
 tbl_hair_sex <- as.data.frame(HairEyeColor) %>% 
   group_by(Hair, Sex) %>% 
@@ -245,7 +245,7 @@ Seeing the p value is so low, we can assume the general sentiment toward the cra
 
 <img src="/_pages/tutorials/statistical-tests/steven-seagal.jpg" alt="Me" width="120" height="180" align="right"/>
 
-The contingency coefficient makes use of the Chi-Square. Since we've already did  Chi-square test on the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)**, we'll do the same here, but the Chi-square test result is stored in a list to use it in the final contingency correlation:
+The contingency coefficient makes use of the Chi-Square. Since we've already did Chi-square test on the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)**, we'll do the same here, but the Chi-square test result is stored in a list to use it in the final contingency correlation. Again: I assume the data-set reports natural hair color like Steven Seagal does.
 ```r
 res_chisq <- chisq.test(tbl_hair_sex)
 ```
