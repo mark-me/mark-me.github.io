@@ -128,7 +128,7 @@ When there are multiple values with the same frequency, all those will be return
 
 ### Chi-Square Goodness of Fit test
 
-<img src="/_pages/tutorials/statistical-tests/unfair-dice.gif" width="235" height="130" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/unfair-dice.gif" width="216" height="120" align="right"/>
 
 With the [Chi-Square Goodness of Fit Test](http://www.stat.yale.edu/Courses/1997-98/101/chigf.htm) you test whether your data fits an hypothetical distribution you'd expect. Let's take the example of dice. First you have a data set you've collected by throwing a dice 100 times, recording the number of times each is up, from 1 to 6:
 ```r
