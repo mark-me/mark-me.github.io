@@ -153,7 +153,7 @@ Where the p-value of .9942 tells us we can trust this dice when we want to play 
 
 ### Binominal test
 
-<img src="/_pages/tutorials/statistical-tests/toilet-sign.png" alt="Me" width="217" height="150" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/toilet-sign.png" width="217" height="150" align="right"/>
 
 With the [binominal test](https://en.wikipedia.org/wiki/Binomial_test) you test whether one value is higher or lower in occurence than expected.
 
@@ -208,7 +208,7 @@ The p value is below 0.05 and tells us that there is a difference in hair color 
 
 ### McNemar’s test
 
-<img src="/_pages/tutorials/statistical-tests/cravat.jpg" alt="Me" width="170" height="222" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/cravat.jpg" alt="Me" width="129" height="170" align="right"/>
 
 **[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test)** is used to see whether observations differ in values on two sets of variables. It's useful for comparing results of questionaires for the same person across a period of time.
 
