@@ -214,9 +214,8 @@ In his classic book _[The Decline of Good Taste](https://www.gutenberg.org/ebook
 ```r
 tbl_cravat <- data.frame(first_result = c(rep("Cravat", 1500), 
                                           rep("Bow-tie", 500)), 
-                         second_result = c(rep("Cravat", 1100), 
-			                   rep("Bow-tie", 700), 
-					   rep("Cravat", 200)))
+                         second_result = c(rep("Cravat", 1300), 
+			                   rep("Bow-tie", 700)))
 
 tbl_data %<>%
   group_by(first_result, second_result) %>% 
