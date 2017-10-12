@@ -236,6 +236,21 @@ I won't go into detail how the function works, but the end result is the a varia
 ```r
 res_chisq <- chisq_test(mat_hair_sex)
 ```
+To visualize this result I've used this _ggplot_ call:
+```r
+ggplot(res_chisq$dataset, aes(x = Var1, y = observed, group = Var2)) +
+  geom_col(aes(fill = residuals), position = "dodge") +
+  geom_text(aes(label = Var2), position = position_dodge(width = 1), vjust = 1) +
+  scale_fill_gradient2("Difference", 
+                       low = "#EB6E08", mid = "#BABFC1", high = "#3AA2DF",
+                       labels = NULL) +
+  labs(x = "") +
+  theme(legend.direction = "horizontal", 
+        legend.position = "bottom")
+```
+{:refdef: style="text-align: center;"}
+<img src="chisq-visualized.png" alt="Image text" width="644" height="471" align="middle"/>
+{: refdef}
 
 ## Two related samples
 
