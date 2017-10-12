@@ -182,27 +182,60 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 <img src="/_pages/tutorials/statistical-tests/debbie-harry.jpg" alt="Me" width="129" height="170" align="right"/>
 
-The two sample Chi-square test can be used to compare two groups for categorical variables. A typical marketing application would be A-B testing. But because I want to give an example, I'll take a R dataset about hair color. I'm very, very interested if the sexes differ in hair color. For this I use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)** data-set; since it's not specified whether the reported haircolor is dyed or natural, I'll assume it's natural. I must prepare it so the frequencies of the sexes are in two columns, and I need to remove the _Hair_ color column for the _chisq.test_ function to be able to process it.
+The two sample Chi-square test can be used to compare two groups for categorical variables. A typical marketing application would be A-B testing. But because I want to give an example, I'll take a R dataset about hair color. I'm very, very interested if the sexes differ in hair color. For this I use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)** data-set; since it's not specified whether the reported haircolor is dyed or natural, I'll assume it's natural. I must prepare it so the frequencies of the sexes are in two columns. Then the data frame is converted to a matrix and the _Hair_ color column is removed and used to name the rows instead. This is done so the _chisq.test_ function is able to process it.
 ```r
 tbl_hair_sex <- as.data.frame(HairEyeColor) %>% 
   group_by(Hair, Sex) %>% 
   summarise(qty = sum(Freq)) %>% 
   ungroup() %>% 
-  spread(key = Sex, value = qty) %>% 
-  select(Male, Female)
+  spread(key = Sex, value = qty)
+
+mat_hair_sex <- as.matrix(tbl_hair_sex[-1])
+rownames(mat_hair_sex) <- levels(tbl_hair_sex$Hair)
 ```
 Then the function is applied:
 ```
-chisq.test(tbl_hair_sex)
+chisq.test(mat_hair_sex)
 ```
 The output:
 ```
 	Pearson's Chi-squared test
 
-data:  tbl_hair_sex
+data:  mat_hair_sex
 X-squared = 7.9942, df = 3, p-value = 0.04613
 ```
 The p value is below 0.05 and tells us that there is a difference in hair color between men and women in the sample. When you look at the data, you would see that this is mostly caused by the the female students have proportionally blonder hair.
+
+### Visualizing the results
+
+Since I'm a very visually oriented person I'd like to see the results of the test represented in a graph. Sadly, the regular _chisq.test_ returns it's data in a way that is hard to turn into something we can use with **ggplot2**. To overcome this problem I created a wrapper function around the _chisq.test_ function: _chisq_test_:
+```r
+chisq_test <- function(x, ...) {
+  res_chisq <- chisq.test(x)
+  groups <- length(dimnames(as.table(res_chisq$observed)))
+  dataset <- as.data.frame(as.table(res_chisq$observed))
+  names(dataset)[groups + 1] <- "observed"
+  
+  dataset <- cbind(dataset, 
+                   expected  = as.data.frame(as.table(res_chisq$expected))[[groups + 1]],
+                   residuals = as.data.frame(as.table(res_chisq$residuals))[[groups + 1]],
+                   stdres    = as.data.frame(as.table(res_chisq$stdres))[[groups + 1]] )
+  
+  result <- list(statistic = res_chisq$statistic,
+                 parameter = res_chisq$parameter,
+                 p.value = res_chisq$p.value,
+                 method = res_chisq$method,
+                 data.name = res_chisq$data.name,
+                 dataset = dataset)
+  attr(result, "class") <- attr(res_chisq, "class")
+  
+  return(result)
+}
+```
+I won't go into detail how the function works, but the end result is the a variable similar to the one returned to the _chisq.test_, but all the data elements like observed values, expected values, residuals and standardized residuals are in one data-frame, ready for use in a ggplot. First we'll apply the function, and store it's result:
+```r
+res_chisq <- chisq_test(mat_hair_sex)
+```
 
 ## Two related samples
 
