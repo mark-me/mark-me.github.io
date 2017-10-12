@@ -141,7 +141,7 @@ mtcars %>%
 
 There are three ways of binning data:
 
-1) Equal observations in bins by using the [**Hmisc**](https://www.rdocumentation.org/packages/Hmisc) package. In the example below the iris's are binnen in groups of 3 observations by Sepal.Length
+1) Equal observations in bins by using the [**Hmisc**](https://www.rdocumentation.org/packages/Hmisc) package. In the example below the iris's are binned in groups of 3 observations by Sepal.Length
 ```r
 iris %>% mutate(Sepal.Length_bin = cut2(Sepal.Length, g=3))
 ```
