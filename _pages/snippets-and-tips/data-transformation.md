@@ -132,7 +132,7 @@ When you want to recode data in such a way that you'd wind up using a lot of _if
 ELSE <- TRUE # I use this ELSE variable as a placeholder for the TRUE statement. Why not write a TRUE instead? I'm a nerd....
 mtcars %>% 
   mutate(carb_new = case_when(.$carb == 1 ~ "one",
-                              .$carb == 2 ~ "two",
+                              .$carb >= 2 & .$carb <= 3 ~ "two - three",
                               .$carb == 4 ~ "four",
                               ELSE ~ "other" ))
 ```
