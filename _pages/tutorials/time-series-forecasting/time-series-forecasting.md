@@ -60,5 +60,6 @@ ACF Auto Correlation Functions
 PACF Partial Auto Correlation Functions
 
 |      | AR(p)     | MA(q)          | ARMA(p, q) |
+| ---- |    ----   |      ----      |    ----    |
 | ACF  | Tails off | Cuts off lag q | Tails off  |
 | PACF | Cuts off lag p | Tails off | Tails off  |
