@@ -74,10 +74,18 @@ Library **astsa**
 ```r
 sarima
 ```
-The _sarima_ estimates the quality of each model, relative to each of the other models with two measure types: 
+First we check whether a model is OK by checking the _sarima_ functions plot output:
+
+1. the ACF. The residuals must resemble white noise, otherwise the model did not capture all patterns from the time series. This can best be reviewed by looking at the ACF. 
+2. A qq-plot tells you whether the residuals are normally distributed (which they should be), and 
+3. the Ljung-Box statistic shows you whether there no correlation left in the residuals.
+
+If you get multiple models that fit the criteria above you can look at the _sarima_ function's estimates the quality of each model, relative to each of the other models with two measure types: 
 
 * Akaike Information Criterion (AIC) and  
 * Bayesian Information Criterion (BIC) 
 
-The lower the value on these measures for a model, the better the model.
+Both measures use error and increase with added parameters: the lower the value on these measures for a model, the better the model. 
+
+
 
