@@ -74,4 +74,10 @@ Library **astsa**
 ```r
 sarima
 ```
+The _sarima_ estimates the quality of each model, relative to each of the other models with two measure types: 
+
+* Akaike Information Criterion (AIC) and  
+* Bayesian Information Criterion (BIC) 
+
+The lower the value on these measures for a model, the better the model.
 
