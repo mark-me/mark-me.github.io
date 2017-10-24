@@ -63,3 +63,15 @@ PACF Partial Auto Correlation Functions
 | ---- |    ----   |      ----      |    ----    |
 | ACF  | Tails off | Cuts off lag q | Tails off  |
 | PACF | Cuts off lag p | Tails off | Tails off  |
+
+The p and q indicate what is called the order of the models. The order of the models determine how many parameters you add to the model. For the AR and MA models it is clear what order model to use by the lag cut offs. With ARMA models however, the choice is not clear-cut. The only way to estimate these is by varying the orders, keeping in mind to start with lower p and q, since simpeler models are preferred over more complex models. 
+
+
+
+# Estimating model parameters
+
+Library **astsa**
+```r
+sarima
+```
+
