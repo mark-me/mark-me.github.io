@@ -29,7 +29,6 @@ Which you can use on the [diamond](http://ggplot2.tidyverse.org/reference/diamon
 | Very Good | 12.082 | 22% | 34% |
 | Premium | 13.791 | 26% | 60% |
 | Ideal | 21.551| 40% | 100% |
-| Total | 53.940 | 100% | 200% |
 
 With this distribution I'd expect the **Premium** cut would be the median. Our function call,
 ```r
