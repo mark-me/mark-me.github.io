@@ -9,7 +9,7 @@ This tutorial is one in a series of four. The goal of this whole tutorial shows 
 
 | Goal | Categorical | Ordinal | Interval/Ratio | 
 | :--- | :-------- | :--------- | :------------------- |
-| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), Median, Interquartile Range | [Mean, SD](/statistical-tests/#mean-sd) |
+| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median, Interquartile Range](/statistical-tests/#median-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
 | 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon text](/statistical-tests/#wilcoxon-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
 | 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests/#mann-whitney-test) | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
 | 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | [Paired t-test](/statistical-tests/#paired-t-test) |
@@ -239,14 +239,10 @@ res_chisq <- chisq_test(mat_hair_sex)
 To visualize this result I've used this _ggplot_ call:
 ```r
 ggplot(res_chisq$dataset, aes(x = Var1, y = observed, group = Var2)) +
-  geom_col(aes(fill = residuals), position = "dodge") +
-  geom_text(aes(label = Var2), position = position_dodge(width = 1), vjust = 1) +
-  scale_fill_gradient2("Difference", 
-                       low = "#EB6E08", mid = "#BABFC1", high = "#3AA2DF",
-                       labels = NULL) +
-  labs(x = "") +
-  theme(legend.direction = "horizontal", 
-        legend.position = "bottom")
+  geom_col(aes(fill = Var2, alpha = abs(residuals)), position = "dodge") +
+  geom_text(aes(label = observed), position = position_dodge(width = 1), vjust = 1) +
+  labs(x = "", y = "",fill = "") +
+  guides(alpha = FALSE)
 ```
 {:refdef: style="text-align: center;"}
 <img src="chisq-visualized.png" alt="Image text" width="644" height="471" align="middle"/>
@@ -293,31 +289,36 @@ Seeing the p value is so low, we can assume the general sentiment toward the cra
 
 <img src="/_pages/tutorials/statistical-tests/steven-seagal.jpg" alt="Me" width="120" height="180" align="right"/>
 
-The contingency coefficient makes use of the Chi-Square. Since we've already did Chi-square test on the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)**, we'll do the same here, but the Chi-square test result is stored in a list to use it in the final contingency correlation. Again: I assume the data-set reports natural hair color like Steven Seagal does.
+Several measures can be used to estimate the extent of the relationship between two variables, or to show the strength of a relationshiptest:
+
+* Phi Coefficient - This can only be calculated on 2-by-2 tables.
+* Contingency coefficient - The contingency coefficient is [critiqued](https://accendoreliability.com/contingency-coefficient/) for not reaching it's outer limits of -1 and +1.
+* [Cramer's V](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) - This measure has none of the drawbacks of the Phi and Contingency coefficcents. The values come between 0 and 1. All three can be calculated by using the _assocstats_ function from the **vcd** library.
+
+We'll use the **[HairEyeColor](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/HairEyeColor.html)**, we've used for the Chi-square test. Again: I assume the data-set reports natural hair color like Steven Seagal does. 
 ```r
-res_chisq <- chisq.test(tbl_hair_sex)
-```
-Then we calculate the contingency coefficient like this:
-```r
-sqrt(res_chisq$statistic/min(nrow(tbl_hair_sex) + res_chisq$statistic))
+library(vcd)
+assocstats(mat_hair_sex)
 ```
 Output:
 ```
-X-squared 
-0.8163986 
-```
-You can ignore the name X-squared here, since it has no meaning here. The coefficient is pretty high, so there is a strong association between sex and hair color.
+                    X^2 df P(> X^2)
+Likelihood Ratio 8.0928  3 0.044131
+Pearson          7.9942  3 0.046131
 
-The contingency coefficient is [critiqued](https://accendoreliability.com/contingency-coefficient/) for not reaching it's outer limits of -1 and +1. This is where [Cramer's V](https://en.wikipedia.org/wiki/Cram%C3%A9r%27s_V) comes in: the values come between 0 and 1. The value is calculated by taking the square root of chi-square divided by sample size, n, times m. m is the smaller of (rows - 1) or (columns - 1).
-```r
-sqrt((res_chisq$statistic/nrow(tbl_hair_sex)) / min(nrow(tbl_hair_sex) - 1, ncolumn(tbl_hair_sex) - 1))
+Phi-Coefficient   : NA 
+Contingency Coeff.: 0.115 
+Cramer's V        : 0.116 
 ```
+The association seems to be weak.
 
 # Ordinal variables
 
 ## Descriptive
 
 ### Median, Interquartile Range
+
+The median, the value which con
 
 ## One sample
 
