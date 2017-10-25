@@ -9,7 +9,7 @@ This tutorial is one in a series of four. The goal of this whole tutorial shows 
 
 | Goal | Categorical | Ordinal | Interval/Ratio | 
 | :--- | :-------- | :--------- | :------------------- |
-| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordered-factorial-median), [Interquartile Range](/statistical-tests/#ordered-factorial-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
+| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordinal-median), [Interquartile Range](/statistical-tests/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
 | 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon text](/statistical-tests/#wilcoxon-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
 | 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests/#mann-whitney-test) | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
 | 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | [Paired t-test](/statistical-tests/#paired-t-test) |
@@ -49,7 +49,7 @@ The previous sections should have given you enough rope to find out what kind of
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
-| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordered-factorial-median), [Interquartile Range](/statistical-tests/#ordered-factorial-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
+| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordinal-median), [Interquartile Range](/statistical-tests/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
 | 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon text](/statistical-tests/#wilcoxon-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
 | 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests/#mann-whitney-test) | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
 | 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | [Paired t-test](/statistical-tests/#paired-t-test) |
@@ -316,7 +316,7 @@ The association seems to be weak.
 
 ## Descriptive
 
-### Ordered factorial median
+### Ordinal median
 
 The median, the value or quantity lying at the midpoint of a frequency distribution, is the central tendency appropriate for ordinal variables. Ordinal variables are implemented in R as factor ordered variables. Strangely enough the standard R function _median_ doesn't support ordered factor variables, so here's a function that you can use to create this:
 ```r
@@ -347,9 +347,9 @@ shows extactly that:
 [1] "Premium"
 ```
 
-### Ordered factorial interquartile range
+### Ordinal interquartile range
 
-The [InterQuartile Range](https://en.wikipedia.org/wiki/Interquartile_range) (IQR) is implemented in the _IQR_ function from base R, like it's _median_ counterpart, does not work with ordered factor variables. So again we're out on our own again to create a function for this:
+The [InterQuartile Range](https://en.wikipedia.org/wiki/Interquartile_range) (IQR) is implemented in the _IQR_ function from base R, like it's _median_ counterpart, does not work with ordered factor variables. So again, we're out on our own again to create a function for this:
 ```r
 IQR_ordinal <- function(x) {
   d <- table(x)
@@ -372,6 +372,12 @@ This returns, as expected:
 ### Mann-Whitney test
 
 ## Two unrelated samples
+
+### Wilcoxon Signed-Rank Test
+
+The [Wilcoxon Signed-Rank Test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) is used to see whether observations changed direction on two sets of ordinal variables. It's usefull, for example, when comparing results of questionaires with ordered scales for the same person across a period of time.
+
+
 
 ## Association between 2 variables
 
