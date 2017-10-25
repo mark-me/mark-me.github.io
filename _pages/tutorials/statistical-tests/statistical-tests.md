@@ -9,11 +9,11 @@ This tutorial is one in a series of four. The goal of this whole tutorial shows 
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
-| Descriptive | [Proportion](/statistical-tests-categorical/#proportion), [Mode](/statistical-tests-categorical/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordinal-median), [Interquartile Range](/statistical-tests/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
-| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon one sample text](/statistical-tests/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
-| 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests/#mann-whitney-test) | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
-| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests/#paired-t-test) |
-| Association 2 variables | [Contigency coefficients](/statistical-tests/#contigency-coefficients) | [Spearman correlation](/statistical-tests/#spearman-correlation) | [Pearson correlation](/statistical-tests/#pearson-correlation) |
+| Descriptive | [Proportion](/statistical-tests-categorical/#proportion), [Mode](/statistical-tests-categorical/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests-ordinal/#ordinal-median), [Interquartile Range](/statistical-tests-ordinal/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests-gaussian/#mean-sd) |
+| 1 Sample | [Chi-square](/statistical-tests-categorical/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests-categorical/#binominal-test) | [Wilcoxon one sample text](/statistical-tests-ordinal/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests-gaussian/#one-sample-t-test) |
+| 2 Unrelated samples | [Chi-square](/statistical-tests-categorical/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests-ordinal/#mann-whitney-test) | [Unpaired t-test](/statistical-tests-gaussian/#unpaired-t-test) |
+| 2 Related samples | [McNemar's test](/statistical-tests-categorical/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests-ordinal/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests-gaussian/#paired-t-test) |
+| Association 2 variables | [Contigency coefficients](/statistical-tests-categorical/#contigency-coefficients) | [Spearman correlation](/statistical-tests-ordinal/#spearman-correlation) | [Pearson correlation](/statistical-tests-gaussian/#pearson-correlation) |
 
 
 Statistical test allow us to draw conclusions about the distribution of a population, comparisons between populations or relations between variables. The exact test you use is determined by two things:
@@ -50,30 +50,8 @@ The previous sections should have given you enough rope to find out what kind of
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
-| Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordinal-median), [Interquartile Range](/statistical-tests/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
-| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon one sample text](/statistical-tests/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
-| 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests/#mann-whitney-test) | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
-| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests/#paired-t-test) |
-| Association 2 variables | [Contigency coefficients](/statistical-tests/#contigency-coefficients) | [Spearman correlation](/statistical-tests/#spearman-correlation) | [Pearson correlation](/statistical-tests/#pearson-correlation) |
-
-# Gaussian variables
-
-## Descriptive
-
-### Mean, SD
-
-## One sample
-
-### One sample t-test
-
-## Two unrelated samples
-
-### Unpaired t-test
-
-## Two unrelated samples
-
-### Paired t-test
-
-## Association between 2 variables
-
-### Pearson correlation
+| Descriptive | [Proportion](/statistical-tests-categorical/#proportion), [Mode](/statistical-tests-categorical/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests-ordinal/#ordinal-median), [Interquartile Range](/statistical-tests-ordinal/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests-gaussian/#mean-sd) |
+| 1 Sample | [Chi-square](/statistical-tests-categorical/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests-categorical/#binominal-test) | [Wilcoxon one sample text](/statistical-tests-ordinal/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests-gaussian/#one-sample-t-test) |
+| 2 Unrelated samples | [Chi-square](/statistical-tests-categorical/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests-ordinal/#mann-whitney-test) | [Unpaired t-test](/statistical-tests-gaussian/#unpaired-t-test) |
+| 2 Related samples | [McNemar's test](/statistical-tests-categorical/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests-ordinal/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests-gaussian/#paired-t-test) |
+| Association 2 variables | [Contigency coefficients](/statistical-tests-categorical/#contigency-coefficients) | [Spearman correlation](/statistical-tests-ordinal/#spearman-correlation) | [Pearson correlation](/statistical-tests-gaussian/#pearson-correlation) |
