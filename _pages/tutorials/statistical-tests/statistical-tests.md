@@ -368,9 +368,7 @@ This returns, as expected:
 
 ### Wilcoxon one sample test
 
-The [Wilcoxon Signed-Rank Test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) is used to see whether observations changed direction on two sets of ordinal variables. It's usefull, for example, when comparing results of questionaires with ordered scales for the same person across a period of time.
-
-In this example we'll examine the _diamonds_ data set included in the **ggplot2** library. We'll test a hypothesis that the diamond cut quality is centered around the middle value of "Very Good" (our null hypothesis). First let's see the total number of factor levels of the cut quality:
+With the Wilcoxon one sample test, you test whether your ordinal data fits an hypothetical distribution you’d expect. In this example we'll examine the _diamonds_ data set included in the **ggplot2** library. We'll test a hypothesis that the diamond cut quality is centered around the middle value of "Very Good" (our null hypothesis). First let's see the total number of factor levels of the cut quality:
 ```r
 library(ggplot2)
 levels(diamonds$cut)
@@ -408,6 +406,7 @@ We can see that out null hypothesis doesn't hold. The diamond cut quality doesn'
 
 ### Wilcoxon Signed-Rank Test
  
+The [Wilcoxon Signed-Rank Test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) is used to see whether observations changed direction on two sets of ordinal variables. It's usefull, for example, when comparing results of questionaires with ordered scales for the same person across a period of time.
 
 ## Association between 2 variables
 
