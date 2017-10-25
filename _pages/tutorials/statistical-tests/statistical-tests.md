@@ -368,7 +368,7 @@ This returns, as expected:
 
 ### Wilcoxon one sample test
 
-<img src="/_pages/tutorials/statistical-tests/diamonds-are-forever.jpg" width="91" height="120" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/diamonds-are-forever.jpg" width="136" height="180" align="right"/>
 
 With the Wilcoxon one sample test, you test whether your ordinal data fits an hypothetical distribution you’d expect. In this example we'll examine the _diamonds_ data set included in the **ggplot2** library. We'll test a hypothesis that the diamond cut quality is centered around the middle value of "Very Good" (our null hypothesis). First let's see the total number of factor levels of the cut quality:
 ```r
