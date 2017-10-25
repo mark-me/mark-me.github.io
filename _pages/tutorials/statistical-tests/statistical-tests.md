@@ -7,13 +7,14 @@ permalink: /statistical-tests/
 
 This tutorial is one in a series of four. The goal of this whole tutorial shows you how to choose your test and how to apply nd interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests.
 
-| Goal | Categorical | Ordinal | Interval/Ratio | 
+| Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordinal-median), [Interquartile Range](/statistical-tests/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
-| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon text](/statistical-tests/#wilcoxon-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
+| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon one sample text](/statistical-tests/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
 | 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests/#mann-whitney-test) | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
-| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | [Paired t-test](/statistical-tests/#paired-t-test) |
+| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests/#paired-t-test) |
 | Association 2 variables | [Contigency coefficients](/statistical-tests/#contigency-coefficients) | [Spearman correlation](/statistical-tests/#spearman-correlation) | [Pearson correlation](/statistical-tests/#pearson-correlation) |
+
 
 Statistical test allow us to draw conclusions about the distribution of a population, comparisons between populations or relations between variables. The exact test you use is determined by two things:
 
@@ -50,9 +51,9 @@ The previous sections should have given you enough rope to find out what kind of
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests/#proportion), [Mode](/statistical-tests/#mode) | [Mode](/statistical-tests/#mode), [Median](/statistical-tests/#ordinal-median), [Interquartile Range](/statistical-tests/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests/#mean-sd) |
-| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon text](/statistical-tests/#wilcoxon-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
+| 1 Sample | [Chi-square](/statistical-tests/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests/#binominal-test) | [Wilcoxon one sample text](/statistical-tests/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests/#one-sample-t-test) |
 | 2 Unrelated samples | [Chi-square](/statistical-tests/#two-sample-chi-square-test) | [Mann-Whitney test](/statistical-tests/#mann-whitney-test) | [Unpaired t-test](/statistical-tests/#unpaired-t-test) |
-| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | Wilcoxon test | [Paired t-test](/statistical-tests/#paired-t-test) |
+| 2 Related samples | [McNemar's test](/statistical-tests/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests/#paired-t-test) |
 | Association 2 variables | [Contigency coefficients](/statistical-tests/#contigency-coefficients) | [Spearman correlation](/statistical-tests/#spearman-correlation) | [Pearson correlation](/statistical-tests/#pearson-correlation) |
 
 
@@ -365,7 +366,39 @@ This returns, as expected:
 
 ## One sample
 
-### Wilcoxon test
+### Wilcoxon one sample test
+
+The [Wilcoxon Signed-Rank Test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) is used to see whether observations changed direction on two sets of ordinal variables. It's usefull, for example, when comparing results of questionaires with ordered scales for the same person across a period of time.
+
+In this example we'll examine the _diamonds_ data set included in the **ggplot2** library. We'll test a hypothesis that the diamond cut quality is centered around the middle value of "Very Good" (our null hypothesis). First let's see the total number of factor levels of the cut quality:
+```r
+library(ggplot2)
+levels(diamonds$cut)
+```
+Output:
+```
+[1] "Fair"      "Good"      "Very Good" "Premium"   "Ideal"
+```
+The r function for the Wilcoxon one-sample test doesn't take non-numeric variables. So we have to convert the vector cut to numeric, and 'translate' our null hypothesis to numeric as well. As we can derive from the _level_ function's output the value "Very Good" corresponds to the number 3. We'll pass this to the _wilcox.test_ function like this:
+```r
+wilcox.test(as.numeric(diamonds$cut), 
+            mu=3,
+            conf.int=TRUE ) 
+```	 
+Output:
+```
+	Wilcoxon signed rank test with continuity correction
+
+data:  as.numeric(diamonds$cut)
+V = 781450000, p-value < 2.2e-16
+alternative hypothesis: true location is not equal to 3
+95 percent confidence interval:
+ 4.499983 4.499995
+sample estimates:
+(pseudo)median 
+      4.499967
+```
+We can see that out null hypothesis doesn't hold. The diamond cut quality doesn't center around "Very Good". Somewhat non-sensical we also passed TRUE to the argument _conf.int_, to the function, but this also gave the pseudo median, so we are able to interpret what the cut quality does center around: "Premium" (the level counterpart of the numeric value 4.499967).
 
 ## Two unrelated samples
 
@@ -374,10 +407,7 @@ This returns, as expected:
 ## Two unrelated samples
 
 ### Wilcoxon Signed-Rank Test
-
-The [Wilcoxon Signed-Rank Test](https://en.wikipedia.org/wiki/Wilcoxon_signed-rank_test) is used to see whether observations changed direction on two sets of ordinal variables. It's usefull, for example, when comparing results of questionaires with ordered scales for the same person across a period of time.
-
-
+ 
 
 ## Association between 2 variables
 
