@@ -5,7 +5,11 @@ comments: true
 permalink: /statistical-tests-categorical/
 ---
 
+A **categorical** variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binominal is a variable that can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binominal variables.
+
 ## Descriptive
+
+Sometimes you just want to describe one variable. Although these types of descriptions don't need statistical tests, I'll describe them here since they should be a part of interpreting the statistical test results. Statistical tests say whether they change, but descriptions on distibutions tell you in what direction they change.
 
 ### Proportion
 
@@ -73,6 +77,8 @@ When there are multiple values with the same frequency, all those will be return
 
 ## One sample
 
+One sample tests are done when you want to find out whether your measurements differ from some kind of theorethical distribution. For example: you might want to find out whether you have a dice that doesn't get the random result you'd expect from a dice. In this case you'd expect that the dice would throw 1 to 6 about 1/6th of the time.
+
 ### Chi-Square Goodness of Fit test
 
 <img src="/_pages/tutorials/statistical-tests/unfair-dice.gif" width="216" height="120" align="right"/>
@@ -124,6 +130,8 @@ probability of success
 The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75% of our customers are male. Like with the Chi-squared test, you can access the p.value property if you store the _binom.test_ function's result in a variable.
 
 ## Two unrelated samples
+
+Two sample tests come in two flavors: unrelated and related samples. Unrelated sample tests can be used for analysing marketing tests; you apply some kind of marketing voodoo to two different groups of prospects/customers and you want to know which method was best. The related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms.
 
 ### Two sample Chi-Square test
 
@@ -231,6 +239,8 @@ McNemar's chi-squared = 66.002, df = 1, p-value = 4.505e-16
 Seeing the p value is so low, we can assume the general sentiment toward the cravat changed. And seeing the direction of the fashion evolution we will mourn together with Dr. McAuliffe about this great loss in gentlemanly traditions...
 
 ## Association between 2 variables
+
+Tests of association determine what the strength of the movement between variables is. It can be used if you want to know if there is any relation between the customer's amount spent, and the number of orders the customer already placed. 
 
 ### Contigency coefficients or Cramer's V
 
