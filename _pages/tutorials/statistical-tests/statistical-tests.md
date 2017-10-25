@@ -327,13 +327,10 @@ median_ordinal <- function(x) {
   return(levels(x)[idx])
 }
 ```
-Which you can use on the [diamond](http://ggplot2.tidyverse.org/reference/diamonds.html) dataset from the **ggplot2** library: 
-```r
-median_ordinal(diamonds$cut)
-```
+Which you can use on the [diamond](http://ggplot2.tidyverse.org/reference/diamonds.html) dataset from the **ggplot2** library on it's cut variable, which has the following distribution: 
 
 | cut |n()  | prop | cum_prop |
-| --- | --: | ---: | -------  |
+| --- | --: | ---: | ------:  |
 | Fair | 1.610 | 3% | 3% |
 | Good| 4.906 | 9% | 12% |
 | Very Good | 12.082 | 22% | 34% |
@@ -341,7 +338,28 @@ median_ordinal(diamonds$cut)
 | Ideal | 21.551| 40% | 100% |
 | Total | 53.940 | 100% | 200% |
 
-Which would show you the 
+With this distribution I'd expect the **Premium** cut would be the median. Our function call,
+```r
+median_ordinal(diamonds$cut)
+```
+shows extactly that:
+```
+[1] "Premium"
+```
+
+The _IQR_ function from base R, like it's _median_ counterpart, does not work with ordered factor variables. So again we're out on our own to create a function for this:
+```r
+IQR_ordinal <- function(x) {
+  d <- table(x)
+  cfd <- cumsum(d / sum(d))
+  idx <- c(min(which(cfd >= .25)), min(which(cfd >= .75)))
+  return(levels(x)[idx])
+}
+```
+This returns, as expected:
+```
+[1] "Very Good" "Ideal" 
+```
 
 ## One sample
 
