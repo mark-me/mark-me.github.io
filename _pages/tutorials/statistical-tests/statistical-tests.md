@@ -289,7 +289,7 @@ Seeing the p value is so low, we can assume the general sentiment toward the cra
 
 <img src="/_pages/tutorials/statistical-tests/steven-seagal.jpg" alt="Me" width="120" height="180" align="right"/>
 
-Several measures can be used to estimate the extent of the relationship between two variables, or to show the strength of a relationshiptest:
+Several measures can be used to estimate the extent of the relationship between two variables, or to show the strength of a relationship:
 
 * Phi Coefficient - This can only be calculated on 2-by-2 tables.
 * Contingency coefficient - The contingency coefficient is [critiqued](https://accendoreliability.com/contingency-coefficient/) for not reaching it's outer limits of -1 and +1.
@@ -318,7 +318,30 @@ The association seems to be weak.
 
 ### Median, Interquartile Range
 
-The median, the value which con
+The median, the value or quantity lying at the midpoint of a frequency distribution, is the central tendency appropriate for ordinal variables. Ordinal variables are implemented in R as factor ordered variables. Strangely enough the standard R function _median_ doesn't support ordered factor variables, so here's a function that you can use to create this:
+```r
+median_ordinal <- function(x) {
+  d <- table(x)
+  cfd <- cumsum(d / sum(d))
+  idx <- min(which(cfd >= .5))
+  return(levels(x)[idx])
+}
+```
+Which you can use on the [diamond](http://ggplot2.tidyverse.org/reference/diamonds.html) dataset from the **ggplot2** library: 
+```r
+median_ordinal(diamonds$cut)
+```
+
+| cut |n()  | prop | cum_prop |
+| --- | --: | ---: | -------  |
+| Fair | 1.610 | 3% | 3% |
+| Good| 4.906 | 9% | 12% |
+| Very Good | 12.082 | 22% | 34% |
+| Premium | 13.791 | 26% | 60% |
+| Ideal | 21.551| 40% | 100% |
+| Total | 53.940 | 100% | 200% |
+
+Which would show you the 
 
 ## One sample
 
