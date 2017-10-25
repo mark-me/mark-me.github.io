@@ -5,8 +5,6 @@ comments: true
 permalink: /statistical-tests-categorical/
 ---
 
-# Categorical variables
-
 ## Descriptive
 
 ### Proportion
