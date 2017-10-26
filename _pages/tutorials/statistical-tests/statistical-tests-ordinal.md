@@ -11,7 +11,7 @@ Sometimes you just want to describe one variable. Although these types of descri
 
 ### Ordinal median
 
-The median, the value or quantity lying at the midpoint of a frequency distribution, is the central tendency appropriate for ordinal variables. Ordinal variables are implemented in R as factor ordered variables. Strangely enough the standard R function _median_ doesn't support ordered factor variables, so here's a function that you can use to create this:
+The median, the value or quantity lying at the midpoint of a frequency distribution, is the appropriate  central tendency measure for ordinal variables. Ordinal variables are implemented in R as factor ordered variables. Strangely enough the standard R function _median_ doesn't support ordered factor variables, so here's a function that you can use to create this:
 ```r
 median_ordinal <- function(x) {
   d <- table(x)
@@ -122,6 +122,25 @@ mtcars %>%
 <img src="/_pages/tutorials/statistical-tests/cars-mpg-am.png" alt="Image text" width="491" height="450" align="middle"/>
 {: refdef}
 The plot tells us, since the null hypothesis doesn't hold, it is likely the manual transmission cars have lower gas milage.
+
+### Kolmogorov-Smirnov test
+
+<img src="/_pages/tutorials/statistical-tests/smirnov.png" width="49" height="180" align="right"/>
+
+The [Kolmogorov-Smirnov test](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test) tests the same thing as the Mann-Whitney U test, but has a much cooler name; the only reason I included this test here. And I drop the name in certain circles, which will result in snickers of approval for obvious reasons.
+```r
+automatic <- (mtcars %>% filter(am == 1))$mpg
+manual <- (mtcars %>% filter(am == 0))$mpg
+ks.test(automatic, manual)
+```
+Output:
+```
+	Two-sample Kolmogorov-Smirnov test
+
+data:  automatic and manual
+D = 0.63563, p-value = 0.003911
+alternative hypothesis: two-sided
+```
 
 ## Two related samples
 
