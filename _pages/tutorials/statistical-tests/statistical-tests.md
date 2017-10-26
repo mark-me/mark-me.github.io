@@ -5,7 +5,7 @@ comments: true
 permalink: /statistical-tests/
 ---
 
-This tutorial is one in a series of four. The goal of this whole tutorial shows you how to choose your test and how to apply nd interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests.
+This tutorial is one in a series of four. The goal of this whole tutorial shows you how to choose your test and how to apply and interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests.
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
@@ -23,14 +23,13 @@ Statistical test allow us to draw conclusions about the distribution of a popula
 
 The outcome of a statistical test can be read from the so called p-value. The p value is very powerful, because it incorporates effect size, sample size, and variability of the data into a single number that objectively tells you how consistent your data are with the null hypothesis. Low p values indicates strong evidence against the null hypothesis, so you reject the null hypothesis; typically a p value 0.05 or less is taken as a significant deviation from the null hypothesis. 
 
-There are many ways in which p values are misinterpreted (see [this](http://blog.minitab.com/blog/adventures-in-statistics-2/how-to-correctly-interpret-p-values) blog for an interesting discussion about this). Do _not_ take the p value as a percentual chance you might be wrong in rejecting the null hypothesis, tempting you into thinkinh a p value of 0.1 is fine too: it is not just a 10% chance of being wrong! In the table below you can see just how wrong this interpretation is. Just remember: p values are just about likeliness that your samples represent the null hypothesis (p value > 0.05) or not (p value < 0.05), it is not about how likely this result will hold in all other samples.
+There are many ways in which p values are misinterpreted (see [this](http://blog.minitab.com/blog/adventures-in-statistics-2/how-to-correctly-interpret-p-values) blog for an interesting discussion about this). Do _not_ take the p value as a percentual chance you might be wrong in rejecting the null hypothesis, tempting you into thinkinh a p value of 0.1 is fine too: it is not just a 10% chance of being wrong! In the table below you can see just how wrong this interpretation is. You might even prefer to be more stringent in your p value choice after seeing this... Just remember: p values are just about likeliness that your samples represent the null hypothesis (p value > 0.05) or not (p value < 0.05), it is not about how likely this result will hold in all other samples.
 
 | p value | Probability of incorrectly rejecting a true null hypothesis |
 | ------: | ----------------------------------------------------------- |
 | 0.05    | At least 23% (and typically close to 50%)                   |
 | 0.01    | At least 7% (and typically close to 15%)                    |
 
-The following types of conclusions I'll describe in this section are hypothesis testing conclusions. Hypothesis tests are used in determining what outcomes of a study would lead to a rejection of the null hypothesis for a pre-specified level of significance.
 
 # Choosing your statistical test
 
@@ -38,8 +37,6 @@ The exact test you use is determined by two things:
 
 * The goal you're trying to reach a conclusion about
 * The level of measurement of a variable.
-
-This tutorial shows you how to choose your test for the conclusion you're trying to reach and how to apply and interpret them.
 
 ## Types of conclusions
 
