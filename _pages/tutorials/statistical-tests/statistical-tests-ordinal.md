@@ -95,11 +95,15 @@ We can see that out null hypothesis doesn't hold. The diamond cut quality doesn'
 
 ## Two unrelated samples
 
-Two sample tests come in two flavors: unrelated and related samples. Unrelated sample tests can be used for analysing marketing tests; you apply some kind of marketing voodoo to two different groups of prospects/customers and you want to know which method was best. The related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms.
+Two unrelated sample tests can be used for analysing marketing tests; you apply some kind of marketing voodoo to two different groups of prospects/customers and you want to know which method was best. 
 
-### Mann-Whitney test
+### Mann-Whitney U test
+
+
 
 ## Two unrelated samples
+
+Related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms.
 
 ### Wilcoxon Signed-Rank Test
  
