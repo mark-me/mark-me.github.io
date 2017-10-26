@@ -5,7 +5,7 @@ comments: true
 permalink: /statistical-tests/
 ---
 
-This tutorial is one in a series of four. The goal of this whole tutorial shows you how to choose your test and how to apply and interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests.
+This tutorial is one in a series of four. The goal of this whole tutorial shows you how to choose your test and how to apply and interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests for categorical, ordinal and Gaussian variables respectively.
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
