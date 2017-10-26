@@ -123,7 +123,7 @@ mtcars %>%
 {: refdef}
 The plot tells us, since the null hypothesis doesn't hold, it is likely the manual transmission cars have lower gas milage.
 
-## Two unrelated samples
+## Two related samples
 
 Related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms.
 
