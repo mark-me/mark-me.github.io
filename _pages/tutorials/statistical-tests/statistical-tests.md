@@ -19,21 +19,27 @@ This tutorial is one in a series of four. The goal of this whole tutorial shows 
 
 Statistical test allow us to draw conclusions about the distribution of a population, comparisons between populations or relations between variables. Statistical testing is about testing whether the so called null hypothesis, which I sometimes refer to as the 'nothing to see here' conclusion, is true. General examples of null hypothesis statements are "there are no differences between groups", "this didn't show any effect" or "there is no relation between...". 
 
-The outcome of a statistical test can be read from the so called p-value. This value expresses wheter your the probability your null hypothesis 
+# Interpreting statistical p values.
 
-indicates strong evidence against the null hypothesis, so you reject the null hypothesis.
+The outcome of a statistical test can be read from the so called p-value. The p value is very powerfull, because it incorporates effect size, sample size, and variability of the data into a single number that objectively tells you how consistent your data are with the null hypothesis. Low p values indicates strong evidence against the null hypothesis, so you reject the null hypothesis; typically a p value 0.05 or less is taken as a significant deviation from the null hypothesis. There are many ways in which p values are misinterpreted (see [this](http://blog.minitab.com/blog/adventures-in-statistics-2/how-to-correctly-interpret-p-values) blog for an interesting discussion about this). Do _not_ take the p value as a percentual chance you might be wrong in rejecting the null hypothesis, tempting you into thinkinh a p value of 0.1 is fine too: it is not just a 10% chance of being wrong! In the table below you can see just how wrong this interpretation is. Just remember: p values are just about likeliness that your samples represent the null hypothesis (p value > 0.05) or not (p value < 0.05), it is not about how likely this result will hold in all other samples.
+
+| p value | Probability of incorrectly rejecting a true null hypothesis |
+| ------: | ----------------------------------------------------------- |
+| 0.05    | At least 23% (and typically close to 50%)                   |
+| 0.01    | At least 7% (and typically close to 15%)                    |
 
 The following types of conclusions I'll describe in this section are hypothesis testing conclusions. Hypothesis tests are used in determining what outcomes of a study would lead to a rejection of the null hypothesis for a pre-specified level of significance.
 
+# Choosing your statistical test
 
 The exact test you use is determined by two things:
 
 * The goal you're trying to reach a conclusion about
 * The level of measurement of a variable.
 
-This tutorial shows you how to choose your test for the conclusion you're trying to reach and how to apply them.
+This tutorial shows you how to choose your test for the conclusion you're trying to reach and how to apply and interpret them.
 
-# Types of conclusions
+## Types of conclusions
 
 Sometimes you just want to describe one variable. Although these types of descriptions don't need statistical tests, I'll describe them here since they should be a part of interpreting the statistical test results. Statistical tests say whether they change, but descriptions on distibutions tell you in what direction they change.
 
@@ -43,7 +49,7 @@ Two sample tests come in two flavors: unrelated and related samples. Unrelated s
 
 Tests of association determine what the strength of the movement between variables is. It can be used if you want to know if there is any relation between the customer's amount spent, and the number of orders the customer already placed. 
 
-# Levels of measurement
+## Levels of measurement
 
 A variable can be categorized as one of the following levels of measurements, in order of increasing information value:
 
