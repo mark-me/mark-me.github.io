@@ -91,7 +91,7 @@ sample estimates:
 (pseudo)median 
       4.499967
 ```
-We can see that out null hypothesis doesn't hold. The diamond cut quality doesn't center around "Very Good". Somewhat non-sensical we also passed TRUE to the argument _conf.int_, to the function, but this also gave the pseudo median, so we are able to interpret what the cut quality does center around: "Premium" (the level counterpart of the numeric value 4.499967).
+We can see that our null hypothesis doesn't hold. The diamond cut quality doesn't center around "Very Good". Somewhat non-sensical we also passed TRUE to the argument _conf.int_, to the function, but this also gave the pseudo median, so we are able to interpret what the cut quality does center around: "Premium" (the level counterpart of the numeric value 4.499967).
 
 ## Two unrelated samples
 
