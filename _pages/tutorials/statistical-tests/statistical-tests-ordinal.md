@@ -127,7 +127,7 @@ The plot tells us, since the null hypothesis doesn't hold, it is likely the manu
 
 <img src="/_pages/tutorials/statistical-tests/smirnov.png" width="49" height="180" align="right"/>
 
-The [Kolmogorov-Smirnov test](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test) tests the same thing as the Mann-Whitney U test, but has a much cooler name; the only reason I included this test here. And I don't like name dropping, but drop this name in certain circles, which will result in snickers of approval for obvious reasons.
+The [Kolmogorov-Smirnov test](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test) tests the same thing as the Mann-Whitney U test, but has a much cooler name; the only reason I included this test here. And I don't like name dropping, but drop this name in certain circles, which will result in snickers of approval for obvious reasons. The _ks.test_ function call isn't as elegant as the _wilcox.test_ function call, but still does the job:
 ```r
 automatic <- (mtcars %>% filter(am == 1))$mpg
 manual <- (mtcars %>% filter(am == 0))$mpg
@@ -141,6 +141,7 @@ data:  automatic and manual
 D = 0.63563, p-value = 0.003911
 alternative hypothesis: two-sided
 ```
+Not surprisingly, automatic and manual transmission cars aren't equal in gas milage, but the p-value is higher than with the Mann-Whitney U test. 
 
 ## Two related samples
 
@@ -154,4 +155,35 @@ The [Wilcoxon Signed-Rank Test](https://en.wikipedia.org/wiki/Wilcoxon_signed-ra
 
 Tests of association determine what the strength of the movement between variables is. It can be used if you want to know if there is any relation between the customer's amount spent, and the number of orders the customer already placed. 
 
-### Spearman correlation
+### Spearman Rank Correlation
+
+The [Spearman Rank Correlation](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient) is a test of association for ordinal or interval variables. In this example we'll see if vocabulary is related to education. The function _cor.test_ can be used to see if they are related:
+```r
+library(car)
+
+cor.test( ~ education + vocabulary, 
+          data=Vocab,
+          method = "spearman",
+          continuity = FALSE,
+          conf.level = 0.95)
+```
+Output:
+```
+	Spearman's rank correlation rho
+
+data:  education and vocabulary
+S = 8.5074e+11, p-value < 2.2e-16
+alternative hypothesis: true rho is not equal to 0
+sample estimates:
+      rho 
+0.4961558 
+```
+It looks like there is a relation between education and vocubulary. By looking at the
+```r
+ggplot(Vocab, aes(x = education, y = vocabulary)) +
+  geom_jitter(alpha = 0.1) +
+  stat_ellipse(geom = "polygon", alpha = 0.4, size = 1)
+```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/statistical-tests/spearman-rank.png" alt="Image text" width="444" height="450" align="middle"/>
+{: refdef}
