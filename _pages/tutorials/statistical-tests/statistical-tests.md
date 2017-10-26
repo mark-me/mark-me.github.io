@@ -19,7 +19,7 @@ This tutorial is one in a series of four. The goal of this whole tutorial shows 
 
 Statistical test allow us to draw conclusions about the distribution of a population, comparisons between populations or relations between variables. Statistical testing is about testing whether the so called null hypothesis, which I sometimes refer to as the 'nothing to see here' conclusion, is true. General examples of null hypothesis statements are "there are no differences between groups", "this didn't show any effect" or "there is no relation between...". 
 
-# Interpreting statistical tests: p-values
+# Statistical tests results: p-values
 
 The outcome of a statistical test can be read from the p-value. The p-value is very powerful, because it incorporates effect size, sample size, and variability of the data into a single number that objectively tells you how consistent your data are with the null hypothesis. Low p-values indicates strong evidence against the null hypothesis, so you reject the null hypothesis; generally a p-value 0.05 or less is taken as a significant deviation from the null hypothesis. 
 
