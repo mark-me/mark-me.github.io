@@ -200,7 +200,7 @@ ggplot(res_chisq$dataset, aes(x = Var1, y = observed, group = Var2)) +
   guides(alpha = FALSE)
 ```
 {:refdef: style="text-align: center;"}
-<img src="chisq-visualized.png" alt="Image text" width="644" height="471" align="middle"/>
+<img src="/_pages/tutorials/statistical-tests/chisq-visualized.png" alt="Image text" width="644" height="471" align="middle"/>
 {: refdef}
 
 ## Two related samples
