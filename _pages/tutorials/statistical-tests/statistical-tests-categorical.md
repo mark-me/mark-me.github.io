@@ -131,7 +131,7 @@ The miserable p-value of .2491 tells us we can hold on to our hypothesis than 75
 
 ## Two unrelated samples
 
-Two sample tests come in two flavors: unrelated and related samples. Unrelated sample tests can be used for analysing marketing tests; you apply some kind of marketing voodoo to two different groups of prospects/customers and you want to know which method was best. The related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms.
+Unrelated sample tests can be used for analysing marketing tests; you apply some kind of marketing voodoo to two different groups of prospects/customers and you want to know which method was best. 
 
 ### Two sample Chi-Square test
 
@@ -204,6 +204,8 @@ ggplot(res_chisq$dataset, aes(x = Var1, y = observed, group = Var2)) +
 {: refdef}
 
 ## Two related samples
+
+The related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms for categorical variables.
 
 ### McNemar’s test
 
