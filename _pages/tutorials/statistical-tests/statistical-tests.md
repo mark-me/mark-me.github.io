@@ -15,6 +15,7 @@ This tutorial is one in a series of four. The goal of this whole tutorial shows 
 | 2 Related samples | [McNemar's test](/statistical-tests-categorical/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests-ordinal/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests-gaussian/#paired-t-test) |
 | Association 2 variables | [Contigency coefficients](/statistical-tests-categorical/#contigency-coefficients) | [Spearman correlation](/statistical-tests-ordinal/#spearman-correlation) | [Pearson correlation](/statistical-tests-gaussian/#pearson-correlation) |
 
+<img src="/_pages/tutorials/statistical-tests/absolutely-nothing.jpg" width="195" height="180" align="right"/>
 
 Statistical test allow us to draw conclusions about the distribution of a population, comparisons between populations or relations between variables. Statistical testing is about testing whether the so called null hypothesis, which I sometimes refer to as the 'nothing to see here' conclusion, is true. General examples of null hypothesis statements are "there are no differences between groups", "this didn't show any effect" or "there is no relation between...". 
 
