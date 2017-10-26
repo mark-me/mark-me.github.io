@@ -99,7 +99,28 @@ Two unrelated sample tests can be used for analysing marketing tests; you apply 
 
 ### Mann-Whitney U test
 
-
+The [Mann–Whitney U test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) can be used to test whether two sets of unrelated samples are equally distributed. Let's take our trusted **mtcars** data set: we can test whether automatic and manual transmission cars differ in gas mileage. For this we use the _wilcox.test_ function:
+```r
+wilcox.test(mpg ~ am, data=mtcars)
+```
+Output:
+```
+        Wilcoxon rank sum test with continuity correction 
+ 
+data:  mpg by am 
+W = 42, p-value = 0.001871 
+alternative hypothesis: true location shift is not equal to 0 
+```
+Since the p-value is well below 0.05, we can assume the cars differ in gas milage between automatic and manual transmission cars. This plot shows us the differences:
+```r
+mtcars %>% 
+  mutate(am = ifelse(am == 1, "Automatic", "Manual")) %>% 
+  ggplot() +
+    geom_density(aes(x = mpg, fill = am), alpha = 0.8)
+```
+{:refdef: style="text-align: center;"}
+<img src="cars-mpg-am.png" alt="Image text" width="450" height="455" align="middle"/>
+{: refdef}
 
 ## Two unrelated samples
 
