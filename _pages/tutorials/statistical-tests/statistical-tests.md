@@ -25,7 +25,7 @@ The outcome of a statistical test can be read from the p-value. The p-value is v
 
 There are many ways in which p-values are misinterpreted (see [this](http://blog.minitab.com/blog/adventures-in-statistics-2/how-to-correctly-interpret-p-values) blog for an interesting discussion about this). Do _not_ take the p value as a percentual chance you might be wrong in rejecting the null hypothesis, tempting you into thinking a p-value of 0.1 is fine too: a p-value of 0.1 is not equal to a 10% chance of being wrong! In the table below you can see just how wrong this interpretation is. You might even prefer to be more stringent in your p-value choice after seeing this... Just remember: p-values are about the likeliness that _your_ samples represent the null hypothesis (p-value > 0.05) or not (p-value < 0.05), it is not about how likely this result will hold in all other samples.
 
-| p value | Probability of incorrectly rejecting a true null hypothesis |
+| p-value | Probability of incorrectly rejecting a true null hypothesis |
 | ------: | ----------------------------------------------------------- |
 | 0.05    | At least 23% (and typically close to 50%)                   |
 | 0.01    | At least 7% (and typically close to 15%)                    |
