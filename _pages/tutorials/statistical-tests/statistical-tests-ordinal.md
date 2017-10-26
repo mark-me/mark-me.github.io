@@ -121,6 +121,7 @@ mtcars %>%
 {:refdef: style="text-align: center;"}
 <img src="cars-mpg-am.png" alt="Image text" width="450" height="455" align="middle"/>
 {: refdef}
+The plot tells us, since the null hypothesis doesn't hold, it is likely the manual transmission cars have lower gas milage.
 
 ## Two unrelated samples
 
