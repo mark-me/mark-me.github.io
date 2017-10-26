@@ -16,7 +16,12 @@ This tutorial is one in a series of four. The goal of this whole tutorial shows 
 | Association 2 variables | [Contigency coefficients](/statistical-tests-categorical/#contigency-coefficients) | [Spearman correlation](/statistical-tests-ordinal/#spearman-correlation) | [Pearson correlation](/statistical-tests-gaussian/#pearson-correlation) |
 
 
-Statistical test allow us to draw conclusions about the distribution of a population, comparisons between populations or relations between variables. The exact test you use is determined by two things:
+Statistical test allow us to draw conclusions about the distribution of a population, comparisons between populations or relations between variables. Statistical testing is about testing the so called null hypothesis, which I sometimes refer to as the 'nothing to see here' conclusion. General examples of null hypothesis statements are "there are no differences between groups", "this didn't show any effect" or "there is no relation between...". The outcome of a statistical test can be read from the so called p-value. This value expresses 
+
+The following types of conclusions I'll describe in this section are hypothesis testing conclusions. Hypothesis tests are used in determining what outcomes of a study would lead to a rejection of the null hypothesis for a pre-specified level of significance.
+
+
+The exact test you use is determined by two things:
 
 * The goal you're trying to reach a conclusion about
 * The level of measurement of a variable.
