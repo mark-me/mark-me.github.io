@@ -127,7 +127,7 @@ The plot tells us, since the null hypothesis doesn't hold, it is likely the manu
 
 <img src="/_pages/tutorials/statistical-tests/smirnov.png" width="49" height="180" align="right"/>
 
-The [Kolmogorov-Smirnov test](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test) tests the same thing as the Mann-Whitney U test, but has a much cooler name; the only reason I included this test here. And I don't like name dropping, but drop this name in certain circles, which will result in snickers of approval for obvious reasons. The _ks.test_ function call isn't as elegant as the _wilcox.test_ function call, but still does the job:
+The [Kolmogorov-Smirnov test](https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Smirnov_test) tests the same thing as the Mann-Whitney U test, but has a much cooler name; the only reason I included this test here. And I don't like name dropping, but drop this name in certain circles: it will result in snickers of approval for obvious reasons. The _ks.test_ function call isn't as elegant as the _wilcox.test_ function call, but still does the job:
 ```r
 automatic <- (mtcars %>% filter(am == 1))$mpg
 manual <- (mtcars %>% filter(am == 0))$mpg
