@@ -5,6 +5,8 @@ comments: true
 permalink: /statistical-tests-categorical/
 ---
 
+This tutorial is the second in a series of four. This part shows you how to apply and interpret the tests for ordinal and interval variables. [This link](/statistical-tests/) will get you back to the first part of the series.
+
 A **categorical** variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binominal is a variable that can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binominal variables.
 
 ## Descriptive
