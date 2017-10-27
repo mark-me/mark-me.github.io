@@ -5,6 +5,11 @@ comments: true
 permalink: /statistical-tests-ordinal/
 ---
 
+This tutorial is one in a series of four. The goal of this tutorial series is to show you how to choose your test and how to apply and interpret them. This third part shows you how to apply and interpret the tests for ordinal and interval variables. [This link](/statistical-tests/) will get you back to the first part of the series.
+
+* An **ordinal** variable contains values that can be ordered like ranks and scores. You can say that one value higher than the other, but you can't say one value is 2 times more important. An example of this is army ranks: a General is higher in rank than a Major, but you can't say a General outranks a Major 2 times.
+* A **interval** variable has values that are ordered, and the difference between has meaning, but there is no absolute 0 point, which makes it difficult to interpret differences in terms of absolute magnitude. Money value is an example of an interval level variable, which may sound a bit counterintuitive. Money can take negative values, which makes it impossible to say that someone with 1 million Euros on his bank account has twice as much money as someone that has 1 million Euros in debt. The [Big Mac Index](https://en.wikipedia.org/wiki/Big_Mac_Index) is another case in point.
+
 ## Descriptive
 
 Sometimes you just want to describe one variable. Although these types of descriptions don't need statistical tests, I'll describe them here since they should be a part of interpreting the statistical test results. Statistical tests say whether they change, but descriptions on distibutions tell you in what direction they change.
@@ -141,7 +146,7 @@ data:  automatic and manual
 D = 0.63563, p-value = 0.003911
 alternative hypothesis: two-sided
 ```
-Not surprisingly, automatic and manual transmission cars aren't equal in gas milage, but the p-value is higher than with the Mann-Whitney U test. 
+Not surprisingly, automatic and manual transmission cars aren't equal in gas milage, but the p-value is higher than the Mann-Whitney U test told us. This tells us Kolmogorov-Smirnov is a tad more conservative than it's Mann-Whitney U counterpart. 
 
 ## Two related samples
 
