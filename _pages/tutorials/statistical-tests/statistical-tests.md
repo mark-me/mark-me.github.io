@@ -7,7 +7,7 @@ permalink: /statistical-tests/
 
 This tutorial is one in a series of four. The goal of this tutorial series is to show you how to choose your test and how to apply and interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests for categorical, ordinal and Gaussian variables respectively.
 
-| Goal | [Categorical](/statistical-tests-categorical/) | [Ordinal](/statistical-tests-ordinal/) | [Gaussian](/statistical-tests-gaussian/) | 
+| Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests-categorical/#proportion), [Mode](/statistical-tests-categorical/#mode) | [Median](/statistical-tests-ordinal/#ordinal-median), [Interquartile Range](/statistical-tests-ordinal/#ordinal-interquartile-range) | [Normality](/statistical-tests-gaussian/#normality-check), [Mean, SD](/statistical-tests-gaussian/#mean-sd) |
 | 1 Sample | [Chi-square](/statistical-tests-categorical/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests-categorical/#binominal-test) | [Wilcoxon one sample text](/statistical-tests-ordinal/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests-gaussian/#one-sample-t-test) |
@@ -63,7 +63,7 @@ The level of measurement of the variable determines which type of test you can u
 
 The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and found out which level measurement your variable is at, you can find out the test by making the correct crossing in the table below: 
 
-| Goal | [Categorical](/statistical-tests-categorical/) | [Ordinal](/statistical-tests-ordinal/) | [Gaussian](/statistical-tests-gaussian/) | 
+| Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests-categorical/#proportion), [Mode](/statistical-tests-categorical/#mode) | [Median](/statistical-tests-ordinal/#ordinal-median), [Interquartile Range](/statistical-tests-ordinal/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests-gaussian/#mean-sd) |
 | 1 Sample | [Chi-square](/statistical-tests-categorical/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests-categorical/#binominal-test) | [Wilcoxon one sample text](/statistical-tests-ordinal/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests-gaussian/#one-sample-t-test) |
