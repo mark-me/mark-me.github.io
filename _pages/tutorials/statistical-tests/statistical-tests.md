@@ -5,9 +5,9 @@ comments: true
 permalink: /statistical-tests/
 ---
 
-This tutorial is one in a series of four. The goal of this whole tutorial shows you how to choose your test and how to apply and interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests for categorical, ordinal and Gaussian variables respectively.
+This tutorial is one in a series of four. The goal of this tutorial series is to show you how to choose your test and how to apply and interpret them. This first part will tell you which one to choose, the other three parts are about applying and interpreting the tests for categorical, ordinal and Gaussian variables respectively.
 
-| Goal | Categorical | Ordinal | Gaussian | 
+| Goal | [Categorical](/statistical-tests-categorical/) | [Ordinal](/statistical-tests-ordinal/) | [Gaussian](/statistical-tests-gaussian/) | 
 | :--- | :-------- | :--------- | :------------------- |
 | Descriptive | [Proportion](/statistical-tests-categorical/#proportion), [Mode](/statistical-tests-categorical/#mode) | [Median](/statistical-tests-ordinal/#ordinal-median), [Interquartile Range](/statistical-tests-ordinal/#ordinal-interquartile-range) | [Mean, SD](/statistical-tests-gaussian/#mean-sd) |
 | 1 Sample | [Chi-square](/statistical-tests-categorical/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests-categorical/#binominal-test) | [Wilcoxon one sample text](/statistical-tests-ordinal/#wilcoxon-one-sample-test) | [One sample t-test](/statistical-tests-gaussian/#one-sample-t-test) |
