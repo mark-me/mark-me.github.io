@@ -31,7 +31,7 @@ One sample tests are done when you want to find out whether your measurements di
 
 Before you can do any of the tests below, you have to check whether the variable's distribution is anywhere near the Gaussian distribution. Here I'll show you how to see if the variables that you intend to test are normally distributed. For this I've created two examples: one with and one without normal distribution. For these checks I'll use three methods to inspect normality: two graphical ones, giving you intuition of the normality, and 'hard' method of a statistic normality test outputting a p-value.
 
-For first example I will take a normally distributed value. Since I am lazy, instead of searching for a normally distibuted value in an existing data set, I'll create a distribution of 500 normally distributed with the function _rnorm_:
+For first example I will take a normally distributed value. Since I am lazy, instead of searching for a normally distibuted value in an existing data set, I'll create a distribution of 500 normally distributed values with the function _rnorm_:
 ```r
 var_test <- rnorm(500,10,1)
 ```
