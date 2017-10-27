@@ -27,6 +27,8 @@ One sample tests are done when you want to find out whether your measurements di
 
 ### Normality check
 
+<img src="/_pages/tutorials/statistical-tests/seal-crazy.png" width="195" height="180" align="right"/>
+
 Before you can do any of the tests below, you have to check whether the distribution is anywhere near the Gaussian distribution. Here I'll show you how to see if the variables that you intend to test are normally distributen. For this I've created two examples: one with and one without normal distribution. For these checks I'll use three methods to inspect normality: two graphical ones, and one test outputting a p-value.
 
 The first example I will do on a normally distributed value. Since I am lazy, I'll create a distribution of 500 normally distributed with a function _rnorm_:
