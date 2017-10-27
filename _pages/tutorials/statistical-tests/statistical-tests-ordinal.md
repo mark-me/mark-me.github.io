@@ -178,7 +178,7 @@ sample estimates:
       rho 
 0.4961558 
 ```
-It looks like there is a relation between education and vocubulary. By looking at the
+It looks like there is a relation between education and vocubulary. By looking at the plot, you can see the relation between education and vocabulary is a quite positive one.
 ```r
 ggplot(Vocab, aes(x = education, y = vocabulary)) +
   geom_jitter(alpha = 0.1) +
@@ -187,3 +187,15 @@ ggplot(Vocab, aes(x = education, y = vocabulary)) +
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/spearman-rank.png" alt="Image text" width="444" height="450" align="middle"/>
 {: refdef}
+
+Association measures can be useful more than one variable at a time. For example you might want to consider a range of variables from your data set for inclusion in your predictive model. Luckily there is a quick way of visualising this for all mtcars variables for example:
+```r
+library(corrplot)
+M <- cor(mtcars, method="spearman", use="pairwise.complete.obs")
+corrplot(M, order="AOE", type="lower", cl.pos="b")
+```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/statistical-tests/corrplot-spearman-rank.png" alt="Image text" width="451" height="450" align="middle"/>
+{: refdef}
+
+When you do this however, be on the lookout for [spurious correlations](http://www.tylervigen.com/spurious-correlations). Putting in variables into your model indiscriminately, without reasoning, may lead to some unintended results...
