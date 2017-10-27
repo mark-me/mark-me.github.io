@@ -56,6 +56,15 @@ The last method is a statistical test called the [Shapiro-Wilk test](https://en.
 ```r
 shapiro.test(var_test)
 ```
+Output:
+```
+	Shapiro-Wilk normality test
+
+data:  var_test
+W = 0.99706, p-value = 0.5099
+```
+The p-value, which is much larger than 0.05, tells me the null hypothesis of normally distributed can be maintained. 
+
 For the example of a non-normal distribution I'm going to use the miles per gallon statistic from the **mtcars** data set:
 ```r
 var_test <- mtcars$mpg
@@ -68,7 +77,7 @@ I've ran all the commands below to get this output:
 data:  var_test
 W = 0.87627, p-value = 7.412e-10
 ```
-It is clear from the histogram that this is _not_ a normal distribution, since it looks nowhere near a bell shape. I could have stopped here, but to be complete: let's interpret the rest. The Q-Q plot hits the expected distribution two times, but most of the points are way off the straght line. You can see the large left part of the histogram being reflected in the large left tail in the Q-Q plot. The Shapiro Wilk's test p-value of 7.412e-10 also tells me the null hypothesis that this is a normally distributed value should be abandoned.  
+It is clear from the histogram that this is _not_ a normal distribution, since it looks nowhere near a bell shape. I could have stopped here, but to be complete: let's interpret the rest. The Q-Q plot hits the expected distribution two times, but most of the points are way off the straght line. You can see the large left part of the histogram being reflected in the large left tail in the Q-Q plot. The Shapiro Wilk's test p-value of 7.412e-10 (much lower than 0.05) also tells me the null hypothesis that this is a normally distributed value should be abandoned.  
 
 ### One sample t-test
 
