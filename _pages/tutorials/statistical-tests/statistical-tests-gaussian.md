@@ -46,6 +46,8 @@ sd(chickwts$weight)
 
 ### Putting it together
 
+Error bar plot
+
 Box plot
 
 Violin plot
