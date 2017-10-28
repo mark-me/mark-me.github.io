@@ -48,7 +48,7 @@ sd(chickwts$weight)
 
 Error bar plot
 
-Box plot
+A box plot shows you the median and IQR. For this one I've also added the individual data points to get an idea how the box plot represents the data. If you have a lot of data points, this layer makes it way too crowded and I'd omit it.
 
 Violin plot
 
