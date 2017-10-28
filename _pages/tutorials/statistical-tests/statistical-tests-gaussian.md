@@ -77,7 +77,7 @@ var_test <- mtcars$mpg
 ```
 I've ran all the commands below to get this output:
 {:refdef: style="text-align: center;"}
-<img src="/_pages/tutorials/statistical-tests/plot-non-normal.png" alt="Image text" width="675" height="450" align="middle"/>
+<img src="/_pages/tutorials/statistical-tests/plots-non-normal.png" alt="Image text" width="675" height="450" align="middle"/>
 {: refdef}
 ```
 	Shapiro-Wilk normality test
