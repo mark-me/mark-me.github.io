@@ -46,9 +46,8 @@ Output:
 {: refdef}
 This histogram shows a pretty nice bell-curve like shape, which supports that distribution might be normal.
 
-Another method for checking normality visually which is regularly used is a Q-Q plot. This plot 
+Another method for checking normality visually which is regularly used is a quantile-quantile (q-q) plot. This plot is a graphical technique for determining if two data sets come from populations with a common distribution by plotting the quantiles of the first data set against the quantiles of the second data set. In this case we just put one data-set as input, while the other is the theorethical normal distribution. The r function _qqnorm_ does exactly that: puts a dataset and compares it to a normal distribution. The function _qqline_ adds the null-hypothesis line, which is the line the qqnorm plot would follow if the data was normally distributed. 
 ```r
-plot(var_test)
 qqnorm(y = var_test)  
 qqline(y = var_test)
 ```
@@ -56,7 +55,7 @@ Output:
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/qq-plot-normal.png" alt="Image text" width="444" height="450" align="middle"/>
 {: refdef}
-The Q-Q plot
+In this Q-Q plot the distribution of points follow the null-hypothesis line almost completely: it tells us the data is normally distributed. The deviations on the end tells us the end of our data's bell curve are a little more pronounced than expected, but this is not a problem for statistical methods relying on normality of data.
 
 The last method is a statistical test called the [Shapiro-Wilk test](https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test). This can be checked with R's _shapiro.test_ function:
 ```r
