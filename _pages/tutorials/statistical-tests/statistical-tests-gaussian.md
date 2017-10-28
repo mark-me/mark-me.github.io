@@ -66,7 +66,7 @@ ggplot(chickwts, aes(x = feed, y = weight)) +
   geom_boxplot() 
 ```
 {:refdef: style="text-align: center;"}
-<img src="/_pages/tutorials/statistical-tests/plot-median0iqr.png" alt="Image text" width="443" height="450" align="middle"/>
+<img src="/_pages/tutorials/statistical-tests/plot-median-iqr.png" alt="Image text" width="443" height="450" align="middle"/>
 {: refdef}
 Violin plot
 ```r
