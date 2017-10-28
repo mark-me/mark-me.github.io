@@ -15,11 +15,33 @@ A **ratio** variable has values like interval variables, but here there is an ab
 
 Sometimes you just want to describe one variable. Although these types of descriptions don't need statistical tests, I'll describe them here since they should be a part of interpreting the statistical test results. Statistical tests say whether they change, but descriptions on distibutions tell you in what direction they change.
 
-### Mean
+### Central tendency
 
-### Standard deviation
+Calculating means is straightforward: just use the _mean_ function:
+```r
+mean(chickwts$weight)
+```
+Output:
+```
+[1] 261.3099
+```
+Median is usually a better measure for central tendency, but if the variable is truly normally distributed, it should yield about the same result:
+```r
+median(chickwts$weight)
+```
+Output:
+```
+[1] 258
+```
+Seems pretty close to being normally distributed. But if you want to be sure, you can follow the procedure as discussed in the section [Normality check](/statistical-tests-gaussian/#normality-check)
 
-### Sum of squared errors
+### Distribution spread
+
+The standard deviation of the mean (SD) is the most commonly used measure of the spread of values in a distribution. This is easily done with R's _sd_ function:
+```r
+sd(chickwts$weight)
+```
+
 
 ## One sample
 
