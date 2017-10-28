@@ -68,7 +68,8 @@ ggplot(chickwts, aes(x = feed, y = weight)) +
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/plot-median-iqr.png" alt="Image text" width="443" height="450" align="middle"/>
 {: refdef}
-Violin plot
+
+A violin plot gives you a full understanding of the distribution of all your data points. Violin plots draw an area around the datapoints like a density plot would. The number of observations per value are used to draw kernels: the thicker the area of the violin plot, the more observations are in that value range. In this plot I've added the individual data points in the _geom_jitter_ layer, but as you can see from the violin plot, they can easily be omitted, since the violin plot captures all data-points, even outliers. 
 ```r
 ggplot(chickwts, aes(x = feed, y = weight)) +
   geom_jitter() +
