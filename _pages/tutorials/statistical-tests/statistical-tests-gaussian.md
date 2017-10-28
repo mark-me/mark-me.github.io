@@ -47,10 +47,36 @@ sd(chickwts$weight)
 ### Putting it together
 
 Error bar plot
-
+```r
+chickwts %>%
+  group_by(feed) %>% 
+  summarise(mean_weight = mean(weight),
+            sd_weight = sd(weight) / sqrt(n())) %>% 
+  ggplot(aes(x = feed, y = mean_weight)) +
+    geom_errorbar(aes(ymin = mean_weight - sd_weight, ymax = mean_weight + sd_weight)) +
+    geom_point()
+```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/statistical-tests/plot-mean-sd.png" alt="Image text" width="443" height="450" align="middle"/>
+{: refdef}
 A box plot shows you the median and IQR. For this one I've also added the individual data points to get an idea how the box plot represents the data. If you have a lot of data points, this layer makes it way too crowded and I'd omit it.
-
+```r
+ggplot(chickwts, aes(x = feed, y = weight)) +
+  geom_jitter() +
+  geom_boxplot() 
+```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/statistical-tests/plot-median0iqr.png" alt="Image text" width="443" height="450" align="middle"/>
+{: refdef}
 Violin plot
+```r
+ggplot(chickwts, aes(x = feed, y = weight)) +
+  geom_jitter() +
+  geom_violin()
+```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/statistical-tests/plot-violin.png" alt="Image text" width="443" height="450" align="middle"/>
+{: refdef}
 
 ## One sample
 
