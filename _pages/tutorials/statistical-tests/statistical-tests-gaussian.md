@@ -53,11 +53,9 @@ qqnorm(y = var_test)
 qqline(y = var_test)
 ```
 Output:
-
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/qq-plot-normal.png" alt="Image text" width="444" height="450" align="middle"/>
 {: refdef}
-
 The Q-Q plot
 
 The last method is a statistical test called the [Shapiro-Wilk test](https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test). This can be checked with R's _shapiro.test_ function:
@@ -78,15 +76,12 @@ For the example of a non-normal distribution I'm going to use the miles per gall
 var_test <- mtcars$mpg
 ```
 I've ran all the commands below to get this output:
-
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/histogram-non-normal.png" alt="Image text" width="444" height="450" align="middle"/>
 {: refdef}
-
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/qq-plot-non-normal.png" alt="Image text" width="444" height="450" align="middle"/>
 {: refdef}
-
 ```
 	Shapiro-Wilk normality test
 
