@@ -37,11 +37,18 @@ Seems pretty close to being normally distributed. But if you want to be sure, yo
 
 ### Distribution spread
 
+Variance
+
 The standard deviation of the mean (SD) is the most commonly used measure of the spread of values in a distribution. This is easily done with R's _sd_ function:
 ```r
 sd(chickwts$weight)
 ```
 
+### Putting it together
+
+Box plot
+
+Violin plot
 
 ## One sample
 
