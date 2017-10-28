@@ -41,11 +41,9 @@ With the first graph I want to get a sence of the distribution of the variable. 
 hist(var_test)
 ```
 Output:
-
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/histogram-normal.png" alt="Image text" width="444" height="450" align="middle"/>
 {: refdef}
-
 This histogram shows a pretty nice bell-curve like shape, which supports that distribution might be normal.
 
 Another method for checking normality visually which is regularly used is a Q-Q plot. This plot 
