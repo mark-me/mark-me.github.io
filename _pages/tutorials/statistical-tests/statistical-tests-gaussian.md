@@ -146,6 +146,62 @@ It is clear from the histogram that this is _not_ a normal distribution, since i
 
 ### One sample t-test
 
+A t-test is used to test hypotheses about the mean value of a population from which a sample is drawn. A one-sample t-test is used to compare the mean value of a sample with a constant value. The test can be performed in three ways:
+
+1. Testing if the given mean differs from the data set no mather what direction (up from the mean, or down from the mean) this is called a two sided tail test. In this case you do not care about the direction of the deviation of the data set.
+2. Testing if a given mean is lower than that of the data set (left tailed test). Which is usefull if you want to test whether fill grades for 500 ml bottles does not fall under the 500 ml.
+3. Testing if a given mean is higher than that of the data set (right tailed test). This is usefull in cases you want to make sure whether the number of students in classes do not pass a certain level.
+
+When you want to use the R function _t.test_ takes for one sample tests, two of the function's are obligatory: 
+
+* _x_ is the vector with values to be tested.
+* _mu_ is the average you want to test against.
+
+There are two optional arguments:
+
+* _alternative_ can be either "two.sided", "less" or "greater", which let you perform the t-test two sidedly, left tailed or right tailed respectively. The default is the two-sided test.
+* _conf.level_ is the confidence level outputted by the t.test. The default is the 95% confidence interval.
+
+Searching for a suitable data set I stumbled across the **Davis** data set from the **car** library. It contains heights and weights. I assumed the data set was about random males and females from the U.S., not being hindered by any knowledge or guilt about not wanting to do any research. I wanted to know how the subjects differed from actual weights. I've used the average weight data from [this wikipedia page](https://en.wikipedia.org/wiki/Human_body_weight). The null hypothesis is the same as usual: the sample distribution follow the mean I provide. Since I want to know whether this set conforms to US, I will perform a two sided t-test. First I'm going to do this for the males:
+```r
+library(car)
+
+height <- (Davis %>% filter(sex == "M" ))$height
+t.test(height, mu = 175.9)
+```
+Output:
+```
+	One Sample t-test
+
+data:  height
+t = 3.0752, df = 87, p-value = 0.002811
+alternative hypothesis: true mean is not equal to 175.9
+95 percent confidence interval:
+ 176.6467 179.3760
+sample estimates:
+mean of x 
+ 178.0114 
+```
+Looking at the p-value, which is way smaller then 0.05, it seems my assumptions were wrong: this data-set does not represent the average U.S. male in terms of height. 
+```r
+height <- (Davis %>% filter(sex == "F" ))$height
+t.test(height, mu = 162.1)
+```
+Output:
+```
+	One Sample t-test
+
+data:  height
+t = 1.4915, df = 111, p-value = 0.1387
+alternative hypothesis: true mean is not equal to 162.1
+95 percent confidence interval:
+ 161.5609 165.9213
+sample estimates:
+mean of x 
+ 163.7411 
+```
+Looking at the p-value, which is above 0.05, this data-set could be representative of the average U.S. female height. But since my null hypothesis for males doesn't stick, I highly doubt the whole data set is representative of U.S. height.
+
 ## Two unrelated samples
 
 Unrelated sample tests can be used for analysing marketing tests; you apply some kind of marketing voodoo to two different groups of prospects/customers and you want to know which method was best. 
