@@ -216,24 +216,24 @@ The related samples tests are used to determine whether there are differences be
 
 <img src="/_pages/tutorials/statistical-tests/little-britain.jpg" width="256" height="160" align="right"/>
 
-For this test we're going back to the data-set about self reported heights and weights: **[Davis](https://www.rdocumentation.org/packages/car/versions/2.1-5/topics/Davis)** from the **car** library. With this set we can see how self reported heights and weights compare to measured heights and weights. Here my alternative hypothesis is that people tend to underreport their weight. Let's see what the test says.
+For this test we're going back to the data-set about self reported heights and weights: **[Davis](https://www.rdocumentation.org/packages/car/versions/2.1-5/topics/Davis)** from the **car** library. With this set we can see how self reported heights and weights compare to measured heights and weights. Here my alternative hypothesis is that people tend to underreport their weight, hence I'll use the left tailed test, hence the _alternative_ parameter value "less". To use the paired t-test we set the value of the _paired_ argument to TRUE. Let's see what the test says:
 ```r
-t.test(Davis$weight, Davis$repwt, paired = TRUE, alternative = "less")
+t.test(Davis$repwt, Davis$weight, paired = TRUE, alternative = "less")
 ```
 Output:
 ```
 	Paired t-test
 
-data:  Davis$weight and Davis$repwt
-t = 0.96183, df = 182, p-value = 0.8313
+data:  Davis$repwt and Davis$weight
+t = -0.96183, df = 182, p-value = 0.1687
 alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
-     -Inf 1.634296
+      -Inf 0.4321098
 sample estimates:
 mean of the differences 
-              0.6010929
+             -0.6010929 
 ```
-The p-value exceeds 0.05 by a large margin, so it seems my alternative hypothesis is nowhere near significant. It seems the null-hypothesis can be upheld: there is consensus between self reported and measured weight.
+The p-value well exceeds 0.05, so it seems my alternative hypothesis is nowhere near significant. It seems the null-hypothesis can be upheld: there is consensus between self reported and measured weight.
 
 Let's see how this plays out graphically using the _geom_density_ layer, also adding a comparison between females and males:
 ```r
@@ -250,6 +250,7 @@ Output:
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/t-test-paired.png" alt="Image text" width="733" height="450" align="middle"/>
 {: refdef}
+As the test already told us, it seems men and women equally report their weight quite accurately. As you can see there is one female outlier there: she's 166 kilo's which she reports as 56... She might have body image issues, or a 1 fell off when recording the data... 
 
 ## Association between 2 variables
 
