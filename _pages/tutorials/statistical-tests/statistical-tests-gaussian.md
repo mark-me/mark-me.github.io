@@ -208,7 +208,7 @@ Unrelated sample tests can be used for analysing marketing tests; you apply some
 
 ### Unpaired t-test
 
-## Two unrelated samples
+## Two related samples
 
 The related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms.
 
@@ -250,7 +250,7 @@ Output:
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/t-test-paired.png" alt="Image text" width="733" height="450" align="middle"/>
 {: refdef}
-As the test already told us, it seems men and women equally report their weight quite accurately. As you can see there is one female outlier there: she's 166 kilo's which she reports as 56... She might have body image issues, or a 1 fell off when recording the data... 
+As the test already told us, it seems men and women equally report their weight quite accurately. As you can see there is one female outlier there: she's 166 kilo's which she reports as 56... She might have body image issues or a 1 fell off when recording the data... 
 
 ## Association between 2 variables
 
