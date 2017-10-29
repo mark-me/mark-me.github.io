@@ -9,8 +9,6 @@ This tutorial is the last in a series of four. This part shows you how to apply 
 
 A **ratio** variable has values like interval variables, but here there is an absolute 0 point. 0 Kelvin is an example: there is no temperature below 0 Kelvin, which also means that the 700 degrees Kelvin is twice as hot as 350 degrees Kelvin. 
 
-
-
 ## Descriptive
 
 Sometimes you just want to describe one variable. Although these types of descriptions don't need statistical tests, I'll describe them here since they should be a part of interpreting the statistical test results. Statistical tests say whether they change, but descriptions on distibutions tell you in what direction they change.
@@ -207,6 +205,39 @@ Looking at the p-value, which is above 0.05, this data-set could be representati
 Unrelated sample tests can be used for analysing marketing tests; you apply some kind of marketing voodoo to two different groups of prospects/customers and you want to know which method was best. 
 
 ### Unpaired t-test
+
+Again we'll use the **Davis** data set. This time we'll test the alternative hypothesis that men are taller then women. The two samples, women and men, are clearly unrelated data sets. For the unrelated samples t-test we again use the function _t.test_. THis time we'll be passing the two samples: one for the males and one for the females. Since out alternative hypothesis suggests directtion we'll set the _alternative_ parameter value to "less". 
+```r
+male_height <- (Davis %>% filter(sex == "M" ))$height
+female_height <- (Davis %>% filter(sex == "F" ))$height
+t.test(female_height, male_height, alternative = "less")
+```
+Output:
+```
+	Welch Two Sample t-test
+
+data:  female_height and male_height
+t = -11.003, df = 179.54, p-value < 2.2e-16
+alternative hypothesis: true difference in means is less than 0
+95 percent confidence interval:
+      -Inf -12.12602
+sample estimates:
+mean of x mean of y 
+ 163.7411  178.0114
+```
+This result with a p-value well below 0.05 shows us, unsurprisingly, that men and women differ in height.
+We can also review the differences visually:
+```r
+Davis %>% 
+  mutate(sex = ifelse(sex == "M", "Male", "Female")) %>% 
+  ggplot() +
+    geom_density(aes(x = weight, fill = sex))
+```
+Output:
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/statistical-tests/t-test-unpaired.png" alt="Image text" width="578" height="450" align="middle"/>
+{: refdef}
+In this plot you clearly see the t-test is right.
 
 ## Two related samples
 
