@@ -214,7 +214,7 @@ The related samples tests are used to determine whether there are differences be
 
 ### Paired t-test
 
-<img src="/_pages/tutorials/statistical-tests/little-britain.jpg" width="240" height="150" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/little-britain.jpg" width="256" height="160" align="right"/>
 
 For this test we're going back to the data-set about self reported heights and weights: **[Davis](https://www.rdocumentation.org/packages/car/versions/2.1-5/topics/Davis)** from the **car** library. With this set we can see how self reported heights and weights compare to measured heights and weights. Here my alternative hypothesis is that people tend to underreport their weight, hence I'll use the left tailed test, hence the _alternative_ parameter value "less". To use the paired t-test we set the value of the _paired_ argument to TRUE. Let's see what the test says:
 ```r
