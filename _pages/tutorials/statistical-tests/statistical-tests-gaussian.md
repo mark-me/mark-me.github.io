@@ -214,6 +214,8 @@ The related samples tests are used to determine whether there are differences be
 
 ### Paired t-test
 
+<img src="/_pages/tutorials/statistical-tests/little-britain.jpg" width="288" height="180" align="right"/>
+
 For this test we're going back to the data-set about self reported heights and weights: **[Davis](https://www.rdocumentation.org/packages/car/versions/2.1-5/topics/Davis)** from the **car** library. With this set we can see how self reported heights and weights compare to measured heights and weights. Here my alternative hypothesis is that people tend to underreport their weight. Let's see what the test says.
 ```r
 t.test(Davis$weight, Davis$repwt, paired = TRUE, alternative = "less")
