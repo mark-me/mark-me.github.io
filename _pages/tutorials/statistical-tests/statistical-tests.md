@@ -13,7 +13,7 @@ This tutorial is one in a series of four. The goal of this tutorial series is to
 | 1 Sample | [Chi-square](/statistical-tests-categorical/#chi-square-goodness-of-fit-test), [Binominal test](/statistical-tests-categorical/#binominal-test) | [Wilcoxon one sample text](/statistical-tests-ordinal/#wilcoxon-one-sample-test) | [Normality](/statistical-tests-gaussian/#normality-check), [One sample t-test](/statistical-tests-gaussian/#one-sample-t-test) |
 | 2 Unrelated samples | [Chi-square](/statistical-tests-categorical/#two-sample-chi-square-test) | [Mann-Whitney U test](/statistical-tests-ordinal/#mann-whitney-u-test), [Kolmogorov-Smirnov test](/statistical-tests-ordinal/#kolmogorov-smirnov-test) | [Unpaired t-test](/statistical-tests-gaussian/#unpaired-t-test) |
 | 2 Related samples | [McNemar's test](/statistical-tests-categorical/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests-ordinal/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests-gaussian/#paired-t-test) |
-| Association 2 variables | [Contigency coefficients](/statistical-tests-categorical/#contigency-coefficients) | [Spearman correlation](/statistical-tests-ordinal/#spearman-correlation) | [Pearson correlation](/statistical-tests-gaussian/#pearson-correlation) |
+| Association 2 variables | [Contigency coefficients](/statistical-tests-categorical/#contigency-coefficients) | [Spearman rank correlation](/statistical-tests-ordinal/#spearman-rank-correlation) | [Pearson correlation](/statistical-tests-gaussian/#pearson-correlation) |
 
 <img src="/_pages/tutorials/statistical-tests/absolutely-nothing.jpg" width="195" height="180" align="right"/>
 
