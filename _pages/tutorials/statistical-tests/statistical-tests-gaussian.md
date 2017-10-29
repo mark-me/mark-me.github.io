@@ -162,7 +162,7 @@ There are two optional arguments:
 * _alternative_ can be either "two.sided", "less" or "greater", which let you perform the t-test two sidedly, left tailed or right tailed respectively. The default is the two-sided test.
 * _conf.level_ is the confidence level outputted by the t.test. The default is the 95% confidence interval.
 
-Searching for a suitable data set I stumbled across the **Davis** data set from the **car** library. It contains heights and weights. I assumed the data set was about random males and females from the U.S., not being hindered by any knowledge or guilt about not wanting to do any research. I wanted to know how the subjects differed from actual weights. I've used the average weight data from [this wikipedia page](https://en.wikipedia.org/wiki/Human_body_weight). The null hypothesis is the same as usual: the sample distribution follow the mean I provide. Since I want to know whether this set conforms to US, I will perform a two sided t-test. First I'm going to do this for the males:
+Searching for a suitable data set I stumbled across the **[Davis](https://www.rdocumentation.org/packages/car/versions/2.1-5/topics/Davis)** data set from the **car** library. It contains heights and weights. I assumed the data set was about random males and females from the U.S., not being hindered by any knowledge or guilt about not wanting to do any research. I wanted to know how the subjects differed from actual weights. I've used the average weight data from [this wikipedia page](https://en.wikipedia.org/wiki/Human_body_weight). The null hypothesis is the same as usual: the sample distribution follow the mean I provide. Since I want to know whether this set conforms to US, I will perform a two sided t-test. First I'm going to do this for the males:
 ```r
 library(car)
 
@@ -213,6 +213,8 @@ Unrelated sample tests can be used for analysing marketing tests; you apply some
 The related samples tests are used to determine whether there are differences before and after some kind of treatment. It is also useful when seeing when verifying the predictions of machine learning algorithms.
 
 ### Paired t-test
+
+For this test we're going back to the data-set about self reported heights and weights: **[Davis](https://www.rdocumentation.org/packages/car/versions/2.1-5/topics/Davis)** from the **car** library.
 
 ## Association between 2 variables
 
