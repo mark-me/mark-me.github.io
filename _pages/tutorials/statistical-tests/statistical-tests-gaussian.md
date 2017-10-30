@@ -53,16 +53,23 @@ var(chickwts$weight)
 ```
 The **standard deviation** of the mean (SD) is the most commonly used measure of the spread of values in a distribution. It's essentially the variance rooted, which makes it easier to interpret than the variance. This makes it the mean absolute deviation from the mean:
 
-$$ s = \sqrt{\frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} } $$
+$$ s = \sqrt{\frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} } $$ or $$ s = \sqrt{s^2 $$}
 
 This is easily done with R's _sd_ function:
 ```r
 sd(chickwts$weight)
 ```
 
+The variance and standard deviation are the metrics used to describe de spread and variability of the data. If you want to know more about the precision of your mean, or when comparing differences between means, the **standard error** is the metric of choice
+
+```r
+sd(x)/sqrt(length(x))
+```
 
 
 ### Painting the picture
+
+<img src="/_pages/tutorials/statistical-tests/magritte.jpg" width="204" height="170" align="right"/>
 
 Error bar plot
 ```r
@@ -308,8 +315,6 @@ As the test already told us, it seems men and women equally report their weight 
 Tests of association determine what the strength of the association between variables is. It can be used if you want to know if there is any relation between the customer's amount spent, and the number of orders the customer already placed. 
 
 ### Pearson correlation
-
-<img src="/_pages/tutorials/statistical-tests/magritte.jpg" width="204" height="170" align="right"/>
 
 The Pearson correlation coefficient is a measure of the strength of a linear association between two variables. Basically, a Pearson correlation attempts to draw a line of best fit through the data of two variables, and the Pearson correlation coefficient, r, indicates how far away all these data points are to this line of best fit (i.e., how well the data points fit this new model/line of best fit).
 
