@@ -38,7 +38,7 @@ Seems pretty close to being normally distributed. But if you want to be sure, yo
 
 <img src="/_pages/tutorials/statistical-tests/sandwich-spread.png" width="160" height="160" align="right"/>
 
-The simplest way to describe the spread of a sample is the **variance**: it measures how far the values are spread around their mean. In oversimplified terms the variance is the mean squared deviation from the mean for each observation.<sup>1</sup> Does that make sense? If not, I don't blame you. Let me break this down:
+The simplest way to describe the spread of a sample is the **variance**: it measures how far the values are spread around their mean. In oversimplified terms the variance is the mean squared deviation from the mean for each observation.[<sup>1</sup>](/statistical-tests-gaussian/#footnotoes) Does that make sense? If not, I don't blame you. Let me break this down:
 
 * Since we want a measure that describes the sample's spread we are looking how each observation deviates from the sample's mean; this is the $$ (x_i - \overline{x}) $$ part.
 * This deviation per observation is then squared, to make sure negative and positive deviations are treated equally when summed. So now we have $$ (x_i - \overline{x})^2 $$
@@ -310,4 +310,5 @@ Tests of association determine what the strength of the movement between variabl
 ### Pearson correlation
 
 
+# Footnotes
 <sup>1</sup> The variance is is not actually the mean of all squared deviations from the sample's mean, since it is divided by the number of observations _minus one_. If it was an actual mean it would be divided by the number of observations, the number of observations minus 1 it is actually called the degrees of freedom. I consider this a subject that is not inside the scope of this tutorial.
