@@ -318,7 +318,27 @@ Tests of association determine what the strength of the association between vari
 
 The Pearson correlation coefficient is a measure of the strength of a linear association between two variables. Basically, a Pearson correlation attempts to draw a line of best fit through the data of two variables, and the Pearson correlation coefficient, r, indicates how far away all these data points are to this line of best fit (i.e., how well the data points fit this new model/line of best fit).
 
+```r
+library(corrplot)
+df_corrs <- Davis %>% select(weight:repht)
+mat_corr <- cor(df_corrs, 
+                method = "pearson", 
+                use = "pairwise.complete.obs")
 
+p_values <- cor.mtest(df_corrs, 
+                      method = "pearson", 
+                      use = "pairwise.complete.obs")
+corrplot(mat_corr, 
+         order = "AOE", 
+         type = "lower", 
+         cl.pos = "b", 
+         p.mat = p.values$p, 
+         sig.level = .05, 
+         insig = "blank")
+```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/statistical-tests/corrplot-pearson.png" alt="Image text" width="452" height="450" align="middle"/>
+{: refdef}
 
 # Footnotes
 <sup>1</sup> The variance is is not actually the mean of all squared deviations from the sample's mean, since it is divided by the number of observations _minus one_. If it was an actual mean it would be divided by the number of observations, the number of observations minus 1 it is actually called the degrees of freedom. I consider this a subject that is not inside the scope of this tutorial.
