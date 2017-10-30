@@ -305,9 +305,14 @@ As the test already told us, it seems men and women equally report their weight 
 
 ## Association between 2 variables
 
-Tests of association determine what the strength of the movement between variables is. It can be used if you want to know if there is any relation between the customer's amount spent, and the number of orders the customer already placed. 
+Tests of association determine what the strength of the association between variables is. It can be used if you want to know if there is any relation between the customer's amount spent, and the number of orders the customer already placed. 
 
 ### Pearson correlation
+
+<img src="/_pages/tutorials/statistical-tests/magritte.jpg" width="204" height="170" align="right"/>
+
+The Pearson correlation coefficient is a measure of the strength of a linear association between two variables. Basically, a Pearson correlation attempts to draw a line of best fit through the data of two variables, and the Pearson correlation coefficient, r, indicates how far away all these data points are to this line of best fit (i.e., how well the data points fit this new model/line of best fit).
+
 
 
 # Footnotes
