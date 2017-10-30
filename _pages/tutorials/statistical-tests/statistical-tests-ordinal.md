@@ -196,11 +196,25 @@ ggplot(Vocab, aes(x = education, y = vocabulary)) +
 Association measures can be useful more than one variable at a time. For example you might want to consider a range of variables from your data set for inclusion in your predictive model. Luckily the **[corrplot](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html)** library contains the _corrplot_function_ to quickly visualise the relations between all in a dataset. Let's take the mtcars variables as an example:
 ```r
 library(corrplot)
-M <- cor(mtcars, method="spearman", use="pairwise.complete.obs")
-corrplot(M, order="AOE", type="lower", cl.pos="b")
+mat_corr <- cor(mtcars, 
+                method = "spearman", 
+                use = "pairwise.complete.obs")
+
+p_values <- cor.mtest(mtcars, 
+                      method = "spearman", 
+                      use = "pairwise.complete.obs")
+corrplot(mat_corr, 
+         order = "AOE", 
+         type = "lower", 
+         cl.pos = "b", 
+         p.mat = p.values$p, 
+         sig.level = .05, 
+         insig = "blank")
 ```
+The matrix _mat_corr_ contains all Spearman rank correlation values, which are calculated with the _cor_ function, passing the whole data frame of _mtcars_, using the _method_ spearman and only include the pairwise observations. Then the p-values of each of the correlations are calculated using *corrplot**'s _cor.mtest_ function, with the same function arguments. Both are used in the _corrplot_ function, where the _order_, _type_ and _cl.post_ arguments specify some layout, which I won't go in further. The argument _p.mat_ is the p-value matrix, which are used by the _sig.level_ and _insig_ arguments to leave out those correlations which are considered insigificant below the 0.05 threshold. 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/corrplot-spearman-rank.png" alt="Image text" width="451" height="450" align="middle"/>
 {: refdef}
+This plot shows which values are positively correlated by the blue dots, while the negative associations are indicated by red dots. The size of the dots and the intensity of the colour show how strong that association is. The cells without dot, don't have significant correlations. For the number of cylinders (_cyl_) are strongly negatively correlated with the milage per gallon, while the horsepower (_hp_) is positively associated with the number of carburetors (_carb_) albeit not as strong.
 
-When you do this however, be on the lookout for [spurious correlations](http://www.tylervigen.com/spurious-correlations). Putting in variables into your model indiscriminately, without reasoning, may lead to some unintended results...
+When you make a correlation martrix like this, be on the lookout for [spurious correlations](http://www.tylervigen.com/spurious-correlations). Putting in variables into your model indiscriminately, without reasoning, may lead to some unintended results...
