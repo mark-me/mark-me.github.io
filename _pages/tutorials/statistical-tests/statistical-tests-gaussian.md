@@ -35,7 +35,7 @@ Seems pretty close to being normally distributed. But if you want to be sure, yo
 
 ### Distribution spread
 
-<img src="/_pages/tutorials/statistical-tests/sandwich-spread.png" width="180" height="180" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/sandwich-spread.png" width="160" height="160" align="right"/>
 
 Variance
 
