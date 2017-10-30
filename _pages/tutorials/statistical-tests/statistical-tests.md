@@ -21,7 +21,7 @@ Statistical test allow us to draw conclusions about the distribution of a popula
 
 # Statistical tests results: p-values
 
-<img src="/_pages/tutorials/statistical-tests/pea-value.jpg" width="180" height="180" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/pea-value.jpeg" width="180" height="180" align="right"/>
 
 The outcome of a statistical test can be read from the p-value. The p-value is very powerful, because it incorporates effect size, sample size, and variability of the data into a single number that objectively tells you how consistent your data are with the null hypothesis. Low p-values indicates strong evidence against the null hypothesis, so you reject the null hypothesis; generally a p-value 0.05 or less is taken as a significant deviation from the null hypothesis. 
 
