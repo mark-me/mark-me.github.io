@@ -42,15 +42,19 @@ The simplest way to describe the spread of a sample is the variance: it measures
 
 $$ s^2 = \frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} $$
 
-In oversimplified terms the variance the mean squared deviation from the mean for each observation. Does that make sense? (I say it's an oversimplification, because I'm ignoring the part of the degrees of freedom here. I'll keep on ignoring it because I consider it our of scope for this tutorial.) The R formula to calculate the variance is _var_:
+In oversimplified terms the variance the mean squared deviation from the mean for each observation. Does that make sense? If not, I don't blame you. Let me break this down:
+
+* Since we want a measure that describes the sample's spread we are looking how each observation deviates from the sample's mean; this is the $$ (x_i - \overline{x}) $$ part.
+* This deviation per observation is then squared, to make sure negative and positive deviations are treated equally when summed. So now we have $$ (x_i - \overline{x})^2 $$
+* We sum those deviations: $$ {\sum_{i=1}^N (x_i - \overline{x})^2} $$
+(I say it's an oversimplification, because I'm ignoring the part of the degrees of freedom here. I'll keep on ignoring it because I consider it our of scope for this tutorial.) The R function to calculate the variance is _var_:
 ```r
 var(chickwts$weight)
 ```
+The standard deviation of the mean (SD) is the most commonly used measure of the spread of values in a distribution. It's essentially This is easily done with R's _sd_ function:
 
 $$ s = \sqrt{\frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} } $$
 
-
-The standard deviation of the mean (SD) is the most commonly used measure of the spread of values in a distribution. This is easily done with R's _sd_ function:
 ```r
 sd(chickwts$weight)
 ```
