@@ -38,16 +38,17 @@ Seems pretty close to being normally distributed. But if you want to be sure, yo
 
 <img src="/_pages/tutorials/statistical-tests/sandwich-spread.png" width="160" height="160" align="right"/>
 
-The simplest way to describe the spread of a sample is the variance: it measures how far the values are spread around their mean. It's formula to calculate the variance of a sample is this:
-
-$$ s^2 = \frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} $$
-
-In oversimplified terms the variance the mean squared deviation from the mean for each observation. Does that make sense? If not, I don't blame you. Let me break this down:
+The simplest way to describe the spread of a sample is the variance: it measures how far the values are spread around their mean. In oversimplified terms the variance the mean squared deviation from the mean for each observation. Does that make sense? If not, I don't blame you. Let me break this down:
 
 * Since we want a measure that describes the sample's spread we are looking how each observation deviates from the sample's mean; this is the $$ (x_i - \overline{x}) $$ part.
 * This deviation per observation is then squared, to make sure negative and positive deviations are treated equally when summed. So now we have $$ (x_i - \overline{x})^2 $$
-* We sum those deviations: $$ {\sum_{i=1}^N (x_i - \overline{x})^2} $$
-(I say it's an oversimplification, because I'm ignoring the part of the degrees of freedom here. I'll keep on ignoring it because I consider it our of scope for this tutorial.) The R function to calculate the variance is _var_:
+* We sum those deviations for all observations: $$ {\sum_{i=1}^N (x_i - \overline{x})^2} $$
+* Then we calculate the 'mean' by dividing it by the sample size, which gets us the whole formula for variance:
+
+$$ s^2 = \frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} $$
+
+(minus one, this is the oversimplification of my explanation: it is actually 
+ The R function to calculate the variance is _var_:
 ```r
 var(chickwts$weight)
 ```
