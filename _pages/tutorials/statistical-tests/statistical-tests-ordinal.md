@@ -104,7 +104,7 @@ Two unrelated sample tests can be used for analysing marketing tests; you apply 
 
 ### Mann-Whitney U test
 
-<img src="/_pages/tutorials/statistical-tests/u-turn.jpg" width="160" height="160" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/u-turn.png" width="160" height="160" align="right"/>
 
 The [Mann–Whitney U test](https://en.wikipedia.org/wiki/Mann%E2%80%93Whitney_U_test) can be used to test whether two sets of unrelated samples are equally distributed. Let's take our trusted **mtcars** data set: we can test whether automatic and manual transmission cars differ in gas mileage. For this we use the _wilcox.test_ function:
 ```r
