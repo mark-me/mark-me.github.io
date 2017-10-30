@@ -39,6 +39,7 @@ Seems pretty close to being normally distributed. But if you want to be sure, yo
 <img src="/_pages/tutorials/statistical-tests/sandwich-spread.png" width="160" height="160" align="right"/>
 
 The simplest way to describe the spread of a sample is the variance: it measures how far the values are spread around their mean. It's formula is this:
+
 $$ \sigma^2 = \frac{\displaystyle\sum_{i=1}^{n}(x_i - \mu)^2} {n} $$
 
 But luckily this can easily done done with the R formula _var_. 
