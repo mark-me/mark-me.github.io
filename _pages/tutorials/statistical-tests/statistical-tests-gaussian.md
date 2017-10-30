@@ -51,7 +51,7 @@ The R function to calculate the variance is _var_:
 ```r
 var(chickwts$weight)
 ```
-The **standard deviation** of the mean (SD) is the most commonly used measure of the spread of values in a distribution. It's essentially the variance rooted. This makes it easier to interpret than the variance
+The **standard deviation** of the mean (SD) is the most commonly used measure of the spread of values in a distribution. It's essentially the variance rooted, which makes it easier to interpret than the variance. This makes it the mean absolute deviation from the mean:
 
 $$ s = \sqrt{\frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} } $$
 
@@ -59,6 +59,8 @@ This is easily done with R's _sd_ function:
 ```r
 sd(chickwts$weight)
 ```
+
+
 
 ### Painting the picture
 
@@ -308,4 +310,4 @@ Tests of association determine what the strength of the movement between variabl
 ### Pearson correlation
 
 
-<sup>1</sup>(minus one, this is the oversimplification of my explanation: it is actually 
+<sup>1</sup> The variance is is not actually the mean of all squared deviations from the sample's mean, since it is divided by the number of observations _minus one_. If it was an actual mean it would be divided by the number of observations, the number of observations minus 1 it is actually called the degrees of freedom. I consider this a subject that is not inside the scope of this tutorial.
