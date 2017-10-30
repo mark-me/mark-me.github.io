@@ -336,9 +336,13 @@ corrplot(mat_corr,
          sig.level = .05, 
          insig = "blank")
 ```
+First we select only the numerical fields from the data set Davis. The matrix _mat_corr_ contains all Pearson correlation values, which are calculated with the _cor_ function, passing the whole data frame of df_corrs, using the _method_ pearson and only include the pairwise observations. Then the p-values of each of the correlations are calculated using *corrplot**'s _cor.mtest_ function, with the same function arguments. Both are used in the _corrplot_ function, where the _order_, _type_ and _cl.post_ arguments specify some layout, which I won't go in further. The argument _p.mat_ is the p-value matrix, which are used by the _sig.level_ and _insig_ arguments to leave out those correlations which are considered insigificant below the 0.05 threshold. 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/corrplot-pearson.png" alt="Image text" width="452" height="450" align="middle"/>
 {: refdef}
+
+
+When you make a correlation martrix like this, be on the lookout for [spurious correlations](http://www.tylervigen.com/spurious-correlations). Putting in variables into your model indiscriminately, without reasoning, may lead to some unintended results...
 
 # Footnotes
 <sup>1</sup> The variance is is not actually the mean of all squared deviations from the sample's mean, since it is divided by the number of observations _minus one_. If it was an actual mean it would be divided by the number of observations, the number of observations minus 1 it is actually called the degrees of freedom. I consider this a subject that is not inside the scope of this tutorial.
