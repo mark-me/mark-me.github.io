@@ -40,9 +40,10 @@ Seems pretty close to being normally distributed. But if you want to be sure, yo
 
 The simplest way to describe the spread of a sample is the variance: it measures how far the values are spread around their mean. It's formula to calculate the variance of a sample is this:
 
-$$ s = \sqrt{\frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} } $$
+$$ s^2 = \frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} $$
 
 In oversimplified terms means the variance is the absolute of the mean deviation from the mean for each observation. Does that make sense? I say it's an oversimplification, because I'm ignoring the part of the degrees of freedom here. I'll keep on ignoring it because I consider it our of scope for this tutorial.
+$$ s = \sqrt{\frac{\sum_{i=1}^N (x_i - \overline{x})^2}{N-1} } $$
 
 But luckily this can easily done done with the R formula _var_:
 ```r
