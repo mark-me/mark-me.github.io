@@ -164,6 +164,8 @@ Tests of association determine what the strength of the movement between variabl
 
 ### Spearman Rank Correlation
 
+<img src="/_pages/tutorials/statistical-tests/spearman.png" width="135" height="180" align="right"/>
+
 The [Spearman Rank Correlation](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient) is a test of association for ordinal or interval variables. In this example we'll see if vocabulary is related to education. The function _cor.test_ can be used to see if they are related:
 ```r
 library(car)
