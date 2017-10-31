@@ -340,7 +340,7 @@ First we select only the numerical fields from the data set Davis. The matrix _m
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/statistical-tests/corrplot-pearson.png" alt="Image text" width="452" height="450" align="middle"/>
 {: refdef}
-
+A corrplot shows which values are positively correlated by the blue dots, while the negative associations would indicated by red dots, but this data set has no negative correlations. The size of the dots and the intensity of the colour show how strong that association is. The cells without dot, don't have significant correlations. 
 
 When you make a correlation martrix like this, be on the lookout for [spurious correlations](http://www.tylervigen.com/spurious-correlations). Putting in variables into your model indiscriminately, without reasoning, may lead to some unintended results...
 
