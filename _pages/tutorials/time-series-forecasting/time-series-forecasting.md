@@ -23,6 +23,13 @@ Autocorrelation is the correlation constant between two points in time having th
 
 random walk because at time tt the process is where it was at time t−1 plus a completely random movement. For a random walk with drift, a constant is added to the model and will cause the random walk to drift in the direction (positve or negative) of the drift.
 
+## Sampling frequency
+
+The _start_ and _end_ functions return the time index of the first and last observations, respectively. The _time_ function calculates a vector of time indices, with one element for each time index on which the series was observed.
+
+The deltat() function returns the fixed time interval between observations and the frequency() function returns the number of observations per unit time. Finally, the cycle() function returns the position in the cycle of each observation.
+
+
 # Diffent time series models
 
 MA or Moving Average models
