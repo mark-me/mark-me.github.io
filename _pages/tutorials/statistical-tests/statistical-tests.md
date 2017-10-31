@@ -63,7 +63,7 @@ The level of measurement of the variable determines which type of test you can u
 
 # Putting it all together
 
-<img src="/_pages/tutorials/statistical-tests/pritt-stick.png" width="143" height="150" align="right"/>
+<img src="/_pages/tutorials/statistical-tests/pritt-stick.png" width="134" height="140" align="right"/>
 
 The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and found out which level measurement your variable is at, you can find out the test by making the correct crossing in the table below: 
 
