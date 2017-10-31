@@ -1,6 +1,13 @@
 ---
 layout: page
 title: Statistical tests for Guassian variables
+tags:
+  - R
+  - statistical-tests
+  - hypothesis-testing
+  - normally-distributed
+  - ratio-variables
+  - interval-variables
 comments: true
 mathjax: true
 permalink: /statistical-tests-gaussian/
