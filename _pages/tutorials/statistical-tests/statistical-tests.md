@@ -1,6 +1,10 @@
 ---
 layout: page
 title: Statistical tests
+tags:
+  - R
+  - statistical-tests
+  - hypothesis-testing
 comments: true
 permalink: /statistical-tests/
 ---
