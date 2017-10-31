@@ -3,7 +3,7 @@ layout: post
 title: Mining Alice's Wonderland
 categories: r tutorial text-mining
 author: Mark
-date: 2017-08-10 13:00:00 +0100
+date: 2017-10-31 23:00:00 +0100
 published: true
 ---
 
