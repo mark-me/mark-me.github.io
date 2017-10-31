@@ -1,6 +1,11 @@
 ---
 layout: page
 title: Statistical tests for ordinal variables
+tags:
+  - R
+  - statistical-tests
+  - hypothesis-testing
+  - ordinal-variables
 comments: true
 permalink: /statistical-tests-ordinal/
 ---
