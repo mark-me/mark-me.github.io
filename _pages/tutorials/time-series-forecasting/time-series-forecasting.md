@@ -1,6 +1,9 @@
 ---
 layout: page
 title: Time series forecasting
+tags:
+  - R
+  - time-series
 comments: true
 permalink: /time-series-forecasting/
 ---
