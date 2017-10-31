@@ -1,6 +1,11 @@
 ---
 layout: page
 title: Statistical tests for categorical variables
+tags:
+  - R
+  - statistical-tests
+  - hypothesis-testing
+  - categorical-variables
 comments: true
 permalink: /statistical-tests-categorical/
 ---
