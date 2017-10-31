@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Networked graphs with ggraph
+tags:
+  - R
+  - ggraph
+  - network-graph
 comments: true
 permalink: /network-graphs-ggraph/
 ---
