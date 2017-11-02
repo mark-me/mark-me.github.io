@@ -141,9 +141,13 @@ Reading it:
 data_frame <- readRDS("file_name.RDS")
 ```
 
-# Standard transforms on import
+# Transforms on import
+
+## Cleaning column names
 
 Often times the column names of a file are messy; they contain '?', '%', spaces or other strange signs. With the **[janitor](https://www.rdocumentation.org/packages/janitor)** library you can fix this in one command by calling the _clean_names_ function. This function, which is can be used by piping the data frame through the function, will convert all strange signs to underscored, and will make all letters lower case.
+
+## Removing blank columns and rows
 
 Excel sheets have a tendency to contain empty rows and/or colums. The **janitor** library also has two handy functions to fix this: _remove_empty_rows_ and _remove_empty_cols_. If we combine the three above functions it would look something like this:
 ```r
@@ -152,3 +156,11 @@ tbl_imported %<>%
   remove_empty_rows() %>%
   remove_empty_cols() 
 ```
+
+## Date conversion
+
+The **[lubridate](https://www.rdocumentation.org/packages/lubridate)** library is fantastic for date/time handling. Really convenient functions like _ymd_, _dmy_, _mdy_ and the like are really convenient for converting dates in strings to real date or time formats. However, I recently had a case that left me stumped: most dates converted in the format like 01JAN1823 convereted like a gem, except all dates falling in the months March, May and October... After doing all kinds of stupid workarounds, with too much code for my taste, it finally dawned on me: in my langauge, Dutch, the three months are the only ones having a different abbreviation that English... Looking at the help page I found out the conversion functions take the system locale as default, but it could be overridden by using the function's _locale_ argument:
+```r
+dmy(date_start, locale = Sys.setlocale("LC_TIME", "English") )
+```
+Now my previous NA results for the three months finally resulted in dates.
