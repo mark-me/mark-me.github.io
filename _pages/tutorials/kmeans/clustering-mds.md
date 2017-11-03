@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Clustering methods
+title: Clustering and MDS
 comments: true
-permalink: /clustering-methods/
+permalink: /clustering-mds/
 published: true
 ---
 
@@ -25,6 +25,18 @@ If we want to group customers by similarity, we need a measure(s) of their simil
 * **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)).
 
 In addition correltion coefficient can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here.
+
+## Calculating the MDS
+
+# MDS
+
+<img src="/_pages/tutorials/kmeans/flat-earth.png" width="160" height="160" align="right"/> 
+
+* Squeezing distances in n-dimensions in 2-dimensions
+* Each time refitting points on two-dimensions 
+* Trying to minimizing stress 
+* Stress: Difference between original and squeezed distances
+
 
 # Choosing a clustering algorithm
 
