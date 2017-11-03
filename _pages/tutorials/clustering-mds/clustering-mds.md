@@ -30,7 +30,7 @@ In addition correltion coefficient can also be turned into distance measures by 
 
 # MDS
 
-<img src="/_pages/tutorials/clustering-mds/flat-earth.jpg" width="285" height="160" align="right"/> 
+<img src="/_pages/tutorials/clustering-mds/flat-earth.jpg" width="249" height="140" align="right"/> 
 
 * Squeezing distances in n-dimensions in 2-dimensions
 * Each time refitting points on two-dimensions 
