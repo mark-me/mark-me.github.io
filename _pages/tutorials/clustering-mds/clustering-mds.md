@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Clustering and MDS
 comments: true
 permalink: /clustering-mds/
@@ -30,7 +30,7 @@ In addition correltion coefficient can also be turned into distance measures by 
 
 # MDS
 
-<img src="/_pages/tutorials/kmeans/flat-earth.png" width="160" height="160" align="right"/> 
+<img src="/_pages/tutorials/clustering-mds/flat-earth.png" width="160" height="160" align="right"/> 
 
 * Squeezing distances in n-dimensions in 2-dimensions
 * Each time refitting points on two-dimensions 
