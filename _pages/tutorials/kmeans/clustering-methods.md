@@ -78,3 +78,7 @@ A
 
 [PAM](http://www.sthda.com/english/wiki/partitioning-cluster-analysis-quick-start-guide-unsupervised-machine-learning#pam-partitioning-around-medoids)
 
+# Jaccard clustering
+
+[Jaccard clustering](http://www.win-vector.com/blog/2015/09/bootstrap-evaluation-of-clusters/) _clusterboot_ of the **[fpc](https://cran.r-project.org/web/packages/fpc/index.html)** library
+
