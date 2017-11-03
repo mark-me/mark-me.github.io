@@ -28,10 +28,10 @@
   image: /_pages/tutorials/splitting-combining-files.png
   description: Splitting and/or combining files.... Nothing more.
 
-#- title: Clustering methods
-#  url: /clustering-methods/
-#  image: /_pages/tutorials/kmeans.png
-#  description: Choosing and executing different clustering methods, and using it within the tidy framework.
+- title: Clustering and MDS
+  url: /clustering-mds/
+  image: /_pages/tutorials/clustering-mds/flat-earth.png
+  description: Choosing and executing different clustering methods, and using it within the tidy framework.
 
 - title: Replacing missing data with best guesses
   url: /impute-missings/
