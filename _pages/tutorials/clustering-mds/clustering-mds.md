@@ -27,7 +27,7 @@ If we want to group customers by similarity, we need a measure(s) of their simil
 
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. 
 
-<img src="/_pages/tutorials/clustering-mds/manhattan.jpg" width="376" height="251" align="right"/> 
+<img src="/_pages/tutorials/clustering-mds/manhattan.jpg" width="271" height="180" align="right"/> 
 
 # Manhattan distance
 
