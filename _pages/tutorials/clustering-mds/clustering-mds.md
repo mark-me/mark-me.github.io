@@ -23,6 +23,8 @@ The last step before the actual clustering is **assessing clusterability** or ou
 
 If we want to group observations by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. The choice of your distance metric is determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
 
+In relation to similarity correltion coefficients are often mentioned, which are similarity measures instead of distance measures. They can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here since most cases will be covered by those used here.
+
 ## Euclidian distance
 
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval of ratio variables. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. The distances are calculated by
@@ -72,16 +74,12 @@ plot(fit)
 ```
 
 
-# Gower distance
+## Gower distance
 Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. The explanation of it's workings is a bit more complex and beyond the scope of this tutorial. Calculating the 
 
+# Applying multidimensional scaling
 
-
-In addition correltion coefficient can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here.
-
-## Applying multidimensional scaling
-
-# MDS
+## MDS
 
 <img src="/_pages/tutorials/clustering-mds/flat-earth.jpg" width="249" height="140" align="right"/> 
 
