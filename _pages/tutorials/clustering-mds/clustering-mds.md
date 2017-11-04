@@ -6,16 +6,18 @@ permalink: /clustering-mds/
 published: true
 ---
 
-Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters) (source: [Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis)). Cluster is usually used to make sense of large samples of observations by grouping them on similar behaviour. For example: we have the idea that we can group customers by the kinds of articles they buy, but the large population of customers does not let us readily see how these groups are formed, or even if they are there. 
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters) (source: [Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis)). Cluster is usually used to make sense of large samples of observations by grouping them on similar behaviour. For example: we have the idea that we can group customers by the kinds of articles they buy, but the large population of customers does not let us readily see how these groups are formed, or even if they are there. This tutorial shows you how you can do a cluster analysis for your data set, evaluate it and display it's results 
 
-In this tutorial I explore:
+# The path to cluster analysis
 
-* what kinds of similarity we can calculate, 
-* how these result in choices of clustering algorithms,
-* how we execute these algorithms in R
-* and how we use the results withing the *tidy* framework
+Clustering is about similarity. So a first step in cluster analysis is **calculating similarity** between the observations in your data set. We'll explore this in the section [Determining similarity](/clustering-mds/#determining-similarity). Although I'm talking about similarity, we'll be actually doing the inverse of calculating the inverse of similarity: dissimilarity or distance. The more similar observations are, the smaller the distance between them and the more dissimilar they are, the greater the distance between them. The result of calculating distance is often expressed in a distance matrix. A distance matrix looks similar to a correlation matrix: the columns and rows denominate the same observations, and the number in a crossing states how dissimilar they are. The distance matrix will be the input for a clustering algorithm, but also for the visualisation of the set. 
 
-# Determining similarity (distance)
+Before we start the clustering itself we'll be **visualising similarity**. With the distance matrix itself is hard to get an overall impression how closely observations resemble eachother. To get a more intuitive idea, we will convert these distances to create a scatterplot. Since distances are expressed as distances between observations we could take each observation as an axis in our plot, but this will quickly result in more then two or three dimensions and at that moment my imagination falls short on how I should interpret this. Luckily there is an framework called MultiDimensional Scaling (MDS) which reduces the number of dimensions to two, which my imagination can handle. How this is done and how the resulting similarity plot is created is explained in the section [Applying multidimensional scaling](/clustering-mds/#applying-multidimensional-scaling).
+
+The last step before the actual clustering is **assessing clusterability** or our data. This is explained in the section [Determining clusterability](/clustering-mds/#determining-clusterability)
+
+
+# Determining similarity
 
 If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four I found most useful are:
 
@@ -23,10 +25,11 @@ If we want to group customers by similarity, we need a measure(s) of their simil
 * **Manhattan distance**: this is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not
 * **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
 * **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)).
+* **Gower's distance**: is one of the most popular measures of proximity for mixed data types. The explanation of it's workings is a bit more complex and beyond the scope of this tutorial.
 
 In addition correltion coefficient can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here.
 
-## Calculating the MDS
+## Applying multidimensional scaling
 
 # MDS
 
