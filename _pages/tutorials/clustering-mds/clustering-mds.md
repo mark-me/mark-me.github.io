@@ -27,10 +27,10 @@ In relation to similarity correltion coefficients are often mentioned, which are
 
 ## Euclidian distance
 
-The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval of ratio variables. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. The distances are calculated by
-
+The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval of ratio variables. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. The distances are calculated by the _dist_ function, passing the value "euclidian" to the _method_ argument: 
 ```r
-dist(x, mehod = "Euclidean")
+str(USArrests)
+dist_USArrests <- dist(USArrests, method = "euclidian")
 ```
 
 ## Manhattan distance
@@ -88,6 +88,11 @@ Gower's General Similarity Coefficient one of the most popular measures of proxi
 * Trying to minimizing stress 
 * Stress: Difference between original and squeezed distances
 You can perform a classical MDS using the _cmdscale_ function.
+
+```r
+str(USArrests)
+dist_USArrests <- dist(USArrests, method = "euclidian")
+```
 
 
 # Choosing a clustering algorithm
