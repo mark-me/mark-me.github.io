@@ -21,21 +21,29 @@ The last step before the actual clustering is **assessing clusterability** or ou
 
 # Determining similarity
 
-If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four I found most useful are discussed here
+If we want to group observations by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. The choice of your distance metric is determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels of measurement).) There are many distance metrics, but the four I found most useful are discussed here.
 
-# Euclidian distance
+## Euclidian distance
 
-The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. 
+The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval of ratio variables. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. The distances are calculated by
+
+```r
+dist(x, mehod = "Euclidean")
+```
+
+## Manhattan distance
 
 <img src="/_pages/tutorials/clustering-mds/manhattan.jpg" width="271" height="180" align="right"/> 
 
-# Manhattan distance
-
 The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not.
 
-* **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
+## Hamming distance
 
-* **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
+The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different.
+
+## Jaccard distance
+
+Jaccard distance is the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections of categorical variables (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
 ```r
 library(vegan)
 
@@ -81,6 +89,7 @@ In addition correltion coefficient can also be turned into distance measures by 
 * Each time refitting points on two-dimensions 
 * Trying to minimizing stress 
 * Stress: Difference between original and squeezed distances
+You can perform a classical MDS using the _cmdscale_ function.
 
 
 # Choosing a clustering algorithm
