@@ -8,7 +8,9 @@ published: true
 
 Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters) (source: [Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis)). Cluster is usually used to make sense of large samples of observations by grouping them on similar behaviour. For example: we have the idea that we can group customers by the kinds of articles they buy, but the large population of customers does not let us readily see how these groups are formed, or even if they are there. This tutorial shows you how you can do a cluster analysis for your data set, evaluate it and display it's results 
 
-# The path to cluster analysis
+# The road to cluster analysis
+
+<img src="/_pages/tutorials/clustering-mds/yellow-brick-road.jpg" width="294" height="180" align="right"/> 
 
 Clustering is about similarity. So a first step in cluster analysis is **calculating similarity** between the observations in your data set. We'll explore this in the section [Determining similarity](/clustering-mds/#determining-similarity). Although I'm talking about similarity, we'll be actually doing the inverse of calculating the inverse of similarity: dissimilarity or distance. The more similar observations are, the smaller the distance between them and the more dissimilar they are, the greater the distance between them. The result of calculating distance is often expressed in a distance matrix. A distance matrix looks similar to a correlation matrix: the columns and rows denominate the same observations, and the number in a crossing states how dissimilar they are. The distance matrix will be the input for a clustering algorithm, but also for the visualisation of the set. 
 
