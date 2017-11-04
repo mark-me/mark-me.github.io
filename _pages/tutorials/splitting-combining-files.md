@@ -54,6 +54,8 @@ lapply(1:length(lst_outputs),
 
 # Combining files
 
+<img src="/_pages/tutorials/statistical-tests/pritt-stick.png" width="134" height="140" align="right"/>
+
 To combine multiple CSV files in one data frame we're going to need those CSV file names first.  For this we're going to use the _list.files_ function together with a regular expression pattern. The pattern in the syntax below assumes the file name starts with 'input', is followed by some characters (.*) and ends with the extension .csv. 
 ```r 
 filenames <- list.files(pattern="^input.*.csv$")
