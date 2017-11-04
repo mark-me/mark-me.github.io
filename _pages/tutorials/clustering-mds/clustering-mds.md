@@ -19,13 +19,53 @@ The last step before the actual clustering is **assessing clusterability** or ou
 
 # Determining similarity
 
-If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four I found most useful are:
+If we want to group customers by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. There are many distance metrics, but the four I found most useful are discussed here
 
-* **Euclidian distance**: this is the distance we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. <img src="/_pages/tutorials/clustering-mds/manhattan.jpg" width="376" height="251" align="right"/> 
-* **Manhattan distance**: this is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not
+# Euclidian distance
+
+The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. 
+
+<img src="/_pages/tutorials/clustering-mds/manhattan.jpg" width="376" height="251" align="right"/> 
+
+# Manhattan distance
+
+The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not.
+
 * **Hamming distances**: the number of positions between two strings of equal length at which the corresponding symbols are different.
-* **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)).
-* **Gower's distance**: is one of the most popular measures of proximity for mixed data types. The explanation of it's workings is a bit more complex and beyond the scope of this tutorial.
+
+* **Jaccard distance**: the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
+```r
+library(vegan)
+
+df_cluster_methods <- read.table(con <- textConnection("Complete	Exclusive	Fuzzy	Hierarchical	Partitioned	Euclidian	Manhattan	Pearson	Spearman	Jaccard
+cmeans	1	0	1	0	1	0	0	0	0	0
+fanny	1	0	1	0	1	0	0	0	0	0
+hclust	1	1	0	1	0	1	1	1	1	1
+kmeans	1	1	0	0	1	1	0	0	0	0
+pam	1	1	0	0	1	1	1	0	0	0"), header = TRUE, row.names = 1)
+close(con)
+df_cluster_methods <-  df_cluster_methods[1:5,]
+
+dist_matrix <- vegdist(df_cluster_methods[, -1], method = "jaccard")
+fit <- cmdscale(dist_matrix,eig=TRUE, k=2) # k is the number of dim
+df_mds <- data.frame(x = fit$points[,1], y = fit$points[,2])
+df_mds$names <- row.names(df_cluster_methods)
+
+ggplot(df_mds,aes(x, y, col = names)) +
+  geom_jitter() +
+  geom_label_repel(aes(label = names)) +
+  guides(col = FALSE) +
+  scale_color_manual(values = col_theme)
+
+fit <- hclust(dist_matrix, method="ward") 
+plot(fit)
+```
+
+
+# Gower distance
+Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. The explanation of it's workings is a bit more complex and beyond the scope of this tutorial. Calculating the 
+
+
 
 In addition correltion coefficient can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here.
 
@@ -95,5 +135,5 @@ A
 
 # Jaccard clustering
 
-[Jaccard clustering](http://www.win-vector.com/blog/2015/09/bootstrap-evaluation-of-clusters/) _clusterboot_ of the **[fpc](https://cran.r-project.org/web/packages/fpc/index.html)** library
+[Jaccard clustering](http://www.win-vector.com/blog/2015/09/bootstrap-evaluation-of-clusters/) _clusterboot_ of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library
 
