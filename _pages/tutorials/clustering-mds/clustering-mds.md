@@ -6,7 +6,7 @@ permalink: /clustering-mds/
 published: true
 ---
 
-Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters) (source: [Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis)). Cluster is usually used to make sense of large samples of observations by grouping them on similar behaviour. For example: we have the idea that we can group customers by the kinds of articles they buy, but the large population of customers does not let us readily see how these groups are formed, or even if they are there. This tutorial shows you how you can do a cluster analysis for your data set, evaluate it and display it's results 
+Cluster analysis or clustering is the task of grouping a set of objects in such a way that objects in the same group (called a cluster) are more similar (in some sense or another) to each other than to those in other groups (clusters) (source: [Wikipedia](https://en.wikipedia.org/wiki/Cluster_analysis)). Cluster analysis is usually used to make sense of large samples of observations by grouping them by similar behaviour. For example: we have the idea that we can group customers by the kinds of articles they buy, but the large population of customers does not let us readily see how these groups are formed, or even if there are any such groups. This tutorial shows you how you can do a cluster analysis for your data set, evaluate it and display it's results 
 
 # The road to cluster analysis
 
