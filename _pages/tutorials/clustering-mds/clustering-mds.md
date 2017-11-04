@@ -21,7 +21,7 @@ The last step before the actual clustering is **assessing clusterability** or ou
 
 # Determining similarity
 
-If we want to group observations by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. The choice of your distance metric is determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels of measurement).) There are many distance metrics, but the four I found most useful are discussed here.
+If we want to group observations by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. The choice of your distance metric is determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
 
 ## Euclidian distance
 
@@ -35,15 +35,15 @@ dist(x, mehod = "Euclidean")
 
 <img src="/_pages/tutorials/clustering-mds/manhattan.jpg" width="271" height="180" align="right"/> 
 
-The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the Euclidian distance, with the difference we have to drive around the buildings. This distance is not.
+The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables.
 
 ## Hamming distance
 
-The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different.
+The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different. This is useful for categorical variables.
 
 ## Jaccard distance
 
-Jaccard distance is the inverse of the number of elements both observations share divided (compared to), all elements in both sets. This is good when comparing collections of categorical variables (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
+Jaccard distance is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
 ```r
 library(vegan)
 
