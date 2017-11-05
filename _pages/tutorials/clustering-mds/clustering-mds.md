@@ -12,7 +12,7 @@ Cluster analysis or clustering is the task of grouping a set of objects in such 
 
 <img src="/_pages/tutorials/clustering-mds/yellow-brick-road.jpg" width="294" height="180" align="right"/> 
 
-Clustering is about similarity. So a first step in cluster analysis is **calculating similarity** between the observations in your data set. We'll explore this in the section [Determining similarity](/clustering-mds/#determining-similarity). Although I'm talking about similarity, we'll be actually doing the inverse of calculating the inverse of similarity: dissimilarity or distance. The more similar observations are, the smaller the distance between them and the more dissimilar they are, the greater the distance between them. The result of calculating distance is often expressed in a distance matrix. A distance matrix looks similar to a correlation matrix: the columns and rows denominate the same observations, and the number in a crossing states how dissimilar they are. The distance matrix will be the input for a clustering algorithm, but also for the visualisation of the set. 
+Clustering is about similarity. So a first step in cluster analysis is **calculating similarity** between the observations in your data set. We'll explore this in the section [Determining similarity](/clustering-mds/#determining-similarity). Although I'm talking about similarity, we'll be actually doing the inverse of calculating the inverse of similarity: dissimilarity or distance. The more similar observations are, the smaller the distance between them and the more dissimilar they are, the greater the distance between them. The result of calculating distance is often expressed in a distance matrix. A distance matrix looks similar to a correlation matrix: the columns and rows denominate the same observations, and the number in a crossing states how dissimilar they are. Depending on the clustering method the distance matrix will be the input for a clustering algorithm, but it certainly for the visualisation of the set. 
 
 Before we start the clustering itself we'll be **visualising similarity**. With the distance matrix itself is hard to get an overall impression how closely observations resemble eachother. To get a more intuitive idea, we will convert these distances to create a scatterplot. Since distances are expressed as distances between observations we could take each observation as an axis in our plot, but this will quickly result in more then two or three dimensions and at that moment my imagination falls short on how I should interpret this. Luckily there is an framework called MultiDimensional Scaling (MDS) which reduces the number of dimensions to two, which my imagination can handle. How this is done and how the resulting similarity plot is created is explained in the section [Applying multidimensional scaling](/clustering-mds/#applying-multidimensional-scaling).
 
@@ -75,7 +75,8 @@ plot(fit)
 
 
 ## Gower distance
-Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. The explanation of it's workings is a bit more complex and beyond the scope of this tutorial. Calculating the 
+Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
+Calculating the 
 
 # Applying multidimensional scaling
 
