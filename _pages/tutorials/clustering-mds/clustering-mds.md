@@ -59,20 +59,22 @@ close(con)
 df_cluster_methods <-  df_cluster_methods[1:5,]
 
 dist_matrix <- vegdist(df_cluster_methods[, -1], method = "jaccard")
-fit <- cmdscale(dist_matrix,eig=TRUE, k=2) # k is the number of dim
-df_mds <- data.frame(x = fit$points[,1], y = fit$points[,2])
+```
+
+```r
+mds <- cmdscale(dist_matrix,eig = TRUE, k = 2)
+df_mds <- data.frame(x = mds$points[,1], y = mds$points[,2])
 df_mds$names <- row.names(df_cluster_methods)
 
 ggplot(df_mds,aes(x, y, col = names)) +
   geom_jitter() +
-  geom_label_repel(aes(label = names)) +
-  guides(col = FALSE) +
-  scale_color_manual(values = col_theme)
-
-fit <- hclust(dist_matrix, method="ward") 
-plot(fit)
+  geom_label_repel(aes(label = names))
 ```
-
+Then we'll apply 
+```r
+res_hclust <- hclust(dist_matrix, method="ward") 
+plot(res_hclust)
+```
 
 ## Gower distance
 Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
@@ -94,7 +96,6 @@ You can perform a classical MDS using the _cmdscale_ function.
 str(USArrests)
 dist_USArrests <- dist(USArrests, method = "euclidian")
 ```
-
 
 # Choosing a clustering algorithm
 
