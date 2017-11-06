@@ -45,18 +45,22 @@ The Hamming distance the number of positions between two strings of equal length
 
 ## Jaccard distance
 
-Jaccard distance is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
+Jaccard distance is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. 
 ```r
 library(vegan)
 
-df_cluster_methods <- read.table(con <- textConnection("Complete	Exclusive	Fuzzy	Hierarchical	Partitioned	Euclidian	Manhattan	Pearson	Spearman	Jaccard
-cmeans	1	0	1	0	1	0	0	0	0	0
-fanny	1	0	1	0	1	0	0	0	0	0
-hclust	1	1	0	1	0	1	1	1	1	1
-kmeans	1	1	0	0	1	1	0	0	0	0
-pam	1	1	0	0	1	1	1	0	0	0"), header = TRUE, row.names = 1)
+df_cluster_methods <- read.table(con <- textConnection("Complete	Exclusive	Fuzzy	Hierarchical	Partitioned	Interval/ratio	Ordinal	Categorical
+cmeans	1	0	1	0	1	0	0	0
+fanny	1	0	1	0	1	0	0	0
+hclust	1	1	0	1	0	1	1	1
+kmeans	1	1	0	0	1	1	0	0
+pam	1	1	0	0	1	1	1	0"), header = TRUE, row.names = 1)
 close(con)
 df_cluster_methods <-  df_cluster_methods[1:5,]
+```
+The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
+```r
+library(vegan)
 
 dist_matrix <- vegdist(df_cluster_methods[, -1], method = "jaccard")
 ```
@@ -104,6 +108,14 @@ So here's your decision tree:
 * If your distance is squared _Euclidean_ distance, use k-means. This is because, since the k-means algorithm tries to minimize variance of Euclidian distances from the center of a cluster.
 * If your distance is _Manhattan_ distance, use k-medians
 * If you have _any other_ distance, use k-medoids
+
+| Function | Complete | Exclusive | Fuzzy | Hierarchical | Partitioned | Interval/ratio | Ordinal | Categorical |
+|  -----   |  ----    |  ----     |  ---  |     -----    |   -----     |  ----          |  ----   |  -----      |
+| cmeans | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 
+|fanny | 1 | 0 | 1 | 0 | 1 | 0 | 0 | 0 | 
+|hclust | 1 | 1 | 0 | 1 | 0 | 1 | 1 | 1 | 
+|kmeans | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 
+|pam | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 0  | 
 
 # Data preparation
 
