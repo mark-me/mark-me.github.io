@@ -125,9 +125,7 @@ The k-means clustering algorithm splits the data into a set of k clusters, where
 The **[factoextra](http://www.sthda.com/english/rpkgs/factoextra/#cluster-analysis-and-factoextra)** library cotains a lot of goodies in respect to clustering, one of which is a function which helps us determine k visually by plotting the GAP statistic
 
 ```r
-
 ```
-
 
 ```r
 kmeans(x, centers, iter.max = 10, nstart = 1)
@@ -202,5 +200,18 @@ mapCountryData(mapped_data,
 {: refdef}
 
 Does this seem about right? American seems like a pretty lonely country: they are a cluster on themselves? Well... Not quite. If you zoom in on the map, you see a small sliver on the Mediterranean Sea... Isreal. Is this surprising? Throwing all UN resolutions in the same clustering algorithm is a rather brute force approach. We'd like to know more about the subjects of the resolutions before clustering. The good thing: you can be more specific by joining the _un_roll_call_issues_ data-set in the process and be more precise about the subjects clusters of countries agree on. If it would be my profession I'd probably add own variables in there as well... But uhm... I have a tutorial to finish. 
+
+Ok... Since I didn't really explain why I got to 4 clusters instead of 2.... There is no reason for it... So here are k = 2 and k = 3
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/clustering-mds/unvotes-map-clusters2.png" target="_blank">
+<img src="/_pages/tutorials/clustering-mds/unvotes-map-clusters2.png" alt="World map of UN votes" width="100%" height="100%" align="center"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/clustering-mds/unvotes-map-clusters3.png" target="_blank">
+<img src="/_pages/tutorials/clustering-mds/unvotes-map-clusters3.png" alt="World map of UN votes" width="100%" height="100%" align="center"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
 
 # Hierarchical clustering
