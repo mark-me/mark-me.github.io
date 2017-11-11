@@ -66,7 +66,7 @@ The Jaccard distance matrix can be created using the _vegdist_ function of the *
 library(vegan)
 dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
 ```
-Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#mediod-clustering-(pam)) clustering.
+A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#mediod-clustering-(pam)) clustering.
 
 ## Gower distance
 Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
