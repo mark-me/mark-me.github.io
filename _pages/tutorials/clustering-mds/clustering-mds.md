@@ -10,7 +10,7 @@ Cluster analysis or clustering is the task of grouping a set of objects in such 
 
 # The road to cluster analysis
 
-<img src="/_pages/tutorials/clustering-mds/yellow-brick-road.jpg" width="294" height="180" align="right"/> 
+<img src="/_pages/tutorials/clustering-mds/measuring-similarity.jpg" width="294" height="180" align="right"/> 
 
 Clustering is about similarity. So a first step in cluster analysis is **calculating similarity** between the observations in your data set. We'll explore this in the section [Determining similarity](/clustering-mds/#determining-similarity). Although I'm talking about similarity, we'll be actually doing the inverse of calculating the inverse of similarity: dissimilarity or distance. The more similar observations are, the smaller the distance between them and the more dissimilar they are, the greater the distance between them. The result of calculating distance is often expressed in a distance matrix. A distance matrix looks similar to a correlation matrix: the columns and rows denominate the same observations, and the number in a crossing states how dissimilar they are. Depending on the clustering method the distance matrix will be the input for a clustering algorithm, but it certainly for the visualisation of the set. 
 
@@ -20,6 +20,8 @@ The last step before the actual clustering is **assessing clusterability** or ou
 
 
 # Determining similarity
+
+<img src="/_pages/tutorials/clustering-mds/ma.jpg" width="264" height="180" align="right"/> 
 
 If we want to group observations by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. The choice of your distance metric is determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
 
