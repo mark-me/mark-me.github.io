@@ -21,7 +21,7 @@ The last step before the actual clustering is **assessing clusterability** or ou
 
 # Determining similarity
 
-<img src="/_pages/tutorials/clustering-mds/measuring-similarity.jpg" width="264" height="180" align="right"/> 
+<img src="/_pages/tutorials/clustering-mds/measuring-similarity.jpg" width="170" height="180" align="right"/> 
 
 If we want to group observations by similarity, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. The distance measure used highly impacts the form of the clusters and the clustering method we can use. The choice of your distance metric is determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
 
