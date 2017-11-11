@@ -173,6 +173,23 @@ ggplot(df_pam_sil, aes(x = k, y = sil_width)) +
   theme_bw()
 ```
 
+```r
+library(rworldmap)
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+mapped_data <- joinCountryData2Map(df_mds_country_votes, 
+                                   joinCode = "ISO2", 
+                                   nameJoinColumn = "country_code", 
+                                   suggestForFailedCodes = TRUE)
+
+par(mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
+mapCountryData(mapped_data, 
+               nameColumnToPlot = "pam_cluster", 
+               colourPalette = cbbPalette[1:4], 
+               mapTitle = "UN Voting clusters 2005-2015",
+               addLegend = FALSE)
+
+```
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/clustering-mds/unvotes-map-clusters.png" target="_blank">
 <img src="/_pages/tutorials/clustering-mds/unvotes-map-clusters.png" alt="World map of UN votes" width="100%" height="100%" align="center"/><br>
