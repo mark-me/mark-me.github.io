@@ -165,6 +165,9 @@ ggplot(df_pam_sil, aes(x = k, y = sil_width)) +
   geom_col() +
   labs(y = "Silhouette width") 
 ```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/clustering-mds/unvotes-pam-fit.png" alt="Image text" width="498" height="450" align="middle"/>
+{: refdef}
 
 ```r
 pam_fit <- pam(dist_matrix, diss = TRUE, k = 4)
