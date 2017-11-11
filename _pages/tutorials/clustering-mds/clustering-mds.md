@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Clustering and MDS
+title: Clustering and similarity
 comments: true
 permalink: /clustering-mds/
 published: true
