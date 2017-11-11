@@ -45,40 +45,28 @@ The Hamming distance the number of positions between two strings of equal length
 
 ## Jaccard distance
 
-Jaccard distance is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. 
-```r
-library(vegan)
+Jaccard distance is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries. 
 
-df_cluster_methods <- read.table(con <- textConnection("Complete	Exclusive	Fuzzy	Hierarchical	Partitioned	Interval/ratio	Ordinal	Categorical
-cmeans	1	0	1	0	1	0	0	0
-fanny	1	0	1	0	1	0	0	0
-hclust	1	1	0	1	0	1	1	1
-kmeans	1	1	0	0	1	1	0	0
-pam	1	1	0	0	1	1	1	0"), header = TRUE, row.names = 1)
-close(con)
-df_cluster_methods <-  df_cluster_methods[1:5,]
+First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. We'll just take the important votes. We'll just focus on the UN resolutions voted on between 2005 and 2015. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be missing values (i.e. NA). The variables are selected that matter to the analysis: the country, the UN resolution reference and the vote. The resolutions then get rotated to being variables, so for each country is a row where the vote for each UN resolution is a variable. 
+```r
+library(unvotes)
+library(lubridate) # For the year extraction function
+
+df_country_votes <- un_votes %>% 
+  inner_join(un_roll_calls, by ="rcid") %>% 
+  filter(importantvote == 1) %>% 
+  mutate(year_vote = year(date)) %>%
+  filter(year_vote >= 2005 & year_vote <= 2015) %>% 
+  mutate(vote_no = ifelse(vote == "yes", 1, ifelse(vote == "no", 0, NA)))  %>%
+  select(unres, country_code, vote_no) %>% 
+  spread(unres, vote_no)
 ```
 The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
 ```r
 library(vegan)
-
-dist_matrix <- vegdist(df_cluster_methods[, -1], method = "jaccard")
+dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
 ```
-
-```r
-mds <- cmdscale(dist_matrix,eig = TRUE, k = 2)
-df_mds <- data.frame(x = mds$points[,1], y = mds$points[,2])
-df_mds$names <- row.names(df_cluster_methods)
-
-ggplot(df_mds,aes(x, y, col = names)) +
-  geom_jitter() +
-  geom_label_repel(aes(label = names))
-```
-Then we'll apply 
-```r
-res_hclust <- hclust(dist_matrix, method="ward") 
-plot(res_hclust)
-```
+Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#mediod-clustering-(pam)) clustering.
 
 ## Gower distance
 Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
@@ -157,11 +145,12 @@ A
 
 
 
-# Mediod clustering
+# Mediod clustering (PAM)
 
 [PAM](http://www.sthda.com/english/wiki/partitioning-cluster-analysis-quick-start-guide-unsupervised-machine-learning#pam-partitioning-around-medoids)
 
-# Jaccard clustering
+## PAM for Jaccard distances.
 
-[Jaccard clustering](http://www.win-vector.com/blog/2015/09/bootstrap-evaluation-of-clusters/) _clusterboot_ of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library
+Remember the UN votes example from the section on [Jaccard distances](/clustering-mds/#jaccard-distance)? Let's go a step further and see if there are voting blocks by clustering this data.
 
+# Hierarchical clustering
