@@ -66,7 +66,7 @@ The Jaccard distance matrix can be created using the _vegdist_ function of the *
 library(vegan)
 dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
 ```
-A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#mediod-clustering-(pam)) clustering.
+A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering.
 
 ## Gower distance
 Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
@@ -87,6 +87,7 @@ You can perform a classical MDS using the _cmdscale_ function.
 ```r
 str(USArrests)
 dist_USArrests <- dist(USArrests, method = "euclidian")
+mds_USArrests <- cmdscale(dist_USArrests, eig = TRUE, k = 2)
 ```
 
 # Choosing a clustering algorithm
@@ -145,12 +146,31 @@ A
 
 
 
-# Mediod clustering (PAM)
+# Mediod clustering
 
 [PAM](http://www.sthda.com/english/wiki/partitioning-cluster-analysis-quick-start-guide-unsupervised-machine-learning#pam-partitioning-around-medoids)
 
-## PAM for Jaccard distances.
+## PAM for Jaccard distances
 
-Remember the UN votes example from the section on [Jaccard distances](/clustering-mds/#jaccard-distance)? Let's go a step further and see if there are voting blocks by clustering this data.
+Remember the UN votes example from the section on [Jaccard distances](/clustering-mds/#jaccard-distance)? Let's go a step further and see if there are voting blocks by clustering this data. First we'll have to choose the number of clusters. To do this we'll perform the PAM clustering for 2 to 10 clusters, gathering the silhouette width. 
+```r
+sil_width <- c(NA)
+for(i in 2:10){
+  pam_fit <- pam(dist_matrix,
+                 diss = TRUE,
+                 k = i)
+  sil_width[i] <- pam_fit$silinfo$avg.width
+}
+```
+Visualizing the gathered silhouette widths is done with this code:
+```r
+df_pam_sil <- data.frame(k = c(1:10), sil_width)
+
+ggplot(df_pam_sil, aes(x = k, y = sil_width)) +
+  geom_point() +
+  geom_line() +
+  labs(y = "Silhouette width") +
+  theme_bw()
+```
 
 # Hierarchical clustering
