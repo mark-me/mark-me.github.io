@@ -203,6 +203,6 @@ mapCountryData(mapped_data,
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-Does this seem about right? American seems like a pretty lonely country: they are a cluster on themselves? Well... Not quite. If you zoom in on the map, you see a small sliver on the Mediterranean Sea... Isreal. Is this surprising? 
+Does this seem about right? American seems like a pretty lonely country: they are a cluster on themselves? Well... Not quite. If you zoom in on the map, you see a small sliver on the Mediterranean Sea... Isreal. Is this surprising? Throwing all UN resolutions in the same clustering algorithm is a rather brute force approach. We'd like to know more about the subjects of the resolutions before clustering. The good thing: you can be more specific by joining the _un_roll_call_issues_ data-set in the process and be more precise about the subjects clusters of countries agree on. If it would be my profession I'd probably add own variables in there as well... But uhm... I have a tutorial to finish. 
 
 # Hierarchical clustering
