@@ -145,7 +145,7 @@ A
 
 [PAM](http://www.sthda.com/english/wiki/partitioning-cluster-analysis-quick-start-guide-unsupervised-machine-learning#pam-partitioning-around-medoids)
 
-[<img src="/_pages/tutorials/clustering-mds/pam-logo.png" width="267" height="110" align="right"/>](http://www.preciousaboutmakeup.com/)
+[<img src="/_pages/tutorials/clustering-mds/pam-logo.png" width="171" height="70" align="right"/>](http://www.preciousaboutmakeup.com/)
 
 ## PAM for Jaccard distances
 
