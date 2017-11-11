@@ -175,7 +175,7 @@ ggplot(df_pam_sil, aes(x = k, y = sil_width)) +
 pam_fit <- pam(dist_matrix, diss = TRUE, k = 4)
 df_country_votes$pam_cluster <- factor(pam_fit$clustering)
 ```
-In other clustering methods we use the MDS solution to display the clusters, but plotting 193 countries in a plot like that delivers a big mess of points, while we understand countries better as plotted in a world map. So: let's do this! The library **rworldmap** makes it quite easy to do this as long as you van ISO coded country codes in your data set, which luckily, the **unvotes** data set has. Below we load the library, and 'join' the data frame _df_country_votes_ with the _pam_cluster_ variable and the ISO2 coded _country_code_ variable to our world map:
+In other clustering methods we use the MDS solution to display the clusters, but plotting 193 countries in a plot like that delivers a big mess of points, while we understand countries better as plotted in a world map. So: let's do this! The library **[rworldmap](https://cran.r-project.org/web/packages/rworldmap/rworldmap.pdf)** makes it quite easy to do this as long as you van ISO coded country codes in your data set, which luckily, the **unvotes** data set has. Below we load the library, and 'join' the data frame _df_country_votes_ with the _pam_cluster_ variable and the ISO2 coded _country_code_ variable to our world map:
 ```r
 library(rworldmap)
 
