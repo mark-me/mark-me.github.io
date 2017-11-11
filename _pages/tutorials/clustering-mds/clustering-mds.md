@@ -143,7 +143,7 @@ A
 
 # Mediod clustering
 
-<img src="/_pages/tutorials/clustering-mds/pam-logo.png" width="200" height="30" align="right"/> 
+<img src="/_pages/tutorials/clustering-mds/pam-logo.png" width="388" height="160" align="right"/> 
 
 [PAM](http://www.sthda.com/english/wiki/partitioning-cluster-analysis-quick-start-guide-unsupervised-machine-learning#pam-partitioning-around-medoids)
 
