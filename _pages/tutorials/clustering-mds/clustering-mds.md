@@ -173,4 +173,10 @@ ggplot(df_pam_sil, aes(x = k, y = sil_width)) +
   theme_bw()
 ```
 
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/clustering-mds/unvotes-map-clusters.png" target="_blank">
+<img src="/_pages/tutorials/clustering-mds/unvotes-map-clusters.png" alt="World map of UN votes" width="100%" height="100%" align="center"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
 # Hierarchical clustering
