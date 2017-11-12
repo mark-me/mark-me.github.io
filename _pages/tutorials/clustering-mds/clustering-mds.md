@@ -108,6 +108,18 @@ So here's your decision tree:
 |kmeans | 1 | 1 | 0 | 0 | 1 | 1 | 0 | 0 | 
 |pam | 1 | 1 | 0 | 0 | 1 | 1 | 1 | 0  | 
 
+Library **[fpc](https://www.rdocumentation.org/packages/fpc)**
+
+_clustermethod_ argument:
+
+| Method        | function  | Input                              |
+| :---          | :----     | : ----                             |
+| hclustCBI     | hclust    | Matrix of observations * variables |
+| disthclustCBI | hclust    | Distance matrix                    |
+| claraCBI      | pam\clara | Matrix of observations * variables or distance matrix |
+
+
+
 # Data preparation
 
 ## Scaling
