@@ -47,7 +47,7 @@ The Hamming distance the number of positions between two strings of equal length
 
 ## Jaccard distance
 
-[<img src="/_pages/tutorials/clustering-mds/jaccard.jpg" width="214" height="170" align="right"/>](https://jaccard.com/collections/meat-tenderizers)
+[<img src="/_pages/tutorials/clustering-mds/jaccard.jpg" width="221" height="170" align="right"/>](https://jaccard.com/collections/meat-tenderizers)
 
 [Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries. 
 
