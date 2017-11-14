@@ -1,0 +1,36 @@
+religion,religion_main,religion_branch,religion_group
+anmgen,Animist religions,General,Animist religions
+bahgen,Baha'i,General,Other
+budgen,Buddhism,General,Buddhism
+budmah,Buddhism,Mahaya,
+budothr,Buddhism,Other,
+budthr,Buddhism,Theravada,
+chrstang,Christianity,Anglicanism,Christian Other
+chrstcat,Christianity,Catholic,Catholic
+chrstgen,Christianity,General,
+chrstorth,Christianity,Orthodox,Christian Orthodox
+chrstothr,Christianity,Other,Christian Other
+chrstprot,Christianity,Protestant,Protestant
+confgen,Confucianism,General,Other
+hindgen,Hindu,General,Hindu
+islmahm,Islam,Ahmadiyya,Islam Other
+islmalw,Islam,Alawite,Islam Other
+islmgen,Islam,General,
+islmibd,Islam,Ibadhi,Islam Other
+islmnat,Islam,Nation of Islam,Islam Other
+islmothr,Islam,Other,
+islmshi,Islam,Shi'a,Shi'a
+islmsun,Islam,Sunni,Sunni
+jaingen,Jain,General,Other
+jdcons,Judaism,Conservative,
+judgen,Judaism,General,Judaism
+judorth,Judaism,Orthodox,
+judothr,Judaism,Other,
+judref,Judaism,Reform,
+nonrelig,Non-religious,General,Non-religious
+othrgen,Other,General,Other
+shntgen,Shinto,General,Shinto
+sikhgen,Sikh,General,Other
+syncgen,Syncretic religions,General,Other
+taogen,Taoism,General,Other
+zorogen,Zoroastrian,General,Other
