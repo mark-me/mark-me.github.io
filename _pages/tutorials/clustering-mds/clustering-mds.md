@@ -233,3 +233,9 @@ Ok... Since I didn't really explain why I got to 4 clusters instead of 2.... The
 {: refdef}
 
 # Hierarchical clustering
+
+# Evaluating clustering
+
+1. Internal measures, which uses intrinsic information in the data to assess the quality of the clustering. Internal measures include the connectivity, the silhouette coefficient and the Dunn index.
+
+2. Stability measures, a special version of internal measures, which evaluates the consistency of a clustering result by comparing it with the clusters obtained after each column is removed, one at a time.
