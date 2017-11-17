@@ -44,7 +44,7 @@ If you use currency in your plot you probably want the axis to represent this. I
 ```r
 scale_y_continuous(label=euro_format)
 ```
-## Bar plot
+## Bar plots
 
 The most commoly used kind of plot must be the bar plot. Here are some things I had struggles with.
 
@@ -58,7 +58,7 @@ geom_label(aes(y = cumsum(perc) - perc / 2,
                label = percent(perc))) 
 ```
 
-## Pie chart
+## Pie charts
 
 'Empty' theme:
 ```r
