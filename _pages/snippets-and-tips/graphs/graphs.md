@@ -12,7 +12,7 @@ permalink: /graph-tips/
 
 <img src="/_pages/snippets-and-tips/graphs/90s-pie-chart.jpg" width="220" height="180" align="right"/> 
 
-It's all fun and games playing around with R for a while, but after some period I found out I actually had to get stuff out there: they call it work. I always thought the plots from R looked awesome, but working on my work laptop with Windows I found that the quality of the images was a bit dissapointing: I could see rough edges, giving the pictures a look like they came from the 90's. So for a presentation I wanted to up my game: make the look beautiful includes making them pixel perfect. To you can surround your graph syntax by using the function _png_ to precede your plot syntax and the _dev.off_ function after the plot syntax like this:
+It's all fun and games playing around with R for a while, but after some period I found out I actually had to get stuff out there: they call it work. I always thought the plots from R looked awesome, but working on my work laptop with Windows I found that the quality of the images was a bit dissapointing: I could see rough edges, giving the pictures a look like they came from the 90's. So for a presentation I wanted to up my game: making them look beautiful includes making them pixel perfect. To do this you can surround your graph syntax by using the function _png_ to precede your plot syntax and the _dev.off_ function after the plot syntax like this:
 ```r
 png(filename="Std_PNG.png", 
     units = "cm", 
@@ -23,7 +23,7 @@ png(filename="Std_PNG.png",
 my_sc_plot(data)
 dev.off()
 ```
-In the png function you pass the name you want to give your file to the _filename_ argument (no shit Sherlock), the _units_ argument can set the measurement level of the _width_ and _weight_ parameters. In this case I use centimeters (cm) since I'm using the output for a European PowerPoint file; so in this case the _width_ and _weight_ parameters specify the with and height of the output file in centimeters. 
+In the _png_ function you pass the name you want to give your file to the _filename_ argument (no shit Sherlock), the _units_ argument can set the measurement level of the _width_ and _weight_ parameters. In this case I use centimeters (cm) since I'm using the output for a European PowerPoint file; so in this case the _width_ and _weight_ parameters specify the with and height of the output file in centimeters. The _res_ argument is key for making them '[pixel perfect](https://en.wikipedia.org/wiki/File:Disney_-_Pixel_Perfect.jpg)', the number you put here is the number of pixels you want tho squeeze in a square inch: the higher the better, but there is a limit. Play around with it to find your optimum.
 
 # ggplot
 
