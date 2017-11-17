@@ -111,6 +111,11 @@ diamonds %>%
 
 Sooner or later you want to standardize your lay-out of the graphs: all graphs should use the same set of colours, all graphs should have this turned on, that turned off, this made more dark etcetera. I do this by first choosing one of the standard themes from the **[ggtheme](http://ggplot2.tidyverse.org/reference/ggtheme.html)** library and tweaking that. In this case
 
+To add your own color the you simply create your own vector of hexadecimal color codes. If you don't have a set you can generate one using a picture by using the site [canva](https://www.canva.com/color-palette/) or [similar sites](https://www.google.nl/search?q=creating+color+theme+from+picture).
+```r
+col_theme <- c("#483D7A", "#8FC4FF", "#1B4229", "#7B6C5B", "#9A5F89")
+```
+
 ## Combining graphs
 
 Sometimes you want two ggplots together in one picture, by putting them side by side or in a matrix of graphs. You can do this using the **[gridExtra](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html)** library. In this example I was putting two plots _p_miss_vars_ and _p_miss_pattern_ side by side:
