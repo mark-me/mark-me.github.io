@@ -46,7 +46,9 @@ scale_y_continuous(label=euro_format)
 ```
 ## Bar plot
 
-Bar plots where the bars represent percentage of the whole population:
+The most commoly used kind of plot must be the bar plot. Here are some things I had struggles with.
+
+Generally the data set we use is not aggregated, but we still want a count of the rows in it. One of the problems I came across is: how do I plot a percentage of the whole population on one bar? Bar plots where the bars represent percentage of the whole population are created with _geom_bar_ like this:
 ```r
 geom_bar(aes(y = (..count..)/sum(..count..)))
 ```
