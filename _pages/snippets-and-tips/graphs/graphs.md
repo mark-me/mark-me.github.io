@@ -53,6 +53,48 @@ Generally the data set we use is not aggregated, but we still want a count of th
 geom_bar(aes(y = (..count..)/sum(..count..)))
 ```
 
+```r
+geom_label(aes(y = cumsum(perc) - perc / 2,
+               label = percent(perc))) 
+```
+
+## Pie chart
+
+'Empty' theme:
+```r
+blank_theme <- theme_minimal()+
+  theme(
+    axis.title.x = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text =  element_blank(),
+    panel.border = element_blank(),
+    panel.grid=element_blank(),
+    axis.ticks = element_blank(),
+    plot.title=element_text(size=14, face="bold")
+  )
+```
+```r
+diamonds %>% 
+  group_by(cut) %>% 
+  summarise(n = n()) %>% 
+  mutate(perc = n / sum(n)) %>% 
+  mutate(label = paste0(cut, " - ", percent(perc))) %>% 
+  arrange(desc(perc)) %>%
+  ggplot(df_pie, aes(x = "", y = perc)) +
+    geom_bar(aes(fill = reorder(cut, perc)), 
+             width = 1, 
+             stat = "identity", 
+             col = "white") + 
+    geom_label_repel(x = 1.2,
+                     aes(y = cumsum(perc) - perc / 2,
+                         label = label, 
+                         col = reorder(cut, perc)), 
+                     size = 5) +
+    coord_polar(theta = "y", start = 0) +
+    guides(col = FALSE, fill = FALSE) +
+    blank_theme
+```
+
 ## Creating your own theme
 
 Sooner or later you want to standardize your lay-out of the graphs: all graphs should use the same set of colours, all graphs should have this turned on, that turned off, this made more dark etcetera. I do this by first choosing one of the standard themes from the **[ggtheme](http://ggplot2.tidyverse.org/reference/ggtheme.html)** library and tweaking that. In this case
