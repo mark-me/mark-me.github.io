@@ -52,8 +52,7 @@ scale_y_continuous(label=euro_format)
 ```r
 ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_point() +
-  geom_label_repel(aes(y = mpg,
-                       label = rownames(mtcars))) 
+  geom_label_repel(aes(label = rownames(mtcars))) 
 ```
 
 ## Bar plots
