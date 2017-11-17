@@ -44,6 +44,11 @@ If you use currency in your plot you probably want the axis to represent this. I
 ```r
 scale_y_continuous(label=euro_format)
 ```
+
+## Point plots
+
+[ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
+
 ## Bar plots
 
 The most commoly used kind of plot must be the bar plot. Here are some things I had struggles with.
