@@ -115,6 +115,11 @@ To add your own color the you simply create your own vector of hexadecimal color
 ```r
 col_theme <- c("#483D7A", "#8FC4FF", "#1B4229", "#7B6C5B", "#9A5F89")
 ```
+You can use this vector in the _scale_color_manual_ and _scale_fill_manual_ functions to use this in your graphs aesthetics:
+```r
+scale_color_manual(values = col_theme) +
+scale_fill_manual(values = col_theme)
+```
 
 ## Combining graphs
 
