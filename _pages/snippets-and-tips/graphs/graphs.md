@@ -51,6 +51,10 @@ Bar plots where the bars represent percentage of the whole population:
 geom_bar(aes(y = (..count..)/sum(..count..)))
 ```
 
+## Creating your own theme
+
+Sooner or later you want to standardize your lay-out of the graphs: all graphs should use the same set of colours, all graphs should have this turned on, that turned off, this made more dark etcetera. I do this by first choosing one of the standard themes from the **[ggtheme](http://ggplot2.tidyverse.org/reference/ggtheme.html)** library and tweaking that. In this case
+
 ## Combining graphs
 
 Sometimes you want two ggplots together in one picture, by putting them side by side or in a matrix of graphs. You can do this using the **(gridExtra)[https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html]** library. In this example I was putting two plots _p_miss_vars_ and _p_miss_pattern_ side by side:
