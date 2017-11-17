@@ -23,7 +23,7 @@ png(filename="Std_PNG.png",
 my_sc_plot(data)
 dev.off()
 ```
-In the _png_ function you pass the name you want to give your file to the _filename_ argument (no shit Sherlock), the _units_ argument can set the measurement level of the _width_ and _weight_ parameters. In this case I use centimeters (cm) since I'm using the output for a European PowerPoint file; so in this case the _width_ and _weight_ parameters specify the with and height of the output file in centimeters. The _res_ argument is key for making them '[pixel perfect](https://en.wikipedia.org/wiki/File:Disney_-_Pixel_Perfect.jpg)', the number you put here is the number of pixels you want tho squeeze in a square inch: the higher the better, but there is a limit. Play around with it to find your optimum.
+In the _png_ function you pass the name you want to give your file to the _filename_ argument (no shit Sherlock), the _units_ argument can set the measurement level of the _width_ and _weight_ parameters. In this case I use centimeters (cm) since I'm using the output for a European PowerPoint file; so in this case the _width_ and _weight_ parameters specify the with and height of the output file in centimeters. The _res_ argument is key for making them '[pixel perfect](https://en.wikipedia.org/wiki/Pixel_Perfect)', the number you put here is the number of pixels you want tho squeeze in a square inch: the higher the better, but there is a limit. Play around with it to find your optimum.
 
 # ggplot
 
