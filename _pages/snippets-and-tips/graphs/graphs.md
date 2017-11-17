@@ -57,7 +57,7 @@ Sooner or later you want to standardize your lay-out of the graphs: all graphs s
 
 ## Combining graphs
 
-Sometimes you want two ggplots together in one picture, by putting them side by side or in a matrix of graphs. You can do this using the **(gridExtra)[https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html]** library. In this example I was putting two plots _p_miss_vars_ and _p_miss_pattern_ side by side:
+Sometimes you want two ggplots together in one picture, by putting them side by side or in a matrix of graphs. You can do this using the **[gridExtra](https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html)** library. In this example I was putting two plots _p_miss_vars_ and _p_miss_pattern_ side by side:
 ```r
 grid.arrange(p_miss_vars, p_miss_pattern, nrow = 1)
 ```
