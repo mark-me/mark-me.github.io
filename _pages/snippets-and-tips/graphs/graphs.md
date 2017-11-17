@@ -159,3 +159,9 @@ mapped_data <- joinCountryData2Map(df_country_votes,
                                    suggestForFailedCodes = TRUE)
 ```
 The palette _cbbPalette_ is created to fill our colors on the world map. The _mapCountryData_ function is called supplying the data set _mapped_data_ you've just created. The string _pam_cluster_ is passed to the _nameColumnToPlot_ parameter to make the colors match up with the cluster. Note that the _colourPalette_ parameter gets the slightly weird subset of the _cbbPalette_ colors by using the argument cbbPalette[1:length(pam_fit$medoids)]; this is done so the numbers of colors in the palette matches the number of clusters. Otherwise the colors will be interpolated, which could give you results you're not quite happy with. 
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/clustering-mds/unvotes-map-clusters.png" target="_blank">
+<img src="/_pages/tutorials/clustering-mds/unvotes-map-clusters.png" alt="World map of UN votes" width="100%" height="100%" align="center"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
