@@ -73,6 +73,7 @@ blank_theme <- theme_minimal()+
     plot.title=element_text(size=14, face="bold")
   )
 ```
+Let's take make and example of the [diamonds](http://ggplot2.tidyverse.org/reference/diamonds.html) data set. The _coord_polar_ function in this code is what turns a bar plot into a pie chart.
 ```r
 diamonds %>% 
   group_by(cut) %>% 
