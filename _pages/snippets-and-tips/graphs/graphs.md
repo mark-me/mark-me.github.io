@@ -49,6 +49,16 @@ scale_y_continuous(label=euro_format)
 
 [ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
 
+```r
+diamonds %>% 
+  group_by(cut, color) %>% 
+  summarise(qty = n()) %>% 
+  ggplot(aes(x = cut, y = qty)) +
+    geom_point() +
+    geom_label_repel(aes(y = qty,
+                         label = color)) 
+```
+
 ## Bar plots
 
 The most commoly used kind of plot must be the bar plot. Here are some things I had struggles with.
