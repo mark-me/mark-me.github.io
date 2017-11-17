@@ -8,9 +8,19 @@ permalink: /graph-tips/
 * TOC
 {:toc}
 
+# Saving plots for publication
+
+<img src="/_pages/snippets-and-tips/graphs/90s-pie-chart.jpg" width="220" height="180" align="right"/> 
+
+It's all fun and games playing around with R for a while, but after some period I found out I actually had to get stuff out there: they call it work. I always thought the plots from R looked awesome, but working on my work laptop with Windows I found that the quality of the images was a bit dissapointing: I could see rough edges, giving the pictures a look like they came from the 90's.
+
 # ggplot
 
-ggplot has a lot of nice extensions: [http://www.ggplot2-exts.org/gallery/](http://www.ggplot2-exts.org/gallery/) ggplot axes labelling quickly end up with scientific notations... Not something I really like. You can force ggplot to display 'normal' numbers by adding this to your plot statement:
+ggplot has a lot of nice extensions: [http://www.ggplot2-exts.org/gallery/](http://www.ggplot2-exts.org/gallery/).
+
+## Axis
+
+ggplot axes labelling quickly end up with scientific notations... Not something I really like. You can force ggplot to display 'normal' numbers by adding this to your plot statement:
 
 ```r
 scale_y_continuous(labels = format_format(big.mark = ".",
@@ -23,10 +33,18 @@ If you use currency in your plot you probably want the axis to represent this. I
 ```r
 scale_y_continuous(label=euro_format)
 ```
+## Bar plot
 
 Bar plots where the bars represent percentage of the whole population:
 ```r
 geom_bar(aes(y = (..count..)/sum(..count..)))
+```
+
+## Combining graphs
+
+Sometimes you want two ggplots together in one picture, by putting them side by side or in a matrix of graphs. You can do this using the **(gridExtra)[https://cran.r-project.org/web/packages/gridExtra/vignettes/arrangeGrob.html]** library. In this example I was putting two plots _p_miss_vars_ and _p_miss_pattern_ side by side:
+```r
+grid.arrange(p_miss_vars, p_miss_pattern, nrow = 1)
 ```
 
 # Word clouds
