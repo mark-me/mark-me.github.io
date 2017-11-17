@@ -60,7 +60,7 @@ geom_label(aes(y = cumsum(perc) - perc / 2,
 
 ## Pie charts
 
-'Empty' theme:
+Creating a pie chart is not a straightforward process in the ggplot framework, since Tufte deemed them [bad](http://speakingppt.com/2013/03/18/why-tufte-is-flat-out-wrong-about-pie-charts/), they aren't worth proper attention. Standard parts of a ggplot are axes, which aren't usefull for pie charts. So to display pie charts cleanly we need to create an  'Empty' theme:
 ```r
 blank_theme <- theme_minimal()+
   theme(
