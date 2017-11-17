@@ -50,13 +50,10 @@ scale_y_continuous(label=euro_format)
 [ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
 
 ```r
-diamonds %>% 
-  group_by(cut, color) %>% 
-  summarise(qty = n()) %>% 
-  ggplot(aes(x = cut, y = qty)) +
-    geom_point() +
-    geom_label_repel(aes(y = qty,
-                         label = color)) 
+ggplot(mtcars, aes(x = hp, y = mpg)) +
+  geom_point() +
+  geom_label_repel(aes(y = mpg,
+                       label = rownames(mtcars))) 
 ```
 
 ## Bar plots
