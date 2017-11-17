@@ -29,7 +29,7 @@ In the _png_ function you pass the name you want to give your file to the _filen
 
 ggplot has a lot of nice extensions: [http://www.ggplot2-exts.org/gallery/](http://www.ggplot2-exts.org/gallery/).
 
-## Axis
+## Axis formatting
 
 ggplot axes labelling quickly end up with scientific notations... Not something I really like. You can force ggplot to display 'normal' numbers by adding this to your plot statement:
 
