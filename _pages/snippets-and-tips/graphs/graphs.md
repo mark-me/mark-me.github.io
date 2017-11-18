@@ -54,7 +54,9 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_label_repel(aes(label = rownames(mtcars))) 
 ```
 
+{:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/ggrepel.png" alt="ggrepel" align="center"/>
+{: refdef}
 
 ## Bar plots
 
@@ -84,7 +86,10 @@ ggplot(aes(x = Class, y = Freq, fill = Survived)) +
   geom_text(aes(label = Freq), 
             position = position_dodge(width = 1), vjust = -0.25)
 ```
+
+{:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/bar-plot-dodge.png" alt="ggrepel" align="center"/>
+{: refdef}
 
 ## Pie charts
 
@@ -130,7 +135,9 @@ diamonds %>%
     guides(col = FALSE, fill = FALSE) +
     blank_theme
 ```
+{:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/pie-plot.png" alt="Pie plot" align="center"/>
+{: refdef}
 
 ## Creating your own theme
 
@@ -166,7 +173,9 @@ The random.order variable specifies whether the most frequent word is plot first
 
 The [wordcloud2 library](https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html) offers more advanced formatting, even allowing you to define the shape of the [wordcloud](http://www.r-graph-gallery.com/2016/12/09/the-wordcloud2-library/). The down-side? Slow as.... This example below, is coming from my tutorial [Mining Alice's Wonderland](/mining-alices-wonderland/). Here a transparent PNG is used, in which the words of "Alice's Adventures in Wonderland" is projected.
 
+{:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/mining-alices-wonderland/rabbit-cloud.png" alt="Shaped word cloud" align="center"/>
+{: refdef}
 
 # Network graphs
 
@@ -215,7 +224,9 @@ ggmap(map_belgium) +
   geom_point(data=tbl_market_base, aes(x = lon, y = lat, colour=code_language ))
 ```
 
+{:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/ggmap.png" alt="ggmap with Google" align="center"/>
+{: refdef}
 
 # (Map) Rasters
 
@@ -228,7 +239,9 @@ netherlands <- getData('GADM', country='NLD', level=1) plot(netherlands)
 
 The level parameter determines the granularity of the administrative areas used. This above example shows the subdivision of The Netherlands in provinces. If we increase the level parameter by one we drill down to 'gemeentes'
 
+{:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/map_raster1.png" alt="" align="center"/>
+{: refdef}
 
 ```r
 netherlands <- getData('GADM', country='NLD', level=2)
@@ -236,7 +249,9 @@ netherlands <- getData('GADM', country='NLD', level=2)
 
 As you might expect, the country parameter specifies the country you want to view. The country parameter should be specified using the ALPHA 3 ISO code: [http://www.nationsonline.org/oneworld/country_code_list.htm](http://www.nationsonline.org/oneworld/country_code_list.htm)
 
+{:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/map_raster2.png" alt="" align="center"/>
+{: refdef}
 
 # World map
 
