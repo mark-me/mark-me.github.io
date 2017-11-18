@@ -83,6 +83,7 @@ ggplot(aes(x = Class, y = Freq, fill = Survived)) +
   geom_text(aes(label = Freq), 
             position = position_dodge(width = 1), vjust=-0.25)
 ```
+<img src="/_pages/snippets-and-tips/graphs/bar-plot-dodge.png" alt="ggrepel" align="center"/>
 
 ## Pie charts
 
