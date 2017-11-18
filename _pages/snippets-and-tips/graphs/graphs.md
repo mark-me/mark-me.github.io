@@ -119,7 +119,7 @@ As you might expect, the country parameter specifies the country you want to vie
 
 ## Coloring raster maps
 
-To add color to these maps we've got to have two layers. If we want to plot colors by provinces we'll need the map of The Netherlands _and_ the map of the provinces:
+The entire script for this section can be downloaded from [here](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/snippets-and-tips/graphs/raster-maps.R). To add color to these map rasters we've got to have two layers: one for the outer layer, and one for each piece within that layer (I'm not really being clear here). If we want to plot colors by provinces we'll need the map of The Netherlands _and_ the map of the provinces:
 ```r
 netherlands <- getData("GADM", country = "NLD", level = 0)
 provinces <-  getData("GADM", country = "NLD", level = 1)
