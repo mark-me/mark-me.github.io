@@ -55,6 +55,8 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_label_repel(aes(label = rownames(mtcars))) 
 ```
 
+<img src="/_pages/snippets-and-tips/graphs/ggrepel.png" alt="ggrepel" align="center"/>
+
 ## Bar plots
 
 The most commoly used kind of plot must be the bar plot. Here are some things I had struggles with.
