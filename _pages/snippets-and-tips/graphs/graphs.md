@@ -57,7 +57,9 @@ Networked graphs can be created using the **ggraph** library. I've created a [tu
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-# ggmap
+# Geographical plots
+
+## ggmap
 
 With the [ggmap library](https://cran.r-project.org/web/packages/ggmap/ggmap.pdf) you can plot data on a Google Map or OpenStreetMap amongst others.
 ```r
@@ -91,7 +93,7 @@ ggmap(map_belgium) +
 <img src="/_pages/snippets-and-tips/graphs/ggmap.png" alt="ggmap with Google" align="center"/>
 {: refdef}
 
-# (Map) Rasters
+## Raster maps
 
 Countries can be divided in administrative districts. These can be accessed and plotted using the **raster** library. Country maps can easily be plotted using this code:
 ```r
@@ -115,7 +117,7 @@ As you might expect, the country parameter specifies the country you want to vie
 <img src="/_pages/snippets-and-tips/graphs/map_raster2.png" alt="" align="center"/>
 {: refdef}
 
-## Coloring raster maps
+### Coloring raster maps
 
 The entire script for this section can be downloaded from [here](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/snippets-and-tips/graphs/raster-maps.R). To add color to these map rasters we've got to have two layers: one for the outer layer, and one for each piece within that layer (I'm not really being clear here). If we want to plot colors by provinces we'll need the map of The Netherlands _and_ the map of the provinces:
 ```r
@@ -141,7 +143,7 @@ ggplot(fnetherlands, aes(x = long, y = lat, group = group)) +
 <img src="/_pages/snippets-and-tips/graphs/raster-coloured.png" alt="ggmap with Google" align="center"/>
 {: refdef}
 
-# World map
+## World map
 
 The library **[rworldmap](https://cran.r-project.org/web/packages/rworldmap/rworldmap.pdf)** lets' you easily plot statistics in world maps as long as you van ISO coded country codes in your data set. Below we load the library, and 'join' the data frame _df_country_votes_ with the _pam_cluster_ variable and the ISO2 coded _country_code_ variable to our world map:
 ```r
