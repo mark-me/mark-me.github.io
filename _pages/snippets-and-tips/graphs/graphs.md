@@ -92,9 +92,9 @@ diamonds %>%
   group_by(cut) %>% 
   summarise(n = n()) %>% 
   mutate(perc = n / sum(n)) %>% 
-  mutate(label = paste0(cut, " - ", percent(perc))) %>% 
+  mutate(label = paste0(cut, "\n", percent(perc))) %>% 
   arrange(desc(perc)) %>%
-  ggplot(df_pie, aes(x = "", y = perc)) +
+  ggplot(aes(x = "", y = perc)) +
     geom_bar(aes(fill = reorder(cut, perc)), 
              width = 1, 
              stat = "identity", 
@@ -108,6 +108,9 @@ diamonds %>%
     guides(col = FALSE, fill = FALSE) +
     blank_theme
 ```
+First the _diamond_ data set is prepared by aggerating it ```rmutate(label = paste0(cut, "\n", percent(perc)))```
+
+<img src="/_pages/snippets-and-tips/graphs/pie-plot.png" alt="Pie plot" align="center"/>
 
 ## Creating your own theme
 
