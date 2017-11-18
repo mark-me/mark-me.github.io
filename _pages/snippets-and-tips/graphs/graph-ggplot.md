@@ -5,6 +5,9 @@ comments: true
 permalink: /graph-tips-ggplot/
 ---
 
+* TOC
+{:toc}
+
 # Extensions 
 
 ggplot has a lot of nice extensions: [http://www.ggplot2-exts.org/gallery/](http://www.ggplot2-exts.org/gallery/).
