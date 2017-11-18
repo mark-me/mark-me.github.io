@@ -61,14 +61,28 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
 
 The most commoly used kind of plot must be the bar plot. Here are some things I had struggles with.
 
+### Percentage of rows per variable
+
 Generally the data set we use is not aggregated, but we still want a count of the rows in it. One of the problems I came across is: how do I plot a percentage of the whole population on one bar? Bar plots where the bars represent percentage of the whole population are created with _geom_bar_ like this:
 ```r
 geom_bar(aes(y = (..count..)/sum(..count..)))
 ```
 To show the percentage labels within the stacked bar, the _geom_label_ function must have it's own _y_ aesthetic so they are well alligned. The percentage value _perc_ is a value between 0 and 1, but is displayed like a proper percentage by passing it to the _percentage_ function from the **[scales](https://www.rdocumentation.org/packages/scales)** library.
 ```r
-geom_label(aes(y = cumsum(perc) - perc / 2,
-               label = percent(perc))) 
+geom_label(aes(y = cumsum(perc) - perc / 2, label = percent(perc))) 
+```
+### Dodged bar plots with value labels
+
+```r
+titanic <- as.data.frame(Titanic)
+
+titanic %>% 
+  group_by(Class, Survived) %>% 
+  summarise(Freq = sum(Freq)) %>% 
+ggplot(aes(x = Class, y = Freq, fill = Survived)) + 
+  geom_col(position = "dodge") +
+  geom_text(aes(label = Freq), 
+            position = position_dodge(width = 1), vjust=-0.25)
 ```
 
 ## Pie charts
