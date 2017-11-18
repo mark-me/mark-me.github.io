@@ -122,7 +122,7 @@ The entire script for this section can be downloaded from [here](https://raw.git
 netherlands <- getData("GADM", country = "NLD", level = 0)
 provinces <-  getData("GADM", country = "NLD", level = 1)
 ```
-To get ggplot to recognise the polygons in the GDAM data the _fortify_ function is used to convert them to data frames:
+To get ggplot to recognise the polygons in the GDAM data we need to convert it to a data frame. Here the _fortify_ comes to our help:
 ```r
 fnetherlands <- fortify(netherlands)
 fprovinces <- fortify(provinces)
