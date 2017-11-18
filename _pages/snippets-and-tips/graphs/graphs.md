@@ -94,7 +94,6 @@ ggmap(map_belgium) +
 # (Map) Rasters
 
 Countries can be divided in administrative districts. These can be accessed and plotted using the **raster** library. Country maps can easily be plotted using this code:
-
 ```r
 library(raster)
 netherlands <- getData('GADM', country='NLD', level=1) 
@@ -106,7 +105,6 @@ The level parameter determines the granularity of the administrative areas used.
 {:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/map_raster1.png" alt="" align="center"/>
 {: refdef}
-
 ```r
 netherlands <- getData('GADM', country='NLD', level=2)
 ```
@@ -131,22 +129,13 @@ fprovinces <- fortify(provinces)
 ```
 
 ```r
-tbl_province <- data.frame(id = as.character(provinces$ID_1),
-                           name = provices$NAME_1,
-                           qty = c(200, 20, 170, 80, 100, NA, 130, 160, 20, 80, 150, 110, NA, 170))
-
-fprovinces %<>% 
-  left_join(tbl_province_data, by = "id")
-```
-
-```r
 ggplot(fnetherlands, aes(x = long, y = lat, group = group)) + 
   geom_path() +
-  geom_polygon(data = fprovinces, 
-               aes(x = long, y = lat, fill = qty)) +
+  geom_polygon(data = tbl_province, 
+               aes(x = long, y = lat, fill = qty_population_km2)) +
   geom_path(data = fprovinces, 
             aes(x = long, y = lat)) + 
-  scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = "white") +
+  scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = NA) 
   blank_theme
 ```
 {:refdef: style="text-align: center;"}
