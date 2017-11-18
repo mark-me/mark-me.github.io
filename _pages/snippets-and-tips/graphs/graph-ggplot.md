@@ -10,7 +10,7 @@ permalink: /graph-tips-ggplot/
 
 # Extensions 
 
-ggplot has a lot of nice extensions: [http://www.ggplot2-exts.org/gallery/](http://www.ggplot2-exts.org/gallery/).
+ggplot has a lot of nice extensions: [http://www.ggplot2-exts.org/gallery/](http://www.ggplot2-exts.org/gallery/) adding loads of new plots to your repertoire.
 
 # Axis formatting
 
