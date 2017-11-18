@@ -226,14 +226,24 @@ As you might expect, the country parameter specifies the country you want to vie
 
 The library **[rworldmap](https://cran.r-project.org/web/packages/rworldmap/rworldmap.pdf)** lets' you easily plot statistics in world maps as long as you van ISO coded country codes in your data set. Below we load the library, and 'join' the data frame _df_country_votes_ with the _pam_cluster_ variable and the ISO2 coded _country_code_ variable to our world map:
 ```r
-library(rworldmap)
-
 mapped_data <- joinCountryData2Map(df_country_votes, 
                                    joinCode = "ISO2", 
                                    nameJoinColumn = "country_code", 
                                    suggestForFailedCodes = TRUE)
 ```
-The palette _cbbPalette_ is created to fill our colors on the world map. The _mapCountryData_ function is called supplying the data set _mapped_data_ you've just created. The string _pam_cluster_ is passed to the _nameColumnToPlot_ parameter to make the colors match up with the cluster. Note that the _colourPalette_ parameter gets the slightly weird subset of the _cbbPalette_ colors by using the argument cbbPalette[1:length(pam_fit$medoids)]; this is done so the numbers of colors in the palette matches the number of clusters. Otherwise the colors will be interpolated, which could give you results you're not quite happy with. 
+The palette _cbbPalette_ is created to fill our colors on the world map. The _mapCountryData_ function is called supplying the data set _mapped_data_ you've just created. The string _pam_cluster_ is passed to the _nameColumnToPlot_ parameter to make the colors match up with the cluster. Note that the _colourPalette_ parameter gets the slightly weird subset of the _cbbPalette_ colors by using the argument cbbPalette[1:4]; this is done so the numbers of colors in the palette matches the number of values in the dataset; otherwise the colors will be interpolated, which could give you results you're not quite happy with. 
+
+```r
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+par(mai=c(0,0,0.2,0),xaxs="i",yaxs="i")
+
+mapCountryData(mapped_data, 
+               nameColumnToPlot = "pam_cluster", 
+               colourPalette = cbbPalette[1:4], 
+               catMethod = "categorical",
+               addLegend = FALSE)
+```               
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/clustering-mds/unvotes-map-clusters.png" target="_blank">
