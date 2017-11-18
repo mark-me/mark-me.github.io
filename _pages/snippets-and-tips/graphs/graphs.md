@@ -65,7 +65,7 @@ Generally the data set we use is not aggregated, but we still want a count of th
 ```r
 geom_bar(aes(y = (..count..)/sum(..count..)))
 ```
-
+To show the percentage labels within the stacked bar, the _geom_label_ function must have it's own _y_ aesthetic so they are well alligned. The percentage value _perc_ is a value between 0 and 1, but is displayed like a proper percentage by passing it to the _percentage_ function from the **[scales](https://www.rdocumentation.org/packages/scales)** library.
 ```r
 geom_label(aes(y = cumsum(perc) - perc / 2,
                label = percent(perc))) 
