@@ -86,7 +86,14 @@ blank_theme <- theme_minimal()+
     plot.title=element_text(size=14, face="bold")
   )
 ```
-Let's take make and example of the [diamonds](http://ggplot2.tidyverse.org/reference/diamonds.html) data set. The _coord_polar_ function in this code is what turns a bar plot into a pie chart.
+Let's make and example of the [diamonds](http://ggplot2.tidyverse.org/reference/diamonds.html) data set. The _coord_polar_ function in this code is what turns a bar plot into a pie chart. 
+
+* First the _diamond_ data set is prepared by aggerating it by _cut_ and counting the rows, then the percentage, _perc_ is calculated. The _cut_ variable and _perc_ are put together in a label seperated by a newline ```rmutate(label = paste0(cut, "\n", percent(perc)))```; this label will be used to display on top of the bar char. The data frame is descendingly ordered by the percentage so the labels will correctly align to the plot. The data is fed into the _ggplot_ function. 
+* The _geom_col_ function aesthetic's color fill is done by cut, but the order is determined by the percentage by ```r reorder(cut, perc)```. The parameter _width_ is set to 1 so the pie chart has no hole in the middle. 
+* For adding the labels the _geom_label_'s _x_ is set to 1.2 to ensure the label is put somewhat on the outside of the plot. The _col_ aesthetic, like the _fill_ of the _geom_col_ is ordered by the _perc_ variable so the colors line up. 
+* The _coord_polar_ function turns the bar chart into a pie chart by setting the _theta_ to "y" so the y-axis is the circumference of the pie.
+* I've turned off the fill and color legends, using the _guides_ function, since all information is displayed in the labels
+* Lastly the newly created _blank_theme_ is added to remove all the bloat.
 ```r
 diamonds %>% 
   group_by(cut) %>% 
@@ -95,21 +102,18 @@ diamonds %>%
   mutate(label = paste0(cut, "\n", percent(perc))) %>% 
   arrange(desc(perc)) %>%
   ggplot(aes(x = "", y = perc)) +
-    geom_bar(aes(fill = reorder(cut, perc)), 
+    geom_col(aes(fill = reorder(cut, perc)), 
              width = 1, 
-             stat = "identity", 
              col = "white") + 
-    geom_label_repel(x = 1.2,
-                     aes(y = cumsum(perc) - perc / 2,
-                         label = label, 
-                         col = reorder(cut, perc)), 
-                     size = 5) +
+    geom_label(x = 1.2,
+               aes(y = cumsum(perc) - perc / 2,
+                   label = label, 
+                   col = reorder(cut, perc)), 
+               size = 5) +
     coord_polar(theta = "y", start = 0) +
     guides(col = FALSE, fill = FALSE) +
     blank_theme
 ```
-First the _diamond_ data set is prepared by aggerating it ```rmutate(label = paste0(cut, "\n", percent(perc)))```
-
 <img src="/_pages/snippets-and-tips/graphs/pie-plot.png" alt="Pie plot" align="center"/>
 
 ## Creating your own theme
