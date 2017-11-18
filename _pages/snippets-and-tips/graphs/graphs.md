@@ -47,8 +47,7 @@ scale_y_continuous(label=euro_format)
 
 ## Point plots
 
-[ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)
-
+Sometimes you need labels indicating which point in the plot stands for what. Using the _geom_label_ and _geom_text_ functions cause overlapping so the texts become illegible. The **[ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)** library provides the _geom_label_repel_ function which prevents exactly that. It makes sure each label dodges others whenever possible.
 ```r
 ggplot(mtcars, aes(x = hp, y = mpg)) +
   geom_point() +
