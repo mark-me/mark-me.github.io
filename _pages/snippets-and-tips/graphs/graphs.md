@@ -60,19 +60,16 @@ Networked graphs can be created using the **ggraph** library. I've created a [tu
 # ggmap
 
 With the [ggmap library](https://cran.r-project.org/web/packages/ggmap/ggmap.pdf) you can plot data on a Google Map or OpenStreetMap amongst others.
-
 ```r
 library(ggmap)
 ```
 
 First you get the map picture from one of the services:
-
 ```r
 map_belgium <- get_map(location="belgium", zoom=7, maptype='terrain', source='google', color='color')
 ```
 
 Most map graphing tools make you fill in longitudes and latitudes in advance, but this library allows you to use the map provider's own search capabilities to add the longitudes and latitudes. Google Maps does limit the number of requests by 2.500 per call, so you might have to do some grouping. For example: I made a map of all Belgian companies, of which I happily used all company addresses to get the coordinates. Google thought I was overreacting making so many coordinate requests, so instead I aggregated the companies to countries and towns to perform the search:
-
 ```r
 tbl_towns <- tbl_market_base %>% # Aggregate the market to country/town
   group_by(country, town) %>%
@@ -80,20 +77,16 @@ tbl_towns <- tbl_market_base %>% # Aggregate the market to country/town
 
 coord <- geocode(paste0(tbl_towns$country, ", ", tbl_towns$town)) # Get coordinates
 ```
-
 I pushed the enriched data back on the company data
-
 ```r
 tbl_towns <- cbind(tbl_towns,coord) %<>%
   left_join(tbl_towns, by=c("country","town"))
 ```
 and created this map:
-
 ```r
 ggmap(map_belgium) +
   geom_point(data=tbl_market_base, aes(x = lon, y = lat, colour=code_language ))
 ```
-
 {:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/ggmap.png" alt="ggmap with Google" align="center"/>
 {: refdef}
@@ -156,6 +149,9 @@ ggplot(fnetherlands, aes(x = long, y = lat, group = group)) +
   scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = "white") +
   blank_theme
 ```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/snippets-and-tips/graphs/raster-coloured.png" alt="ggmap with Google" align="center"/>
+{: refdef}
 
 # World map
 
