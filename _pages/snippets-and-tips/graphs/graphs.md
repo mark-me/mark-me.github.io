@@ -72,6 +72,7 @@ geom_label(aes(y = cumsum(perc) - perc / 2, label = percent(perc)))
 ```
 ### Dodged bar plots with value labels
 
+Whenever I wanted value labels on side by side bar-plots I got a headache: how do you make sure the texts are dodged as well? Below I've made an example based on the _Titanic_ data set. I had to convert it to a data frame before I could use it in a ggplot. The trick of the text dodgingg is in the setting the _position_ parameter of the _geom_text_ function to ```position_dodge(width = 1)```. The _vjust_ parameter let's you play around with the text's position around it's _y_ aesthetic; setting it's value to -.25 puts the text above the bar, while setting it to 1.5 puts it on the inside end of the bar.
 ```r
 titanic <- as.data.frame(Titanic)
 
@@ -81,7 +82,7 @@ titanic %>%
 ggplot(aes(x = Class, y = Freq, fill = Survived)) + 
   geom_col(position = "dodge") +
   geom_text(aes(label = Freq), 
-            position = position_dodge(width = 1), vjust=-0.25)
+            position = position_dodge(width = 1), vjust = -0.25)
 ```
 <img src="/_pages/snippets-and-tips/graphs/bar-plot-dodge.png" alt="ggrepel" align="center"/>
 
@@ -108,6 +109,7 @@ Let's make and example of the [diamonds](http://ggplot2.tidyverse.org/reference/
 * The _coord_polar_ function turns the bar chart into a pie chart by setting the _theta_ to "y" so the y-axis is the circumference of the pie.
 * I've turned off the fill and color legends, using the _guides_ function, since all information is displayed in the labels
 * Lastly the newly created _blank_theme_ is added to remove all the bloat.
+
 ```r
 diamonds %>% 
   group_by(cut) %>% 
