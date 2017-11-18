@@ -104,7 +104,8 @@ Countries can be divided in administrative districts. These can be accessed and 
 
 ```r
 library(raster)
-netherlands <- getData('GADM', country='NLD', level=1) plot(netherlands)
+netherlands <- getData('GADM', country='NLD', level=1) 
+plot(netherlands)
 ```
 
 The level parameter determines the granularity of the administrative areas used. This above example shows the subdivision of The Netherlands in provinces. If we increase the level parameter by one we drill down to 'gemeentes'
@@ -122,6 +123,39 @@ As you might expect, the country parameter specifies the country you want to vie
 {:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/map_raster2.png" alt="" align="center"/>
 {: refdef}
+
+## Coloring raster maps
+
+To add color to these maps we've got to have two layers. If we want to plot colors by provinces we'll need the map of The Netherlands _and_ the map of the provinces:
+```r
+netherlands <- getData("GADM", country = "NLD", level = 0)
+provinces <-  getData("GADM", country = "NLD", level = 1)
+```
+To get ggplot to recognise the polygons in the GDAM data the _fortify_ function is used to convert them:
+```r
+fnetherlands <- fortify(netherlands)
+fprovinces <- fortify(provinces)
+```
+
+```r
+tbl_province <- data.frame(id = as.character(provinces$ID_1),
+                           name = provices$NAME_1,
+                           qty = c(200, 20, 170, 80, 100, NA, 130, 160, 20, 80, 150, 110, NA, 170))
+
+fprovinces %<>% 
+  left_join(tbl_province_data, by = "id")
+```
+
+```r
+ggplot(fnetherlands, aes(x = long, y = lat, group = group)) + 
+  geom_path() +
+  geom_polygon(data = fprovinces, 
+               aes(x = long, y = lat, fill = qty)) +
+  geom_path(data = fprovinces, 
+            aes(x = long, y = lat)) + 
+  scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = "white") +
+  blank_theme
+```
 
 # World map
 
