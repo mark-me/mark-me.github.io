@@ -122,12 +122,12 @@ The entire script for this section can be downloaded from [here](https://raw.git
 netherlands <- getData("GADM", country = "NLD", level = 0)
 provinces <-  getData("GADM", country = "NLD", level = 1)
 ```
-To get ggplot to recognise the polygons in the GDAM data the _fortify_ function is used to convert them:
+To get ggplot to recognise the polygons in the GDAM data the _fortify_ function is used to convert them to data frames:
 ```r
 fnetherlands <- fortify(netherlands)
 fprovinces <- fortify(provinces)
 ```
-
+The _fprovinces_ data frame is enriched with Dutch population data. If you want to find out how, [download the script](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/snippets-and-tips/graphs/raster-maps.R).
 ```r
 ggplot(fnetherlands, aes(x = long, y = lat, group = group)) + 
   geom_path() +
@@ -135,8 +135,7 @@ ggplot(fnetherlands, aes(x = long, y = lat, group = group)) +
                aes(x = long, y = lat, fill = qty_population_km2)) +
   geom_path(data = fprovinces, 
             aes(x = long, y = lat)) + 
-  scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = NA) 
-  blank_theme
+  scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = NA)
 ```
 {:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/raster-coloured.png" alt="ggmap with Google" align="center"/>
