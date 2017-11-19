@@ -1,3 +1,8 @@
+- title: Creating raster maps
+  url: /raster-maps/
+  image: _pages/tutorials/raster-maps/geo-map.png
+  description: Using raster maps plots, and 'prettifying' it by adding a Google map layer.
+
 - title: Creating your own project template
   url: /project-template/
   image: /_pages/tutorials/project-template.png
@@ -37,3 +42,11 @@
   url: /impute-missings/
   image: /_pages/tutorials/impute-missings/impute-missings.png
   description: Identifying the extent of your missing value problems, and ways to fix them.  
+
+---
+layout: page
+title: Raster maps
+comments: true
+permalink: 
+published: true
+---
