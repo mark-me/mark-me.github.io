@@ -1,6 +1,6 @@
 - title: Creating raster maps
   url: /raster-maps/
-  image: _pages/tutorials/raster-maps/geo-map.png
+  image: _pages/tutorials/raster-maps/raster-map.png
   description: Using raster maps plots, and 'prettifying' it by adding a Google map layer.
 
 - title: Creating your own project template
