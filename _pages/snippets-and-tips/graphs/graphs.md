@@ -14,7 +14,7 @@ permalink: /graph-tips/
 
 It's all fun and games playing around with R for a while, but after some period I found out I actually had to get stuff out there: they call it work. I always thought the plots from R looked awesome, but working on my work laptop with Windows I found that the quality of the images was a bit dissapointing: I could see rough edges, giving the pictures a look like they came from the 90's. So for a presentation I wanted to up my game: making them look beautiful includes making them pixel perfect. To do this you can surround your graph syntax by using the function _png_ to precede your plot syntax and the _dev.off_ function after the plot syntax like this:
 ```r
-png(filename="Std_PNG.png", 
+png(filename = "Std_PNG.png", 
     units = "cm", 
     width = 5, 
     height = 4, 
@@ -34,7 +34,7 @@ The snippets on the **ggplot2** library have gotten so numerous that I've put th
 The [**wordcloud** library](https://cran.r-project.org/web/packages/wordcloud/wordcloud.pdf) can be used like the following:
 
 ```r
-wordcloud(text, random.order=FALSE, colors=brewer.pal(8, "Dark2"))
+wordcloud(text, random.order = FALSE, colors = brewer.pal(8, "Dark2"))
 ```
 
 The random.order variable specifies whether the most frequent word is plot first, or whether words are plot randomly. Passing the brewer.pal() function to the color parameter tells the wordcloud to use 8 colours from the RColorbrewer [Dark2](http://colorbrewer2.org/#type=qualitative&scheme=Dark2&n=3) palette:
@@ -68,7 +68,7 @@ library(ggmap)
 
 First you get the map picture from one of the services:
 ```r
-map_belgium <- get_map(location="belgium", zoom=7, maptype='terrain', source='google', color='color')
+map_belgium <- get_map(location = "belgium", zoom = 7, maptype = "terrain", source = "google", color = "color")
 ```
 
 Most map graphing tools make you fill in longitudes and latitudes in advance, but this library allows you to use the map provider's own search capabilities to add the longitudes and latitudes. Google Maps does limit the number of requests by 2.500 per call, so you might have to do some grouping. For example: I made a map of all Belgian companies, of which I happily used all company addresses to get the coordinates. Google thought I was overreacting making so many coordinate requests, so instead I aggregated the companies to countries and towns to perform the search:
@@ -82,12 +82,12 @@ coord <- geocode(paste0(tbl_towns$country, ", ", tbl_towns$town)) # Get coordina
 I pushed the enriched data back on the company data
 ```r
 tbl_towns <- cbind(tbl_towns,coord) %<>%
-  left_join(tbl_towns, by=c("country","town"))
+  left_join(tbl_towns, by = c("country", "town"))
 ```
 and created this map:
 ```r
 ggmap(map_belgium) +
-  geom_point(data=tbl_market_base, aes(x = lon, y = lat, colour=code_language ))
+  geom_point(data = tbl_market_base, aes(x = lon, y = lat, colour = code_language ))
 ```
 {:refdef: style="text-align: center;"}
 <img src="/_pages/snippets-and-tips/graphs/ggmap.png" alt="ggmap with Google" align="center"/>
@@ -98,17 +98,17 @@ ggmap(map_belgium) +
 Countries can be divided in administrative districts. These can be accessed and plotted using the **raster** library. Country maps can easily be plotted using this code:
 ```r
 library(raster)
-netherlands <- getData('GADM', country='NLD', level=1) 
+netherlands <- getData("GADM", country = "NLD", level = 1) 
 plot(netherlands)
 ```
 
 The level parameter determines the granularity of the administrative areas used. This above example shows the subdivision of The Netherlands in provinces. If we increase the level parameter by one we drill down to 'gemeentes'
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/snippets-and-tips/graphs/map_raster1.png" alt="" align="center"/>
+<img src="/_pages/snippets-and-tips/graphs/map-raster-1.png" alt="" align="center"/>
 {: refdef}
 ```r
-netherlands <- getData('GADM', country='NLD', level=2)
+netherlands <- getData("GADM", country = "NLD", level = 2)
 ```
 
 As you might expect, the country parameter specifies the country you want to view. The country parameter should be specified using the ALPHA 3 ISO code: [http://www.nationsonline.org/oneworld/country_code_list.htm](http://www.nationsonline.org/oneworld/country_code_list.htm)
@@ -140,7 +140,33 @@ ggplot(fnetherlands, aes(x = long, y = lat, group = group)) +
   scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = NA)
 ```
 {:refdef: style="text-align: center;"}
-<img src="/_pages/snippets-and-tips/graphs/raster-coloured.png" alt="ggmap with Google" align="center"/>
+<img src="/_pages/snippets-and-tips/graphs/map-raster-filled.png" alt="Filled raster map" align="center"/>
+{: refdef}
+
+### Combining ggmap with the raster
+
+For the maximum wow factor we're going to combine the Google map of The Netherlands with the raster plot. To get the Google map of the Netherlands the **ggmap** library is used which I've explained on this page:
+```r
+map_nld <- get_map(location = "netherlands", 
+                   zoom = 7, 
+                   maptype = "terrain", 
+                   source = "google", 
+                   color = "color")
+```                   
+Then the ggmap is combined with the filled raster plot to get this:
+```r
+ggmap(map_nld) + 
+  geom_path(data = fnetherlands, aes(x = long, y = lat, group = group), alpha = 0) +
+  geom_polygon(data = tbl_province, 
+               aes(x = long, y = lat, group = group, fill = qty_population_km2), alpha = 0.7) +
+  geom_path(data = fprovinces, 
+            aes(x = long, y = lat, group = group), size = .2) + 
+  scale_fill_continuous(low = "#8FC4FF", high = "#483D7A", na.value = NA)
+```
+Note how the original _ggplot_ function is replaced by a _ggmap_ function. The data and aesthetics then were moved to all the functions plotting the raster data. It is important to repeat the _group_ aesthetic on all layers, since it does not propogate from the main aesthetic, previously set in the _ggplot_ function. If you don't do this, your map looks more like a broken vase then a map.
+
+{:refdef: style="text-align: center;"}
+<img src="/_pages/snippets-and-tips/graphs/map-raster-ggmap.png" alt="Filled raster map combined with Google map" align="center"/>
 {: refdef}
 
 ## World map
