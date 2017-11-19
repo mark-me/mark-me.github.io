@@ -68,7 +68,11 @@ library(ggmap)
 
 First you get the map picture from one of the services:
 ```r
-map_belgium <- get_map(location = "belgium", zoom = 7, maptype = "terrain", source = "google", color = "color")
+map_belgium <- get_map(location = "belgium", 
+                       zoom = 7, 
+                       maptype = "terrain", 
+                       source = "google", 
+                       color = "color")
 ```
 
 Most map graphing tools make you fill in longitudes and latitudes in advance, but this library allows you to use the map provider's own search capabilities to add the longitudes and latitudes. Google Maps does limit the number of requests by 2.500 per call, so you might have to do some grouping. For example: I made a map of all Belgian companies, of which I happily used all company addresses to get the coordinates. Google thought I was overreacting making so many coordinate requests, so instead I aggregated the companies to countries and towns to perform the search:
