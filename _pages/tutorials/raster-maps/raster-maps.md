@@ -41,7 +41,7 @@ To get ggplot to recognise the polygons in the GDAM data we need to convert it t
 fnetherlands <- fortify(netherlands)
 fprovinces <- fortify(provinces)
 ```
-The _fprovinces_ data frame is enriched with Dutch population data. If you want to find out how, [download the script](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/snippets-and-tips/graphs/raster-maps.R).
+The _fprovinces_ data frame is enriched with the number of [inhabitants per province in 2016](http://www.metatopos.eu/provincies.html). If you want to find out how, [download the script](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/snippets-and-tips/graphs/raster-maps.R).
 ```r
 ggplot(fnetherlands, aes(x = long, y = lat, group = group)) + 
   geom_path() +
