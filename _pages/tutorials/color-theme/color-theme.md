@@ -9,5 +9,5 @@ published: true
 
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/snippets-and-tips/graphs/map-raster-1.png" alt="" align="center"/>
+<img src="/_pages/snippets-and-tips/color-theme/lego-scientist.jpg" alt="" align="center"/>
 {: refdef}
