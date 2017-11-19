@@ -9,5 +9,5 @@ published: true
 
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/snippets-and-tips/color-theme/lego-scientist.jpg" alt="" align="center"/>
+<img src="/_pages/tutorials/color-theme/lego-scientist.jpg" alt="" align="center"/>
 {: refdef}
