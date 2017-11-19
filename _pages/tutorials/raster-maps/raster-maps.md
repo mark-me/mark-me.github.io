@@ -6,7 +6,7 @@ permalink: /raster-maps/
 published: true
 ---
 
-Raster maps are a convenient way of plotting data in administrative districts like provinces. In this tutorial I show you how you can get a raster map, how you can use it to plot data in it, and how you can 'prettify' it my adding a Google map layer. The entire script for this tutorial can be downloaded from [here](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/snippets-and-tips/graphs/raster-maps.R). 
+Raster maps are a convenient way of plotting data in administrative districts like provinces. In this tutorial I show you how you can get a raster map, how you can use it to plot data in it, and how you can 'prettify' it by adding a Google map layer. The entire script for this tutorial can be downloaded from [here](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/snippets-and-tips/graphs/raster-maps.R). 
 
 The rasters can easily be retrieved using the **raster** library. Country maps can easily be plotted using het_getData_ function. As you might expect, the _country_ parameter in for that function specifies the country you want to view. The country parameter should be specified using the ALPHA 3 ISO code, a list of which can be found here: [http://www.nationsonline.org/oneworld/country_code_list.htm](http://www.nationsonline.org/oneworld/country_code_list.htm). Getting and plotting the raster can be done executing this code:
 ```r
