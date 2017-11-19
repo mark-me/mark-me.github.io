@@ -3,16 +3,6 @@
   image: _pages/tutorials/raster-maps/raster-map.png
   description: Using raster maps plots, and 'prettifying' it by adding a Google map layer.
 
-- title: Creating your own project template
-  url: /project-template/
-  image: /_pages/tutorials/project-template.png
-  description: Using a script that creates a standard setup for your R projects.
-  
-- title: Structuring data processing
-  url: /structuring-data-processing/
-  image: /_pages/tutorials/structuring-data-processing/structuring-data-processing.png
-  description: A template for data-processing in your project.
-  
 - title: Statistical tests
   url: /statistical-tests/
   image: /_pages/tutorials/statistical-tests/statistical-tests.png
@@ -22,6 +12,16 @@
   url: /network-graphs-ggraph/
   image: /_pages/tutorials/network-graphs.png
   description: Creating network graphs using the ggraph package.
+  
+- title: Creating your own project template
+  url: /project-template/
+  image: /_pages/tutorials/project-template.png
+  description: Using a script that creates a standard setup for your R projects.
+  
+- title: Structuring data processing
+  url: /structuring-data-processing/
+  image: /_pages/tutorials/structuring-data-processing/structuring-data-processing.png
+  description: A template for data-processing in your project.
   
 - title: Mining Alice’s Wonderland
   url: /mining-alices-wonderland/
