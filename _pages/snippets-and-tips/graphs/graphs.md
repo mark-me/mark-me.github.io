@@ -114,7 +114,7 @@ netherlands <- getData("GADM", country = "NLD", level = 2)
 As you might expect, the country parameter specifies the country you want to view. The country parameter should be specified using the ALPHA 3 ISO code: [http://www.nationsonline.org/oneworld/country_code_list.htm](http://www.nationsonline.org/oneworld/country_code_list.htm)
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/snippets-and-tips/graphs/map_raster2.png" alt="" align="center"/>
+<img src="/_pages/snippets-and-tips/graphs/map-raster-2.png" alt="" align="center"/>
 {: refdef}
 
 ### Coloring raster maps
