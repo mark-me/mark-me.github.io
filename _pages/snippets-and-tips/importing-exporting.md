@@ -34,13 +34,21 @@ Mostly my problem revolves around too little scanning while guessing the column 
 
 The **[openxlsx](https://www.rdocumentation.org/packages/openxlsx/)** library does not depend on Java (which others do), but might require some extra steps to transform dates. Reading an Excel file is done like this:
 ```r
-tbl_iris <- read.xlsx("iris.xlsx")
+tbl_iris <- read.xlsx("iris.xlsx", sheet = 1)
 ```
 Empty rows and columns are skipped automatically. The default sheet read is the first, you can change this by passing and index or sheetname to the _sheet_ parameter.
 
 And writing:
 ```r
 write.xlsx(iris, "iris.xlsx")
+```
+Now when you do this for the first time in a Windows environment it could be telling you zipping up the workbook fails. It fails because it can't find a zipping tool. Luckily R Studio provides a whole range of utilities, inclusing this. You can install these, along with the 'zip' tool by executing: 
+```r
+installr::install.rtools()
+```
+This will launch an installer for which you shouldn't need any administrative rights. The installer will put the tools within the c:\Rtools directory. I'm assuming that, like me, you took the default option, if not, make sure you edit the following statement, which should be added to your script to be able to save _xlsx_ files. 
+```r
+Sys.setenv("R_ZIPCMD" = "c:/Rtools/bin/zip.exe")
 ```
 
 ## XLConnect
