@@ -255,7 +255,7 @@ The RSME metric assumes heteroskedasticity, but most of the data I work with are
 
 ### Violin plots
 
-Inspect the distribution of errors we can use violinplots, which I like to call [Barbapapa](https://www.youtube.com/watch?v=4YTxfs-Tuaw) plots, to eliminate the need for heteroskedasticity.
+Inspect the distribution of errors we can use violinplots, which I like to call [Barbapapa](https://www.youtube.com/watch?v=4YTxfs-Tuaw) plots, to eliminate the need for heteroskedasticity assumption to be met.
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" target="_blank">
 <img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-violin.png" alt="" width="459" height="466" align="center"/>
