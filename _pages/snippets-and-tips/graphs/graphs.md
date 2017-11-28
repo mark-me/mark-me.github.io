@@ -157,7 +157,7 @@ ggplot(fnetherlands, aes(x = long, y = lat, group = group)) +
 
 ### Combining ggmap with the raster
 
-For the maximum wow factor we're going to combine the Google map of The Netherlands with the raster plot. To get the Google map of the Netherlands the **ggmap** library is used which I've explained on this page:
+For the maximum wow factor we're going to combine the Google map of The Netherlands with the raster plot. To get the Google map of the Netherlands the **ggmap** library is used:
 ```r
 map_nld <- get_map(location = "netherlands", 
                    zoom = 7, 
