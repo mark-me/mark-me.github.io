@@ -43,7 +43,7 @@ ggplot(mtcars, aes(x = hp, y = mpg)) +
 
 # Bar plots
 
-The most commoly used kind of plot must be the bar plot. Here are some things I had struggles with.
+The most commoly used kind of plot must be the bar plot, here are some things I had struggles with.
 
 ## Percentage of rows per variable
 
