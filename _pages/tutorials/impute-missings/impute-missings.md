@@ -49,7 +49,7 @@ To visualize how much of a mess the data is in terms of missing values I've crea
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" target="_blank">
-<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="718" height="350" align="center"/>
+<img src="/_pages/tutorials/impute-missings/plot-missing-per-variable.png" alt="" width="474" height="350" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
