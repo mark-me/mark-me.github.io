@@ -239,7 +239,7 @@ tbl_imp_numeric %>%
 To compare the numerical imputations for the methods you can use the [RSME](https://en.wikipedia.org/wiki/Root-mean-square_deviation) metric:
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-rsme.png" target="_blank">
-<img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-rsme.png" alt="" width="490" height="498" align="center"/>
+<img src="/_pages/tutorials/impute-missings/evaluate-imputations-numerical-rsme.png" alt="" width="668" height="500" align="center"/>
 <br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
