@@ -74,6 +74,14 @@ ggplot(aes(x = Class, y = Freq, fill = Survived)) +
 <img src="/_pages/snippets-and-tips/graphs/bar-plot-dodge.png" alt="ggrepel" align="center"/>
 {: refdef}
 
+## Stacked bar plots with value labels
+
+This trick works te same as explained for the dodged bar plots, but the value of the _position_ argument in the _geom_text_ function is determined by the function _position_stack_ instead of the _position_dodge_ function. The _geom_text_ function would now look like this:
+```r
+position = position_stack(vjust = 0.5)
+```
+The _vjust_ value will place the text in the middle of each partial bar.
+
 # Pie charts
 
 Creating a pie chart is not a straightforward process in the ggplot framework, since Tufte deemed them [bad](http://speakingppt.com/2013/03/18/why-tufte-is-flat-out-wrong-about-pie-charts/), they aren't worth proper attention. Standard parts of a ggplot are axes, which aren't usefull for pie charts. So to display pie charts cleanly we need to create an  'Empty' theme:
@@ -97,7 +105,6 @@ Let's make and example of the [diamonds](http://ggplot2.tidyverse.org/reference/
 * The _coord_polar_ function turns the bar chart into a pie chart by setting the _theta_ to "y" so the y-axis is the circumference of the pie.
 * I've turned off the fill and color legends, using the _guides_ function, since all information is displayed in the labels
 * Lastly the newly created _blank_theme_ is added to remove all the bloat.
-
 ```r
 diamonds %>% 
   group_by(cut) %>% 
