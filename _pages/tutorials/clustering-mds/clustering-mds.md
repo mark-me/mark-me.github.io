@@ -41,6 +41,11 @@ dist_USArrests <- dist(USArrests, method = "euclidian")
 
 The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables.
 
+For an example we cluster the countries by the religions of their people in 2010, for which I've used the data from the [Correlates of War Project](http://cow.dss.ucdavis.edu/data-sets/world-religion-data).
+```r
+dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
+```
+
 ## Hamming distance
 
 The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different. This is useful for categorical variables.
@@ -70,7 +75,7 @@ The Jaccard distance matrix can be created using the _vegdist_ function of the *
 library(vegan)
 dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
 ```
-A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. If you want to follow this example you can jump straught to the [PAM](/clustering-mds/#pam-for-jaccard-distances) section.
+A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. If you want to follow through on this example on UN voting you can jump to the [PAM](/clustering-mds/#pam-for-jaccard-distances) section.
 
 ## Gower distance
 Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
