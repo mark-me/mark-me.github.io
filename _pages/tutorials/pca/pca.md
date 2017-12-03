@@ -32,7 +32,7 @@ ggplot(df_pca_var, aes(x = pca, y = var)) +
 ```
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/pca/plot-pc-choice.png" target="_blank">
-<img src="/_pages/tutorials/pca/plot-pc-choice.png" alt="Variance PC" width="100%" height="100%" align="center"/><br>
+<img src="/_pages/tutorials/pca/plot-pc-choice.png" alt="Variance PC" width="360" height="450" align="center"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
