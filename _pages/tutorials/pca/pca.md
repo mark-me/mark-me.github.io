@@ -31,3 +31,25 @@ ggplot(df_pca_var, aes(x = pca, y = var)) +
   labs(x = "PCs", y = "Variance")
 ```
 
+```r
+no_pcs <- 4
+```
+
+# Interpreting principal components
+
+Get loadings
+```r
+df_loadings <- data.frame(religion = row.names(fit_pca$loadings), fit_pca$loadings[, 1:no_pcs])
+df_loadings %<>%
+  gather(key = "pc", value = "loading", -religion)
+```
+
+```r
+ggplot(df_loadings, aes(x = pc, y = religion, fill = loading, size = abs(loading))) +
+  geom_point(shape = 21, col = alpha = 0.8) +
+  scale_fill_gradientn(colors = c("red", "white", "blue")) +
+  scale_size(range = c(3, 20)) + 
+  guides(size = FALSE) +
+  labs(x = "PCs", y = "Religion", fill = "Loading")
+```
+
