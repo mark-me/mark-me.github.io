@@ -30,6 +30,11 @@ ggplot(df_pca_var, aes(x = pca, y = var)) +
   coord_flip() +
   labs(x = "PCs", y = "Variance")
 ```
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/pca/plot-pc-choice.png" target="_blank">
+<img src="/_pages/tutorials/pca/plot-pc-choice.png" alt="Variance PC" width="100%" height="100%" align="center"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
 
 ```r
 no_pcs <- 4
@@ -53,3 +58,8 @@ ggplot(df_loadings, aes(x = pc, y = religion, fill = loading, size = abs(loading
   labs(x = "PCs", y = "Religion", fill = "Loading")
 ```
 
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/pca/plot-pc-loadings.png" target="_blank">
+<img src="/_pages/tutorials/pca/plot-pc-loadings.png" alt="Variance PC" width="100%" height="100%" align="center"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
