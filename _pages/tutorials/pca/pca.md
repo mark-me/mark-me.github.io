@@ -6,6 +6,30 @@ permalink: /pca/
 published: true
 ---
 
+Principal Component Analysis (PCA) is a method for reducing a data-set with a high number of variables to a smaller set of new variables, containing most of the same information. In the data science realm it is mostly used to achieve one or more of the following goals:
+
+* Reducing the number of variables in a dataset reduces the number of degrees of freedom of a statistical model, which in turn reduces the risk of overfitting the model.
+* Machine learning algorithms perform significantly faster when less variables are included.
+* It can simplify the interpretation of data, by showing which variables play the biggest role in describing the data set.
+
+# How it works
+
+Imagine each variable as a dimension of a space.
+
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/pca/pca-explained-1.png" alt="Variance PC" width="360" height="450" align="center"/><br>
+{: refdef}
+
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/pca/pca-explained-2.png" alt="Variance PC" width="360" height="450" align="center"/><br>
+{: refdef}
+
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/pca/pca-explained-3.png" alt="Variance PC" width="360" height="450" align="center"/><br>
+{: refdef}
+
+# Our example: country religions
+
 PCA input data: percentage of adherents religions
 ```r
 pca_input_data <- df_country_by_religion[,3:16]
