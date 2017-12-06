@@ -26,19 +26,27 @@ Now to explain how the PCs are created to contain most information I've made an 
 <img src="/_pages/tutorials/pca/pca-explained-1.png" alt="No PC" width="537" height="220" align="center"/><br>
 {: refdef}
 
-The first PC is the line is drawn so most of the observations are along this line. In most literature I found it is called the line that describes the most variance, which in my mind is the same as the liniear model best describing the observations (but my mind could be wrong). The first Principal Component is drawn below:
+The first PC is the line is drawn so most of the observations are along this line. In most literature I found it is called the line that describes the most variance, which in my mind is the almost the same as the liniear model best describing the observations (but my mind could be wrong). The first Principal Component is drawn below:
 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/pca-explained-2.png" alt="PC 1" width="537" height="220" align="center"/><br>
 {: refdef}
 
+The second PC can only be put perpendicular (at a 90 degree angle) of the first PC. In this two dimensional space it only leaves one option, but in a multidimensional space you can imagine this line could be any line that rotates across the other dimensions. The second PC will be that line that again is the option with the most observations along that line. In our example the next PC is shown in the next plot:
+
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/pca-explained-3.png" alt="PC2" width="537" height="220" align="center"/><br>
 {: refdef}
 
+Now as we take these two PCs as the new variables instead of the old one, the new space would be rotated and look like this: 
+
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/pca-explained-4.png" alt="Rotated" width="537" height="220" align="center"/><br>
 {: refdef}
+
+In this case, using only two variables, the PCA procedure would end here. But for more dimensions the the PCA procedure would go on for as many variables there are, so all variation in the dataset is described in the new PC variables. But since the later created PCA's will add little information descibing the set's variability, they can be ignored. 
+
+Of course doing a PCA on two variables has little meaning, but if we have 16, juicing all that information into less variables makes things less messy. 
 
 # Our example: country religions
 
