@@ -17,15 +17,15 @@ Principal Component Analysis (PCA) is a method for reducing a data-set with a hi
 Imagine each variable as a dimension of a space.
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/tutorials/pca/pca-explained-1.png" alt="Variance PC" width="360" height="450" align="center"/><br>
+<img src="/_pages/tutorials/pca/pca-explained-1.png" alt="Variance PC" width="800" height="390" align="center"/><br>
 {: refdef}
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/tutorials/pca/pca-explained-2.png" alt="Variance PC" width="360" height="450" align="center"/><br>
+<img src="/_pages/tutorials/pca/pca-explained-2.png" alt="Variance PC" width="800" height="390" align="center"/><br>
 {: refdef}
 
 {:refdef: style="text-align: center;"}
-<img src="/_pages/tutorials/pca/pca-explained-3.png" alt="Variance PC" width="360" height="450" align="center"/><br>
+<img src="/_pages/tutorials/pca/pca-explained-3.png" alt="Variance PC" width="800" height="390" align="center"/><br>
 {: refdef}
 
 # Our example: country religions
