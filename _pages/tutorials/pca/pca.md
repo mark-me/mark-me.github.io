@@ -50,6 +50,8 @@ Of course doing a PCA on two variables has little meaning, but if we have 16, ju
 
 # Our example: country religions
 
+<img src="/_pages/tutorials/pca/pastafarian.jpg" alt="Me" width="257" height="160" align="right"/>
+
 In our real world example I'll take the data I've previously used for the [clustering tutorial](/clustering-mds/): the percentage of adherents per religion for all countries as it was in 2010. This example has a table in which the countries are represented in the rows, the religions in columns, and the values in those columns specifying the percentage of the countries populations that report as adhering to that religion. I won't go into describing how the dataset is created, but if you want to, you can look it up in the script I've made for this tutorial.
 
 First we're going to create the input data for the PCA: only retaining the columns for the percentage of adherents:
