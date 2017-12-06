@@ -28,6 +28,10 @@ Imagine each variable as a dimension of a space.
 <img src="/_pages/tutorials/pca/pca-explained-3.png" alt="PC2" width="537" height="220" align="center"/><br>
 {: refdef}
 
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/pca/pca-explained-4.png" alt="Rotated" width="537" height="220" align="center"/><br>
+{: refdef}
+
 # Our example: country religions
 
 PCA input data: percentage of adherents religions
