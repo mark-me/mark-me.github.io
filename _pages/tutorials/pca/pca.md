@@ -6,6 +6,8 @@ permalink: /pca/
 published: true
 ---
 
+<img src="/_pages/tutorials/pca/orange-juice.jpg" alt="Me" width="118" height="170" align="right"/>
+
 Principal Component Analysis (PCA) is a method for reducing a data-set with a high number of variables to a smaller set of new variables, containing most of the same information. In the data science realm it is mostly used to achieve one or more of the following goals:
 
 * Reducing the number of variables in a dataset reduces the number of degrees of freedom of a statistical model, which in turn reduces the risk of overfitting the model.
