@@ -62,11 +62,13 @@ Plot comparison of all variables
 ```r
 plot(pca_input_data, col = col_theme[2]) 
 ```
-Perform PCA
+# Performing PCA
+
 ```r
 fit_pca <- princomp(pca_input_data)
 ```
 # Choose the number of Principal Components
+
 ```r
 df_pca_var <- data.frame(pca = factor(names(fit_pca$sdev), levels = names(fit_pca$sdev)), 
                          var = (fit_pca$sdev)^2) 
