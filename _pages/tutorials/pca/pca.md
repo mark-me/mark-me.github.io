@@ -8,19 +8,25 @@ published: true
 
 <img src="/_pages/tutorials/pca/orange-juice.jpg" alt="Me" width="118" height="170" align="right"/>
 
-Principal Component Analysis (PCA) is a method for reducing a data-set with a high number of variables to a smaller set of new variables, containing most of the same information. In the data science realm it is mostly used to achieve one or more of the following goals:
+Principal Component Analysis (PCA) is a method for reducing a data-set with a high number of variables to a smaller set of new variables, 'juicing' the most of the same information out of the whole set of variables. In the data science realm it is mostly used to achieve one or more of the following goals:
 
 * Reducing the number of variables in a dataset reduces the number of degrees of freedom of a statistical model, which in turn reduces the risk of overfitting the model.
 * Machine learning algorithms perform significantly faster when less variables are included.
 * It can simplify the interpretation of data, by showing which variables play the biggest role in describing the data set.
 
+In this tutorial I'll explain the concept behind Principal Component Analysis, and with an example I'll show you how to perform a PCA, how to choose the principal components and how to interpret them.
+
 # How it works
 
-Imagine each variable as a dimension of a space.
+The idea behind PCA is creating a new set of variables, based on all the old ones, in decending order of informational content. After new variables are created, the Principal Components (PCs), the ones containing most of the information are retained, while the others are discarded.
+
+Now to explain how the PCs are created to contain most information I've made an example with two variables: x and y. Imagine each variable as a dimension of a space, so each observation is plotted as a point in that space. For the purpose of the explanation of the observations of the set are plotted below:
 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/pca-explained-1.png" alt="No PC" width="537" height="220" align="center"/><br>
 {: refdef}
+
+The first PC is the line is drawn so most of the observations are along this line. In most literature I found it is called the line that describes the most variance, which in my mind is the same as the liniear model best describing the observations (but my mind could be wrong). The first Principal Component is drawn below:
 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/pca-explained-2.png" alt="PC 1" width="537" height="220" align="center"/><br>
