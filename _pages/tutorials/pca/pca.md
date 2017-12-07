@@ -96,10 +96,17 @@ With the following statement we build a data-frame containing the variance for e
 df_pca_var <- data.frame(pca = factor(names(fit_pca$sdev), levels = names(fit_pca$sdev)), 
                          var = (fit_pca$sdev)^2) 
 ```
+Also the percentage variance of the total variance for each PC is added to the data frame:
+```r
+df_pca_var %<>%
+  mutate(perc_var = percent(var/sum(var)))
+```
+
 The data frame we've just created is used to generate a plot, which is often referred to as a scree plot:
 ```r
 ggplot(df_pca_var, aes(x = pca, y = var)) +
   geom_col() +
+  geom_text(aes(label = perc_var), col = "white", hjust = 1.2) +
   coord_flip() +
   labs(x = "PCs", y = "Variance")
 ```
@@ -107,10 +114,10 @@ ggplot(df_pca_var, aes(x = pca, y = var)) +
 <img src="/_pages/tutorials/pca/plot-pc-choice.png" alt="Variance PC" width="360" height="450" align="center"/><br>
 {: refdef}
 
-The scree plot shown above is a bit different than the normal scree plot, because it has been rotated to improve readability of the PC names. 
+The scree plot shown above is a bit different than the normal scree plot, because it has been rotated to improve readability of the PC names. As is the custom with scree plots, the famous elbow is the thing we should be looking for when determining the correct 'number'. In this case it is not clear cut, 5 seems to be a nice enough elbow.
 
 ```r
-no_pcs <- 4
+no_pcs <- 5
 ```
 
 # Interpreting principal components
