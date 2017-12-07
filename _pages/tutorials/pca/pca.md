@@ -124,7 +124,7 @@ no_pcs <- 5
 
 # Interpreting principal components
 
-Get loadings
+Now we need to get a sense of what the newly selected PCs represent. This can be achieved by interpreting the correlations between the chosen PCs and the original variable set. First we're going to collect this data so we can calculate the correlation by putting the religion adherent variables in the rows, and the pricipal components as rows
 ```r
 df_loadings <- data.frame(religion = row.names(fit_pca$loadings), fit_pca$loadings[, 1:no_pcs])
 df_loadings %<>%
