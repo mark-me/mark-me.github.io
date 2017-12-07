@@ -58,15 +58,34 @@ First we're going to create the input data for the PCA: only retaining the colum
 ```r
 pca_input_data <- df_country_by_religion[,3:16]
 ```
-Plot comparison of all variables
+PCA is most succesful for data sets that display high correlations between variables. So let's go about exploring this first by applying a [Spearman Rank correlation](/statistical-tests-ordinal/#spearman-rank-correlation) for all variables:
 ```r
-plot(pca_input_data, col = col_theme[2]) 
+library(corrplot)
+
+mat_corr <- cor(pca_input_data, 
+                method = "spearman", 
+                use = "pairwise.complete.obs")
+
+corrplot(mat_corr, 
+         order = "AOE", 
+         type = "lower", 
+         cl.pos = "b", 
+         sig.level = .05, 
+         insig = "blank")
 ```
+
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/pca/plot-correlation.png" alt="Pairwise correlation" width="460" height="487" align="center"/><br>
+{: refdef}
+
+This graph shows some of the variables show pretty high correlation. This shows us the PCA will have some measure of success.
+
 # Performing PCA
 
 ```r
 fit_pca <- princomp(pca_input_data)
 ```
+
 # Choose the number of Principal Components
 
 ```r
