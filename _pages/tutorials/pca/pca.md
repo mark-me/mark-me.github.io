@@ -82,18 +82,21 @@ This graph shows some of the variables show pretty high correlation. This shows 
 
 # Performing PCA
 
-Performing the PCA is pretty straightforward, the base R has two functions _prcomp()_ and _princomp()_. Both do the same job, but the _princomp()_ function can do two things that the _prcomp()_ function doesn't: centering next to scaling and all the observation's PC coordinates. Since the _princomp()_ function has these two plus points, I've selected this to do my PCA. The _pricomp()_ function is described like this ```princomp(x, cor = FALSE, scores = TRUE)```. The _x_ is the 
+Performing the PCA is pretty straightforward, the base R has two functions _prcomp()_ and _princomp()_. Both do the same job, but the _princomp()_ function can do two things that the _prcomp()_ function doesn't: centering next to scaling and all the observation's PC coordinates. Since the _princomp()_ function has these two plus points, I've selected this to do my PCA. The _pricomp()_ function is described like this ```princomp(x, cor = FALSE, scores = TRUE)```. The _x_ is the input data, the _cor_ argument specifies whether you want to scale and center the variables. I won't be doing scaling and centering in this case, since all variables are of comparable measures, so the default is sufficient here. If the variables were different measures like, monetary values and quantities, as is the case most of the time, the _cor_ parameter should be set to **TRUE**. The observation coordinates for the PCs, _scores_, are automatically generated.
 ```r
 fit_pca <- princomp(pca_input_data)
 ```
 
 # Choose the number of Principal Components
 
+Now all PCs are calculated we can choose which to retain. The choice of the number of PCs to be retained is done by evaluating the variance that each PC adds to the total variance of set of variables. In PCA literature you'll see the terms 'eigenvector' and 'eigenvalue' pop-up a lot. A PC corresponds to an eigenvector, and the variance of the PC corresponds to the eigenvalue. These terms are used, because they are associated with the calculations of variance-covariance matrices used in PCA. 
+
+With the following statement we build a data-frame containing the variance for each of the PCs. 
 ```r
 df_pca_var <- data.frame(pca = factor(names(fit_pca$sdev), levels = names(fit_pca$sdev)), 
                          var = (fit_pca$sdev)^2) 
 ```
-
+The data frame we've just created is used to generate a plot, which is often referred to as a scree plot:
 ```r
 ggplot(df_pca_var, aes(x = pca, y = var)) +
   geom_col() +
@@ -103,6 +106,8 @@ ggplot(df_pca_var, aes(x = pca, y = var)) +
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/plot-pc-choice.png" alt="Variance PC" width="360" height="450" align="center"/><br>
 {: refdef}
+
+The scree plot shown above is a bit different than the normal scree plot, because it has been rotated to improve readability of the PC names. 
 
 ```r
 no_pcs <- 4
