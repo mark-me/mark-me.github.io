@@ -82,7 +82,7 @@ This graph shows some of the variables show pretty high correlation. This shows 
 
 # Performing PCA
 
-Performing the PCA is pretty straightforward, the base R has two functions _prcomp()_ and _princomp()_. Both do the same job, but the _princomp()_ function can do two things that the _prcomp()_ function doesn't: centering next to scaling and all the observation's PC coordinates. Since the _princomp()_ function has these two plus points, I've selected this to do my PCA. The _pricomp()_ function is described like this ```r princomp(x, cor = FALSE, scores = TRUE)```. The _x_ is the 
+Performing the PCA is pretty straightforward, the base R has two functions _prcomp()_ and _princomp()_. Both do the same job, but the _princomp()_ function can do two things that the _prcomp()_ function doesn't: centering next to scaling and all the observation's PC coordinates. Since the _princomp()_ function has these two plus points, I've selected this to do my PCA. The _pricomp()_ function is described like this ```princomp(x, cor = FALSE, scores = TRUE)```. The _x_ is the 
 ```r
 fit_pca <- princomp(pca_input_data)
 ```
