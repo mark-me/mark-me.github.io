@@ -114,6 +114,8 @@ ggplot(df_pca_var, aes(x = pca, y = var)) +
 <img src="/_pages/tutorials/pca/plot-pc-choice.png" alt="Variance PC" width="360" height="450" align="center"/><br>
 {: refdef}
 
+<img src="/_pages/tutorials/pca/elbow.png" alt="Me" width="168" height="180" align="right"/>
+
 The scree plot shown above is a bit different than the normal scree plot, because it has been rotated to improve readability of the PC names. As is the custom with scree plots, the famous elbow is the thing we should be looking for when determining the correct 'number'. In this case it is not clear cut, 5 seems to be a nice enough elbow.
 
 ```r
