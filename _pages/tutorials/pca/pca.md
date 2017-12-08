@@ -18,7 +18,7 @@ In this tutorial I'll explain the concept behind Principal Component Analysis, a
 
 # How it works
 
-The idea behind PCA is creating a new set of variables, based on all the old ones, in decending order of informational content. After new variables are created, the Principal Components (PCs), the ones containing most of the information are retained, while the others are discarded.
+PCA creates a new set of variables, based on all the old ones, in decending order of informational content. After new variables are created, the Principal Components (PCs), the ones containing most of the information are retained, while the others are discarded.
 
 Now to explain how the PCs are created to contain most information I've made an example with two variables: x and y. Imagine each variable as a dimension of a space, so each observation is plotted as a point in that space. For the purpose of the explanation of the observations of the set are plotted below:
 
@@ -89,6 +89,8 @@ fit_pca <- princomp(pca_input_data)
 
 # Choose the number of Principal Components
 
+<img src="/_pages/tutorials/pca/elbow.png" alt="Me" width="168" height="180" align="right"/>
+
 Now all PCs are calculated we can choose which to retain. The choice of the number of PCs to be retained is done by evaluating the variance that each PC adds to the total variance of set of variables. In PCA literature you'll see the terms 'eigenvector' and 'eigenvalue' pop-up a lot. A PC corresponds to an eigenvector, and the variance of the PC corresponds to the eigenvalue. These terms are used, because they are associated with the calculations of variance-covariance matrices used in PCA. 
 
 With the following statement we build a data-frame containing the variance for each of the PCs. 
@@ -114,8 +116,6 @@ ggplot(df_pca_var, aes(x = pca, y = var)) +
 <img src="/_pages/tutorials/pca/plot-pc-choice.png" alt="Variance PC" width="360" height="450" align="center"/><br>
 {: refdef}
 
-<img src="/_pages/tutorials/pca/elbow.png" alt="Me" width="168" height="180" align="right"/>
-
 The scree plot shown above is a bit different than the normal scree plot, because it has been rotated to improve readability of the PC names. As is the custom with scree plots, the famous elbow is the thing we should be looking for when determining the correct 'number'. In this case it is not clear cut, 5 seems to be a nice enough elbow.
 
 ```r
@@ -124,13 +124,13 @@ no_pcs <- 5
 
 # Interpreting principal components
 
-Now we need to get a sense of what the newly selected PCs represent. This can be achieved by interpreting the correlations between the chosen PCs and the original variable set. First we're going to collect this data so we can calculate the correlation by putting the religion adherent variables in the rows, and the pricipal components as rows
+Now we need to get a sense of what the newly selected PCs represent. This can be achieved by interpreting the correlations between the chosen PCs and the original variable set. In PCA terminology thecorrelation coefficients between the variables and PCs are called loadings. First we're going to collect the loadings data so we can calculate the correlation by putting the religion adherent variables in the rows, and the pricipal components as rows. 
 ```r
 df_loadings <- data.frame(religion = row.names(fit_pca$loadings), fit_pca$loadings[, 1:no_pcs])
 df_loadings %<>%
   gather(key = "pc", value = "loading", -religion)
 ```
-
+This newly correlation matrix is put in a plot:
 ```r
 ggplot(df_loadings, aes(x = pc, y = religion, fill = loading, size = abs(loading))) +
   geom_point(shape = 21, col = alpha = 0.8) +
@@ -139,7 +139,6 @@ ggplot(df_loadings, aes(x = pc, y = religion, fill = loading, size = abs(loading
   guides(size = FALSE) +
   labs(x = "PCs", y = "Religion", fill = "Loading")
 ```
-
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/pca/plot-pc-loadings.png" target="_blank">
 <img src="/_pages/tutorials/pca/plot-pc-loadings.png" alt="PC loadings" width="540" height="450" align="center"/><br>
