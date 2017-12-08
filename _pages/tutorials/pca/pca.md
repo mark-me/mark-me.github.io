@@ -144,3 +144,23 @@ ggplot(df_loadings, aes(x = pc, y = religion, fill = loading, size = abs(loading
 <img src="/_pages/tutorials/pca/plot-pc-loadings.png" alt="PC loadings" width="540" height="450" align="center"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
+
+A high value of the first PC seems to represent a high percentage of Sunni Islam adherents and low percentage of Catholocism adherents; which fits with the original correlation matrix. A high score on the second PC seems to represent a high percentage of Protestant adherents and low percentage of Catholocism and Sunni Islam adherents. After these two examples you'll be able to figure out the rest. 
+
+Let's see how this interpretation sticks when we take out a few examples of countries of which I have a pretty preconceived idea of how their religios adherents are distributed and see how they score on the first five PCs:
+```r
+df_country_by_religion %>% 
+  filter(iso_alpha_3 %in% c("GRC", "NLD", "IRN", "ISR", "THA", "POL")) %>% 
+  select(country, Comp.1, Comp.2, Comp.3, Comp.4, Comp.5) %>% 
+  gather(key = pc, value = value, -country) %>% 
+  ggplot(aes(x = pc, y = value)) + 
+    geom_col(aes(fill = value)) +
+    geom_text(aes(label = round(value, 2))) +
+    scale_fill_gradient2() +
+    facet_wrap(~country) +
+    coord_flip() +
+    guides(fill = FALSE)
+```
+{:refdef: style="text-align: center;"}
+<img src="/_pages/tutorials/pca/plot-country-pca.png" alt="PC scores countries" width="750" height="500" align="center"/><br>
+{: refdef}
