@@ -164,3 +164,7 @@ df_country_by_religion %>%
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/plot-country-pca.png" alt="PC scores countries" width="750" height="500" align="center"/><br>
 {: refdef}
+
+For me this plot shows no big surprises keeping in mind what the PCs represent. Greece scores very negatively on the third PC, since the third PC is negatively correlated with Christian Orthodoxy. 
+
+Now PCA is almost never an end in itself, so go on using it as input for your other algorithms. In [this scipt](https://gist.githubusercontent.com/mark-me/7333f0e6988b5f4f1cbd17a18fc45259/raw/d7d009d6e4b576808dc68f060de1b5a79b2a4caa/country-religions-pca.R), which contains all the code used for this tutorial, you can see how I go on using it for clustering.
