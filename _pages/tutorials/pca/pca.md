@@ -26,7 +26,7 @@ Now to explain how the PCs are created to contain most information I've made an 
 <img src="/_pages/tutorials/pca/pca-explained-1.png" alt="No PC" width="537" height="220" align="center"/><br>
 {: refdef}
 
-The first PC is the line is drawn so most of the observations are along this line. In most literature I found it is called the line that describes the most variance, which in my mind is the almost the same as the liniear model best describing the observations (but my mind could be wrong). It is actually done by using variance-covariance matrices and their eigenvalues and eigenvectors, but this is beyond the scope of this tutorial. If you are interested you can find the full explanation[here](https://onlinecourses.science.psu.edu/stat505/node/51). The first Principal Component is drawn below:
+The first PC is the line is drawn so most of the observations are along this line. In most literature I found it is called the line that describes the most variance, which in my mind is the almost the same as the liniear model best describing the observations (but my mind could be wrong). It is actually done by using variance-covariance matrices and their eigenvalues and eigenvectors, but this is beyond the scope of this tutorial. If you are interested you can find the full explanation [here](https://onlinecourses.science.psu.edu/stat505/node/51). The first Principal Component is drawn below:
 
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/pca/pca-explained-2.png" alt="PC 1" width="537" height="220" align="center"/><br>
