@@ -50,7 +50,7 @@
 
 - title: t-Distributed Stochastic Neighbor Embedding
   url: /t-sne/
-  image: /_pages/tutorials/pca/t-sne.png
+  image: /_pages/tutorials/t-sne/t-sne.png
   description: Condensing a data set by using Barnes-Hut t-SNE.
 
 ---
