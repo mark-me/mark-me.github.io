@@ -48,6 +48,11 @@
   image: /_pages/tutorials/impute-missings/impute-missings.png
   description: Identifying the extent of your missing value problems, and ways to fix them.  
 
+- title: t-Distributed Stochastic Neighbor Embedding
+  url: /t-sne/
+  image: /_pages/tutorials/pca/t-sne.png
+  description: Condensing a data set by using Barnes-Hut t-SNE.
+
 ---
 layout: page
 title: Raster maps
