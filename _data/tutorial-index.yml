@@ -50,7 +50,7 @@
 
 - title: Clustering
   url: /clustering-mds/
-  image: /_pages/tutorials/clustering-mds/flat-earth.png
+  image: /_pages/tutorials/clustering-mds/cluster.png
   description: Choosing and executing different clustering methods, and using it within the tidy framework.
 
 - title: Replacing missing data with best guesses
