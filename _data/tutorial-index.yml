@@ -15,7 +15,7 @@
   
 - title: Working with networked graphs in ggraph
   url: /network-graphs-ggraph/
-  image: /_pages/tutorials/network-graphs-ggraph/network-graphs.png
+  image: /_pages/tutorials/network-graphs-with-ggraph/network-graphs.png
   description: Creating network graphs using the ggraph package.
   
 - title: Creating your own project template
