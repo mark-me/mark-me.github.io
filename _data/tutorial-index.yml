@@ -40,7 +40,7 @@
 
 - title: Distance/similarity measures
   url: /distance-measures/
-  image: /_pages/tutorials/distance-measures/distance-measures.png
+  image: /_pages/tutorials/distance-measures/distance.png
   description: Measuring similarity between observations.
 
 - title: MDS
