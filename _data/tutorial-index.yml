@@ -48,6 +48,11 @@
   image: /_pages/tutorials/mds/mds.png
   description: Visualizing similarity between observations, keeping distances mostly intact.
 
+- title: t-Distributed Stochastic Neighbor Embedding
+  url: /t-sne/
+  image: /_pages/tutorials/t-sne/t-sne.png
+  description: Condensing a data set by using Barnes-Hut t-SNE.
+
 - title: Clustering
   url: /clustering-mds/
   image: /_pages/tutorials/clustering-mds/cluster.png
@@ -57,11 +62,6 @@
   url: /impute-missings/
   image: /_pages/tutorials/impute-missings/impute-missings.png
   description: Identifying the extent of your missing value problems, and ways to fix them.  
-
-- title: t-Distributed Stochastic Neighbor Embedding
-  url: /t-sne/
-  image: /_pages/tutorials/t-sne/t-sne.png
-  description: Condensing a data set by using Barnes-Hut t-SNE.
 
 ---
 layout: page
