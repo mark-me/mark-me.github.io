@@ -38,7 +38,17 @@
   image: /_pages/tutorials/splitting-combining-files.png
   description: Splitting and/or combining files.... Nothing more.
 
-- title: Clustering and MDS
+- title: Distance/similarity measures
+  url: /distance-measures/
+  image: /_pages/tutorials/distance-measures/distance-measures.png
+  description: Measuring similarity between observations.
+
+- title: MDS
+  url: /mds/
+  image: /_pages/tutorials/mds/mds.png
+  description: Visualizing similarity between observations, keeping distances mostly intact.
+
+- title: Clustering
   url: /clustering-mds/
   image: /_pages/tutorials/clustering-mds/flat-earth.png
   description: Choosing and executing different clustering methods, and using it within the tidy framework.
