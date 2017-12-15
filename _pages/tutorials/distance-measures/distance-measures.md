@@ -10,9 +10,15 @@ published: true
 
 Sooner or later during an analysis I'll start asking myself: how similar are these observations really? If we want see how similar observations are, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
 
+This tutorial shows you how to pick a distance metric, how to apply it and how to visualize is using MDS. I won't go into MDS too deeply, but you can follow my tutorial on MDS [here](/mds/) if you want to.
 
+# How to choose a distance measure
 
-In relation to similarity correltion coefficients are often mentioned, which are similarity measures instead of distance measures. They can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here since most cases will be covered by those used here.
+* Jaccard 
+* Manhattan 
+* Hamming
+* Gower
+
 
 # Euclidian distance
 
