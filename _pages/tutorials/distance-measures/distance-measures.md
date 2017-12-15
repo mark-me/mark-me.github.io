@@ -14,10 +14,12 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 # How to choose a distance measure
 
-* Jaccard 
-* Manhattan 
-* Hamming
-* Gower
+| Measurement level | Use case | Method |
+| ----------------- | -------  | ------ | 
+| Categorical |                         | Jaccard   |
+| Categorical | Strings of equal lenght | Hamming   |
+| Ordinal     |                         | Manhattan | 
+| Mixed       |                         | Gower     |
 
 
 # Euclidian distance
