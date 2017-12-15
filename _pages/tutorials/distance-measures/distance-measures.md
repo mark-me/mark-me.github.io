@@ -8,11 +8,11 @@ published: true
 
 <img src="/_pages/tutorials/distance-measures/measuring-similarity.jpg" width="192" height="180" align="right"/> 
 
-If we want see how similar observations are, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
+Sooner or later during an analysis I'll start asking myself: how similar are these observations really? If we want see how similar observations are, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
 
 In relation to similarity correltion coefficients are often mentioned, which are similarity measures instead of distance measures. They can also be turned into distance measures by subtracting them from zero, but I'll skip a discussion about those here since most cases will be covered by those used here.
 
-## Euclidian distance
+# Euclidian distance
 
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval of ratio variables. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. The distances are calculated by the _dist_ function, passing the value "euclidian" to the _method_ argument: 
 ```r
@@ -20,7 +20,7 @@ str(USArrests)
 dist_USArrests <- dist(USArrests, method = "euclidian")
 ```
 
-## Manhattan distance
+# Manhattan distance
 
 <img src="/_pages/tutorials/distance-measures/manhattan.jpg" width="271" height="180" align="right"/> 
 
@@ -31,11 +31,11 @@ For an example we cluster the countries by the religions of their people in 2010
 dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
 ```
 
-## Hamming distance
+# Hamming distance
 
 The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different. This is useful for categorical variables.
 
-## Jaccard distance
+# Jaccard distance
 
 [<img src="/_pages/tutorials/distance-measures/jaccard.jpg" width="221" height="170" align="right"/>](https://jaccard.com/collections/meat-tenderizers)
 
