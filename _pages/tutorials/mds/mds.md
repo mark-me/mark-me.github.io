@@ -33,8 +33,10 @@ While the MDS algorithm tries to fit the observations in the lower dimensional s
 
 # Applying MDS
 
-MDS takes in similarity matrices. (If you want to read up on that I've written a [tutorial about that subject](/distances/)
-You can perform a classical MDS using the _cmdscale_ function.
+There are two types of MDS: parametric and non-parametric MDS. The measurement level of the variables you used to create your distance matrix determines the choice of the type of MDS you'll be using. Any MDS algorithm you'll be using takes in a similarity matrix. (If you want to read up on that I've written a [tutorial about that subject](/distances/)
+
+
+You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function.
 
 ```r
 str(USArrests)
