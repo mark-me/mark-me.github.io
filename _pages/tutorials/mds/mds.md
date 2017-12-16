@@ -7,7 +7,7 @@ published: true
 ---
 
 <img src="/_pages/tutorials/mds/Taylor-Swift-Cats.jpg" width="227" height="170" align="right"/> 
-Whenever I'm in a explorative phase of my data modelling, very soon I'll have questions about the data that may sound familiar in it's vangueness:
+Whenever I'm in an explorative phase of my data modelling, very soon I'll have questions about the data that may sound familiar in it's vangueness:
 
 * Can I find any groups in this list of people, by how much money they spent on drugstore items, minutes they've spent in greeneries department and the amount of time they spent in the gym?
 * Are there any groups of customers that stand out in money spent, products they buy and marketshare we have?
