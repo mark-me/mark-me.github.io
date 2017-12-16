@@ -19,9 +19,9 @@ The similarity between these questions is mostly captured by the generic sentenc
 
 As you might have noticed, I've used the word similarity a lot. We can calculate similarity between observations per variable. (You can find out more about caclulating similarities in this [tutorial](/distance-measures/).) If you want to include all similarities in your judgement of similarity you can use MDS to reduce the number of similarity measures while retaining as much of the similarity as possible. With MDS you can reduce the number of similarities to two measures of similarity. With this MDS let's you visually inspect similarity in observations in an easy 2D scatterplot. The more alike observations are the closer their points are together, the more unlike they are the further they are apart. But, how do you get a 2D scatterplot for so many variables? MDS does this by "rearranging" the observations in an efficient manner, so as to arrive at a configuration that best approximates the alikeness of observations. 
 
-<img src="/_pages/tutorials/mds/flat-earth.jpg" width="196" height="110" align="right"/> 
-
 # The concept
+
+<img src="/_pages/tutorials/mds/flat-earth.jpg" width="178" height="100" align="right"/> 
 
 The MDS-like solution you are very familiar with, without even being conscious of it, is a world map. Making a flat world map, from  the spherical object it is, always does some kind of 'damage' to the origianl. This video that illustrates that really well:
 
