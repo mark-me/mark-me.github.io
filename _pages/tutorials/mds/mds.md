@@ -45,6 +45,25 @@ dist_USArrests <- dist(USArrests, method = "euclidian")
 mds_USArrests <- cmdscale(dist_USArrests, eig = TRUE, k = 2)
 ```
 
+```r
+# Creating distances ----
+dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
+```
+```r
+mat_religion <- as.matrix(dist_religion)                    # Turn the distances object into a regular matrix
+row.names(mat_religion) <- df_country_by_religion$country   # Add the country names as row labels
+colnames(mat_religion) <- df_country_by_religion$country    # Add the country names as column names
+```
+```r
+mds_religions <- cmdscale(mat_religion, eig = TRUE, k = 2)  # Perform the actual MDS
+```
+
+```r
+df_mds_religions <- data.frame(x = mds_religions$points[,1], y = mds_religions$points[,2])
+df_mds_religions$country <- df_country_by_religion$country
+```
+
+
 ## Non-metric MDS
 
 Non- _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [MASS](https://cran.r-project.org/web/packages/MASS/index.html) library. 
