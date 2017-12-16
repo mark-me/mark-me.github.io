@@ -21,11 +21,12 @@ As you might have noticed, I've used the word similarity a lot. We can calculate
 
 # The concept
 
-The MDS solution you are very familiar with, without even being conscious of it, is a world map. See this video that shows you what I mean:
+<img src="/_pages/tutorials/mds/flat-earth.jpg" width="249" height="140" align="right"/> 
+
+The MDS-like solution you are very familiar with, without even being conscious of it, is a world map. Making a flat world map, from  the spherical object it is, always does some kind of 'damage' to the origianl. This video that illustrates that erally well:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 
-<img src="/_pages/tutorials/mds/flat-earth.jpg" width="249" height="140" align="right"/> 
 * Squeezing distances in n-dimensions in 2-dimensions
 * Each time refitting points on two-dimensions 
 * Trying to minimizing stress 
