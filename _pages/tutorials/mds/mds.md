@@ -21,7 +21,7 @@ As you might have noticed, I've used the word similarity a lot. We can calculate
 
 # The concept
 
-<img src="/_pages/tutorials/mds/flat-earth.jpg" width="220" height="130" align="right"/> 
+<img src="/_pages/tutorials/mds/flat-earth.jpg" width="196" height="110" align="right"/> 
 
 The MDS-like solution you are very familiar with, without even being conscious of it, is a world map. Making a flat world map, from  the spherical object it is, always does some kind of 'damage' to the origianl. This video that illustrates that really well:
 
