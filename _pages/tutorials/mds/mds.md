@@ -48,3 +48,9 @@ mds_USArrests <- cmdscale(dist_USArrests, eig = TRUE, k = 2)
 ## Non-metric MDS
 
 Non- _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [MASS](https://cran.r-project.org/web/packages/MASS/index.html) library. 
+```r
+isoMDS(d, y = cmdscale(d, k), k = 2, maxit = 50, trace = TRUE,
+       tol = 1e-3, p = 2)
+
+Shepard(d, x, p = 2)
+```
