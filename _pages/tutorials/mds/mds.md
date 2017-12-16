@@ -29,10 +29,7 @@ The MDS-like solution you are very familiar with, without even being conscious o
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 {: refdef}
 
-* Squeezing distances in n-dimensions in 2-dimensions
-* Each time refitting points on two-dimensions 
-* Trying to minimizing stress 
-* Stress: Difference between original and squeezed distances
+While the MDS algorithm tries to fit the observations in the lower dimensional space, it tries to keep a measure called _stress_ as low as possible. The _stress_ measure compares the distances of the original _n_-dimensional space (_n_ = each variables distance measure) to the newly created distances in the lower dimensional space. The MDS algorithm moves the observations around until the configuration is is the solution with the lowest stress.
 
 # Applying MDS
 
