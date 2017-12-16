@@ -35,11 +35,16 @@ While the MDS algorithm tries to fit the observations in the lower dimensional s
 
 There are two types of MDS: parametric and non-parametric MDS. The measurement level of the variables you used to create your distance matrix determines the choice of the type of MDS you'll be using. Any MDS algorithm you'll be using takes in a similarity matrix. (If you want to read up on that I've written a [tutorial about that subject](/distances/)
 
+## Metric MDS
 
-You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function.
+You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one.
 
 ```r
 str(USArrests)
 dist_USArrests <- dist(USArrests, method = "euclidian")
 mds_USArrests <- cmdscale(dist_USArrests, eig = TRUE, k = 2)
 ```
+
+## Non-metric MDS
+
+Non- _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html) function from the [MASS](https://cran.r-project.org/web/packages/MASS/index.html) library. 
