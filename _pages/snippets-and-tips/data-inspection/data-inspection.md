@@ -78,3 +78,31 @@ qgraph(corr_matrix,
 Positive correlations are depicted as green lines, and negative are red, the width of lines show the strength of the relationship.
 
 <img src="/_pages/snippets-and-tips/data-inspection/correlation-network.png" alt="Correlation network" align="center"/>
+
+# ROC, AUC and Gini
+
+There are packages available for creating a ROC and calculating the AUC and Gini statistic, but since I don't like installing and loading packages for every small thingy I created my own function for doing exactly that:
+```r
+create_ROC <- function(observed, predicted, threshold_step_size = 20){
+  
+  TPR <- NULL
+  FPR <- NULL
+  threshold <- rev(seq(0, 100, threshold_step_size))
+  threshold <- threshold / 100
+  
+  for(i in threshold){
+    TPR <- c(TPR, sum(predicted >= i & observed == 1)/sum(observed == 1))
+    FPR <- c(FPR, sum(predicted >= i & observed == 0)/sum(observed == 0))
+  }
+  
+  n <- length(TPR)
+  auc <- sum( ((TPR[-1] + TPR[-n]) / 2) * (FPR[-1] - FPR[-n]) )
+  gini <- 2 * auc - 1
+  
+  roc <- list(auc = auc,
+              gini= gini,
+              roc_data = data_frame(threshold, TPR, FPR))
+  
+  return(roc)
+}
+```
