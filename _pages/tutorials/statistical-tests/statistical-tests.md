@@ -60,7 +60,7 @@ Sometimes you just want to **describe** one variable. Although these types of de
 
 A variable can be categorized as one of the following levels of measurements, in order of increasing information value:
 
-* A **categorical** variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binominal is a variable that can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binominal variables.
+* A **categorical** variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binominal is a variable that can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binominal variables. They are often indicated in datasets as by 0 and 1, so you might confuse those variables as being ordinal even a higher level of measurement.
 * An **ordinal** variable contains values that can be ordered like ranks and scores. You can say that one value higher than the other, but you can't say one value is 2 times more important. An example of this is army ranks: a General is higher in rank than a Major, but you can't say a General outranks a Major 2 times.
 <img src="/_pages/tutorials/statistical-tests/big-mac.png" width="177" height="160" align="right"/>
 
@@ -73,7 +73,7 @@ The level of measurement of the variable determines which type of test you can u
 
 <img src="/_pages/tutorials/statistical-tests/pritt-stick.png" width="134" height="140" align="right"/>
 
-The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and found out which level measurement your variable is at, you can find out the test by making the correct crossing in the table below: 
+The previous sections should have given you enough rope to find out what kind of test you need: by knowing what the type of conclusion is you want to reach, and finding out what level of measurement your variable is at, you can infer the needed test by making the correct crossing in the table below: 
 
 | Goal | Categorical | Ordinal | Gaussian | 
 | :--- | :-------- | :--------- | :------------------- |
@@ -83,4 +83,4 @@ The previous sections should have given you enough rope to find out what kind of
 | 2 Related samples | [McNemar's test](/statistical-tests-categorical/#mcnemars-test) | [Wilcoxon Signed-Rank Test](/statistical-tests-ordinal/#wilcoxon-signed-rank-test) | [Paired t-test](/statistical-tests-gaussian/#paired-t-test) |
 | Association 2 variables | [Contigency coefficients](/statistical-tests-categorical/#contigency-coefficients) | [Spearman correlation](/statistical-tests-ordinal/#spearman-correlation) | [Pearson correlation](/statistical-tests-gaussian/#pearson-correlation) |
 
-All descriptive methods and statistical tests associated with the lower information value variables can be applied to the higher information variables. So you can calculate a mode, which I've here associated with categorical variables, for ordinal and Gaussian variables as well. Although you can do the same for statistical tests, you should prefer the test associated with the variable level if you can: these tests increase the chances of finding the smallest p-value, since they include most of the variable's information value.
+All descriptive methods and statistical tests associated with the lower information value variables can be applied to the higher information variables. So you can calculate a mode, which I've here associated with categorical variables, for ordinal and Gaussian variables as well. Although you can do the same for statistical tests, you should prefer the test associated with the variable level if you can: these tests increase the chances of finding the smallest p-value, since they include most of the variable's information value. The next tutorials will zoom in on the tests for [categorical variables](/statistical-tests-categorical/), [ordinal variables](/statistical-tests-ordinal/) and [Guassian variables](/statistical-tests-gaussian/).
