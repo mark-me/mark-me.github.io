@@ -11,6 +11,4 @@ t-Distributed Stochastic Neighbor Embedding, or t-SNE, like other data reduction
 So how does it work? Some of the workings of this approach are in the name of method. The method is al about _neighbouring_ points and _embedding_ these neighboring points in local neighborhoods fitting them to a lower dimensionsional space. The _t-Distributiony_ and _stochasticacy_ part need further explanation. At least: that's what my first thoughts were about these words... The result is clustering of the observations around
 
 
-Barnes-Hut 
-
-The library **[Rtsne](https://www.rdocumentation.org/packages/Rtsne)**
+In this R tutorial I'll be using the Barnes-Hut implementation of t-SNE from the **[Rtsne](https://www.rdocumentation.org/packages/Rtsne)** library. The biggest reason for this is it's quick processing and little else, since I have little patience for my computer and too little time to read endlessly.
