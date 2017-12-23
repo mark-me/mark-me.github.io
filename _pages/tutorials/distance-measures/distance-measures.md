@@ -73,7 +73,13 @@ dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = 
 A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. If you want to follow through on this example on UN voting you can jump to the [PAM](/clustering-mds/#pam-for-jaccard-distances) section.
 
 ## Gower distance
-Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
-Calculating the 
 
-_[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package.
+[<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="112" height="170" align="right"/>]
+Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
+
+Calculating the Gower distance matrix in R can be done with the _[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package. Let's do this with an movie dataset 
+```r
+url <- "http://vincentarelbundock.github.io/Rdatasets/csv/ggplot2/movies.csv"
+df_movie <- read.table(file = url, header = TRUE, sep = ",")
+
+```
