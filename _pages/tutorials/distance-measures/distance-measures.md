@@ -109,6 +109,8 @@ How does this similarity landscape look? Let's take a peek using MDS. In order t
 ```r
 mat_gower <- as.matrix(dist_gower)
 ```
+
+## MDS
 Next we'll get a MDS solution, _mds_movies_, with 2 dimensions to plot 
 ```r
 mds_movies <- cmdscale(mat_gower, eig = TRUE, k = 2)
@@ -135,5 +137,40 @@ ggplot(df_mds_movies, aes(x, y)) +
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-gower.png" target="_blank">
 <img src="/_pages/tutorials/distance-measures/mds-gower.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
+## t-SNE
+
+```r
+library(Rtsne)
+
+fit_tsne <- Rtsne(dist_gower,
+                  is_distance = TRUE,
+                  check_duplicates = FALSE, 
+                  pca = FALSE, 
+                  perplexity = 120, 
+                  theta = 0.5, 
+                  dims = 2)
+```
+```r
+df_tsne_vars <- as_data_frame(cbind(df_movie_selection,
+                                    x = fit_tsne$Y[, 1],
+                                    y = fit_tsne$Y[, 2]))
+
+df_tsne_movies <- df_tsne_vars %>% 
+  dplyr::select(title, x, y, year, rating, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>% 
+  gather(key = "variable", value = "values", -title, -x, -y, -year, -rating)
+```
+Plot:
+```r
+ggplot(df_tsne_movies, aes(x, y, col = values)) +
+  geom_point(aes(alpha = values, col = year)) +
+  facet_wrap(~variable)
+```
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/distance-measures/t-sne-gower.png" target="_blank">
+<img src="/_pages/tutorials/distance-measures/t-sne-gower.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
