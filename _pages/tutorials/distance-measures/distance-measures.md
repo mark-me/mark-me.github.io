@@ -77,9 +77,27 @@ A intuitive way of exploting the Jaccard distances, you can use the [MDS section
 [<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>]
 Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
 
-Calculating the Gower distance matrix in R can be done with the _[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package. Let's do this with an movie dataset I've found [here](https://rpubs.com/arun_infy13/97529)
+Calculating the Gower distance matrix in R can be done with the _[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package. Let's do this with an movie dataset I've found [here](https://rpubs.com/arun_infy13/97529).
 ```r
 url <- "http://vincentarelbundock.github.io/Rdatasets/csv/ggplot2/movies.csv"
 df_movie <- read.table(file = url, header = TRUE, sep = ",")
-
+```
+The _df_movie_ data frame contains some columns I considered unnecessary and some needed to be recoded to factor variables so they are treated appropriately by the distance function:
+```r
+df_movie %<>%
+  dplyr::select(-X, -c(r1:r10), -mpaa, -budget) %>% 
+  mutate(Action = factor(Action), Animation = factor(Animation), Comedy = factor(Comedy), 
+         Drama = factor(Drama), Documentary = factor(Documentary), Romance = factor(Romance),
+         Short = factor(Short))
+```
+Since the movie data set is pretty big, wel'll just create a random sample of 2000 movies, since I'm just demonstrating an idea here:
+```r
+df_movie_selection <- df_movie[sample(nrow(df_movie), 2000),]
+```
+Next we'll calculate the similarities between the movies
+```r
+library(cluster)
+dist_gower <- daisy(df_movie_selection[, -1],
+                    metric = "gower",
+                    type = list(logratio = 3))
 ```
