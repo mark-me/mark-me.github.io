@@ -101,3 +101,15 @@ dist_gower <- daisy(df_movie_selection[, -1],
                     metric = "gower",
                     type = list(logratio = 3))
 ```
+How does this similarity landscape look? Let's take a peek using MDS. In order to get the MDS _cmdscale_ function to work we need to convert the distance object to a regular matrix:
+```r
+mat_gower <- as.matrix(dist_gower)
+```
+Next we'll get a MDS solution, _mds_movies_, with 2 dimensions to plot 
+```r
+mds_movies <- cmdscale(mat_gower, eig = TRUE, k = 2)
+```
+and convert it to a data frame we can use with ggplot:
+```r
+df_mds_movies <- data.frame(df_movie_selection, x = mds_movies$points[,1], y = mds_movies$points[,2])
+```
