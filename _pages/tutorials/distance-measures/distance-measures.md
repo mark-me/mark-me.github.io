@@ -120,7 +120,8 @@ df_mds_movies <- data.frame(df_movie_selection,
                             y = mds_movies$points[,2])
 
 df_mds_movies %<>% 
-  dplyr::select(title, x, y, year, rating, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>% 
+  dplyr::select(title, x, y, year, rating, Action, Animation, 
+                Comedy, Drama, Documentary, Romance, Short) %>% 
   gather(key = "variable", value = "values", -title, -x, -y, -year, -rating)
 ```
 The plot:
@@ -131,3 +132,8 @@ ggplot(df_mds_movies, aes(x, y)) +
   guides(alpha = FALSE)
 ```
 
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/distance-measures/mds-gower.png" target="_blank">
+<img src="/_pages/tutorials/distance-measures/mds-gower.png" alt="Shaped word cloud" align="center" width="50%" height="50%"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
