@@ -74,10 +74,14 @@ A intuitive way of exploting the Jaccard distances, you can use the [MDS section
 
 ## Gower distance
 
-[<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>]
-Gower's General Similarity Coefficient one of the most popular measures of proximity for mixed data types. For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
+<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>
+Gower's General Similarity Coefficient is one of the most popular measures of proximity for mixed data types. 
 
-Calculating the Gower distance matrix in R can be done with the _[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package. Let's do this with an movie dataset I've found [here](https://rpubs.com/arun_infy13/97529).
+For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
+
+Calculating the Gower distance matrix in R can be done with the _[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package. 
+
+To show how this procedure can be done in R I've found this movie dataset I've found [here](https://rpubs.com/arun_infy13/97529). This movie data set contains numerical variables like rating and number of votes, as well as categorical values about the movie's genre. We'll use the Gower distance measure on this dataset. Here's how we get the data set:
 ```r
 url <- "http://vincentarelbundock.github.io/Rdatasets/csv/ggplot2/movies.csv"
 df_movie <- read.table(file = url, header = TRUE, sep = ",")
