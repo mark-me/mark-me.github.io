@@ -113,9 +113,21 @@ Next we'll get a MDS solution, _mds_movies_, with 2 dimensions to plot
 ```r
 mds_movies <- cmdscale(mat_gower, eig = TRUE, k = 2)
 ```
-and convert it to a data frame we can use with ggplot:
+and convert it to a data frame we can use with ggplot in the desired way:
 ```r
 df_mds_movies <- data.frame(df_movie_selection, 
                             x = mds_movies$points[,1],
                             y = mds_movies$points[,2])
+
+df_mds_movies %<>% 
+  dplyr::select(title, x, y, year, rating, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>% 
+  gather(key = "variable", value = "values", -title, -x, -y, -year, -rating)
 ```
+The plot:
+```r
+ggplot(df_mds_movies, aes(x, y)) +
+  geom_jitter(aes(col = variable, alpha = values)) +
+  facet_wrap(~variable) +
+  guides(alpha = FALSE)
+```
+
