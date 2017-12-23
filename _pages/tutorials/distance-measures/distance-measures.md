@@ -111,5 +111,7 @@ mds_movies <- cmdscale(mat_gower, eig = TRUE, k = 2)
 ```
 and convert it to a data frame we can use with ggplot:
 ```r
-df_mds_movies <- data.frame(df_movie_selection, x = mds_movies$points[,1], y = mds_movies$points[,2])
+df_mds_movies <- data.frame(df_movie_selection, 
+                            x = mds_movies$points[,1],
+                            y = mds_movies$points[,2])
 ```
