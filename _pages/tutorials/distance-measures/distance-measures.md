@@ -28,7 +28,7 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 # Euclidian distance
 
-[<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="152" height="190" align="right"/>](http://www.imdb.com/title/tt0075488/)
+[<img src="/_pages/tutorials/distance-measures/badlands.jpg" width="129" height="190" align="right"/>](http://www.imdb.com/title/tt0069762/)
 
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure since the distance measure can be highly impacted by outliers, throwing any subsequent clustering off. 
 
@@ -84,7 +84,7 @@ It seems approaching similarities in this way already told us a lot about this d
 
 <img src="/_pages/tutorials/distance-measures/manhattan.jpg" width="271" height="180" align="right"/> 
 
-The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables.
+The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables, since the distances derived in this way are treated as 'blocks' instead of absolute distances.
 
 For an example we cluster the countries by the religions of their people in 2010, for which I've used the data from the [Correlates of War Project](http://cow.dss.ucdavis.edu/data-sets/world-religion-data).
 ```r
