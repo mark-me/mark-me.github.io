@@ -43,7 +43,7 @@ The distances are calculated by the _[dist](https://stat.ethz.ch/R-manual/R-deve
 dist_USArrests <- dist(scaled_USArrests, method = "euclidian")
 ```
 
-# MDS
+## MDS on euclidian similarity
 
 Now we have a distance matrix, we might want to explore the similarities visually. Here we use MDS (for more on that subject, see the [MDS tutorial](/mds/)) to get the 4 dimensional similarity matrix down to two dimensions we can visually interpret. First we convert the distance object to a normal matrix which can be used by the _cmdscale_ function.
 ```r
@@ -157,7 +157,7 @@ How does this similarity landscape look? Let's take a peek using MDS. In order t
 mat_gower <- as.matrix(dist_gower)
 ```
 
-## MDS
+## MDS on Gower distance
 Next we'll get a MDS solution, _mds_movies_, with 2 dimensions to plot 
 ```r
 mds_movies <- cmdscale(mat_gower, eig = TRUE, k = 2)
