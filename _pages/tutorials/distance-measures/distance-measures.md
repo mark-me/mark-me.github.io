@@ -120,7 +120,9 @@ The Jaccard distance matrix can be created using the _vegdist_ function of the *
 library(vegan)
 dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
 ```
-A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! Jaccard distances can be used as input for [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. If you want to follow through on this example on UN voting you can jump to the [PAM](/clustering-mds/#pam-for-jaccard-distances) section.
+A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). 
+
+Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! To see how clusters can be based of Jaccard distances you can look into the clustering tutorial on [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. 
 
 # Gower distance
 
