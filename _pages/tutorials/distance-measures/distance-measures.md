@@ -19,7 +19,7 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 | Measurement level | Use case | Method |
 | ----------------- | -------  | ------ | 
-| Interval Ratio |                         | [Euclidian](/distance-measures/#euclidian_distance) |   
+| Interval Ratio |                         | [Euclidian](/distance-measures/#euclidian-distance) |   
 | Categorical    | Number of overlapping variables | Jaccard   |
 | Categorical    | Strings of equal lenght | Hamming   |
 | Ordinal        |                         | Manhattan | 
