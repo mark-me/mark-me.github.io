@@ -27,7 +27,7 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 # Euclidian distance
 
-<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="152" height="190" align="right"/> 
+[<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="152" height="190" align="right"/>](http://www.imdb.com/title/tt0075488/)
 
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure since the distance measure can be highly impacted by outliers, throwing any subsequent clustering off. 
 
