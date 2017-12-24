@@ -27,6 +27,8 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 # Euclidian distance
 
+<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="144" height="180" align="right"/> 
+
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure since the distance measure can be highly impacted by outliers, throwing any subsequent clustering off. 
 
 If your data set contains multiple variables, chances are they contain different measures; for example body height and weight. It might happen that one of the variables, with the largest range of values, might 'kidnap' the whole distance measure. To prevent this from happening you need to scale and center your data with R's native _[scale](https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html)_ function, ensuring all variables equally represented in the distance measure.
