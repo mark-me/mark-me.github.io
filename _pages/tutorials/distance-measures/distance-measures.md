@@ -20,10 +20,10 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 | Measurement level | Use case | Method |
 | ----------------- | -------  | ------ | 
 | Interval Ratio |                         | [Euclidian](/distance-measures/#euclidian-distance) |   
-| Categorical    | Number of overlapping variables | Jaccard   |
-| Categorical    | Strings of equal lenght | Hamming   |
-| Ordinal        |                         | Manhattan | 
-| Mixed          |                         | Gower     |
+| Categorical    | Number of overlapping variables | [Jaccard](/distance-measures/#jaccard-distance)   |
+| Categorical    | Strings of equal lenght | [Hamming](/distance-measures/#hamming-distance)   |
+| Ordinal        |                         | [Manhattan](/distance-measures/#manhattan-distance) | 
+| Mixed          |                         | [Gower](/distance-measures/#gower-distance)     |
 
 
 # Euclidian distance
