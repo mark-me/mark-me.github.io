@@ -19,8 +19,8 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 | Measurement level | Use case | Method |
 | ----------------- | -------  | ------ | 
-| Interval Ratio |                         | Euclidian |   
-| Categorical    |                         | Jaccard   |
+| Interval Ratio |                         | [Euclidian](/distance-measures/#euclidian_distance) |   
+| Categorical    | Number of overlapping variables | Jaccard   |
 | Categorical    | Strings of equal lenght | Hamming   |
 | Ordinal        |                         | Manhattan | 
 | Mixed          |                         | Gower     |
