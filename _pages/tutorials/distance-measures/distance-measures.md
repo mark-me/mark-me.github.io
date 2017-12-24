@@ -32,9 +32,9 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure since the distance measure can be highly impacted by outliers, throwing any subsequent clustering off. 
 
-The data set we'll be using is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html).
+The data set we'll be using is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape.
 
-If your data set contains multiple variables, chances are they contain different measures; for example body height and weight. It might happen that one of the variables, with the largest range of values, might 'kidnap' the whole distance measure. This data set contains .To prevent this from happening you need to scale and center your data with R's native _[scale](https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html)_ function, ensuring all variables equally represented in the distance measure.
+If your data set contains multiple variables, chances are they contain different measures; in this example we do not only have crime rates per 100.000 residents, but also a variable for the percentage of the population considered ubran. It might happen that one of the variables, with the largest range of values, might 'kidnap' the whole distance measure. To prevent this from happening you need to scale and center your data with R's native _[scale](https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html)_ function, ensuring all variables equally represented in the distance measure:
 ```r
 scaled_USArrests <- scale(USArrests)
 ```
@@ -45,20 +45,31 @@ dist_USArrests <- dist(scaled_USArrests, method = "euclidian")
 
 # MDS
 
+Now we have a distance matrix, we might want to explore the similarities visually. Here we use MDS (for more on that subject, see the [MDS tutorial](/mds/)) to get the 4 dimensional similarity matrix down to two dimensions we can visually interpret. First we convert the distance object to a normal matrix which can be used by the _cmdscale_ function.
 ```r
 mat_USArrests <- as.matrix(dist_USArrests)
-```
-```r
+
 mds_USArrests <- cmdscale(mat_USArrests, eig = TRUE, k = 2)  # Perform the actual MDS
 ```
+Then we combine the data set with the MDS solution to a data frame we can use for our plot:
 ```r
 df_mds_USArrests <- data.frame(city = row.names(USArrests),
                                scaled_USArrests, 
                                x = mds_USArrests$points[,1], 
                                y = mds_USArrests$points[,2])
 ```
-
-
+Since we want to see how all variables impacted the MDS solution we'll rotate the variables so they become different data sets we can use to make a plot for each variable, through ggplot's _facet_ function.
+```r
+df_mds_USArrests %<>% 
+  gather(key = "variable", value = "values", -city, -x, -y) 
+```
+Then we can finally create the plot. Note how the _values_ variable and _variables_ variable is used in the _facet_ function are used so we can get a look at the impact of all variables:
+```r
+ggplot(df_mds_USArrests, aes(x, y)) +
+  geom_jitter(aes(col = values, alpha = values)) +
+  geom_label_repel(aes(label = city, fill = values, alpha = values)) +
+  facet_wrap(~variable) 
+```
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-euclidian.png" target="_blank">
