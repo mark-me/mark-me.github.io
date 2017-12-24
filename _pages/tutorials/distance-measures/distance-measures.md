@@ -78,7 +78,7 @@ This creates the plot below. What we can see here is that the distances across t
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-It seems approaching similarities in this way already told us a lot about this data set!
+It seems approaching similarities in this way already told us a lot about this data set, and should give you some directions on which [statistical tests](/statistical-tests/) you might want to do to see if you can confirm any the hypotheses you just made.
 
 # Manhattan distance
 
