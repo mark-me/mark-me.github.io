@@ -31,18 +31,29 @@ The Euclidian distance is the distance measure we're all used to: the shortest d
 ```r
 dist_USArrests <- dist(USArrests, method = "euclidian")
 ```
+
+# MDS
+
 ```r
 mat_USArrests <- as.matrix(dist_USArrests)
 ```
 ```r
 mds_USArrests <- cmdscale(mat_USArrests, eig = TRUE, k = 2)  # Perform the actual MDS
 ```
-```rdf_mds_USArrests <- data.frame(city = row.names(USArrests),
+```r
+df_mds_USArrests <- data.frame(city = row.names(USArrests),
                                USArrests, 
                                x = mds_USArrests$points[,1], 
                                y = mds_USArrests$points[,2])
 ```
 
+
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/distance-measures/mds-euclidian.png" target="_blank">
+<img src="/_pages/tutorials/distance-measures/mds-euclidian.png" alt="Euclidian MDS" align="center" width="50%" height="50%"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
 
 # Manhattan distance
 
