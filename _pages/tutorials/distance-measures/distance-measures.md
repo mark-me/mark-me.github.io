@@ -25,7 +25,49 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 | Interval Ratio    |                                 | [Euclidian](/distance-measures/#euclidian-distance) |   
 | Mixed levels      |                                 | [Gower](/distance-measures/#gower-distance)         |
 
+# Jaccard distance
 
+[<img src="/_pages/tutorials/distance-measures/jaccard.jpg" width="200" height="190" align="right"/>](https://jaccard.com/collections/meat-tenderizers)
+
+[Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries. 
+
+First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. We'll just take the important votes. We'll just focus on the UN resolutions voted on between 2005 and 2015. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be missing values (i.e. NA). The variables are selected that matter to the analysis: the country, the UN resolution reference and the vote. The resolutions then get rotated to being variables, so for each country is a row where the vote for each UN resolution is a variable. 
+```r
+library(unvotes)
+library(lubridate) # For the year extraction function
+
+df_country_votes <- un_votes %>% 
+  inner_join(un_roll_calls, by ="rcid") %>% 
+  filter(importantvote == 1) %>% 
+  mutate(year_vote = year(date)) %>%
+  filter(year_vote >= 2005 & year_vote <= 2015) %>% 
+  mutate(vote_no = ifelse(vote == "yes", 1, ifelse(vote == "no", 0, NA)))  %>%
+  select(unres, country_code, vote_no) %>% 
+  spread(unres, vote_no)
+```
+The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
+```r
+library(vegan)
+dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
+```
+A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). 
+
+Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! To see how clusters can be based of Jaccard distances you can look into the clustering tutorial on [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. 
+
+# Hamming distance
+
+The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different. This is useful for categorical variables.
+
+# Manhattan distance
+
+<img src="/_pages/tutorials/distance-measures/manhattan.jpg" width="271" height="180" align="right"/> 
+
+The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables, since the distances derived in this way are treated as 'blocks' instead of absolute distances.
+
+For an example we cluster the countries by the religions of their people in 2010, for which I've used the data from the [Correlates of War Project](http://cow.dss.ucdavis.edu/data-sets/world-religion-data).
+```r
+dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
+```
 # Euclidian distance
 
 [<img src="/_pages/tutorials/distance-measures/badlands.jpg" width="129" height="190" align="right"/>](http://www.imdb.com/title/tt0069762/)
@@ -79,50 +121,6 @@ This creates the plot below. What we can see here is that the distances across t
 {: refdef}
 
 It seems approaching similarities in this way already told us a lot about this data set, and should give you some directions on which [statistical tests](/statistical-tests/) you might want to do to see if you can confirm any the hypotheses you just made.
-
-# Manhattan distance
-
-<img src="/_pages/tutorials/distance-measures/manhattan.jpg" width="271" height="180" align="right"/> 
-
-The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables, since the distances derived in this way are treated as 'blocks' instead of absolute distances.
-
-For an example we cluster the countries by the religions of their people in 2010, for which I've used the data from the [Correlates of War Project](http://cow.dss.ucdavis.edu/data-sets/world-religion-data).
-```r
-dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
-```
-
-# Hamming distance
-
-The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different. This is useful for categorical variables.
-
-# Jaccard distance
-
-[<img src="/_pages/tutorials/distance-measures/jaccard.jpg" width="200" height="190" align="right"/>](https://jaccard.com/collections/meat-tenderizers)
-
-[Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries. 
-
-First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. We'll just take the important votes. We'll just focus on the UN resolutions voted on between 2005 and 2015. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be missing values (i.e. NA). The variables are selected that matter to the analysis: the country, the UN resolution reference and the vote. The resolutions then get rotated to being variables, so for each country is a row where the vote for each UN resolution is a variable. 
-```r
-library(unvotes)
-library(lubridate) # For the year extraction function
-
-df_country_votes <- un_votes %>% 
-  inner_join(un_roll_calls, by ="rcid") %>% 
-  filter(importantvote == 1) %>% 
-  mutate(year_vote = year(date)) %>%
-  filter(year_vote >= 2005 & year_vote <= 2015) %>% 
-  mutate(vote_no = ifelse(vote == "yes", 1, ifelse(vote == "no", 0, NA)))  %>%
-  select(unres, country_code, vote_no) %>% 
-  spread(unres, vote_no)
-```
-The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
-```r
-library(vegan)
-dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
-```
-A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). 
-
-Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! To see how clusters can be based of Jaccard distances you can look into the clustering tutorial on [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. 
 
 # Gower distance
 
