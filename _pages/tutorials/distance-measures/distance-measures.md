@@ -70,12 +70,15 @@ ggplot(df_mds_USArrests, aes(x, y)) +
   geom_label_repel(aes(label = city, fill = values, alpha = values)) +
   facet_wrap(~variable) 
 ```
+This creates the plot below. What we can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates. The rape and murder rates are highest in the top left and lower left corners respectively. It seems Assault is prevalent in cities were rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-euclidian.png" target="_blank">
 <img src="/_pages/tutorials/distance-measures/mds-euclidian.png" alt="Euclidian MDS" align="center" width="50%" height="50%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
+
+It seems approaching similarities in this way already told us a lot about this data set!
 
 # Manhattan distance
 
