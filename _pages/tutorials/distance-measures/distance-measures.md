@@ -29,7 +29,7 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval of ratio variables. Be careful using this measure, the distance can be highly impacted by outliers, throwing your clustering off. The distances are calculated by the _dist_ function, passing the value "euclidian" to the _method_ argument: 
 ```r
-dist_USArrests <- dist(USArrests, method = "euclidian")
+dist_USArrests <- dist(scale(USArrests), method = "euclidian")
 ```
 
 # MDS
@@ -42,7 +42,7 @@ mds_USArrests <- cmdscale(mat_USArrests, eig = TRUE, k = 2)  # Perform the actua
 ```
 ```r
 df_mds_USArrests <- data.frame(city = row.names(USArrests),
-                               USArrests, 
+                               scale(USArrests), 
                                x = mds_USArrests$points[,1], 
                                y = mds_USArrests$points[,2])
 ```
