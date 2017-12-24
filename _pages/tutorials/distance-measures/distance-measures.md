@@ -121,7 +121,7 @@ A intuitive way of exploting the Jaccard distances, you can use the [MDS section
 
 # Gower distance
 
-<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>
+[<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)
 Gower's General Similarity Coefficient is one of the most popular measures of proximity for mixed data types. 
 
 For each variable type, a particular distance metric that works well for that type is used and scaled to fall between 0 and 1. Then, a linear combination using user-specified weights (most simply an average) is calculated to create the final distance matrix. 
