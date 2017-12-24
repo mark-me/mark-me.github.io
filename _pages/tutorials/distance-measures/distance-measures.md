@@ -17,13 +17,13 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 # How to choose a distance measure
 
-| Measurement level | Use case | Method |
-| ----------------- | -------  | ------ | 
-| Interval Ratio |                         | [Euclidian](/distance-measures/#euclidian-distance) |   
-| Categorical    | Number of overlapping variables | [Jaccard](/distance-measures/#jaccard-distance)   |
-| Categorical    | Strings of equal lenght | [Hamming](/distance-measures/#hamming-distance)   |
-| Ordinal        |                         | [Manhattan](/distance-measures/#manhattan-distance) | 
-| Mixed          |                         | [Gower](/distance-measures/#gower-distance)     |
+| Measurement level | Use case                        | Method                                              |
+| ----------------- | -------                         | ------                                              | 
+| Categorical       | Number of overlapping variables | [Jaccard](/distance-measures/#jaccard-distance)     |
+| Categorical       | Strings of equal lenght         | [Hamming](/distance-measures/#hamming-distance)     |
+| Ordinal           |                                 | [Manhattan](/distance-measures/#manhattan-distance) | 
+| Interval Ratio    |                                 | [Euclidian](/distance-measures/#euclidian-distance) |   
+| Mixed levels      |                                 | [Gower](/distance-measures/#gower-distance)         |
 
 
 # Euclidian distance
