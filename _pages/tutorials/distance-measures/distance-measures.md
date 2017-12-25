@@ -31,32 +31,55 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 [Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries. 
 
-First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. We'll just take the important votes. We'll just focus on the UN resolutions voted on between 2005 and 2015. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be missing values (i.e. NA). The variables are selected that matter to the analysis: the country, the UN resolution reference and the vote. The resolutions then get rotated to being variables, so for each country is a row where the vote for each UN resolution is a variable. 
+First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. We'll just take the important votes of the resolutions for human rights focus on the UN resolutions voted on between 2005 and 2015. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be missing values (i.e. NA). The variables are selected that matter to the analysis: the country, the UN resolution reference and the vote. The resolutions then get rotated to being variables, so for each country is a row where the vote for each UN resolution is a variable. 
 ```r
 library(unvotes)
 library(lubridate) # For the year extraction function
 
 df_country_votes <- un_votes %>% 
-  inner_join(un_roll_calls, by ="rcid") %>% 
-  filter(importantvote == 1) %>% 
+  inner_join(un_roll_calls, by ="rcid") %>%
+  inner_join(un_roll_call_issues, by = "rcid") %>% 
+  select(-country) %>% 
+  filter(importantvote == 1 & 
+           issue == select_issue &
+           !is.na(country_code) ) %>% 
   mutate(year_vote = year(date)) %>%
-  filter(year_vote >= 2005 & year_vote <= 2015) %>% 
-  mutate(vote_no = ifelse(vote == "yes", 1, ifelse(vote == "no", 0, NA)))  %>%
+  mutate(vote_no = ifelse(vote == "yes", 1, ifelse(vote == "no", 0, 99))) %>%
   select(unres, country_code, vote_no) %>% 
-  spread(unres, vote_no)
+  spread(unres, vote_no, fill = 99)
 ```
 The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
 ```r
 library(vegan)
 dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
 ```
-A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). 
+To get an idea of how similar the countries are in terms of UN votes for Human Right issues I'd like to see a plot in which the more similar countries are closer together and unsimilar countries further apart. The plot below was what I was aiming for:
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/jaccard-mds-human-rights.png" target="_blank">
 <img src="/_pages/tutorials/distance-measures/jaccard-mds-human-rights.png" alt="Jaccard MDS" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
+
+How did I create this plot? For this to work the the 196 dimensions (each country is a variables) in the similarity matrix, needed to be reduces to a two dimensional 'summary' of the similarity between countries. To tackle this issue I turn to the use of MDS (for more information, look up the [MDS tutorial](/mds/)):
+```r
+mds_country_votes <- cmdscale(dist_matrix) 
+```
+Then the mds solution is combined with some of the original country data, so we can start plotting after that:
+```r
+df_mds_country_votes <- data.frame(x = mds_country_votes[,1], 
+                                   y = mds_country_votes[,2],
+                                   country = df_country_votes$country,
+                                   region = df_country_votes$region,
+                                   sub_region = df_country_votes$sub_region)
+```
+Now for the final _ggplot_ statement, which will get you the above result. I've used the **[ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)** library for it's _geom_label_repel_ function to create the non-overlapping labels. 
+```r
+library(ggrepel)
+ggplot(df_mds_country_votes,aes(x, y)) +
+  geom_jitter(aes(col = region)) +
+  geom_label_repel(aes(label = country, fill = region), alpha = .6) 
+```
 
 Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! To see how clusters can be based of Jaccard distances you can look into the clustering tutorial on [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. 
 
