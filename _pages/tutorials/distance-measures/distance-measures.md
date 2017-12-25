@@ -52,11 +52,9 @@ dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = 
 ```
 A intuitive way of exploting the Jaccard distances, you can use the [MDS section](/clustering-mds/#mds). 
 
-jaccard-mds-human-rights.png
-
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/jaccard-mds-human-rights.png" target="_blank">
-<img src="/_pages/tutorials/distance-measures/jaccard-mds-human-rights.png" alt="Jaccard MDS" align="center" width="50%" height="50%"/><br>
+<img src="/_pages/tutorials/distance-measures/jaccard-mds-human-rights.png" alt="Jaccard MDS" align="center" width="70%" height="70%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
