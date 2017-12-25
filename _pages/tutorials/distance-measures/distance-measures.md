@@ -222,7 +222,7 @@ ggplot(df_mds_movies, aes(x, y)) +
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-## t-SNE
+## t-SNE on Gower distance
 
 ```r
 library(Rtsne)
