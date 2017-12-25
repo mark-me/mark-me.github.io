@@ -53,6 +53,9 @@ The Jaccard distance matrix can be created using the _vegdist_ function of the *
 library(vegan)
 dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
 ```
+
+## Visualizing Jaccard similarity
+
 To get an idea of how similar the countries are in terms of UN votes for Human Right issues I'd like to see a plot in which the more similar countries are closer together and unsimilar countries further apart. The plot below was what I was aiming for:
 
 {:refdef: style="text-align: center;"}
@@ -115,8 +118,8 @@ The distances are calculated by the _[dist](https://stat.ethz.ch/R-manual/R-deve
 dist_USArrests <- dist(scaled_USArrests, method = "euclidian")
 ```
 
-## MDS on euclidian similarity
-
+## Visualizing euclidian similarity
+ 
 Now we have a distance matrix, we might want to explore the similarities visually. Here we use MDS (for more on that subject, see the [MDS tutorial](/mds/)) to get the 4 dimensional similarity matrix down to two dimensions we can visually interpret. First we convert the distance object to a normal matrix which can be used by the _cmdscale_ function.
 ```r
 mat_USArrests <- as.matrix(dist_USArrests)
@@ -191,8 +194,9 @@ How does this similarity landscape look? Let's take a peek using MDS. In order t
 ```r
 mat_gower <- as.matrix(dist_gower)
 ```
+## Visualizing Gower distance
 
-## MDS on Gower distance
+### MDS on Gower distance
 Next we'll get a MDS solution, _mds_movies_, with 2 dimensions to plot 
 ```r
 mds_movies <- cmdscale(mat_gower, eig = TRUE, k = 2)
@@ -222,7 +226,7 @@ ggplot(df_mds_movies, aes(x, y)) +
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-## t-SNE on Gower distance
+### t-SNE on Gower distance
 
 ```r
 library(Rtsne)
