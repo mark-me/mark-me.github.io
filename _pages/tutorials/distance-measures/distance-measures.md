@@ -80,8 +80,9 @@ ggplot(df_mds_country_votes,aes(x, y)) +
   geom_jitter(aes(col = region)) +
   geom_label_repel(aes(label = country, fill = region), alpha = .6) 
 ```
-
 Knowing how much the countries are similar in voting behaviour is nice, but they give a confusing picture of 193 data points. I'd like to have a better overview of countries that are more similar than others. Here's where clustering comes to the resue! To see how clusters can be based of Jaccard distances you can look into the clustering tutorial on [hierarchical](/clustering-mds/#hierarchical-clustering) and [PAM](/clustering-mds/#pam-for-jaccard-distances) clustering. 
+
+[This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/jaccard-distance.R) will give you the entire script for a running example you can play around with yourself.
 
 # Hamming distance
 
