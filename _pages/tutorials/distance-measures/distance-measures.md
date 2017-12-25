@@ -152,6 +152,8 @@ This creates the plot below. What we can see here is that the distances across t
 
 It seems approaching similarities in this way already told us a lot about this data set, and should give you some directions on which [statistical tests](/statistical-tests/) you might want to do to see if you can confirm any the hypotheses you just made.
 
+[This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/euclidian-distance.R) will give you the entire script for a running example you can play around with yourself.
+
 # Gower distance
 
 [<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)
