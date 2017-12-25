@@ -83,7 +83,7 @@ ggplot(df_mds_country_votes,aes(x, y)) +
   geom_jitter(aes(col = region)) +
   geom_label_repel(aes(label = country, fill = region), alpha = .6) 
 ```
-We can see there are certain groups of countries that are more similar than others, which gives a hint there might be clusters of countries that do share voting patterns. There is clearly a majority of European countries that seem to share opinions on Human Rights. Could this be related to other country metrics like the Human Freedom Index of the [CATO Institute](https://www.cato.org/support). Seeing how easy it is to [get the data](https://www.cato.org/human-freedom-index), it was very tempting to start crunching on that... but, uhm.... I have a tutorial to finish. 
+We can see there are certain groups of countries that are more similar than others, which gives a hint there might be clusters of countries that do share voting patterns. There is clearly a majority of European countries that seem to share opinions on Human Rights. What sets this cluster apart from the rest? How does this relate to other country metrics like the Human Freedom Index of the [CATO Institute](https://www.cato.org/support)? Seeing how easy it is to [get the data](https://www.cato.org/human-freedom-index), it was very tempting to start crunching on that... but, uhm.... I have a tutorial to finish. 
 
 [This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/jaccard-distance.R) will give you the entire script for a running example you can play around with yourself.
 
@@ -153,7 +153,7 @@ This creates the plot below. What we can see here is that the distances across t
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-It seems approaching similarities in this way already told us a lot about this data set, and should give you some directions on which [statistical tests](/statistical-tests/) you might want to do to see if you can confirm any the hypotheses you just made.
+It seems approaching similarities in this way already told us a lot about this data set, and should give some directions on which [statistical tests](/statistical-tests/) mightt be done to do to see if you can confirm any the semi 'hypotheses' just made... Carrying on...
 
 [This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/euclidian-distance.R) will give you the entire script for a running example you can play around with yourself.
 
