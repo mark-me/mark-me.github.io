@@ -6,8 +6,6 @@ permalink: /distance-measures/
 published: true
 ---
 
-* TOC
-{:toc}
 
 [<img src="/_pages/tutorials/distance-measures/measuring-similarity.jpg" width="192" height="180" align="right"/>](https://www.bol.com/nl/p/the-ban-of-the-bori/1001004002833612/) 
 
