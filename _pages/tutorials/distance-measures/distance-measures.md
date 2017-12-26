@@ -19,13 +19,12 @@ This tutorial shows you how to pick a distance metric, how to apply it and how t
 
 There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) The table below shows you which measurement level corresponds to which distance measure.
 
-| Measurement level | Use case                        | Method                                              |
-| ----------------- | -------                         | ------                                              | 
-| Categorical       | Number of overlapping variables | [Jaccard](/distance-measures/#jaccard-distance)     |
-| Categorical       | Strings of equal lenght         | [Hamming](/distance-measures/#hamming-distance)     |
-| Ordinal           |                                 | [Manhattan](/distance-measures/#manhattan-distance) | 
-| Interval Ratio    |                                 | [Euclidian](/distance-measures/#euclidian-distance) |   
-| Mixed levels      |                                 | [Gower](/distance-measures/#gower-distance)         |
+| Measurement level | Method                                              |
+| ----------------- | ------                                              | 
+| Categorical       | [Jaccard](/distance-measures/#jaccard-distance)     |
+| Ordinal           | [Manhattan](/distance-measures/#manhattan-distance) | 
+| Interval Ratio    | [Euclidian](/distance-measures/#euclidian-distance) |   
+| Mixed levels      | [Gower](/distance-measures/#gower-distance)         |
 
 # Jaccard distance
 
@@ -88,10 +87,6 @@ ggplot(df_mds_country_votes,aes(x, y)) +
 We can see there are certain groups of countries that are more similar than others, which gives a hint there might be clusters of countries that do share voting patterns. There is clearly a majority of European countries that seem to share opinions on Human Rights. What sets this cluster apart from the rest? How does this relate to other country metrics like the Human Freedom Index of the [CATO Institute](https://www.cato.org/support)? Seeing how easy it is to [get the data](https://www.cato.org/human-freedom-index), it was very tempting to start crunching on that... but, uhm.... I have a tutorial to finish, so I'll leave that challenge up to you.
 
 [This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/jaccard-distance.R) will give you the entire script for a running example you can play around with yourself.
-
-# Hamming distance
-
-The Hamming distance the number of positions between two strings of equal length at which the corresponding symbols are different. This is useful for categorical variables.
 
 # Manhattan distance
 
