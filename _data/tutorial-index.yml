@@ -51,7 +51,7 @@
 - title: t-Distributed Stochastic Neighbor Embedding
   url: /t-sne/
   image: /_pages/tutorials/t-sne/t-sne.png
-  description: Condensing a data set by using Barnes-Hut t-SNE.
+  description: Exploring and condensing a data set by using Barnes-Hut t-SNE.
 
 - title: Clustering
   url: /clustering-mds/
