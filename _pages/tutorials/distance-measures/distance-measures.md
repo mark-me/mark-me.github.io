@@ -11,11 +11,13 @@ published: true
 
 [<img src="/_pages/tutorials/distance-measures/measuring-similarity.jpg" width="192" height="180" align="right"/>](https://www.bol.com/nl/p/the-ban-of-the-bori/1001004002833612/) 
 
-Sooner or later during an analysis I'll start asking myself: how similar are these observations really? If we want see how similar observations are, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) There are many distance metrics, but the four I found most useful are discussed here.
+Sooner or later during an analysis I'll start asking myself: how similar are these observations really? If we want see how similar observations are, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are many, many distance metrics, but the four I found most useful are discussed here.
 
-This tutorial shows you how to pick a distance metric, how to apply it and how to visualize is using MDS. I won't go into MDS too deeply, but you can follow my tutorial on MDS [here](/mds/) if you want to.
+This tutorial shows you how to pick a distance metric, how to apply it and how to visualize is using MDS or t-SNE (in one case). I won't go into MDS too deeply, but you can follow my tutorial on MDS [here](/mds/) if you want to.
 
 # How to choose a distance measure
+
+There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) The table below shows you which measurement level corresponds to which distance measure.
 
 | Measurement level | Use case                        | Method                                              |
 | ----------------- | -------                         | ------                                              | 
