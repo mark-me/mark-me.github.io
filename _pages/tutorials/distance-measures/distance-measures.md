@@ -106,9 +106,36 @@ The distances are calculated by the _[dist](https://stat.ethz.ch/R-manual/R-deve
 dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
 ```
 
-## Visualizing Manhattan distance
+## Visualizing similarity
 
-Now we have a distance 
+Now we have a distance object which countains a crossing of all countries in terms of their similarity. If we'd want to visualize that we need to visualize 192 countries with their intercrossed similarities. This is way too difficult, so we resort to MDS two scale all these similarities back to two dimensions, which we can use in a scatter plot. The _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function only takes a matrix, not a distance object, so we need to convert that first:
+```r
+mat_distance <- as.matrix(dist_religion)                    # Turn the distances object into a regular matrix
+row.names(mat_distance) <- df_country_by_religion$country   # Add the country names as row labels
+colnames(mat_distance) <- df_country_by_religion$country    # Add the country names as column names
+```
+Then we can perform the MDS, where the default will create 2 dimensions:
+```r
+mds_religions <- cmdscale(mat_distance)
+```
+Then we combine this MDS solution with the original data frame, which we can use to create the similarity plot. The religion adherence values from the original data frame will be translated to rows, so we can create a seperate plot for all religions, seeing their impact on the similarity:
+```r
+df_mds_religions <- cbind(df_country_by_religion,
+                          x = mds_religions[,1], 
+                          y = mds_religions[,2])
+
+df_mds_religions %<>% 
+  gather(key = "religion", value = "perc_adherents", -country, -iso_alpha_3, -x, -y)
+```
+Then we have the command creating our plot:
+```r
+ggplot(df_mds_religions, aes(x, y)) +
+  geom_jitter(aes(col = perc_adherents, alpha = perc_adherents)) +
+  geom_label_repel(aes(label = country, fill = perc_adherents, alpha = perc_adherents)) +
+  scale_color_continuous() +
+  scale_fill_continuous() +
+  facet_wrap(~religion)
+```
 
 # Euclidian distance
 
