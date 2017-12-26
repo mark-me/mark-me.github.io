@@ -182,7 +182,7 @@ ggplot(df_mds_USArrests, aes(x, y)) +
   geom_label_repel(aes(label = city, fill = values, alpha = values)) +
   facet_wrap(~variable) 
 ```
-This creates the plot below. What we can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates. The rape and murder rates are highest in the top left and lower left corners respectively. It seems Assault is prevalent in cities were rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
+This creates the plot below, where the cities are plotted by similarity and their respective crime rates and population are indicated by their opacity. We can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates. The rape and murder rates are highest in the top left and lower left corners respectively. It seems Assault is prevalent in cities were rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-euclidian.png" target="_blank">
@@ -264,6 +264,7 @@ ggplot(df_mds_movies, aes(x, y)) +
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
+The movies are plotted by their similarity and each plot is a genre; the movies that are not in that genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres. 
 Although we can make out some stuff, like comedies being a pretty specific group, most points are heavily overlapping, making the plot nearly useless for interpretation. It seems the MDS solution doens't help us in this case. Another method to visually represent is t-SNE, but it comes which with its drawbacks when it comes to interpretatiom; I will discuss this method, and its drawbacks, below.
 
 ### Using t-SNE
@@ -288,7 +289,7 @@ df_tsne_vars <- as_data_frame(cbind(df_movie_selection,
                                     x = fit_tsne$Y[, 1],
                                     y = fit_tsne$Y[, 2]))
 ```
-And prepare it for visual exploration by splitting the set by genre across rows:
+And prepare it for visual exploration by splitting the set by genre across rows like in the MDS case:
 ```r
 df_tsne_movies <- df_tsne_vars %>% 
   dplyr::select(title, x, y, year, rating, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>% 
@@ -306,3 +307,5 @@ ggplot(df_tsne_movies, aes(x, y, col = values)) +
 <img src="/_pages/tutorials/distance-measures/t-sne-gower.png" alt="Shaped word cloud" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
+
+Again, the movies are plotted by their similarity and each plot is a genre; the movies that are not in that genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres.
