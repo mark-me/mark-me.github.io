@@ -303,7 +303,9 @@ ggplot(df_tsne_movies, aes(x, y, col = values)) +
   facet_wrap(~variable)
 ```
 
-Again, the movies are plotted by their similarity and each plot is a genre; the movies which are not part of a genre are transparent, while the movies that do fit that genre are opaque. Remember that movies can fit more than one genre, so it is useful to compare plots when trying to spot movies that fit more than one genre. The way in which similarites are represented are different from MDS in one fundamental way: t-SNE overrepresents similarity within a group, while it underrepresents between dissimilarity between groups. 
+Again, the movies are plotted by their similarity and each plot is a genre; the movies which are not part of a genre are transparent, while the movies that do fit that genre are opaque.Remember that movies can fit more than one genre, so it is useful to compare plots when trying to spot movies that fit more than one genre. The color of the movies is determined by their first year of appearance.
+
+The way in which similarites are represented are different from MDS in one fundamental way: t-SNE overrepresents similarity within a group, while it underrepresents between dissimilarity between groups. In other words: while MDS is more 'honest' in its similarity representation, t-SNE tends to agglomerate similar movies, and ignore how dissimilar unsimilar movies are. You can see what movies are similar and which are not in a t-SNE by looking at the clusters, but you can't tell how different the clusters of movies are from one and other.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/t-sne-gower.png" target="_blank">
