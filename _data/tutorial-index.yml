@@ -26,7 +26,7 @@
 - title: Creating your own project template
   url: /project-template/
   image: /_pages/tutorials/project-template.png
-  description: Standardizing your setup for your R projects.
+  description: Standardizing your setup for R projects.
   
 - title: Structuring data processing
   url: /structuring-data-processing/
