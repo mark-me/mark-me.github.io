@@ -269,7 +269,7 @@ Although we can make out some stuff, like comedies being a pretty specific group
 
 ### Using t-SNE
 
-t-SNE is one of the reduction methods providing another way of visually inspecting similaries in data sets. I won't go into details of how t-SNE works, but if you want to know more later you can look at my [t-SNE tutorial](/t-sne/). Let's dive right into creating a t-SNE solution:
+t-SNE is one of the reduction methods providing another way of visually inspecting similaries in data sets. I won't go into details of how t-SNE works, but it won't hold is back from using it here. if you want to know more about t-SNE later, you can look at my [t-SNE tutorial](/t-sne/). Let's dive right into creating a t-SNE solution:
 ```r
 library(Rtsne)
 
@@ -281,7 +281,7 @@ fit_tsne <- Rtsne(dist_gower,
                   theta = 0.5, 
                   dims = 2)
 ```
-Let's take a look at some of the parametes there (there are a lot). Starting simple: the _dist_gower_ is the distance object you just created and wanted to visualise, since its a distance object we need to inform the function that it is: _is_distance_. We know there are no duplicates, so we set _check_duplicates_ to FALSE to save processing time. PCA... We're not doing that here, so let's turn if of ```pca = FALSE```. We want to get a 2 dimensional plot of the similarities so: ```dims = 2```.
+Let's take a look at some of the parametes there (there are a lot). Starting simple: the _dist_gower_ is the distance object you just created and wanted to visualise, since its a distance object we need to inform the function that it is: _is_distance_. We know there are no duplicates, so we set _check_duplicates_ to FALSE to save processing time. PCA... We're not doing that here, so let's turn it off: ```pca = FALSE```. We want to get a 2 dimensional plot of the similarities so: ```dims = 2```.
 
 The t-SNE solution are put in a new data frame including the original data set:
 ```r
