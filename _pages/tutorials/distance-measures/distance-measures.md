@@ -259,7 +259,7 @@ ggplot(df_mds_movies, aes(x, y)) +
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-gower.png" target="_blank">
-<img src="/_pages/tutorials/distance-measures/mds-gower.png" alt="Shaped word cloud" align="center" width="70%" height="70%"/><br>
+<img src="/_pages/tutorials/distance-measures/mds-gower.png" alt="Shaped word cloud" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
@@ -294,6 +294,6 @@ ggplot(df_tsne_movies, aes(x, y, col = values)) +
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/t-sne-gower.png" target="_blank">
-<img src="/_pages/tutorials/distance-measures/t-sne-gower.png" alt="Shaped word cloud" align="center" width="70%" height="70%"/><br>
+<img src="/_pages/tutorials/distance-measures/t-sne-gower.png" alt="Shaped word cloud" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
