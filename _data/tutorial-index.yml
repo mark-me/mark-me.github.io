@@ -6,7 +6,7 @@
 - title: Similarity measures
   url: /distance-measures/
   image: /_pages/tutorials/distance-measures/distance.png
-  description: Similarity between observations, measuring and visualising them with MDS and a t-SNE example.
+  description: Similarity between observations: measuring and visualizing them with MDS and a t-SNE.
 
 - title: Creating raster maps
   url: /raster-maps/
