@@ -263,7 +263,7 @@ ggplot(df_mds_movies, aes(x, y)) +
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-All points are heavily overlapping, making the plot nearly useless for interpretation. It seems the MDS solution doens't help us in this case. Another method to visually represent is t-SNE, but it comes which with its drawbacks when it comes to interpretatiom; I will discuss this method, and its drawbacks, below.
+Although we can make out some stuff, like comedies being a pretty specific group, most points are heavily overlapping, making the plot nearly useless for interpretation. It seems the MDS solution doens't help us in this case. Another method to visually represent is t-SNE, but it comes which with its drawbacks when it comes to interpretatiom; I will discuss this method, and its drawbacks, below.
 
 ### Using t-SNE
 
