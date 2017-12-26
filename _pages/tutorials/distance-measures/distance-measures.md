@@ -137,6 +137,12 @@ ggplot(df_mds_religions, aes(x, y)) +
   facet_wrap(~religion)
 ```
 
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/distance-measures/mds-manhattan.png" target="_blank">
+<img src="/_pages/tutorials/distance-measures/mds-manhattan.png" alt="Religious similarity" align="center" width="80%" height="80%"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
 # Euclidian distance
 
 [<img src="/_pages/tutorials/distance-measures/badlands.jpg" width="129" height="190" align="right"/>](http://www.imdb.com/title/tt0069762/)
