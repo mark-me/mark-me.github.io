@@ -270,6 +270,7 @@ Although we can make out some stuff, like comedies being a pretty specific group
 
 ### Using t-SNE
 
+t-SNE is one of the reduction methods providing another way of visually inspecting similaries in data sets. I won't go into details of how t-SNE works, but if you want to know more later you can look at my [t-SNE tutorial](/t-sne/). 
 ```r
 library(Rtsne)
 
