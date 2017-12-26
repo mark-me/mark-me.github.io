@@ -134,7 +134,7 @@ ggplot(df_mds_religions, aes(x, y)) +
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-manhattan.png" target="_blank">
-<img src="/_pages/tutorials/distance-measures/mds-manhattan.png" alt="Religious similarity" align="center" width="80%" height="80%"/><br>
+<img src="/_pages/tutorials/distance-measures/mds-manhattan.png" alt="Religious similarity" align="center" width="90%" height="90%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
