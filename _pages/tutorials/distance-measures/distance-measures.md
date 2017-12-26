@@ -97,10 +97,19 @@ The Hamming distance the number of positions between two strings of equal length
 
 The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables, since the distances derived in this way are treated as 'blocks' instead of absolute distances.
 
-For an example we cluster the countries by the religions of their people in 2010, for which I've used the data from the [Correlates of War Project](http://cow.dss.ucdavis.edu/data-sets/world-religion-data).
+For an example we'll be looking at the similarities of countries in terms of their religious make-up in 2010, for which I've used the data from the [Correlates of War Project](http://cow.dss.ucdavis.edu/data-sets/world-religion-data).
+
+I won't be describing all the steps in acquiring the data, just the parts that are about creating distances and visualizing them. You can [download the script](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/manhattan-distance.R), if you want to play around with it yourself.
+
+The distances are calculated by the _[dist](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/dist.html)_ function, passing the value "manhattan" to the _method_ argument:
 ```r
 dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
 ```
+
+## Visualizing Manhattan distance
+
+Now we have a distance 
+
 # Euclidian distance
 
 [<img src="/_pages/tutorials/distance-measures/badlands.jpg" width="129" height="190" align="right"/>](http://www.imdb.com/title/tt0069762/)
