@@ -282,17 +282,21 @@ fit_tsne <- Rtsne(dist_gower,
                   theta = 0.5, 
                   dims = 2)
 ```
-Let's take a look at some of the parametes there (there are a lot). Starting simple: the _dist_gower_ is the distance object you just created and wanted to visualise, since its a distance object we need to inform the function that it is: _is_distance_. We know there are no duplicates, so we set _check_duplicates_ to FALSE to save processing time. PCA... We're not doing that here, so let's turn if of ```pca = FALSE```. 
+Let's take a look at some of the parametes there (there are a lot). Starting simple: the _dist_gower_ is the distance object you just created and wanted to visualise, since its a distance object we need to inform the function that it is: _is_distance_. We know there are no duplicates, so we set _check_duplicates_ to FALSE to save processing time. PCA... We're not doing that here, so let's turn if of ```pca = FALSE```. We want to get a 2 dimensional plot of the similarities so: ```dims = TRUE```.
+
+The t-SNE solution are put in a new data frame including the original data set:
 ```r
 df_tsne_vars <- as_data_frame(cbind(df_movie_selection,
                                     x = fit_tsne$Y[, 1],
                                     y = fit_tsne$Y[, 2]))
-
+```
+And prepare it for visual exploration by splitting the set by genre across rows:
+```r
 df_tsne_movies <- df_tsne_vars %>% 
   dplyr::select(title, x, y, year, rating, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>% 
   gather(key = "variable", value = "values", -title, -x, -y, -year, -rating)
 ```
-Plot:
+Then we create the plot:
 ```r
 ggplot(df_tsne_movies, aes(x, y, col = values)) +
   geom_point(aes(alpha = values, col = year)) +
