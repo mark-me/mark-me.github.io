@@ -11,7 +11,7 @@
 - title: Creating raster maps
   url: /raster-maps/
   image: /_pages/tutorials/raster-maps/raster-maps.png
-  description: Geographical data plotting using raster maps plots, and 'prettifying' it by adding a Google map layer.
+  description: Geographical data plotting, using raster maps plots, and 'prettifying' it by adding a Google map layer.
 
 - title: Statistical tests
   url: /statistical-tests/
@@ -21,7 +21,7 @@
 - title: Working with networked graphs in ggraph
   url: /network-graphs-ggraph/
   image: /_pages/tutorials/network-graphs-with-ggraph/network-graphs.png
-  description: Creating network of hierarchy graphs using the ggraph package.
+  description: Network and hierarchy graph plotting, using the ggraph package.
   
 - title: Creating your own project template
   url: /project-template/
