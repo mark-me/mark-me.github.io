@@ -292,7 +292,8 @@ df_tsne_vars <- as_data_frame(cbind(df_movie_selection,
 And prepare it for visual exploration by splitting the set by genre across rows like in the MDS case:
 ```r
 df_tsne_movies <- df_tsne_vars %>% 
-  dplyr::select(title, x, y, year, rating, Action, Animation, Comedy, Drama, Documentary, Romance, Short) %>% 
+  dplyr::select(title, x, y, year, rating, Action, Animation, 
+                Comedy, Drama, Documentary, Romance, Short) %>% 
   gather(key = "variable", value = "values", -title, -x, -y, -year, -rating)
 ```
 Then we create the plot:
