@@ -110,9 +110,7 @@ dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
 
 Now we have a distance object which countains a crossing of all countries in terms of their similarity. If we'd want to visualize that we need to visualize 192 countries with their intercrossed similarities. This is way too difficult, so we resort to MDS two scale all these similarities back to two dimensions, which we can use in a scatter plot. The _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function only takes a matrix, not a distance object, so we need to convert that first:
 ```r
-mat_distance <- as.matrix(dist_religion)                    # Turn the distances object into a regular matrix
-row.names(mat_distance) <- df_country_by_religion$country   # Add the country names as row labels
-colnames(mat_distance) <- df_country_by_religion$country    # Add the country names as column names
+mat_distance <- as.matrix(dist_religion) 
 ```
 Then we can perform the MDS, where the default will create 2 dimensions:
 ```r
