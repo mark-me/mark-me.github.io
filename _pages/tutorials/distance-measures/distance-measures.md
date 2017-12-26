@@ -282,7 +282,7 @@ fit_tsne <- Rtsne(dist_gower,
                   theta = 0.5, 
                   dims = 2)
 ```
-Let's take a look at some of the parametes there (there are a lot). Starting simple: the _dist_gower_ is the distance object you just created and wanted to visualise, since its a distance object we need to inform the function that it is: _is_distance_. We know there are no duplicates, so we set _check_duplicates_ to FALSE to save processing time. PCA... We're not doing that here, so let's turn if of ```pca = FALSE```. We want to get a 2 dimensional plot of the similarities so: ```dims = TRUE```.
+Let's take a look at some of the parametes there (there are a lot). Starting simple: the _dist_gower_ is the distance object you just created and wanted to visualise, since its a distance object we need to inform the function that it is: _is_distance_. We know there are no duplicates, so we set _check_duplicates_ to FALSE to save processing time. PCA... We're not doing that here, so let's turn if of ```pca = FALSE```. We want to get a 2 dimensional plot of the similarities so: ```dims = 2```.
 
 The t-SNE solution are put in a new data frame including the original data set:
 ```r
