@@ -3,6 +3,11 @@
   image: /_pages/tutorials/pca/pca.png
   description: Condensing a data set by using Principal Component Analysis.
 
+- title: Distance/similarity measures
+  url: /distance-measures/
+  image: /_pages/tutorials/distance-measures/distance.png
+  description: Measuring similarity between observations, with a bit of MDS and a t-SNE example.
+
 - title: Creating raster maps
   url: /raster-maps/
   image: /_pages/tutorials/raster-maps/raster-maps.png
@@ -37,11 +42,6 @@
   url: /splitting-combining-files/
   image: /_pages/tutorials/splitting-combining-files.png
   description: Splitting and/or combining files.... Nothing more.
-
-- title: Distance/similarity measures
-  url: /distance-measures/
-  image: /_pages/tutorials/distance-measures/distance.png
-  description: Measuring similarity between observations.
 
 - title: MDS
   url: /mds/
