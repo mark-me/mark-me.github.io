@@ -138,7 +138,7 @@ ggplot(df_mds_religions, aes(x, y)) +
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-Well... That is a pretty 'busy' graph, which probably can be improved upon. But is does show how countries with similar religious make-up are pretty close together. If we cluster the countries by their similarity, and plot them on a world map instead of a scatter plot, we might gain more insight into this. This is exactly what I've done for the [clustering tutorial](/clustering-mds/)
+Well... That is a pretty 'busy' graph, which probably can be improved upon. But is does show how countries with similar religious make-up are pretty close together in specific areas of the plot, so this data set looks like a good candidate for clustering. We could we cluster the countries by their similarity, and plot them on a world map instead of a scatter plot and that might tell us more. This is exactly what I've done for the [clustering tutorial](/clustering-mds/).
 
 # Euclidian distance
 
