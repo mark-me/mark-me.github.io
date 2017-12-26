@@ -257,7 +257,7 @@ ggplot(df_mds_movies, aes(x, y)) +
   facet_wrap(~variable) +
   guides(alpha = FALSE)
 ```
-The movies are plotted by their similarity and each plot is a genre; the movies which are not part of a genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres.
+The movies are plotted by their similarity and each plot is a genre; the movies which are not part of a genre are transparent, while the movies that do fit that genre are opaque. Remember that movies can fit more than one genre, so it is useful to compare plots when trying to spot movies that fit more than one genre.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-gower.png" target="_blank">
@@ -303,7 +303,7 @@ ggplot(df_tsne_movies, aes(x, y, col = values)) +
   facet_wrap(~variable)
 ```
 
-The movies are plotted by their similarity and each plot is a genre; the movies which are not part of a genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres. The way in which similarites are represented are different from MDS in one fundamental way: t-SNE overrepresents similarity within a group, while it underrepresents between dissimilarity between groups. 
+Again, the movies are plotted by their similarity and each plot is a genre; the movies which are not part of a genre are transparent, while the movies that do fit that genre are opaque. Remember that movies can fit more than one genre, so it is useful to compare plots when trying to spot movies that fit more than one genre. The way in which similarites are represented are different from MDS in one fundamental way: t-SNE overrepresents similarity within a group, while it underrepresents between dissimilarity between groups. 
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/t-sne-gower.png" target="_blank">
