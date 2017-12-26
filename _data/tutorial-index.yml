@@ -3,7 +3,7 @@
   image: /_pages/tutorials/pca/pca.png
   description: Condensing a data set by using Principal Component Analysis.
 
-- title: Distance/similarity measures
+- title: Similarity measures
   url: /distance-measures/
   image: /_pages/tutorials/distance-measures/distance.png
   description: Measuring similarity between observations and visualising it with MDS and a t-SNE example.
