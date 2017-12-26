@@ -95,7 +95,7 @@ The Hamming distance the number of positions between two strings of equal length
 
 # Manhattan distance
 
-<img src="/_pages/tutorials/distance-measures/manhattan.jpg" width="271" height="180" align="right"/> 
+[<img src="/_pages/tutorials/distance-measures/manhattan.jpg" width="271" height="180" align="right"/>](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/)
 
 The Manhattan distance is called after the shortest distance a taxi can take through most of [Manhattan](http://becomeanewyorker.com/streets-and-avenues-a-history-of-the-grid-system/), the difference from the Euclidian distance: we have to drive around the buildings instead of straight through them. This distance measure is useful for ordinal and interval variables, since the distances derived in this way are treated as 'blocks' instead of absolute distances.
 
