@@ -313,3 +313,4 @@ The way in which similarites are represented are different from MDS in one funda
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
+You can see in the Drama plot most points seem to be of a darker color, which indicates the genre is a relatively new phenomena: .
