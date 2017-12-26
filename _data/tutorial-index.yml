@@ -46,7 +46,7 @@
 - title: MDS
   url: /mds/
   image: /_pages/tutorials/mds/mds.png
-  description: Visualizing similarity between observations, keeping distances mostly intact.
+  description: Interpretating data sets with multiple variables in a two dimensional plot.
 
 - title: t-Distributed Stochastic Neighbor Embedding
   url: /t-sne/
