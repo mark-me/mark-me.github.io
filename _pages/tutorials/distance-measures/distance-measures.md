@@ -257,14 +257,14 @@ ggplot(df_mds_movies, aes(x, y)) +
   facet_wrap(~variable) +
   guides(alpha = FALSE)
 ```
+The movies are plotted by their similarity and each plot is a genre; the movies that are not in that genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-gower.png" target="_blank">
 <img src="/_pages/tutorials/distance-measures/mds-gower.png" alt="Shaped word cloud" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
-
-The movies are plotted by their similarity and each plot is a genre; the movies that are not in that genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres. 
+ 
 Although we can make out some stuff, like comedies being a pretty specific group, most points are heavily overlapping, making the plot nearly useless for interpretation. It seems the MDS solution doens't help us in this case. Another method to visually represent is t-SNE, but it comes which with its drawbacks when it comes to interpretatiom; I will discuss this method, and its drawbacks, below.
 
 ### Using t-SNE
@@ -302,10 +302,11 @@ ggplot(df_tsne_movies, aes(x, y, col = values)) +
   facet_wrap(~variable)
 ```
 
+Again, the movies are plotted by their similarity and each plot is a genre; the movies that are not in that genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres.
+
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/t-sne-gower.png" target="_blank">
 <img src="/_pages/tutorials/distance-measures/t-sne-gower.png" alt="Shaped word cloud" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-Again, the movies are plotted by their similarity and each plot is a genre; the movies that are not in that genre are transparent, while the movies that do fit that genre are opaque. Remeber movies can fit more than genres.
