@@ -84,6 +84,8 @@ This creates the plot below, where the cities are plotted by similarity and thei
 
 It seems approaching similarities in this way already told us a lot about this data set, and should give some directions on which [statistical tests](/statistical-tests/) mightt be done to do to see if you can confirm any the semi 'hypotheses' just made... Carrying on...
 
+[This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/euclidian-distance.R) will give you the entire script for a running example you can play around with yourself.
+
 ## Non-metric MDS
 
 Non- _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [MASS](https://cran.r-project.org/web/packages/MASS/index.html) library. 
