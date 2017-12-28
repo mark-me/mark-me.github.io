@@ -8,15 +8,15 @@
   image: /_pages/tutorials/distance-measures/distance.png
   description: Similarity between observations, measuring and visualizing them with MDS and a t-SNE.
 
-- title: Creating raster maps
-  url: /raster-maps/
-  image: /_pages/tutorials/raster-maps/raster-maps.png
-  description: Geographical data plotting by using raster maps plots, and 'prettifying' it by adding a Google map layer.
-
 - title: Statistical tests
   url: /statistical-tests/
   image: /_pages/tutorials/statistical-tests/statistical-tests.png
   description: Are there differences? Are variables associated? Is it significant? Choosing, executing and interpreting statistical tests.
+
+- title: Creating raster maps
+  url: /raster-maps/
+  image: /_pages/tutorials/raster-maps/raster-maps.png
+  description: Geographical data plotting by using raster maps plots, and 'prettifying' it by adding a Google map layer.
   
 - title: Working with networked graphs in ggraph
   url: /network-graphs-ggraph/
