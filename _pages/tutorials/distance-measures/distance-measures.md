@@ -313,4 +313,4 @@ The way in which similarites are represented are different from MDS in one funda
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-So comparing the plots we can quickly see the drama and comedy genres popping out by their 'solidity'.You can see in the Drama plot most points seem to be of a darker color, which indicates the genre is a relatively new phenomena: .
+So comparing the plots we can quickly see the drama and comedy genres popping out by their 'solidity'. There are also clusters that 'light up' on both the Drama and Comedy genres. The smaller but clear clusters for Documentaries and Action movies are more dark blue than light purple, which indicates they are relatively new genres. The t-SNE solution seems like a good candidate as input clustering, but I'll leave that up to you.
