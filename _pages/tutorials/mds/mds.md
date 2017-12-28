@@ -37,32 +37,52 @@ There are two types of MDS: parametric and non-parametric MDS. The measurement l
 
 ## Metric MDS
 
-You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one.
+You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one. 
 
-```r
-str(USArrests)
-dist_USArrests <- dist(USArrests, method = "euclidian")
-mds_USArrests <- cmdscale(dist_USArrests, eig = TRUE, k = 2)
-```
+I've used this example before in the [Similarity tutorial](/distance-measures/), which you should read up on if you'd like to read more about distances.
 
+The data set we'll be using is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape.
+
+First a distance object is created which is needed for to 'feed' the _cmdcale_ function:
 ```r
-# Creating distances ----
-dist_religion <- dist(df_country_by_religion[, -c(1:3)], method = "manhattan")
-```
-```r
-mat_religion <- as.matrix(dist_religion)                    # Turn the distances object into a regular matrix
-row.names(mat_religion) <- df_country_by_religion$country   # Add the country names as row labels
-colnames(mat_religion) <- df_country_by_religion$country    # Add the country names as column names
-```
-```r
-mds_religions <- cmdscale(mat_religion, eig = TRUE, k = 2)  # Perform the actual MDS
+scaled_USArrests <- scale(USArrests)
+dist_USArrests <- dist(scaled_USArrests, method = "euclidian")
 ```
 
+Now we have a distance matrix, we might want to explore the similarities visually. Here we use MDS (for more on that subject, see the [MDS tutorial](/mds/)) to get the 4 dimensional similarity matrix down to two dimensions we can visually interpret. First we convert the distance object to a normal matrix which can be used by the _cmdscale_ function.
 ```r
-df_mds_religions <- data.frame(x = mds_religions$points[,1], y = mds_religions$points[,2])
-df_mds_religions$country <- df_country_by_religion$country
-```
+mat_USArrests <- as.matrix(dist_USArrests)
 
+mds_USArrests <- cmdscale(mat_USArrests, eig = TRUE, k = 2)  # Perform the actual MDS
+```
+Then we combine the data set with the MDS solution to a data frame we can use for our plot:
+```r
+df_mds_USArrests <- data.frame(city = row.names(USArrests),
+                               scaled_USArrests, 
+                               x = mds_USArrests$points[,1], 
+                               y = mds_USArrests$points[,2])
+```
+Since we want to see how all variables impacted the MDS solution we'll rotate the variables so they become different data sets we can use to make a plot for each variable, through ggplot's _facet_ function.
+```r
+df_mds_USArrests %<>% 
+  gather(key = "variable", value = "values", -city, -x, -y) 
+```
+Then we can finally create the plot. Note how the _values_ variable and _variables_ variable is used in the _facet_ function are used so we can get a look at the impact of all variables:
+```r
+ggplot(df_mds_USArrests, aes(x, y)) +
+  geom_jitter(aes(col = values, alpha = values)) +
+  geom_label_repel(aes(label = city, fill = values, alpha = values)) +
+  facet_wrap(~variable) 
+```
+This creates the plot below, where the cities are plotted by similarity and their respective crime rates and population are indicated by their opacity. We can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates. The rape and murder rates are highest in the top left and lower left corners respectively. It seems Assault is prevalent in cities were rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/distance-measures/mds-euclidian.png" target="_blank">
+<img src="/_pages/tutorials/distance-measures/mds-euclidian.png" alt="Euclidian MDS" align="center" width="80%" height="80%"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
+It seems approaching similarities in this way already told us a lot about this data set, and should give some directions on which [statistical tests](/statistical-tests/) mightt be done to do to see if you can confirm any the semi 'hypotheses' just made... Carrying on...
 
 ## Non-metric MDS
 
