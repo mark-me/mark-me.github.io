@@ -88,7 +88,7 @@ It seems approaching similarities in this way already told us a lot about this d
 
 ## Non-metric MDS
 
-Non- _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [MASS](https://cran.r-project.org/web/packages/MASS/index.html) library. 
+Non- _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [MASS](https://cran.r-project.org/web/packages/MASS/index.html) library. Kruskal's Non-metric Multidimensional Scaling
 ```r
 isoMDS(d, y = cmdscale(d, k), k = 2, maxit = 50, trace = TRUE,
        tol = 1e-3, p = 2)
