@@ -6,6 +6,9 @@ permalink: /mds/
 published: true
 ---
 
+* TOC
+{:toc}
+
 <img src="/_pages/tutorials/mds/Taylor-Swift-Cats.jpg" width="227" height="170" align="right"/> 
 Whenever I'm in an explorative phase of my data modelling, very soon I'll have questions about the data that may sound familiar in it's vangueness:
 
