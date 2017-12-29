@@ -97,6 +97,15 @@ So let's get the MDS solution:
 mds_nonmetric <- monoMDS(dist_gower)
 ```
 
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/mds/mds-nonmetric.png" target="_blank">
+<img src="/_pages/tutorials/mds/mds-nonmetric.png" alt="Non-metric MDS" align="center" width="80%" height="80%"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
+
+Let's compare the non-metric versus the metric MDS solution.
+
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mds/mds-metric-vs-nonmetric.png" target="_blank">
 <img src="/_pages/tutorials/mds/mds-metric-vs-nonmetric.png" alt="Metric versus non-metric MDS" align="center" width="80%" height="80%"/><br>
