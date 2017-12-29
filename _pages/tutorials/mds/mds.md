@@ -88,10 +88,16 @@ It seems approaching similarities in this way already told us a lot about this d
 
 ## Non-metric MDS
 
-Non- _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [MASS](https://cran.r-project.org/web/packages/MASS/index.html) library. Kruskal's Non-metric Multidimensional Scaling
+To perform non-metric MDS we use the Kruskal's Non-metric MDS implemented with the _[monoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [vegan](https://www.rdocumentation.org/packages/vegan) library. 
 ```r
 isoMDS(d, y = cmdscale(d, k), k = 2, maxit = 50, trace = TRUE,
        tol = 1e-3, p = 2)
 
 Shepard(d, x, p = 2)
 ```
+
+{:refdef: style="text-align: center;"}
+<a href="/_pages/tutorials/mds/mds-metric-vs-nonmetric.png" target="_blank">
+<img src="/_pages/tutorials/mds/mds-metric-vs-nonmetric.png" alt="Metric versus non-metric MDS" align="center" width="80%" height="80%"/><br>
+<i class='fa fa-search-plus '></i> Zoom</a>
+{: refdef}
