@@ -159,7 +159,7 @@ ggplot(df_mds_metric, aes(x, y)) +
   geom_jitter(aes(col = genre), alpha = .2) 
 ```
 
-Let's compare the non-metric versus the metric MDS solution.
+Let's compare the non-metric versus the metric MDS solution. You can see that the metric solution a 'chasm' between two sets, while the non-metric option looks more like a sphere. If you compare the continuity between the "Drama, Romance" and the "Comedy, Drama, Romance" categories, the non-metric version seems more logical than the metric version, which seems to make sense. So doing a non-metric MDS for non interval data, does get you a more optimal MDS solution.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mds/mds-metric-vs-nonmetric.png" target="_blank">
