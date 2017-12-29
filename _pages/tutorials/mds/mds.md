@@ -48,8 +48,7 @@ First a distance object is created which is needed for to 'feed' the _cmdcale_ f
 scaled_USArrests <- scale(USArrests)
 dist_USArrests <- dist(scaled_USArrests, method = "euclidian")
 ```
-
-Now we have a distance matrix, we might want to explore the similarities visually. Here we use MDS (for more on that subject, see the [MDS tutorial](/mds/)) to get the 4 dimensional similarity matrix down to two dimensions we can visually interpret. First we convert the distance object to a normal matrix which can be used by the _cmdscale_ function.
+Now we convert the distance object to a normal matrix which can be used by the _cmdscale_ function.
 ```r
 mat_USArrests <- as.matrix(dist_USArrests)
 
