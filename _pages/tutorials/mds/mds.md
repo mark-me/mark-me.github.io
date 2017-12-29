@@ -34,11 +34,11 @@ The MDS-like solution you are very familiar with, without even being conscious o
 
 While the MDS algorithm tries to fit the observations in the lower dimensional space, it tries to keep a measure called _stress_ as low as possible. The _stress_ measure compares the distances of the original _n_-dimensional space (_n_ = each variables distance measure) to the newly created distances in the lower dimensional space. The MDS algorithm moves the observations around until the configuration is is the solution with the lowest stress.
 
-# Applying MDS
+# Choosing the type of MDS
 
 There are two types of MDS: parametric and non-parametric MDS. The measurement level of the variables you used to create your distance matrix determines the choice of the type of MDS you'll be using. Any MDS algorithm you'll be using takes in a similarity matrix. (If you want to read up on that I've written a [tutorial about that subject](/distances/)
 
-## Metric MDS
+# Metric MDS
 
 [<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="152" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one. 
 
@@ -86,7 +86,7 @@ It seems approaching similarities in this way already told us a lot about this d
 
 [This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/euclidian-distance.R) will give you the entire script for a running example you can play around with yourself.
 
-## Non-metric MDS
+# Non-metric MDS
 
 [<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)
 To perform non-metric MDS we use the Kruskal's Non-metric MDS implemented with the _[monoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [vegan](https://www.rdocumentation.org/packages/vegan) library. Its not the only function you can do Kruskal's Non-metric MDS with, but it is the fastest performing one
