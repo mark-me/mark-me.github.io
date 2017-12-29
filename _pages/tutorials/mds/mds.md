@@ -147,7 +147,7 @@ ggplot(df_mds_nonmetric, aes(x, y)) +
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-### Let's be stubborn
+## Let's be stubborn
 
 ```r
 mds_metric <- cmdscale(dist_gower)
