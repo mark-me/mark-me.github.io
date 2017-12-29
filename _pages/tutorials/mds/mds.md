@@ -39,11 +39,9 @@ There are two types of MDS: parametric and non-parametric MDS. The measurement l
 
 [<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="152" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one. 
 
-I've used this example before in the [Similarity tutorial](/distance-measures/), which you should read up on if you'd like to read more about distances.
+The data set we'll be using is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape. I've used this example before in the [Similarity tutorial](/distance-measures/), which you should read up on if you'd like to read more about distances. 
 
-The data set we'll be using is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape.
-
-First a distance object is created which is needed for to 'feed' the _cmdcale_ function:
+First a distance object is created ofrom the scaled data, which is needed to 'feed' the _cmdcale_ function:
 ```r
 scaled_USArrests <- scale(USArrests)
 dist_USArrests <- dist(scaled_USArrests, method = "euclidian")
