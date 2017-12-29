@@ -37,7 +37,7 @@ There are two types of MDS: parametric and non-parametric MDS. The measurement l
 
 ## Metric MDS
 
-[<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="125" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one. 
+[<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="144" height="180" align="right"/>](http://www.imdb.com/title/tt0051432/)You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one. 
 
 I've used this example before in the [Similarity tutorial](/distance-measures/), which you should read up on if you'd like to read more about distances.
 
