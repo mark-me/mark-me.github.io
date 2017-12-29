@@ -88,12 +88,13 @@ It seems approaching similarities in this way already told us a lot about this d
 
 ## Non-metric MDS
 
-To perform non-metric MDS we use the Kruskal's Non-metric MDS implemented with the _[monoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [vegan](https://www.rdocumentation.org/packages/vegan) library. 
-```r
-isoMDS(d, y = cmdscale(d, k), k = 2, maxit = 50, trace = TRUE,
-       tol = 1e-3, p = 2)
+To perform non-metric MDS we use the Kruskal's Non-metric MDS implemented with the _[monoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [vegan](https://www.rdocumentation.org/packages/vegan) library. Its not the only function you can do Kruskal's Non-metric MDS with, but it is the fastest performing one
 
-Shepard(d, x, p = 2)
+(You can also choose the _[metaMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/metaMDS.html)_ from the **vegan** library or the _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ from the **[MASS](https://www.rdocumentation.org/packages/MASS/)** library. If you use the **MASS** library, **dplyr**'s _select_ function will be overruled, which is annoying. You can reset the select function back to the dplyr function with ```select <- dplyr::select```)
+
+So let's get the MDS solution:
+```r
+mds_nonmetric <- monoMDS(dist_gower)
 ```
 
 {:refdef: style="text-align: center;"}
