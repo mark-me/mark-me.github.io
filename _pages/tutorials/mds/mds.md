@@ -88,15 +88,32 @@ It seems approaching similarities in this way already told us a lot about this d
 
 ## Non-metric MDS
 
+[<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)
 To perform non-metric MDS we use the Kruskal's Non-metric MDS implemented with the _[monoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [vegan](https://www.rdocumentation.org/packages/vegan) library. Its not the only function you can do Kruskal's Non-metric MDS with, but it is the fastest performing one
 
 (You can also choose the _[metaMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/metaMDS.html)_ from the **vegan** library or the _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ from the **[MASS](https://www.rdocumentation.org/packages/MASS/)** library. If you use the **MASS** library, **dplyr**'s _select_ function will be overruled, which is annoying. You can reset the select function back to the dplyr function with ```select <- dplyr::select```)
 
-So let's get the MDS solution:
+To show how this procedure can be done in R I've found this movie dataset I've found [here](https://rpubs.com/arun_infy13/97529). This movie data set contains numerical variables like rating and number of votes, as well as categorical values about the movie's genre. Since this set is an example of mixe data (categorical genre data, and interval data like rating) we'll be using Gower's General Similarity Coefficient. Calculating Gowe's distance is explained further in the [Similarity tutorial](/distance-measures/). 
+
+Calculating the Gower distance matrix in R can be done with the _[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package. Before we jump into the code, a short explanation about the data: the data frame _df_movie_selection_ contains all relevant data for the similarity calculation, but the first column contains the film title, which would nog make much sense to put into the similarity object:
+```r
+library(cluster)
+dist_gower <- daisy(df_movie_selection[, -1],
+                    metric = "gower",
+                    type = list(logratio = 3))
+```
+The distance object is that converted into a regular matrix, which can feed into the MDS function:
+```r
+mat_gower <- as.matrix(dist_gower)
+```
+So let's create the nonmetric MDS solution with the _monoMDS_ function:
 ```r
 mds_nonmetric <- monoMDS(dist_gower)
 ```
 
+```r
+
+```
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mds/mds-nonmetric.png" target="_blank">
