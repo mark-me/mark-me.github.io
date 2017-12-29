@@ -109,7 +109,33 @@ mds_nonmetric <- monoMDS(dist_gower)
 ```
 
 ```r
+df_mds_nonmetric <- cbind(df_movie_selection, 
+                       x = mds_nonmetric$points[,1], 
+                       y = mds_nonmetric$points[,2])
+```
 
+```r
+df_mds_nonmetric %<>% 
+  mutate(genre = paste0(ifelse(Animation == 1, "Animation, ", ""),
+                        ifelse(Comedy == 1, "Comedy, ", ""), 
+                        ifelse(Drama == 1, "Drama, ", ""),
+                        ifelse(Documentary == 1, "Documentary, ", ""),
+                        ifelse(Romance == 1, "Romance, ", ""),
+                        ifelse(Short == 1, "Short, ", ""))) %>% 
+  mutate(genre = substr(genre, 1, nchar(genre) - 2)) %>% 
+  mutate(genre = factor(genre))
+```
+```r
+df_genres <- df_mds_nonmetric %>%
+  group_by(genre, Animation, Comedy, Drama, Documentary, Romance, Short) %>%
+  summarise(x = median(x), 
+            y = median(y))
+```
+```r
+ggplot(df_mds_nonmetric, aes(x, y)) +
+  geom_label_repel(data = df_genres, 
+                   aes(x, y, label = genre, col = genre)) + 
+  geom_jitter(aes(col = genre), alpha = .2)
 ```
 
 {:refdef: style="text-align: center;"}
@@ -117,6 +143,18 @@ mds_nonmetric <- monoMDS(dist_gower)
 <img src="/_pages/tutorials/mds/mds-nonmetric.png" alt="Non-metric MDS" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
+
+### Let's be stubborn
+
+```r
+mds_metric <- cmdscale(dist_gower)
+```
+```r
+ggplot(df_mds_metric, aes(x, y)) +
+  geom_label_repel(data = df_genre_metric, 
+                   aes(x, y, label = genre, col = genre)) + 
+  geom_jitter(aes(col = genre), alpha = .2) 
+```
 
 Let's compare the non-metric versus the metric MDS solution.
 
