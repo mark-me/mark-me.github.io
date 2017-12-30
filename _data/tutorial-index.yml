@@ -8,6 +8,11 @@
   image: /_pages/tutorials/distance-measures/distance.png
   description: Similarity between observations, measuring and visualizing them with MDS and a t-SNE.
 
+- title: MDS
+  url: /mds/
+  image: /_pages/tutorials/mds/mds.png
+  description: Interpretating data sets with multiple variables in a two dimensional plot.
+
 - title: Statistical tests
   url: /statistical-tests/
   image: /_pages/tutorials/statistical-tests/statistical-tests.png
@@ -42,11 +47,6 @@
   url: /splitting-combining-files/
   image: /_pages/tutorials/splitting-combining-files.png
   description: Splitting and/or combining files.... Nothing more.
-
-- title: MDS
-  url: /mds/
-  image: /_pages/tutorials/mds/mds.png
-  description: Interpretating data sets with multiple variables in a two dimensional plot.
 
 - title: t-Distributed Stochastic Neighbor Embedding
   url: /t-sne/
