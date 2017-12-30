@@ -155,7 +155,7 @@ Now, let's see if the metric MDS solution would be worse in this case. For this 
 ```r
 mds_metric <- cmdscale(dist_gower)
 ```
-Then we do all the steps as with the non-metric MDS solution, to create a data-freame with wich we can create the metric MDS solution plot. The 
+Then we do all the steps as with the non-metric MDS solution, to create a data-freame with wich we can create the metric MDS solution plot. I'll skip those steps here, as they are the same as described before, but the whole script is downloadable from [here](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/mds/mds-non-metric.R) if you want to review it.
 ```r
 ggplot(df_mds_metric, aes(x, y)) +
   geom_label_repel(data = df_genre_metric, 
@@ -170,3 +170,5 @@ Let's compare the non-metric versus the metric MDS solution. You can see that th
 <img src="/_pages/tutorials/mds/mds-metric-vs-nonmetric.png" alt="Metric versus non-metric MDS" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
+
+You can get he whole scripts for performing this non-metric MDS from [here](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/mds/mds-non-metric.R) 
