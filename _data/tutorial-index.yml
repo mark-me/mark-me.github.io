@@ -17,6 +17,11 @@
   url: /statistical-tests/
   image: /_pages/tutorials/statistical-tests/statistical-tests.png
   description: Are there differences? Are variables associated? Is it significant? Choosing, executing and interpreting statistical tests.
+  
+- title: Mining Alice’s Wonderland
+  url: /mining-alices-wonderland/
+  image: /_pages/tutorials/mining-alices-wonderland/sentiment-centers.png
+  description: A sentiment analysis for Alice's Adventures in Wonderland using the tidytext, gutenbergr and ggplot libraries.  
 
 - title: Creating raster maps
   url: /raster-maps/
@@ -37,11 +42,6 @@
   url: /structuring-data-processing/
   image: /_pages/tutorials/structuring-data-processing/structuring-data-processing.png
   description: Standardizing your data-processing flow.
-  
-- title: Mining Alice’s Wonderland
-  url: /mining-alices-wonderland/
-  image: /_pages/tutorials/mining-alices-wonderland/sentiment-centers.png
-  description: A sentiment analysis for Alice's Adventures in Wonderland using the tidytext, gutenbergr and ggplot libraries.  
   
 - title: Splitting and combining files
   url: /splitting-combining-files/
