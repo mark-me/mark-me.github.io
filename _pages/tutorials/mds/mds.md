@@ -110,13 +110,13 @@ So let's create the nonmetric MDS solution with the _monoMDS_ function:
 ```r
 mds_nonmetric <- monoMDS(dist_gower)
 ```
-
+Then a data frame is created so the MDS solution can be plotted with ggplot:
 ```r
 df_mds_nonmetric <- cbind(df_movie_selection, 
                        x = mds_nonmetric$points[,1], 
                        y = mds_nonmetric$points[,2])
 ```
-
+Also we can review the movies if they fit multiple genres. For this purpose a variable, _genre_, is created where the genre(s) a movie belong to is put in a string:
 ```r
 df_mds_nonmetric %<>% 
   mutate(genre = paste0(ifelse(Animation == 1, "Animation, ", ""),
@@ -128,6 +128,7 @@ df_mds_nonmetric %<>%
   mutate(genre = substr(genre, 1, nchar(genre) - 2)) %>% 
   mutate(genre = factor(genre))
 ```
+We
 ```r
 df_genres <- df_mds_nonmetric %>%
   group_by(genre, Animation, Comedy, Drama, Documentary, Romance, Short) %>%
