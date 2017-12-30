@@ -128,13 +128,14 @@ df_mds_nonmetric %<>%
   mutate(genre = substr(genre, 1, nchar(genre) - 2)) %>% 
   mutate(genre = factor(genre))
 ```
-We
+It would be great to have the genres displayed in a text label, but if we give each point in the plot a text label we'll end up with too many text labels. To counter that problem we create one point, at the median of _x_ and _y_, with a text label containing the genre. By taking the median of the _x_ and _y_ values per genre combination, it is more likelily the position of that label represents the majority of points.  
 ```r
 df_genres <- df_mds_nonmetric %>%
   group_by(genre, Animation, Comedy, Drama, Documentary, Romance, Short) %>%
   summarise(x = median(x), 
             y = median(y))
 ```
+Finally we can create a plot with the MDS solution:
 ```r
 ggplot(df_mds_nonmetric, aes(x, y)) +
   geom_label_repel(data = df_genres, 
@@ -150,9 +151,11 @@ ggplot(df_mds_nonmetric, aes(x, y)) +
 
 ## Let's be stubborn
 
+Now, let's see if the metric MDS solution would be worse in this case. For this we first create a metric MDS solution with the _cmdscale_ function:
 ```r
 mds_metric <- cmdscale(dist_gower)
 ```
+Then we do all the steps as with the non-metric MDS solution, to create a data-freame with wich we can create the metric MDS solution plot. The 
 ```r
 ggplot(df_mds_metric, aes(x, y)) +
   geom_label_repel(data = df_genre_metric, 
