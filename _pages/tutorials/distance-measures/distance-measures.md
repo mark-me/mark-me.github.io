@@ -9,13 +9,13 @@ published: true
 
 [<img src="/_pages/tutorials/distance-measures/measuring-similarity.jpg" width="192" height="180" align="right"/>](https://www.bol.com/nl/p/the-ban-of-the-bori/1001004002833612/) 
 
-Sooner or later during an analysis I'll start asking myself: how similar are these observations really? If we want see how similar observations are, we need a measure(s) of their similarity; in the statistics field the reverse of similarity is used: distance measures. There are many, many distance metrics, but the four I found most useful are discussed here.
+Sooner or later during an analysis I'll start asking myself: how similar are these observations really? If we want see how similar observations are, we need a measure of their similarity; in the statistics field a reverse term of similarity is used: distance measure. There are many, many distance metrics, but the four I found most useful are discussed here.
 
 This tutorial shows you how to pick a distance metric, how to apply it and how to visualize is using MDS or t-SNE (in one case). I won't go into MDS too deeply, but you can follow my tutorial on MDS [here](/mds/) if you want to.
 
 # How to choose a distance measure
 
-There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement).) The table below shows you which measurement level corresponds to which distance measure.
+There are different distance metric to choose from, and your choice is mostly determined by the measurement levels of the variables in your data set. (If you need a refresh on measurement levels, you can find a quick explanation [here](/statistical-tests/#levels-of-measurement). The table below shows you which measurement level corresponds to which distance measure.
 
 | Measurement level | Method                                              |
 | ----------------- | ------                                              | 
@@ -28,7 +28,7 @@ There are different distance metric to choose from, and your choice is mostly de
 
 [<img src="/_pages/tutorials/distance-measures/jaccard.jpg" width="200" height="190" align="right"/>](https://jaccard.com/collections/meat-tenderizers)
 
-[Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share divided (compared to), all elements in both sets (think [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram)). This is useful when comparing observartions with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries. 
+[Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share compared to (read: divided by), all elements in both sets. The the logic looks similar to that of [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram). The Jaccard distance is useful for comparing observations with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries on human rights issues.
 
 First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. We'll just take the important votes of the resolutions for human rights focus on the UN resolutions voted on between 2005 and 2015. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be missing values (i.e. NA). The variables are selected that matter to the analysis: the country, the UN resolution reference and the vote. The resolutions then get rotated to being variables, so for each country is a row where the vote for each UN resolution is a variable. 
 ```r
@@ -63,7 +63,7 @@ To get an idea of how similar the countries are in terms of UN votes for Human R
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-How did I create this plot? For this to work the the 196 dimensions (each country is a variables) in the similarity matrix, needed to be reduces to a two dimensional 'summary' of the similarity between countries. To tackle this issue I turn to the use of MDS (for more information, look up the [MDS tutorial](/mds/)):
+How did I create this plot? For this to work the the 196 dimensions (each country is a variables) in the similarity matrix, needed to be reduced to a two dimensional 'summary' of the similarity between countries. To tackle this issue I turn to the use of MDS (for more information, look up the [MDS tutorial](/mds/)):
 ```r
 mds_country_votes <- cmdscale(dist_matrix) 
 ```
