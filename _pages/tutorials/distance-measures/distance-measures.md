@@ -82,9 +82,9 @@ ggplot(df_mds_country_votes,aes(x, y)) +
   geom_jitter(aes(col = region)) +
   geom_label_repel(aes(label = country, fill = region), alpha = .6) 
 ```
-We can see there are certain groups of countries that are more similar than others, which gives a hint there might be clusters of countries that do share voting patterns. There is clearly a majority of European countries that seem to share opinions on Human Rights. What sets this cluster apart from the rest? How does this relate to other country metrics like the Human Freedom Index of the [CATO Institute](https://www.cato.org/support)? Seeing how easy it is to [get the data](https://www.cato.org/human-freedom-index), it was very tempting to start crunching on that... but, uhm.... I have a tutorial to finish, so I'll leave that challenge up to you.
+We can see there are certain groups of countries that are more similar than others, which gives a hint there might be clusters of countries that share voting patterns. There is clearly a majority of European countries that seem to share opinions on Human Rights. What sets this cluster apart from the rest? How does this relate to other country metrics like the Human Freedom Index of the [CATO Institute](https://www.cato.org/support)? Seeing how easy it is to [get the data](https://www.cato.org/human-freedom-index), it was very tempting to start crunching on that... but, uhm.... I have a tutorial to finish, so I'll leave that challenge up to you.
 
-[This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/jaccard-distance.R) will give you the entire script for a running example you can play around with yourself.
+[This link](https://raw.githubusercontent.com/mark-me/mark-me.github.io/master/_pages/tutorials/distance-measures/jaccard-distance.R) will give you the entire script for a running example you can play around with yourself, and maybe add the Cato Institute data.
 
 # Manhattan distance
 
