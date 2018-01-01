@@ -28,25 +28,25 @@ In this tutorial, I'll cover the concept of MDS, and show two types of MDS calcu
 
 <img src="/_pages/tutorials/mds/flat-earth.jpg" width="178" height="100" align="right"/> 
 
-How do you get the set of many similarity variables down to two variabales? MDS does this by "rearranging" the observations in an efficient manner, so as to arrive at a configuration that best approximates the alikeness of observations. The MDS-like solution you are very familiar with, without even being conscious of it, is a world map. Making a flat world map, from  the spherical object it is, always does some kind of 'damage' to the origianl. This video that illustrates that really well:
+How do you get the set of many similarity variables down to two variabales? MDS does this by "rearranging" the observations in an efficient manner, so as to arrive at a configuration that best approximates the alikeness of observations. The MDS-like solution you are very familiar with, without even being conscious of it, is a world map. Making a flat world map, from  the spherical object it is, always does some kind of 'damage' to the original. This video that illustrates that really well:
 
 {:refdef: style="text-align: center;"}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
 {: refdef}
 
-While the MDS algorithm tries to fit the observations in the lower dimensional space, it tries to keep a measure called _stress_ as low as possible. The _stress_ measure compares the distances of the original _n_-dimensional space (_n_ = each variables distance measure) to the newly created distances in the lower dimensional space. The MDS algorithm moves the observations around until the configuration is is the solution with the lowest stress.
+While the MDS algorithm tries to fit the observations in the lower dimensional space, it tries to keep a measure called _stress_ as low as possible. The _stress_ measure compares the distances of the original _n_-dimensional space (_n_ = each variables distance measure) to the newly created distances in the lower dimensional space. The higher this distance between original points and new points are, the higher the _stress_, the worse the MDS solution is. The MDS algorithm moves the observations around until the configuration is is the solution with the lowest stress.
 
 # Choosing the type of MDS
 
-There are two types of MDS: parametric and non-parametric MDS. The measurement level of the variables you used to create your distance matrix determines the choice of the type of MDS you'll be using. Any MDS algorithm you'll be using takes in a similarity matrix. (If you want to read up on that I've written a [tutorial about that subject](/distances/)
+Any MDS algorithm you'll be using takes in a similarity matrix. (If you want to read up on that I've written a [tutorial about that subject](/distances/). Based on measurement level of the variables you use to create your distance matrix determines the choice of the type of MDS you'll be using: either parametric and non-parametric MDS. If you have created the distance matrix based on interval or ratio measurement level variables you can make a metric MDS solution based on that. If you have created the distance matrix based on categorical you can create a non-metric MDS solution. Ordinal and mixed based distance matrices could go either way, but mostly will be best non-metric MDS solutions.
 
 # Metric MDS
 
-[<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="152" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)You can perform a classical MDS using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one. 
+[<img src="/_pages/tutorials/distance-measures/CHiPs.jpg" width="152" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)You can perform metric MDS, or classical MDS as it's also called, using the _[cmdscale](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/cmdscale.html)_ function which is included in the base R package, so you won't need to install a package for this one.
 
-The data set we'll be using is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape. I've used this example before in the [Similarity tutorial](/distance-measures/), which you could read up on, for more on similarity and distances. 
+The data set we'll be using for our example on metric MDS is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape. I've used this example before in the [Similarity tutorial](/distance-measures/), which you could read up on, for more on similarity and distances. 
 
-First a distance object is created ofrom the scaled data, which is needed to 'feed' the _cmdcale_ function:
+First a distance object is created from scaled data, which is needed to 'feed' the _cmdcale_ function:
 ```r
 scaled_USArrests <- scale(USArrests)
 dist_USArrests <- dist(scaled_USArrests, method = "euclidian")
@@ -64,7 +64,7 @@ df_mds_USArrests <- data.frame(city = row.names(USArrests),
                                x = mds_USArrests$points[,1], 
                                y = mds_USArrests$points[,2])
 ```
-Since we want to see how all variables impacted the MDS solution we'll rotate the variables so they become different data sets we can use to make a plot for each variable, through ggplot's _facet_ function.
+Since we want to see how all variables impacted the MDS solution we'll rotate the variables so we can look at the solution by making a plot for each variable, through ggplot's _facet_ function.
 ```r
 df_mds_USArrests %<>% 
   gather(key = "variable", value = "values", -city, -x, -y) 
