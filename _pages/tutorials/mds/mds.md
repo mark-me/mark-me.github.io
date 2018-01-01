@@ -12,7 +12,7 @@ published: true
 <img src="/_pages/tutorials/mds/Taylor-Swift-Cats.jpg" width="227" height="170" align="right"/> 
 Whenever I'm in an explorative phase of my data modelling, very soon I'll have questions about the data that may sound familiar in it's vangueness:
 
-* Can I find any groups in this list of people, by how much money they spent on drugstore items, minutes they've spent in greeneries department and the amount of time they spent in the gym?
+* Can I find any groups in this list of people by how much money they spent on drugstore items, minutes they've spent in greeneries department and the amount of time they spent in the gym?
 * Are there any groups of customers that stand out in money spent, products they buy and marketshare we have?
 * What smartphones are available in the market and how much are they alike in terms of specs and pricing? (Give me a data-set please!)
 * How much do cats look alike in fluffyness of the tail, playfulness, hair color, eye color, number of legs.... I have a _lot_ of cats... OK!?!?!?
@@ -20,13 +20,15 @@ Whenever I'm in an explorative phase of my data modelling, very soon I'll have q
 
 The similarity between these questions is mostly captured by the generic sentence: how similar are these cases in terms of _a_, _b_ _c_, _d_, _e_... well, you're getting the picture... right? What you're really looking for, are variables that can make a narrative about a set of data: maybe you find small pockets of observations that have special meanings or maybe you find variables that are group defining. These narratives can further by explored by clustering data or making predictions based on a subset of variables. 
 
-As you might have noticed, I've used the word similarity a lot. We can calculate similarity between observations per variable. (You can find out more about caclulating similarities in this [tutorial](/distance-measures/).) If you want to include all similarities in your judgement of similarity you can use MDS to reduce the number of similarity measures while retaining as much of the similarity as possible. With MDS you can reduce the number of similarities to two measures of similarity. With this MDS let's you visually inspect similarity in observations in an easy 2D scatterplot. The more alike observations are the closer their points are together, the more unlike they are the further they are apart. But, how do you get a 2D scatterplot for so many variables? MDS does this by "rearranging" the observations in an efficient manner, so as to arrive at a configuration that best approximates the alikeness of observations. 
+As you might have noticed, I've used the word similarity a lot. We can calculate similarity between observations based on variables. (You can find out more about caclulating similarities in this [tutorial](/distance-measures/). This wil result in a large matrix where each observation is matched with the other. This gives us way too many variables of similarity, one for each observation, to plot in any senseful way. If you want to review similarity you can use MDS to reduce the number of similarity measures while still retaining as much of the similarity information as possible. If you use MDS to boil the similarity data down to two varaibles, it let's you visually inspect similarity in observations in an easy 2D scatterplot. The more alike observations are the closer their points are together, the more unlike they are the further they are apart. 
+
+In this tutorial, I'll cover the concept of MDS, and show two types of MDS calculation in R: metric and non-metric.  
 
 # The concept
 
 <img src="/_pages/tutorials/mds/flat-earth.jpg" width="178" height="100" align="right"/> 
 
-The MDS-like solution you are very familiar with, without even being conscious of it, is a world map. Making a flat world map, from  the spherical object it is, always does some kind of 'damage' to the origianl. This video that illustrates that really well:
+How do you get the set of many similarity variables down to two variabales? MDS does this by "rearranging" the observations in an efficient manner, so as to arrive at a configuration that best approximates the alikeness of observations. The MDS-like solution you are very familiar with, without even being conscious of it, is a world map. Making a flat world map, from  the spherical object it is, always does some kind of 'damage' to the origianl. This video that illustrates that really well:
 
 {:refdef: style="text-align: center;"}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kIID5FDi2JQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
