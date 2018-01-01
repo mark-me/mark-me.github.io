@@ -69,7 +69,7 @@ Since we want to see how all variables impacted the MDS solution we'll rotate th
 df_mds_USArrests %<>% 
   gather(key = "variable", value = "values", -city, -x, -y) 
 ```
-Then we can finally create the plot. Note how the _values_ variable are used to control point color and opacity and how the _variables_ variable is used in the _facet_ function. They are used together we can get a look at the impact of all variables on similarity:
+Then we can finally create the plot. Note how the _values_ variable are used to control point color and opacity and how the _variables_ variable is used in the _facet_ function. They are used together we can get a look at the impact of all variables on similarity. I've used the **[ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)** library for it's _geom_label_repel_ function to create the non-overlapping labels. 
 ```r
 ggplot(df_mds_USArrests, aes(x, y)) +
   geom_jitter(aes(col = values, alpha = values)) +
@@ -137,7 +137,7 @@ df_genres <- df_mds_nonmetric %>%
   summarise(x = median(x), 
             y = median(y))
 ```
-Finally we can create a plot with the MDS solution. Not how the _geom_label_repel_ layer uses the _df_genres_ as data, instead of the movies themselves:
+Finally we can create a plot with the MDS solution. I've used the **[ggrepel](https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html)** library for it's _geom_label_repel_ function to create the non-overlapping labels. Note how the _geom_label_repel_ layer uses the _df_genres_ as data, instead of the movies themselves:
 ```r
 ggplot(df_mds_nonmetric, aes(x, y)) +
   geom_label_repel(data = df_genres, 
