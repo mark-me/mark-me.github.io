@@ -76,7 +76,7 @@ ggplot(df_mds_USArrests, aes(x, y)) +
   geom_label_repel(aes(label = city, fill = values, alpha = values)) +
   facet_wrap(~variable) 
 ```
-This creates the plot below, where the cities are plotted by similarity and their respective crime rates and population are indicated by their opacity, depending on which facet you look at. We can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates. The rape and murder rates are highest in the top left and lower left corners respectively. It seems Assault is prevalent in cities were rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
+This creates the plot below, where the cities are plotted by similarity and their respective crime rates and population are indicated by their opacity, depending on which facet you look at. We can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates as compared to the right. The rape and murder rates are highest in the top left and lower left corners respectively. It looks like assault is prevalent in cities where rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-euclidian.png" target="_blank">
@@ -130,20 +130,22 @@ df_mds_nonmetric %<>%
   mutate(genre = substr(genre, 1, nchar(genre) - 2)) %>% 
   mutate(genre = factor(genre))
 ```
-It would be great to have the genres displayed in a text label, but if we give each point in the plot a text label we'll end up with too many text labels. To counter that problem we create one point, at the median of _x_ and _y_, with a text label containing the genre. By taking the median of the _x_ and _y_ values per genre combination, it is more likelily the position of that label represents the majority of points.  
+It would be great to have the genres displayed in a text label, but if we give each point in the plot a text label we'll end up with too many text labels. To counter that problem we create one point, at the median of _x_ and _y_ of each _genre_, with a text label containing the genre. By taking the median of the _x_ and _y_ values per genre combination, it is likelily the position of that label represents the majority of points.  
 ```r
 df_genres <- df_mds_nonmetric %>%
   group_by(genre, Animation, Comedy, Drama, Documentary, Romance, Short) %>%
   summarise(x = median(x), 
             y = median(y))
 ```
-Finally we can create a plot with the MDS solution:
+Finally we can create a plot with the MDS solution. Not how the _geom_label_repel_ layer uses the _df_genres_ as data, instead of the movies themselves:
 ```r
 ggplot(df_mds_nonmetric, aes(x, y)) +
   geom_label_repel(data = df_genres, 
                    aes(x, y, label = genre, col = genre)) + 
   geom_jitter(aes(col = genre), alpha = .2)
 ```
+
+We can see there is a nice continuity between the different genres, and there is a non-genre cluster in the middle. It is intruguing how some of the non-genre movies are between the Documentary and Drama, Short genres. Another non-genre cluster is close to the Romance genre. The MDS solution is dominated by the genres. 
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mds/mds-nonmetric.png" target="_blank">
@@ -153,7 +155,7 @@ ggplot(df_mds_nonmetric, aes(x, y)) +
 
 ## Let's be stubborn
 
-Now, let's see if the metric MDS solution would be worse in this case. For this we first create a metric MDS solution with the _cmdscale_ function:
+Now, let's see if the metric MDS solution would be worse in this mixed measurement level case. For this we first create a metric MDS solution with the _cmdscale_ function:
 ```r
 mds_metric <- cmdscale(dist_gower)
 ```
@@ -165,7 +167,7 @@ ggplot(df_mds_metric, aes(x, y)) +
   geom_jitter(aes(col = genre), alpha = .2) 
 ```
 
-Let's compare the non-metric versus the metric MDS solution. You can see that the metric solution a 'chasm' between two sets, while the non-metric option looks more like a sphere. If you compare the continuity between the "Drama, Romance" and the "Comedy, Drama, Romance" categories, the non-metric version seems more logical than the metric version, which seems to make sense. So doing a non-metric MDS for non interval data, does get you a more optimal MDS solution.
+Let's compare the non-metric versus the metric MDS solution. We can see that the metric solution a 'chasm' between two sets, while the non-metric option looks more like a sphere. If you compare the continuity between the "Drama, Romance" and the "Comedy, Drama, Romance" genres, the non-metric version seems more logical than the metric version, which seems to make sense. So doing a non-metric MDS for non interval data, does get you a more optimal MDS solution.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/mds/mds-metric-vs-nonmetric.png" target="_blank">
