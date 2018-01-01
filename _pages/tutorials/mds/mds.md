@@ -69,14 +69,14 @@ Since we want to see how all variables impacted the MDS solution we'll rotate th
 df_mds_USArrests %<>% 
   gather(key = "variable", value = "values", -city, -x, -y) 
 ```
-Then we can finally create the plot. Note how the _values_ variable and _variables_ variable is used in the _facet_ function are used so we can get a look at the impact of all variables:
+Then we can finally create the plot. Note how the _values_ variable are used to control point color and opacity and how the _variables_ variable is used in the _facet_ function. They are used together we can get a look at the impact of all variables on similarity:
 ```r
 ggplot(df_mds_USArrests, aes(x, y)) +
   geom_jitter(aes(col = values, alpha = values)) +
   geom_label_repel(aes(label = city, fill = values, alpha = values)) +
   facet_wrap(~variable) 
 ```
-This creates the plot below, where the cities are plotted by similarity and their respective crime rates and population are indicated by their opacity. We can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates. The rape and murder rates are highest in the top left and lower left corners respectively. It seems Assault is prevalent in cities were rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
+This creates the plot below, where the cities are plotted by similarity and their respective crime rates and population are indicated by their opacity, depending on which facet you look at. We can see here is that the distances across the X axis tells us a lot about assault: the left side shows high assault rates. The rape and murder rates are highest in the top left and lower left corners respectively. It seems Assault is prevalent in cities were rape and murder is also prevalent, but rape and murder are not prevalent across the same cities. The y axis represents differences in urban population percentages, it seems urban population and crime rates are not necessarily related.
 
 {:refdef: style="text-align: center;"}
 <a href="/_pages/tutorials/distance-measures/mds-euclidian.png" target="_blank">
@@ -91,11 +91,11 @@ It seems approaching similarities in this way already told us a lot about this d
 # Non-metric MDS
 
 [<img src="/_pages/tutorials/distance-measures/brain-eaters.jpg" width="125" height="190" align="right"/>](http://www.imdb.com/title/tt0051432/)
-To perform non-metric MDS we use the Kruskal's Non-metric MDS implemented with the _[monoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [vegan](https://www.rdocumentation.org/packages/vegan) library. Its not the only function you can do Kruskal's Non-metric MDS with, but it is the fastest performing one
+To perform non-metric MDS we use Kruskal's Non-metric MDS implemented with the _[monoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ function from the [vegan](https://www.rdocumentation.org/packages/vegan) library. Its not the only function you can do Kruskal's Non-metric MDS with, but it is the fastest performing one
 
 (You can also choose the _[metaMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/metaMDS.html)_ from the **vegan** library or the _[isoMDS](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/isoMDS.html)_ from the **[MASS](https://www.rdocumentation.org/packages/MASS/)** library. If you use the **MASS** library, **dplyr**'s _select_ function will be overruled, which is annoying. You can reset the select function back to the dplyr function with ```select <- dplyr::select```)
 
-To show how this procedure can be done in R I've found this movie dataset I've found [here](https://rpubs.com/arun_infy13/97529). This movie data set contains numerical variables like rating and number of votes, as well as categorical values about the movie's genre. Since this set is an example of mixe data (categorical genre data, and interval data like rating) we'll be using Gower's General Similarity Coefficient. Calculating Gowe's distance is explained further in the [Similarity tutorial](/distance-measures/). 
+To show how this procedure can be done in R, I've found a movie dataset [here](https://rpubs.com/arun_infy13/97529), which contains numerical variables like rating and number of votes, as well as categorical values about the movie's genre. Since this set is an example of variables with mixed types of measurement levels (categorical genre data, and interval data like rating) we'll be using Gower's General Similarity Coefficient to calculate similarity. Calculating Gower's distance is explained further in the [Similarity tutorial](/distance-measures/#gower-distance). 
 
 Calculating the Gower distance matrix in R can be done with the _[daisy](https://www.rdocumentation.org/packages/cluster/topics/daisy)_ function from the **[cluster](https://www.rdocumentation.org/packages/cluster)** package. Before we jump into the code, a short explanation about the data: the data frame _df_movie_selection_ contains all relevant data for the similarity calculation, but the first column contains the film title, which would nog make much sense to put into the similarity object:
 ```r
