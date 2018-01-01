@@ -6,9 +6,6 @@ permalink: /distance-measures/
 published: true
 ---
 
-* TOC
-{:toc}
-
 [<img src="/_pages/tutorials/distance-measures/measuring-similarity.jpg" width="192" height="180" align="right"/>](https://www.bol.com/nl/p/the-ban-of-the-bori/1001004002833612/) 
 
 Sooner or later during an analysis I'll start asking myself: how similar are these observations really? If we want see how similar observations are, we need a measure of their similarity; in the statistics field a reverse term of similarity is used: distance measure. There are many, many distance metrics, but the four I found most useful are discussed here.
