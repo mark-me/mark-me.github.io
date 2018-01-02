@@ -141,11 +141,11 @@ Well... That is a pretty 'busy' graph, which probably can be improved upon. But 
 
 [<img src="/_pages/tutorials/distance-measures/badlands.jpg" width="129" height="190" align="right"/>](http://www.imdb.com/title/tt0069762/)
 
-The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure since the distance measure can be highly impacted by outliers, throwing any subsequent clustering off. 
+The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure, since the euclidian distance measure can be highly impacted by outliers, which could also throw any subsequent clustering off. 
 
-The data set we'll be using is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape.
+The data set we'll be using  for the euclidian distance measure is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape.
 
-If your data set contains multiple variables, chances are they contain different measures; in this example we do not only have crime rates per 100.000 residents, but also a variable for the percentage of the population considered ubran. It might happen that one of the variables, with the largest range of values, might 'kidnap' the whole distance measure. To prevent this from happening you need to scale and center your data with R's native _[scale](https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html)_ function, ensuring all variables equally represented in the distance measure:
+When your data set contains multiple variables, chances are they contain different measures (while being all of the interval or ratio level); in this example we do not only have crime rates per 100.000 residents, but also a variable for the percentage of the population considered ubran. It might happen that one of the variables, with the largest range of values, might 'kidnap' the whole distance measure. To prevent this from happening you need to scale and center your data with R's native _[scale](https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html)_ function, ensuring all variables equally represented in the distance measure:
 ```r
 scaled_USArrests <- scale(USArrests)
 ```
