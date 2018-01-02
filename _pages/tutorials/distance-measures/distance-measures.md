@@ -62,7 +62,7 @@ To get an idea of how similar the countries are in terms of UN votes for Human R
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-How did I create this plot? For this to work the the 196 dimensions (each country is a variables) in the similarity matrix, needed to be reduced to a two dimensional 'summary' of the similarity between countries. To tackle this issue I turn to the use of MDS (for more information, look up the [MDS tutorial](/mds/)):
+How did I create this plot? For this to work the the 196 dimensions (each country is a variables) in the similarity matrix, the matrix needed to be reduced to a two dimensional 'summary' of the similarity between countries. To tackle this issue I turn to the use of MDS (for more information, look up the [MDS tutorial](/mds/)):
 ```r
 mds_country_votes <- cmdscale(dist_matrix) 
 ```
