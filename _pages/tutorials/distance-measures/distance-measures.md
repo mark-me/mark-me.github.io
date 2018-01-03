@@ -57,8 +57,8 @@ dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = 
 To get an idea of how similar the countries are in terms of UN votes for Human Right issues I'd like to see a plot in which the more similar countries are closer together and unsimilar countries further apart. The plot below was what I was aiming for:
 
 {:refdef: style="text-align: center;"}
-<a href="/_pages/tutorials/distance-measures/jaccard-mds-human-rights.png" target="_blank">
-<img src="/_pages/tutorials/distance-measures/jaccard-mds-human-rights.png" alt="Jaccard MDS" align="center" width="80%" height="80%"/><br>
+<a href="/_pages/tutorials/distance-measures/mds-jaccard.png" target="_blank">
+<img src="/_pages/tutorials/distance-measures/mds-jaccard.png" alt="Jaccard MDS" align="center" width="80%" height="80%"/><br>
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
