@@ -11,11 +11,6 @@ I decided it was time to learn some text mining and learned about the **[gutenb
 
 For this tutorial I've assumed that you're pretty familiar with the **tidyverse** and **ggplot2**. First I'll discuss the concepts that drove the script, after which I'll jump into the technical workout of these concepts. The final script can be found in a link at the end of the tutorial.
 
-Test a display math:
-$$
-   |\psi_1\rangle = a|0\rangle + b|1\rangle
-$$
-Is it O.K.?
 
 # The building blocks
 
@@ -44,6 +39,10 @@ The paragraphs are the thing that tie the sentiments to the characters. I assume
 {:refdef: style="text-align: center;"}
 <img src="/_pages/tutorials/mining-alices-wonderland/formula-freq-sentiment.png" alt="Frequency sentiment formula" width="215" height="45" align="middle"/>
 {: refdef}
+
+$$
+x = {-b \pm \sqrt{b^2-4ac} \over 2a}.
+\over
 
 Relative frequencies in itself are not good enough because the book is probably scewed in a certain sentimental direction, which does not help if we want to know what makes a character unique. To counter this I use something I called lift: the relative sentiment frequency of a character, corrected by the relative frequency of the total. As the total I've taken Alice's relative sentiment frequencies. So the lift was calculated like this:
 
