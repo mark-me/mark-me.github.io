@@ -50,7 +50,10 @@ We can create our own Jaccard distance matrix by making a comparison of each of 
 
 * First _df_country_votes_ is joined with itself, joining on the date of the vote and UN resolution. 
 * Then we see for each country pair, whether the votes match or not. 
-* Then all country pairs are grouped, calculating the Jaccard similarity  $ \text{Jaccard similarity} = {text{# Same votes) \over text{# All votes}} $ 
+* Then all country pairs are grouped
+* The Jaccard distance is calculated by subtracting calculating the Jaccard similarity,  $ \text{Jaccard similarity} = {text{# Same votes) \over text{# All votes}} $, from 1/
+* The countries are then spread across to we have a matrix of countries by countries with their Jaccard distance.
+
 ```r
 df_country_jaccard <- df_country_votes %>% 
   inner_join(df_country_votes, by = c("date", "unres")) %>%
