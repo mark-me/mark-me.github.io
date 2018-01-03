@@ -27,9 +27,9 @@ There are different distance metric to choose from, and your choice is mostly de
 
 [<img src="/_pages/tutorials/distance-measures/jaccard.jpg" width="200" height="190" align="right"/>](https://jaccard.com/collections/meat-tenderizers)
 
-[Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share compared to (read: divided by), all elements in both sets. The the logic looks similar to that of [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram). The Jaccard distance is useful for comparing observations with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity in voting on UN resolutions between countries on human rights issues.
+[Jaccard distance](https://digfor.blogspot.nl/2013/03/fruity-shingles.html) is the inverse of the number of elements both observations share compared to (read: divided by), all elements in both sets. The the logic looks similar to that of [Venn diagrams](https://en.wikipedia.org/wiki/Venn_diagram). The Jaccard distance is useful for comparing observations with categorical variables. In this example I'll be using the UN votes dataset from the **unvotes** library. Here we'll be looking at similarity of countries and their voting behaviour for UN resolutions on human rights issues.
 
-First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. We'll just take the important votes of the resolutions for human rights focus on the UN resolutions voted on between 2005 and 2015. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be missing values (i.e. NA). The variables are selected that matter to the analysis: the country, the UN resolution reference and the vote. The resolutions then get rotated to being variables, so for each country is a row where the vote for each UN resolution is a variable. 
+First we prepare the data by combining the votes with the roll calls, so we know which UN resolutions are being voted for. Some country data is added. Then the data is filtered out, just focussing on the important votes for human rights related resolutions. The votes that have no recognizable country codes are removed. Then the votes are recoded, so a yes becomes a 1, a no a 0 and all abstains will be recoded to 99. The variables are selected that matter to the analysis: the country, the UN resolution reference, the date of the vote and the vote itself. 
 ```r
 library(unvotes)
 library(lubridate) # For the year extraction function
@@ -38,18 +38,27 @@ df_country_votes <- un_votes %>%
   inner_join(un_roll_calls, by ="rcid") %>%
   inner_join(un_roll_call_issues, by = "rcid") %>% 
   select(-country) %>% 
+  left_join(df_country, by = "country_code") %>% 
   filter(importantvote == 1 & 
            issue == select_issue &
            !is.na(country_code) ) %>% 
-  mutate(year_vote = year(date)) %>%
   mutate(vote_no = ifelse(vote == "yes", 1, ifelse(vote == "no", 0, 99))) %>%
-  select(unres, country_code, vote_no) %>% 
-  spread(unres, vote_no, fill = 99)
+  select(date, unres, country, vote_no) 
 ```
-The Jaccard distance matrix can be created using the _vegdist_ function of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. 
+We can create our own Jaccard distance matrix by making a comparison of each of the resolution votes for all country pairs.
+
+* First _df_country_votes_ is joined with itself, joining on the date of the vote and UN resolution. 
+* Then we see for each country pair, whether the votes match or not. 
+* Then all country pairs are grouped, calculating the Jaccard similarity (# of similar / 
 ```r
-library(vegan)
-dist_matrix <- vegdist(df_country_votes[, -c(1,2)], method = "jaccard", na.rm = TRUE)
+df_country_jaccard <- df_country_votes %>% 
+  inner_join(df_country_votes, by = c("date", "unres")) %>%
+  mutate(is_same = vote_no.x == vote_no.y)%>%
+  group_by(country.x, country.y) %>% 
+  summarise(jaccard_distance = 1 - sum(is_same)/n()) %>% 
+  ungroup() %>% 
+  rename(country = country.x) %>% 
+  spread(key = "country.y", value = "jaccard_distance")
 ```
 
 ## Visualizing similarity
@@ -62,9 +71,9 @@ To get an idea of how similar the countries are in terms of UN votes for Human R
 <i class='fa fa-search-plus '></i> Zoom</a>
 {: refdef}
 
-How did I create this plot? For this to work the the 196 dimensions (each country is a variables) in the similarity matrix, the matrix needed to be reduced to a two dimensional 'summary' of the similarity between countries. To tackle this issue I turn to the use of MDS (for more information, look up the [MDS tutorial](/mds/)):
+How did I create this plot? For this to work the the 196 dimensions (each country is a variables) in the similarity matrix, the matrix needed to be reduced to a two dimensional 'summary' of the similarity between countries. To tackle this issue I turn to a non-metric MDS function _[metaMDS](https://www.rdocumentation.org/packages/vegan/topics/metaMDS)_ of the **[vegan](https://www.rdocumentation.org/packages/vegan)** library. _(for more information, look up the [MDS tutorial](/mds/)):
 ```r
-mds_country_votes <- cmdscale(dist_matrix) 
+mds_country_votes <- metaMDS(dist_matrix) 
 ```
 Then the mds solution is combined with some of the original country data, so we can start plotting after that:
 ```r
