@@ -52,7 +52,6 @@ We can create our own Jaccard distance matrix by making a comparison of each of 
 * Then we see for each country pair, whether the votes match or not. 
 * Then all country pairs are grouped
 * The Jaccard similarity is calculated by:
-
 $$
   \text{Jaccard similarity} = {|\text{votes}_\text{country a} \bigcup \text{votes}_\text{country b}| \over |\text{votes}_\text{country a} \bigcap \text{vote}_\text{country b}|}
 $$
