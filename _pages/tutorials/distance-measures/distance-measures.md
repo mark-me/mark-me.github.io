@@ -4,6 +4,7 @@ title: Distance/similarity measures
 comments: true
 permalink: /distance-measures/
 published: true
+mathjax: true
 ---
 
 [<img src="/_pages/tutorials/distance-measures/measuring-similarity.jpg" width="192" height="180" align="right"/>](https://www.bol.com/nl/p/the-ban-of-the-bori/1001004002833612/) 
@@ -49,7 +50,7 @@ We can create our own Jaccard distance matrix by making a comparison of each of 
 
 * First _df_country_votes_ is joined with itself, joining on the date of the vote and UN resolution. 
 * Then we see for each country pair, whether the votes match or not. 
-* Then all country pairs are grouped, calculating the Jaccard similarity (# of similar / 
+* Then all country pairs are grouped, calculating the Jaccard similarity  $$x = {# of similar votes \over # Total votes}.$$( / 
 ```r
 df_country_jaccard <- df_country_votes %>% 
   inner_join(df_country_votes, by = c("date", "unres")) %>%
