@@ -99,6 +99,7 @@ inner_join(table_x, table_y, by="key_column")
 ```r
 inner_join(table_x, table_y, by=c("key_column_x"="key_column_y"))
 ```
+In these examples the 
 
 # Stacking tables
 
