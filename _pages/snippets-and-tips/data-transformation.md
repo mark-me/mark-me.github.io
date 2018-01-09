@@ -99,7 +99,12 @@ inner_join(table_x, table_y, by="key_column")
 ```r
 inner_join(table_x, table_y, by=c("key_column_x"="key_column_y"))
 ```
-In these examples the 
+
+In these examples the both tables are passed as arguments, but in everyday use this is unlikely, since you'll be using the join functions in piped 'streams' of statements. In practice you'll probably leave out the first table (since the piping puts it there automatically). The last statement will probably look like:
+```r
+table_x %>%
+  inner_join(table_y, by=c("key_column_x"="key_column_y"))
+```
 
 # Stacking tables
 
