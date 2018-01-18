@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Self Organising Maps
+title: Kohonen Self Organising Maps
 comments: true
-permalink: /som/
+permalink: /kohonen-som/
 published: true
 ---
 
