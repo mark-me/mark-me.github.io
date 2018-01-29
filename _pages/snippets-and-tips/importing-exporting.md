@@ -165,7 +165,7 @@ tbl_imported %<>%
   remove_empty_cols() 
 ```
 
-## Date conversion
+# Date conversion
 
 The **[lubridate](https://www.rdocumentation.org/packages/lubridate)** library is fantastic for date/time handling. Functions like _ymd_, _dmy_, _mdy_ and the like make converting string dates to real date or time formats a breeze. But recently I had a case that left me stumped: most dates converted in the formated like 01JAN1823 convereted like a gem, except all dates falling in the months March, May and October... What the hell is going on here? After doing all kinds of stupid workarounds, with too much code for my taste, it finally dawned on me: in my langauge, Dutch, the three months are the only ones having a different abbreviation that English... Looking at the help page I found out the conversion functions take the system locale as default, but it could be overridden by using the function's _locale_ argument:
 ```r
