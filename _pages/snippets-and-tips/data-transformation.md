@@ -206,6 +206,14 @@ Which output would look like this:
 |5|3.6|1.4|0.2|setosa|5.006|3.428|1.462|0.246|
 |5.4|3.9|1.7|0.4|setosa|5.006|3.428|1.462|0.246|
 
+# Date conversion
+
+The **[lubridate](https://www.rdocumentation.org/packages/lubridate)** library is fantastic for date/time handling. Functions like _ymd_, _dmy_, _mdy_ and the like make converting string dates to real date or time formats a breeze. But recently I had a case that left me stumped: most dates converted in the formated like 01JAN1823 convereted like a gem, except all dates falling in the months March, May and October... What the hell is going on here? After doing all kinds of stupid workarounds, with too much code for my taste, it finally dawned on me: in my langauge, Dutch, the three months are the only ones having a different abbreviation that English... Looking at the help page I found out the conversion functions take the system locale as default, but it could be overridden by using the function's _locale_ argument:
+```r
+dmy(date_start, locale = Sys.setlocale("LC_TIME", "English") )
+```
+Now my previous NA results for the three months finally resulted in dates.
+
 # Standard transforms on import
 
 Often times the column names of a file are messy; they contain '?', '%', spaces or other strange signs. With the **[janitor](https://www.rdocumentation.org/packages/janitor)** library you can fix this in one command by calling the _clean_names_ function. This function, which is can be used by piping the data frame through the function, will convert all strange signs to underscored, and will make all letters lower case.
