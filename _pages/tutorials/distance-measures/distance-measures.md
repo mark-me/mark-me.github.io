@@ -21,7 +21,7 @@ There are different distance metric to choose from, and your choice is mostly de
 | ----------------- | ------                                              | 
 | Categorical       | [Jaccard](/distance-measures/#jaccard-distance)     |
 | Ordinal           | [Manhattan](/distance-measures/#manhattan-distance) | 
-| Interval Ratio    | [Euclidian](/distance-measures/#euclidian-distance) |   
+| Interval Ratio    | [Euclidean](/distance-measures/#euclidean-distance) |   
 | Mixed levels      | [Gower](/distance-measures/#gower-distance)         |
 
 # Jaccard distance
@@ -154,15 +154,15 @@ ggplot(df_mds_religions, aes(x, y)) +
 
 Well... That is a pretty 'busy' graph, which probably can be improved upon. But is does show how countries with similar religious make-up are pretty close together in specific areas of the plot, so this data set looks like a good candidate for clustering. We could we cluster the countries by their similarity, and plot them on a world map instead of a scatter plot and that might tell us more. This is exactly what I've done for the [clustering tutorial](/clustering-mds/).
 
-# Euclidian distance
+# Euclidean distance
 
 [<img src="/_pages/tutorials/distance-measures/badlands.jpg" width="129" height="190" align="right"/>](http://www.imdb.com/title/tt0069762/)
 
-The Euclidian distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure, since the euclidian distance measure can be highly impacted by outliers, which could also throw any subsequent clustering off. 
+The Euclidean distance is the distance measure we're all used to: the shortest distance between two points. This distance measure is mostly used for interval or ratio variables. Be careful using this measure, since the euclidian distance measure can be highly impacted by outliers, which could also throw any subsequent clustering off. 
 
 The data set we'll be using  for the euclidian distance measure is a data set about crime rates [in cities of the USA from 1973](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html). It contains variables about violent crime rates per 100.000 residents for assault, murder, and rape.
 
-When your data set contains multiple variables, chances are they contain different measures (while being all of the interval or ratio level); in this example we do not only have crime rates per 100.000 residents, but also a variable for the percentage of the population considered ubran. It might happen that one of the variables, with the largest range of values, might 'kidnap' the whole distance measure. To prevent this from happening you need to scale and center your data with R's native _[scale](https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html)_ function, ensuring all variables equally represented in the distance measure:
+When your data set contains multiple variables, chances are they contain different measures (while being all of the interval or ratio level); in this example we do not only have crime rates per 100.000 residents, but also a variable for the percentage of the population considered urban. It might happen that one of the variables, with the largest range of values, might 'kidnap' the whole distance measure. To prevent this from happening you need to scale and center your data with R's native _[scale](https://stat.ethz.ch/R-manual/R-devel/library/base/html/scale.html)_ function, ensuring all variables equally represented in the distance measure:
 ```r
 scaled_USArrests <- scale(USArrests)
 ```
