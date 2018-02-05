@@ -9,3 +9,9 @@
   url: /use-case-r/
   image: /_pages/snippets-and-tips/r-studio-tips.png
   language: R
+
+- title: How similar is stuff?
+  description: A presentation given to my analytics collegues on how I use similarity/distance metrics
+  url: /similarity-distance/
+  image: /_pages/presentations/similarity.png
+  language: R, Python
