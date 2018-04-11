@@ -64,6 +64,19 @@ White noise
 arima.sim(model = list(order = c(0, 0, 0) ), n = 100)
 ```
 
+# ARIMA
+
+An **auto regressive** (AR(p)) component is referring to the use of past values in the regression equation for the series Y. The auto-regressive parameter p specifies the number of lags used in the model. 
+
+The d represents the degree of differencing in the **integrated** (I(d)) component. Differencing a series involves simply subtracting its current and previous values d times. Often, differencing is used to stabilize the series when the stationarity assumption is not met
+
+A **moving average** (MA(q)) component represents the error of the model as a combination of previous error terms et. The order q determines the number of terms to include in the model
+
+ARIMA methodology does have its limitations. 
+* Directly rely on past values, and therefore work best on long and stable series. 
+* Also note that ARIMA simply approximates historical patterns and therefore does not aim to explain the structure of the underlying data mechanism.
+
+
 # Identifying time series models
 
 ACF Auto Correlation Functions
