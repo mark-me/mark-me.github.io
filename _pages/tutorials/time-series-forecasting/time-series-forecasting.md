@@ -49,6 +49,11 @@ By differencing can remove the trend in a time series. Differencing looks at the
 
 We can transform a nonstationary time series to a stationary time series
 
+
+# Only white noise?
+
+Ljung-Box test using the function below to confirm the randomness of a series; a p-value greater than 0.05 suggests that the data are not significantly different from white noise.
+
 # Simulating models
 
 ARMA
