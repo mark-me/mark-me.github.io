@@ -41,6 +41,8 @@ ARMA models: stationary time series can be seen as a linear combination of white
 
 # Removing trends
 
+By log you can remove trends
+
 By differencing can remove the trend in a time series. Differencing looks at the difference between the value of a time series at a certain point in time and its preceding value. That is, Xt−Xt−1 is computed. You can 
 
 # Removing nonstationary
