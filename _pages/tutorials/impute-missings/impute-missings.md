@@ -8,6 +8,8 @@ permalink: /impute-missings/
 * TOC
 {:toc}
 
+The entire script which is used in the tutorial van be found [here](https://gist.githubusercontent.com/mark-me/e782e4d19ee762eb7e7c2ce4322b5d99/raw/d696aa7f344bb00e6e7073d27238b558ad734358/impute-missings.R).
+
 # Types of missing data
 
 When thinking about tackling missing data, I first inspect what variables are affected by them, and think what the caused these missing values. They could be the result of: 
