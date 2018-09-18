@@ -58,7 +58,7 @@ To visualize how much of a mess the data is in terms of missing values I've crea
 
 The graph on the left shows the percentage and number of values that are missing per variable. The plot on the right shows how the observations are affected. The numbers and percentages in the right plot are the number and percentage of observations that fit that missing value pattern.
 
-The function _plot_missing_values_ creates those plots. I won't go into detail explaining how the function is created, but you can use it for any data frame. The function is part of the script which you can download [here](url). I've used the function like this:
+The function _plot_missing_values_ creates those plots. I won't go into detail explaining how the function is created, but you can use it for any data frame. The function is part of the script which you can download [here](https://gist.githubusercontent.com/mark-me/e782e4d19ee762eb7e7c2ce4322b5d99/raw/d696aa7f344bb00e6e7073d27238b558ad734358/impute-missings.R). I've used the function like this:
 ```r
 plot_missing_values(tbl_verif)
 ```
