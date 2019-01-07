@@ -18,7 +18,7 @@ source activate my_first_python
 
 Install packages
 ```bash
-conda install pandas numpy
+conda install pandas numpy nb_conda
 ```
 
 Exporting the Conda environment for re-using
