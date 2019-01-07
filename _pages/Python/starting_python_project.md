@@ -30,3 +30,8 @@ Re-using the exported enviroment
 ```bash
 conda env create -f environment.yaml
 ```
+
+Add to Jupyter notebook
+```bash
+python -m ipykernel install --user --name my_first_python --display-name "Python (my_first_python)"
+```
