@@ -2,7 +2,7 @@
 
 
 Creating a directory to hold the project
-```sh
+```bash
 mkdir my_first_python
 ```
 
