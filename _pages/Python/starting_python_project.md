@@ -7,10 +7,26 @@ mkdir my_first_python
 ```
 
 Creating the Conda environment
-```sh
-conda create --name dsp python=3.6
+```bash
+conda create --name my_first_python python=3.6
 ```
 
-```sh
+Activating the Conda environment
+```bash
+source activate my_first_python
+```
+
+Install packages
+```bash
+conda install pandas numpy
+```
+
+Exporting the Conda environment for re-using
+```bash
 conda env export > environment.yaml
+```
+
+Re-using the exported enviroment
+```bash
+conda env create -f environment.yaml
 ```
