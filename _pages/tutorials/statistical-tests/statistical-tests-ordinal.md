@@ -216,7 +216,7 @@ corrplot(mat_corr,
          order = "AOE", 
          type = "lower", 
          cl.pos = "b", 
-         p.mat = p.values$p, 
+         p.mat = p_values[["p"]], 
          sig.level = .05, 
          insig = "blank")
 ```
