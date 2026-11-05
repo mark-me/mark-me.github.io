@@ -12,7 +12,7 @@ permalink: /statistical-tests-categorical/
 
 This tutorial is the second in a series of four. This part shows you how to apply and interpret the tests for ordinal and interval variables. [This link](/statistical-tests/) will get you back to the first part of the series.
 
-A **categorical** variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binominal is a variable that can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binominal variables.
+A **categorical** variable values are just names, that indicate no ordering. An example is fruit: you've got apples and oranges, there is no order in these. A special case is a binary variable, which can only assume one of two values, true or false, heads or tails and the like. Churn and prospect/customer variables are more specific examples of binary variables.
 
 ## Descriptive
 
@@ -111,13 +111,13 @@ X-squared = 0.44, df = 5, p-value = 0.9942
 ```
 Where the p-value of .9942 tells us we can trust this dice when we want to play a fair game. If you store the result in a variable, you can access the p.value property; this might come in handy if you want to use the result of the test later on in your script.
 
-### Binominal test
+### Binomial test
 
 <img src="/_pages/tutorials/statistical-tests/toilet-sign.png" width="217" height="150" align="right"/>
 
-With the [binominal test](https://en.wikipedia.org/wiki/Binomial_test) you test whether one value is higher or lower in occurence than expected.
+With the [binomial test](https://en.wikipedia.org/wiki/Binomial_test) you test whether one value is higher or lower in occurence than expected.
 
-The binominal test is used when there is only two outcomes: succes or failure. While this doesn't mean the variable can only have two values, but only one of the values could be considered succes. If a few values are considered a succes, I would recommend creating a new variable in which you recode the values into a logical values of successes and failures.
+The binomial test is used when there is only two outcomes: succes or failure. While this doesn't mean the variable can only have two values, but only one of the values could be considered succes. If a few values are considered a succes, I would recommend creating a new variable in which you recode the values into a logical values of successes and failures.
 
 The test in R is done by using the function _[binom.test](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/binom.test.html)_. Suppose we think about 75% of our customers are male (the things we think about...), we have no data on it, so we start collecting it by randomly calling 100 of them and registring their gender. We find that 70 of the customers were male. Do we now reject our initial hypothesis of 75%? Let's find piece of mind, and answer this pressing question:
 ```r
@@ -251,7 +251,7 @@ Seeing the p value is so low, we can assume the general sentiment toward the cra
 
 Tests of association determine what the strength of the movement between variables is. It can be used if you want to know if there is any relation between the customer's amount spent, and the number of orders the customer already placed. 
 
-### Contigency coefficients or Cramer's V
+### Contingency coefficients or Cramer's V
 
 <img src="/_pages/tutorials/statistical-tests/steven-seagal.jpg" alt="Me" width="120" height="180" align="right"/>
 
