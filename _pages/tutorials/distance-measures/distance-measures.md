@@ -53,9 +53,9 @@ We can create our own Jaccard distance matrix by making a comparison of each of 
 * Then all country pairs are grouped
 * The Jaccard similarity is calculated by:
 $$
-  \text{Jaccard similarity} = {|\text{votes}_\text{country a} \bigcup \text{votes}_\text{country b}| \over |\text{votes}_\text{country a} \bigcap \text{vote}_\text{country b}|}
+  \text{Jaccard similarity} = {|\text{votes}_\text{country a} \cap \text{votes}_\text{country b}| \over |\text{votes}_\text{country a} \cup \text{votes}_\text{country b}|}
 $$
-, where $\bigcup$ stands for the votes where they agree, and the $\bigcap$ stands for all votes from both countries, irrespective whether they were similar or not. The $|$ surrounding the terms indicates they should be counted. The Jaccard similarity is turned into Jaccard dissimilarity by subtracting it from 1: $$\text{Jaccard dissimilarity} = 1-{|\text{votes}_\text{country a} \bigcup \text{votes}_\text{country b}| \over |\text{votes}_\text{country a} \bigcap \text{vote}_\text{country b}|}$$
+, where $\cap$ stands for the votes where they agree, and the $\cup$ stands for all votes from both countries, irrespective whether they were similar or not. The $|$ surrounding the terms indicates they should be counted. The Jaccard similarity is turned into Jaccard dissimilarity by subtracting it from 1: $$\text{Jaccard dissimilarity} = 1-{|\text{votes}_\text{country a} \cap \text{votes}_\text{country b}| \over |\text{votes}_\text{country a} \cup \text{votes}_\text{country b}|}$$
 * The countries are then spread across to we have a matrix of countries by countries with their Jaccard distance.
 
 ```r
